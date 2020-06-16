@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress-CTCL">
+	<description>WordPress VIP + Short Arrays.</description>
+	<rule ref="WordPress-Extra" />
+	<rule ref="WordPress-VIP-Go" />
+	<rule ref="PHPCompatibilityWP" />
+	<rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
+		<severity>0</severity>
+	</rule>
+	<!-- see https://github.com/WordPress/WordPress-Coding-Standards/issues/1819 -->
+	<rule ref="WordPress.WP.TimezoneChange.DeprecatedSniff">
+		<severity>0</severity>
+	</rule>
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+
+	<config name="testVersion" value="7.4-"/>
+
+	<arg name="colors" />
+
+	<arg value="ps" />
+	<arg name="basepath" value="."/>
+	<arg name="parallel" value="50"/>
+	<arg name="extensions" value="php"/>
+	<arg name="severity" value="1"/>
+	<file>.</file>
+
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+</ruleset>
