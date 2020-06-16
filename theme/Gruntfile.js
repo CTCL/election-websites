@@ -91,7 +91,7 @@ module.exports = function( grunt ) {
 				files: [{
 					expand: true,
 					cwd: 'assets/css',
-					src: ['*.src.css', '!amp*.src.css'],
+					src: ['*.src.css'],
 					dest: 'assets/css',
 					ext: '.min.css'
 				}]
@@ -150,7 +150,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'svg', [ 'svgmin' ] );
 
 	// Set a default, so if phpcs is run directly it scans everything
-	grunt.config.set( 'gmf.filtered', [ '**/*.php', '!vendor/**', '!node_modules/**', '!mu-plugins/**', '!assets/tinymce/**' ] );
+	grunt.config.set( 'gmf.filtered', [ '**/*.php', '!vendor/**', '!node_modules/**' ] );
 	grunt.registerTask( 'precommit', [ 'git_modified_files', 'maybe-phpcs' ] );
 	grunt.registerTask( 'maybe-phpcs', 'Only run phpcs if git_modified_files has found changes.', function() {
 
