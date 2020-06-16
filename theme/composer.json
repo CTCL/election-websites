@@ -1,0 +1,9 @@
+{
+	"require": {
+	},
+	"require-dev": {
+		"automattic/vipwpcs": "^2.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "*",
+		"phpcompatibility/phpcompatibility-wp": "*"
+	}
+}
