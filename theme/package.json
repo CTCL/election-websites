@@ -1,0 +1,53 @@
+{
+	"name": "ctcl-election-website",
+	"version": "0.5.0",
+	"description": "Election website template, by CTCL and USDR",
+	"main": "Gruntfile.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/usdigitalresponse/election-websites.git"
+	},
+	"license": "GPL-2.0",
+	"bugs": {
+		"url": "https://github.com/usdigitalresponse/election-websites/issues"
+	},
+	"homepage": "https://github.com/usdigitalresponse/election-websites#readme",
+	"browserslist": [
+		"> .1% and last 2 versions"
+	],
+	"peerDependencies": {
+		"grunt-cli": ">=1.3.2"
+	},
+	"devDependencies": {
+		"@lodder/grunt-postcss": "^2.0.4",
+		"autoprefixer": "^9.8.0",
+		"eslint-config-wordpress": "^2.0.0",
+		"grunt": "^1.1.0",
+		"grunt-chmod": "^1.1.1",
+		"grunt-contrib-concat": "^1.0.1",
+		"grunt-contrib-cssmin": "^3.0.0",
+		"grunt-contrib-nodeunit": "^2.1.0",
+		"grunt-contrib-uglify": "^4.0.1",
+		"grunt-contrib-watch": "^1.1.0",
+		"grunt-eslint": "^23.0.0",
+		"grunt-exec": "^3.0.0",
+		"grunt-force-task": "^2.0.0",
+		"grunt-git-modified-files": "0.0.2",
+		"grunt-lintspaces": "^0.9.0",
+		"grunt-newer": "^1.3.0",
+		"grunt-phpcs": "^0.4.0",
+		"grunt-phplint": "^0.1.0",
+		"grunt-run": "^0.8.1",
+		"grunt-sass": "^3.1.0",
+		"matchdep": "^2.0.0",
+		"node-sass": "^4.14.1"
+	},
+	"husky": {
+		"hooks": {
+			"precommit": "grunt precommit"
+		}
+	},
+	"dependencies": {
+		"grunt-cli": "^1.3.2"
+	}
+}
