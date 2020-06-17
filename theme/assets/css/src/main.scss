@@ -1,5 +1,6 @@
 @import "utility/variables";
 @import "header";
+@import "footer";
 
 * {
 	font-family: 'Source Sans Pro';
@@ -11,7 +12,14 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
+	margin: 0;  // remove pipe spacing
 }
+
+h3 {
+	font-size: 20px;
+	line-height: 22px;;
+}
+
 a {
 	font-style: normal;
 	color: #636363;

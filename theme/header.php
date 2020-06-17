@@ -19,15 +19,15 @@
 <header>
 	<a class="site-title-wrapper" href="<?php echo get_home_url() ?>">
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/nevada.svg' ); ?>" alr="Nevada County" height="56" width="56" />
-		<div class="site-title">
+		<h3 class="site-title">
 			<?php
 				bloginfo( 'title' );
 			?>
-		</div>
+		</h3>
 	</a>
 	<?php
 		wp_nav_menu([
-			'menu' => 'top-nav-menu'
+			'theme_location' => 'header-menu'
 		]);
 	?>
 </header>

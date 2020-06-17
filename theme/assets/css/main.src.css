@@ -1,6 +1,14 @@
-header, .banner div {
-  width: 80%;
+header, .banner div, footer .footer-content-wrapper {
+  width: 70%;
+  min-width: 730px;
+  max-width: 1000px;
   margin: 0 auto;
+}
+
+header .menu, footer .menu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }
 
 header {
@@ -19,28 +27,20 @@ header .site-title-wrapper {
 }
 
 header img,
-header .site-title,
-header .menu-top-nav-menu-container {
+header .site-title {
   display: inline-block;
 }
 
-header .menu-top-nav-menu-container {
+header [class$="-container"] {
+  display: inline-block;
   justify-self: flex-end;
 }
 
 header .site-title {
   color: #000;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 21px;
 }
 
-#menu-top-nav-menu {
-  list-style: none;
-  padding-left: 0;
-}
-
-#menu-top-nav-menu .menu-item {
+header .menu .menu-item {
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
@@ -60,6 +60,46 @@ header .site-title {
   float: right;
 }
 
+header, .banner div, footer .footer-content-wrapper {
+  width: 70%;
+  min-width: 730px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+header .menu, footer .menu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+footer {
+  background-color: #F5F5F5;
+}
+
+footer .footer-content-wrapper {
+  padding: 32px 0;
+  display: grid;
+  grid-template-columns: 1fr 170px 170px;
+  grid-column-gap: 16px;
+}
+
+footer .section-title {
+  margin-bottom: 20px;
+  margin-top: 0;
+  line-height: 22px;
+}
+
+footer p, footer .menu-item {
+  font-size: 14px;
+  line-height: 18px;
+  margin: 12px 0;
+}
+
+footer p:last-child, footer .menu-item:last-child {
+  margin-bottom: 0;
+}
+
 * {
   font-family: 'Source Sans Pro';
 }
@@ -70,6 +110,12 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
+  margin: 0;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 22px;
 }
 
 a {

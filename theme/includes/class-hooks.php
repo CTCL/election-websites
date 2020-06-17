@@ -33,6 +33,8 @@ class Hooks {
 
 		$menus = [
 			'header-menu' => 'Top Nav Menu',
+			'footer-section-1-menu' => 'Footer Section 1 Menu',
+			'footer-section-2-menu' => 'Footer Section 2 Menu',
 		];
 
 		register_nav_menus( $menus );

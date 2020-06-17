@@ -1,8 +1,5 @@
-
-%fit-to-page {
-	width: 80%;
-	margin: 0 auto;
-}
+@import "utility/layout";
+@import "utility/wp-menu";
 
 header {
 	@extend %fit-to-page;
@@ -19,34 +16,31 @@ header {
 	}
 
 	img, 
-	.site-title, 
-	.menu-top-nav-menu-container {
+	.site-title {
 		display: inline-block;
 	}
-	.menu-top-nav-menu-container {
+
+	[class$="-container"] {
+		display: inline-block;
 		justify-self: flex-end;
 	}
 
 	.site-title {
 		color: #000;
-		font-size: 20px;
-		font-weight: bold;
-		line-height: 21px;
 	}
-}
 
-#menu-top-nav-menu {
-	list-style: none;
-	padding-left: 0;
-
-	.menu-item {
-		font-style: normal;
-		font-weight: normal;
-		font-size: 15px;
-		line-height: 19px;
-		color: #6E6E6E;
-		display: inline-block;
-		margin-left: 24px;
+	.menu {
+		@extend %wp-menu;
+		
+		.menu-item {
+			font-style: normal;
+			font-weight: normal;
+			font-size: 15px;
+			line-height: 19px;
+			color: #6E6E6E;
+			display: inline-block;
+			margin-left: 24px;
+		}
 	}
 }
 
