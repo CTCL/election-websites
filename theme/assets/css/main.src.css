@@ -50,6 +50,14 @@ header .menu .menu-item {
   margin-left: 24px;
 }
 
+header .menu .menu-item.current-menu-item {
+  font-weight: bold;
+}
+
+header .menu .menu-item.current-menu-item a {
+  color: #000;
+}
+
 .banner {
   background-color: #00599C;
   color: white;
