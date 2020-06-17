@@ -1,4 +1,5 @@
 @import "utility/variables";
+@import "header";
 
 * {
 	font-family: 'Source Sans Pro';
@@ -11,29 +12,13 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 }
+a {
+	font-style: normal;
+	color: #636363;
+	text-decoration: none; 
+	transition: color 0.2s ease;
 
-#menu-top-nav-menu {
-	list-style: none;
-	padding-left: 0;
-
-	.menu-item {
-		font-style: normal;
-		font-weight: normal;
-		font-size: 15px;
-		line-height: 19px;
-		color: #6E6E6E;
-	}
-}
-
-.banner {
-	background-color: #00599C;
-	color: white;
-	padding: 20px 0;
-	div {
-		margin: 0 auto;
-		max-width: 80%;
-	}
-	img {
-		float: right;
+	&:hover {
+		color: darken($color: #636363, $amount: 50%)
 	}
 }

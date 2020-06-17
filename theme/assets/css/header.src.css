@@ -59,26 +59,3 @@ header .site-title {
 .banner img {
   float: right;
 }
-
-* {
-  font-family: 'Source Sans Pro';
-}
-
-body {
-  margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-}
-
-a {
-  font-style: normal;
-  color: #636363;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: black;
-}

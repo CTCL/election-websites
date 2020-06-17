@@ -17,13 +17,15 @@
 <body <?php body_class(); ?>>
 
 <header>
-	<?php
-		bloginfo( 'title' );
-
-		?>
+	<a class="site-title-wrapper" href="<?php echo get_home_url() ?>">
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/nevada.svg' ); ?>" alr="Nevada County" height="56" width="56" />
-
-		<?php
+		<div class="site-title">
+			<?php
+				bloginfo( 'title' );
+			?>
+		</div>
+	</a>
+	<?php
 		wp_nav_menu([
 			'menu' => 'top-nav-menu'
 		]);
