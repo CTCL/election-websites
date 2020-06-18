@@ -104,8 +104,9 @@ footer .abbreviated-footer * {
   line-height: 22px;
 }
 
-footer p {
-  margin-top: 0;
+footer p,
+footer .menu-item {
+  font-size: 14px;
 }
 
 footer .section-title {
@@ -113,14 +114,14 @@ footer .section-title {
   line-height: 22px;
 }
 
-footer p, footer .menu-item {
-  font-size: 14px;
+footer .info-item,
+footer .menu-item {
   line-height: 18px;
-  margin-bottom: 12px;
 }
 
-footer p:last-child, footer .menu-item:last-child {
-  margin-bottom: 0;
+footer .info-item:not(:last-child),
+footer .menu-item:not(:last-child) {
+  margin-bottom: 12px;
 }
 
 * {
@@ -139,6 +140,10 @@ h1, h2, h3, h4, h5, h6 {
 h3 {
   font-size: 20px;
   line-height: 22px;
+}
+
+p {
+  margin: 0;
 }
 
 a {

@@ -11,9 +11,9 @@
 		<div class="footer-content-wrapper">
 			<div>
 				<h3 class="section-title"><?php bloginfo( 'title' ); ?></h3>
-				<p><b>Gregory J. Diaz,</b> Registrar of Voters</p>
-				<p><b>Email:</b> office@nevadacountyvotes.gov</p>
-				<p><b>Phone:</b> 415.555.5555</p>	
+				<p class="info-item"><b>Gregory J. Diaz,</b> Registrar of Voters</p>
+				<p class="info-item"><b>Email:</b> office@nevadacountyvotes.gov</p>
+				<p class="info-item"><b>Phone:</b> 415.555.5555</p>	
 			</div>
 			<div>
 				<p class="section-title"><b>Support</b></p>

@@ -3,6 +3,7 @@
 
 footer {
     background-color: #F5F5F5;
+    
     .footer-content-wrapper, .abbreviated-footer {
         @extend %fit-to-page;
         padding: 32px 0;
@@ -20,8 +21,9 @@ footer {
         }
     }
 
-    p {
-        margin-top: 0;
+    p, 
+    .menu-item {
+        font-size: 14px;
     }
 
     .section-title {
@@ -29,12 +31,12 @@ footer {
         line-height: 22px;
     }
 
-    p, .menu-item {
-        font-size: 14px;
+    .info-item, 
+    .menu-item {
         line-height: 18px;
-        margin-bottom: 12px;
-        &:last-child {
-            margin-bottom: 0;
+        
+        &:not(:last-child) {
+            margin-bottom: 12px;
         }
     }
 
