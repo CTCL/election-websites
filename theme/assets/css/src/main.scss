@@ -1,8 +1,9 @@
 @import "utility/layout";
 @import "utility/variables";
+@import "utility/tiles";
 @import "header";
 @import "footer";
-@import "page-templates/text-block-page";
+@import "page";
 
 * {
 	font-family: 'Source Sans Pro', sans-serif;

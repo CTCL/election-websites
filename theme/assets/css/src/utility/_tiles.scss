@@ -1,0 +1,32 @@
+.tile-wrapper {
+	display: grid;
+	grid-column-gap: 16px;
+	grid-row-gap: 16px;
+	margin: 24px 0;
+
+	&.full-width {
+		grid-template-columns: repeat(4, 0.25fr);
+	}
+
+	.tile {
+		width: 170px;
+		height: 158px;
+		border: 1px solid #d1d1d1;
+		box-sizing: border-box;
+		border-radius: 2px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 14px 32px;
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 600;
+		text-align: center;
+		color: #000;
+
+		.icon {
+			margin-bottom: 8px;
+		}
+	}
+}
