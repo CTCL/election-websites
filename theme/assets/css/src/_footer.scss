@@ -2,20 +2,25 @@
 @import "utility/wp-menu";
 
 footer {
-	background-color: #F5F5F5;
+	background-color: #f5f5f5;
 
-	.footer-content-wrapper, .abbreviated-footer {
+	.footer-content-wrapper,
+	.abbreviated-footer {
 		@extend %fit-to-page;
+
 		padding: 32px 0;
 	}
+
 	.footer-content-wrapper {
 		display: grid;
 		grid-template-columns: 1fr 170px 170px;
 		grid-column-gap: 16px;
 	}
+
 	.abbreviated-footer {
 		display: flex;
 		justify-content: space-between;
+
 		* {
 			line-height: 22px;
 		}

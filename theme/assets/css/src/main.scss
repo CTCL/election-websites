@@ -3,21 +3,26 @@
 @import "footer";
 
 * {
-	font-family: 'Source Sans Pro';
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 body {
 	margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-weight: bold;
 	margin: 0;  // remove pipe spacing
 }
 
 h3 {
 	font-size: 20px;
-	line-height: 22px;;
+	line-height: 22px;
 }
 
 p {
@@ -27,10 +32,10 @@ p {
 a {
 	font-style: normal;
 	color: #636363;
-	text-decoration: none; 
+	text-decoration: none;
 	transition: color 0.2s ease;
 
 	&:hover {
-		color: darken($color: #636363, $amount: 50%)
+		color: darken($color: #636363, $amount: 50%);
 	}
 }
