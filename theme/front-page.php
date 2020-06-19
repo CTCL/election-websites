@@ -13,7 +13,7 @@ get_header();
 	<div class="tile-wrapper full-width">
 		<div class="tile">Register to Vote</div>
 		<div class="tile">Vote by Mail</div>
-		<a href="<?php echo esc_url( get_permalink( wpcom_vip_get_page_by_title( 'Results' ) ) ); ?>">
+		<a href="<?php echo esc_url( get_permalink( 'Results' ) ); ?>">
 			<div class="tile">View Election Results</div>
 		</a>
 		<div class="tile">Register to Vote</div>
