@@ -1,11 +1,12 @@
-@import "utility/layout";
-
-main {
-	@extend %fit-to-page;
-
+main.text-block-page {
 	font-size: 16px;
 	line-height: 24px;
 	padding: 32px 0;
+
+	p,
+	ul {
+		color: #636363;
+	}
 
 	section {
 		padding: 18px 0;
@@ -41,5 +42,6 @@ main {
 	a {
 		font-weight: bold;
 		text-decoration: underline;
+		color: #000;
 	}
 }

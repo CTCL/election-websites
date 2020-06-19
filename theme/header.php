@@ -24,7 +24,7 @@ $site_title = get_bloginfo( 'title' );
 		<?php
 		echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false, [ 'alt' => $site_title ] ) );
 		?>
-		<h3 class="site-title"><?php echo esc_html( $site_title ); ?></h3>
+		<h4 class="site-title"><?php echo esc_html( $site_title ); ?></h4>
 	</a>
 	<?php
 		wp_nav_menu(

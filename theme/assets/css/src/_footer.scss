@@ -27,6 +27,7 @@ footer {
 	}
 
 	p,
+	.info-item,
 	.menu-item {
 		font-size: 14px;
 	}
@@ -47,5 +48,6 @@ footer {
 
 	.menu {
 		@extend %wp-menu;
+		@extend %wp-menu-links;
 	}
 }

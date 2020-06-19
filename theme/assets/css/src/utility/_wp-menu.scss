@@ -3,3 +3,10 @@
 	padding-left: 0;
 	margin: 0;
 }
+
+%wp-menu-links {
+	.menu-item a {
+		font-weight: normal;
+		color: #6e6e6e;
+	}
+}

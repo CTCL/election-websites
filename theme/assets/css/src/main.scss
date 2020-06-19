@@ -52,12 +52,6 @@ p {
 
 a {
 	font-style: normal;
-	color: #636363;
 	text-decoration: none;
-	transition: color 0.2s ease;
 	cursor: pointer;
-
-	&:hover {
-		color: darken($color: #636363, $amount: 50%);
-	}
 }
