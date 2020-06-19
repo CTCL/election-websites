@@ -10,7 +10,7 @@
 	<?php if ( is_front_page() ) { ?>
 		<div class="footer-content-wrapper">
 			<div>
-				<h3 class="section-title"><?php bloginfo( 'title' ); ?></h3>
+				<h4 class="section-title"><?php bloginfo( 'title' ); ?></h4>
 				<p class="info-item"><b>Gregory J. Diaz,</b> Registrar of Voters</p>
 				<p class="info-item"><b>Email:</b> office@nevadacountyvotes.gov</p>
 				<p class="info-item"><b>Phone:</b> 415.555.5555</p>
@@ -38,7 +38,7 @@
 		</div>
 	<?php } else { ?>
 		<div class="abbreviated-footer">
-			<h3><?php bloginfo( 'title' ); ?></h3>
+			<h4><?php bloginfo( 'title' ); ?></h4>
 			<p><b>Email:</b> office@nevadacountyvotes.gov&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<b>Phone:</b> 415.555.5555</p>
 		</div>
 	<?php } ?>
