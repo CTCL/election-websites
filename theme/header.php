@@ -5,6 +5,9 @@
  * @package CTCL\ElectionWebsite
  * @since 1.0.0
  */
+
+$logo_id    = get_option( 'site_icon' );
+$site_title = get_bloginfo( 'title' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -18,12 +21,10 @@
 
 <header>
 	<a class="site-title-wrapper" href="<?php echo get_home_url() ?>">
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/nevada.svg' ); ?>" alr="Nevada County" height="56" width="56" />
-		<h3 class="site-title">
-			<?php
-				bloginfo( 'title' );
-			?>
-		</h3>
+		<?php
+		echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false, [ 'alt' => $site_title ] ) );
+		?>
+		<h3 class="site-title"><?php echo esc_html( $site_title ); ?></h3>
 	</a>
 	<?php
 		wp_nav_menu([
@@ -31,7 +32,7 @@
 		]);
 	?>
 </header>
-<?php 
+<?php
 	if (is_front_page()) {
 ?>
 <section class="banner">
