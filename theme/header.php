@@ -20,7 +20,7 @@ $site_title = get_bloginfo( 'title' );
 <body <?php body_class(); ?>>
 
 <header>
-	<a class="site-title-wrapper" href="<?php echo get_home_url(); ?>">
+	<a class="site-title-wrapper" href="<?php echo esc_url( get_home_url() ); ?>">
 		<?php
 		echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false, [ 'alt' => $site_title ] ) );
 		?>
