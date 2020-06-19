@@ -13,6 +13,13 @@ class Hooks {
 	 */
 	public static function setup_hooks() {
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'wp_enqueue_scripts' ] );
+
+		// disable default post type
+		add_action( 'admin_bar_menu', [ __CLASS__, 'remove_admin_bar_new_post' ], 99 );
+		add_action( 'admin_menu', [ __CLASS__, 'update_menu_pages' ], 998 );
+		add_action( 'load-post-new.php', [ __CLASS__, 'prevent_default_post_new' ] );
+		add_action( 'load-edit.php', [ __CLASS__, 'prevent_default_post_new' ] );
+
 	}
 
 	/**
@@ -41,6 +48,34 @@ class Hooks {
 
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
+	}
+
+	/**
+	 * Remove nodes from admin bar menu.
+	 * @param $wp_admin_bar
+	 */
+	public static function remove_admin_bar_new_post( $wp_admin_bar ) {
+		$wp_admin_bar->remove_node( 'new-post' );
+	}
+
+	/**
+	 * Prevent the creation of new posts without a post type.
+	 * Redirect to admin dashboard if no post type in post-new editor.
+	 */
+	public static function prevent_default_post_new() {
+		global $typenow;
+		if ( 'post' === $typenow ) {
+			wp_safe_redirect( admin_url( '/' ) );
+			die();
+		}
+	}
+
+	/**
+	 * Remove the posts menu.
+	 * Remove the comments menu page.
+	 */
+	public static function update_menu_pages() {
+		remove_menu_page( 'edit.php' );
 	}
 }
 
