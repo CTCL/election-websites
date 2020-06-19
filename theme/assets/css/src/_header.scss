@@ -57,6 +57,7 @@ header {
 	background-color: #00599c;
 	color: white;
 	padding: 20px 0;
+	min-height: 100px;
 
 	div {
 		@extend %fit-to-page;
@@ -64,5 +65,6 @@ header {
 
 	img {
 		float: right;
+		padding-left: 10px;
 	}
 }
