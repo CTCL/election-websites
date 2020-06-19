@@ -20,6 +20,10 @@ class Hooks {
 		add_action( 'load-post-new.php', [ __CLASS__, 'prevent_default_post_new' ] );
 		add_action( 'load-edit.php', [ __CLASS__, 'prevent_default_post_new' ] );
 
+		// disable comments
+		add_filter( 'comments_open', '__return_false' );
+		add_filter( 'pings_open', '__return_false' );
+		add_filter( 'comments_array', '__return_empty_array' );
 	}
 
 	/**
@@ -76,6 +80,7 @@ class Hooks {
 	 */
 	public static function update_menu_pages() {
 		remove_menu_page( 'edit.php' );
+		remove_menu_page( 'edit-comments.php' );
 	}
 }
 
