@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main>
+<main class="text-block-page">
 	<h1>Registration</h1>
 	<p>You can check your registration status, update your registration, or register for the first time using the resources below.</p>
 	<section>

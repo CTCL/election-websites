@@ -1,3 +1,4 @@
+@import "utility/layout";
 @import "utility/variables";
 @import "header";
 @import "footer";
@@ -9,6 +10,10 @@
 
 body {
 	margin: 0;
+}
+
+main {
+	@extend %fit-to-page;
 }
 
 h1,
