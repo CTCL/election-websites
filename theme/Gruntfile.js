@@ -11,6 +11,7 @@ module.exports = function( grunt ) {
 	// Project configuration
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
+
 		concat: {
 			options: {
 				stripBanners: true,
@@ -23,6 +24,7 @@ module.exports = function( grunt ) {
 				dest: 'assets/js/main.src.js'
 			}
 		},
+
 		uglify: {
 			all: {
 				files: {
@@ -42,6 +44,14 @@ module.exports = function( grunt ) {
 			options: {
 				fix: true,
 				configFile: '.eslintrc.json'
+			}
+		},
+
+		stylelint: {
+			src: [ 'assets/css/src/**/*.scss' ],
+			options: {
+				fix: true,
+				configFile: '.stylelintrc.json'
 			}
 		},
 
@@ -174,12 +184,11 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'js', [ 'eslint', 'concat', 'uglify' ] );
 
 	// CSS Only
-	grunt.registerTask( 'css', [ 'sass', 'postcss', 'cssmin' ] );
+	grunt.registerTask( 'css', [ 'stylelint', 'sass', 'postcss', 'cssmin' ] );
 
 	// CSS & JS Only
 	grunt.registerTask( 'css-js', [ 'css', 'js' ] );
 
 	// Default task.
 	grunt.registerTask( 'default', [ 'js', 'css', 'php' ] );
-
 };
