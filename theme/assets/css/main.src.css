@@ -1,5 +1,47 @@
 header, .banner div, footer .footer-content-wrapper,
-footer .abbreviated-footer {
+footer .abbreviated-footer, main {
+  width: 70%;
+  min-width: 730px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tile-wrapper {
+  display: grid;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  margin: 24px 0;
+}
+
+.tile-wrapper.full-width {
+  grid-template-columns: repeat(4, 0.25fr);
+}
+
+.tile-wrapper .tile {
+  width: 170px;
+  height: 158px;
+  border: 1px solid #d1d1d1;
+  box-sizing: border-box;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 32px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.tile-wrapper .tile .icon {
+  margin-bottom: 8px;
+}
+
+header, .banner div, footer .footer-content-wrapper,
+footer .abbreviated-footer, main {
   width: 70%;
   min-width: 730px;
   max-width: 1000px;
@@ -12,6 +54,11 @@ header .menu, footer .menu {
   margin: 0;
 }
 
+header .menu .menu-item a, footer .menu .menu-item a {
+  font-weight: normal;
+  color: #6e6e6e;
+}
+
 header {
   display: grid;
   grid-template-columns: -webkit-max-content 1fr;
@@ -21,10 +68,9 @@ header {
 }
 
 header .site-title-wrapper {
-  display: grid;
-  grid-template-columns: auto 190px;
+  display: flex;
   align-items: center;
-  grid-column-gap: 16px;
+  max-width: 250px;
 }
 
 header img,
@@ -37,25 +83,23 @@ header [class$="-container"] {
   justify-self: flex-end;
 }
 
+header img {
+  margin-right: 16px;
+}
+
 header .site-title {
   color: #000;
 }
 
 header .menu .menu-item {
-  font-style: normal;
-  font-weight: normal;
   font-size: 15px;
   line-height: 19px;
-  color: #6e6e6e;
   display: inline-block;
   margin-left: 24px;
 }
 
-header .menu .menu-item.current-menu-item {
-  font-weight: bold;
-}
-
 header .menu .menu-item.current-menu-item a {
+  font-weight: bold;
   color: #000;
 }
 
@@ -71,8 +115,17 @@ header .menu .menu-item.current-menu-item a {
   padding-left: 10px;
 }
 
+.banner h2 {
+  margin-bottom: 8px;
+}
+
+.banner p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
 header, .banner div, footer .footer-content-wrapper,
-footer .abbreviated-footer {
+footer .abbreviated-footer, main {
   width: 70%;
   min-width: 730px;
   max-width: 1000px;
@@ -83,6 +136,11 @@ header .menu, footer .menu {
   list-style: none;
   padding-left: 0;
   margin: 0;
+}
+
+header .menu .menu-item a, footer .menu .menu-item a {
+  font-weight: normal;
+  color: #6e6e6e;
 }
 
 footer {
@@ -110,6 +168,7 @@ footer .abbreviated-footer * {
 }
 
 footer p,
+footer .info-item,
 footer .menu-item {
   font-size: 14px;
 }
@@ -127,6 +186,55 @@ footer .menu-item {
 footer .info-item:not(:last-child),
 footer .menu-item:not(:last-child) {
   margin-bottom: 12px;
+}
+
+main {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 32px 0;
+}
+
+main p,
+main ul {
+  color: #636363;
+}
+
+main p a,
+main ul a {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #000;
+}
+
+main section {
+  padding: 18px 0;
+  border-top: 3px solid #000;
+}
+
+main section:first-of-type {
+  margin-top: 18px;
+}
+
+main ul {
+  margin: 8px 0;
+  padding-left: 0;
+}
+
+main ul li {
+  line-height: 28px;
+  list-style-position: inside;
+}
+
+main h3 {
+  margin: 4px 0;
+}
+
+main h5 {
+  margin: 20px 0 8px;
+}
+
+main p {
+  margin: 8px 0;
 }
 
 * {
@@ -147,8 +255,28 @@ h6 {
   margin: 0;
 }
 
+h1 {
+  font-size: 38px;
+  line-height: 38px;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 38px;
+}
+
 h3 {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+h4 {
   font-size: 20px;
+  line-height: 22px;
+}
+
+h5 {
+  font-size: 16px;
   line-height: 22px;
 }
 
@@ -158,11 +286,6 @@ p {
 
 a {
   font-style: normal;
-  color: #636363;
   text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: black;
+  cursor: pointer;
 }

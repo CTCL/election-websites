@@ -6,6 +6,12 @@ main {
 	p,
 	ul {
 		color: #636363;
+
+		a {
+			font-weight: bold;
+			text-decoration: underline;
+			color: #000;
+		}
 	}
 
 	section {
@@ -37,11 +43,5 @@ main {
 
 	p {
 		margin: 8px 0;
-	}
-
-	a {
-		font-weight: bold;
-		text-decoration: underline;
-		color: #000;
 	}
 }
