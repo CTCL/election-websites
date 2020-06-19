@@ -82,7 +82,12 @@ class Hooks {
 		remove_menu_page( 'edit.php' );
 		remove_menu_page( 'edit-comments.php' );
 	}
+
+	public static function set_image_sizes() {
+		add_image_size( 'header-icon', 56, 56 );
+	}
 }
 
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'setup_hooks' ] );
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'configure_theme' ] );
+add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'set_image_sizes' ] );
