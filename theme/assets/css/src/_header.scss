@@ -15,7 +15,7 @@ header {
 		grid-column-gap: 16px;
 	}
 
-	img, 
+	img,
 	.site-title {
 		display: inline-block;
 	}
@@ -31,7 +31,7 @@ header {
 
 	.menu {
 		@extend %wp-menu;
-		
+
 		.menu-item {
 			font-style: normal;
 			font-weight: normal;

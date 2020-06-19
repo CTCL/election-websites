@@ -2,45 +2,45 @@
 @import "utility/wp-menu";
 
 footer {
-    background-color: #F5F5F5;
-    
-    .footer-content-wrapper, .abbreviated-footer {
-        @extend %fit-to-page;
-        padding: 32px 0;
-    }
-    .footer-content-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 170px 170px;
-        grid-column-gap: 16px;
-    }
-    .abbreviated-footer {
-        display: flex;
-        justify-content: space-between;
-        * {
-            line-height: 22px;
-        }
-    }
+	background-color: #F5F5F5;
 
-    p, 
-    .menu-item {
-        font-size: 14px;
-    }
+	.footer-content-wrapper, .abbreviated-footer {
+		@extend %fit-to-page;
+		padding: 32px 0;
+	}
+	.footer-content-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 170px 170px;
+		grid-column-gap: 16px;
+	}
+	.abbreviated-footer {
+		display: flex;
+		justify-content: space-between;
+		* {
+			line-height: 22px;
+		}
+	}
 
-    .section-title {
-        margin-bottom: 20px;
-        line-height: 22px;
-    }
+	p,
+	.menu-item {
+		font-size: 14px;
+	}
 
-    .info-item, 
-    .menu-item {
-        line-height: 18px;
-        
-        &:not(:last-child) {
-            margin-bottom: 12px;
-        }
-    }
+	.section-title {
+		margin-bottom: 20px;
+		line-height: 22px;
+	}
 
-    .menu {
-        @extend %wp-menu;
-    }
+	.info-item,
+	.menu-item {
+		line-height: 18px;
+
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+
+	.menu {
+		@extend %wp-menu;
+	}
 }
