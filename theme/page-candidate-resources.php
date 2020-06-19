@@ -7,7 +7,7 @@ get_header();
 ?>
 
 <main class="text-block-page">
-	<h1>Candidate Resources</h1>
+	<h1><?php echo esc_html( get_the_title() ); ?></h1>
 	<p>You can find information on how to run for office, as well for other election and campaign-related services.</p>
 	<section>
 		<h3>Becoming a Candidate</h3>

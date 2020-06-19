@@ -9,7 +9,7 @@ get_header();
 ?>
 
 <main class="text-block-page">
-	<h1>Registration</h1>
+	<h1><?php echo esc_html( get_the_title() ); ?></h1>
 	<p>You can check your registration status, update your registration, or register for the first time using the resources below.</p>
 	<section>
 		<h3>Eligibility Criteria</h3>
