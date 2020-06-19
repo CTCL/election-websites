@@ -43,7 +43,7 @@ class Hooks {
 	public static function configure_theme() {
 
 		$menus = [
-			'header-menu' => 'Top Nav Menu',
+			'header-menu'           => 'Top Nav Menu',
 			'footer-section-1-menu' => 'Footer Section 1 Menu',
 			'footer-section-2-menu' => 'Footer Section 2 Menu',
 		];
