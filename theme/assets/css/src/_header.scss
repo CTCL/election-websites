@@ -10,10 +10,9 @@ header {
 	padding: 16px 0;
 
 	.site-title-wrapper {
-		display: grid;
-		grid-template-columns: auto 190px;
+		display: flex;
 		align-items: center;
-		grid-column-gap: 16px;
+		max-width: 250px;
 	}
 
 	img,
@@ -24,6 +23,10 @@ header {
 	[class$="-container"] {
 		display: inline-block;
 		justify-self: flex-end;
+	}
+
+	img {
+		margin-right: 16px;
 	}
 
 	.site-title {
