@@ -1,0 +1,45 @@
+@import "utility/layout";
+
+main {
+	@extend %fit-to-page;
+
+	font-size: 16px;
+	line-height: 24px;
+	padding: 32px 0;
+
+	section {
+		padding: 18px 0;
+		border-top: 3px solid #000;
+
+		&:first-of-type {
+			margin-top: 18px;
+		}
+	}
+
+	ul {
+		margin: 8px 0;
+		padding-left: 0;
+
+		li {
+			line-height: 28px;
+			list-style-position: inside;
+		}
+	}
+
+	h3 {
+		margin: 4px 0;
+	}
+
+	h5 {
+		margin: 20px 0 8px;
+	}
+
+	p {
+		margin: 8px 0;
+	}
+
+	a {
+		font-weight: bold;
+		text-decoration: underline;
+	}
+}
