@@ -17,29 +17,15 @@
 			</div>
 			<div>
 				<p class="section-title"><b>Support</b></p>
-				<?php
-					wp_nav_menu(
-						[
-							'theme_location' => 'footer-section-1-menu',
-						]
-					);
-				?>
 			</div>
 			<div>
 				<p class="section-title"><b>Campaign Resources</b></p>
-				<?php
-					wp_nav_menu(
-						[
-							'theme_location' => 'footer-section-2-menu',
-						]
-					);
-				?>
 			</div>
 		</div>
 	<?php } else { ?>
 		<div class="abbreviated-footer">
 			<h4><?php bloginfo( 'title' ); ?></h4>
-			<p><b>Email:</b> office@nevadacountyvotes.gov&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<b>Phone:</b> 415.555.5555</p>
+			<p><b>Email:</b> office@nevadacountyvotes.gov <b>Phone:</b> 415.555.5555</p>
 		</div>
 	<?php } ?>
 </footer>
