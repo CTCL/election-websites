@@ -18,22 +18,55 @@ footer .abbreviated-footer, main {
 }
 
 .tile-wrapper .tile {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   width: 170px;
-  height: 158px;
+  height: 170px;
   border: 1px solid #d1d1d1;
+  color: #000;
   box-sizing: border-box;
   border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 14px 32px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
-  color: #000;
+  background-repeat: no-repeat;
+  background-position: center 40px;
+}
+
+.tile-wrapper .tile#register-to-vote {
+  background-image: url(../images/tiles/register-to-vote.svg);
+}
+
+.tile-wrapper .tile#vote-by-mail {
+  background-image: url(../images/tiles/vote-by-mail.svg);
+}
+
+.tile-wrapper .tile#view-election-results {
+  background-image: url(../images/tiles/view-election-results.svg);
+}
+
+.tile-wrapper .tile#whats-on-ballot {
+  background-image: url(../images/tiles/whats-on-ballot.svg);
+}
+
+.tile-wrapper .tile#where-to-vote {
+  background-image: url(../images/tiles/where-to-vote.svg);
+}
+
+.tile-wrapper .tile#become-poll-worker {
+  background-image: url(../images/tiles/become-poll-worker.svg);
+}
+
+.tile-wrapper .tile#campaign-resources {
+  background-image: url(../images/tiles/campaign-resources.svg);
+}
+
+.tile-wrapper .tile#news {
+  background-image: url(../images/tiles/news.svg);
 }
 
 .tile-wrapper .tile .icon {
