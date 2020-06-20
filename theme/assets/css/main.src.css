@@ -271,10 +271,10 @@ main ul li {
   list-style-position: inside;
 }
 
-main h3 {
-  margin: 20px 0 8px;
-}
-
+main h1,
+main h2,
+main h3,
+main h4,
 main h5 {
   margin: 20px 0 8px;
 }
