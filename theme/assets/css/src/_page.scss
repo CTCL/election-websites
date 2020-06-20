@@ -1,3 +1,5 @@
+@import "utility/typography";
+
 main {
 	font-size: 16px;
 	line-height: 24px;
@@ -8,8 +10,8 @@ main {
 		color: #636363;
 
 		a {
-			font-weight: bold;
-			text-decoration: underline;
+			@extend %bold-text-links;
+
 			color: #000;
 		}
 	}

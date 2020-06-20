@@ -37,12 +37,18 @@ $site_title = get_bloginfo( 'title' );
 <?php
 if ( is_front_page() ) {
 	?>
-<section class="banner">
+<section class="banner major">
 	<div>
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/envelope.png' ); ?>" alr="Envelope" width="195" height="93" />
 
 		<h2>Vote by Mail in Upcoming Elections</h2>
 		<p>To help prevent the community spread of COVID-19, all registered, eligible voters may apply to vote by mail ballot. Learn more</p>
+	</div>
+</section>
+<?php } else { ?>
+<section class="banner">
+	<div>
+		<p><b>Important Information Banner</b> / Really important info if you need it on all pages <a>Learn more</a></p>
 	</div>
 </section>
 <?php } ?>

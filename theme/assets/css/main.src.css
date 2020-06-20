@@ -1,4 +1,4 @@
-header, .banner div, footer .footer-content-wrapper,
+.banner div, header, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   width: 70%;
   min-width: 730px;
@@ -40,7 +40,7 @@ footer .abbreviated-footer, main {
   margin-bottom: 8px;
 }
 
-header, .banner div, footer .footer-content-wrapper,
+.banner div, header, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   width: 70%;
   min-width: 730px;
@@ -57,6 +57,61 @@ header .menu, footer .menu {
 header .menu .menu-item a, footer .menu .menu-item a {
   font-weight: normal;
   color: #6e6e6e;
+}
+
+.banner p a, main p a,
+main ul a {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.banner {
+  background-color: #00599c;
+  color: white;
+  padding: 20px 0;
+}
+
+.banner.major {
+  min-height: 100px;
+}
+
+.banner img {
+  float: right;
+  padding-left: 10px;
+}
+
+.banner h2 {
+  margin-bottom: 8px;
+}
+
+.banner p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.banner div, header, footer .footer-content-wrapper,
+footer .abbreviated-footer, main {
+  width: 70%;
+  min-width: 730px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+header .menu, footer .menu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+header .menu .menu-item a, footer .menu .menu-item a {
+  font-weight: normal;
+  color: #6e6e6e;
+}
+
+.banner p a, main p a,
+main ul a {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 header {
@@ -103,28 +158,7 @@ header .menu .menu-item.current-menu-item a {
   color: #000;
 }
 
-.banner {
-  background-color: #00599c;
-  color: white;
-  padding: 20px 0;
-  min-height: 100px;
-}
-
-.banner img {
-  float: right;
-  padding-left: 10px;
-}
-
-.banner h2 {
-  margin-bottom: 8px;
-}
-
-.banner p {
-  font-size: 16px;
-  line-height: 24px;
-}
-
-header, .banner div, footer .footer-content-wrapper,
+.banner div, header, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   width: 70%;
   min-width: 730px;
@@ -141,6 +175,12 @@ header .menu, footer .menu {
 header .menu .menu-item a, footer .menu .menu-item a {
   font-weight: normal;
   color: #6e6e6e;
+}
+
+.banner p a, main p a,
+main ul a {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 footer {
@@ -188,6 +228,23 @@ footer .menu-item:not(:last-child) {
   margin-bottom: 12px;
 }
 
+header .menu, footer .menu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+header .menu .menu-item a, footer .menu .menu-item a {
+  font-weight: normal;
+  color: #6e6e6e;
+}
+
+.banner p a, main p a,
+main ul a {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 main {
   font-size: 16px;
   line-height: 24px;
@@ -201,8 +258,6 @@ main ul {
 
 main p a,
 main ul a {
-  font-weight: bold;
-  text-decoration: underline;
   color: #000;
 }
 
