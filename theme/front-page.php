@@ -7,20 +7,29 @@
  */
 
 get_header();
+
+$tiles = [
+	'register-to-vote'      => 'Register to Vote',
+	"vote-by-mail"          => 'Vote by Mail',
+	"view-election-results" => 'View Election Results',
+	"whats-on-ballot"       => 'What’s on the ballot',
+	"where-to-vote"         => 'Where to Vote',
+	"become-poll-worker"    => 'Become a Poll Worker',
+	"campaign-resources"    => 'Campaign Resources',
+	"news"                  => "News"
+];
+
+
 ?>
 
 <main class="front-page">
-	<div class="tile-wrapper full-width">
-		<div class="tile">Register to Vote</div>
-		<div class="tile">Vote by Mail</div>
-		<a href="<?php echo esc_url( get_permalink( 'Results' ) ); ?>">
-			<div class="tile">View Election Results</div>
-		</a>
-		<div class="tile">Register to Vote</div>
-		<div class="tile">Register to Vote</div>
-		<div class="tile">Register to Vote</div>
-		<div class="tile">List of Voting Locations</div>
-		<div class="tile">Accessible Voting</div>
+	<nav class="tile-wrapper full-width">
+		<?php
+		foreach ( $tiles as $slug => $title ) {
+			$url = home_url( $slug );
+			echo '<a href="' . esc_url( $url ) . '" id="' . esc_attr( $slug ) . '" class="tile">' . esc_html( $title ) .  '</a>';
+		}
+		?>
 	</div>
 </main>
 
