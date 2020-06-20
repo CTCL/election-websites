@@ -1,6 +1,10 @@
 %fit-to-page {
-	width: 70%;
-	min-width: 730px;
-	max-width: 1000px;
-	margin: 0 auto;
+	margin: 0 20px;
+
+	@include breakpoint(desktop) {
+		margin: 0 auto;
+		width: 70%;
+		min-width: 730px;
+		max-width: 1000px;
+	}
 }

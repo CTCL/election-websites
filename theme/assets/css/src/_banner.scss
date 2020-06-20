@@ -4,7 +4,11 @@
 .banner {
 	background-color: #00599c;
 	color: white;
-	padding: 20px 0;
+	padding: 20px;
+
+	@include breakpoint(phone) {
+		padding: 20px 0;
+	}
 
 	&.major {
 		min-height: 100px;
@@ -17,6 +21,10 @@
 	img {
 		float: right;
 		padding-left: 10px;
+
+		@include breakpoint(phone) {
+			display: none;
+		}
 	}
 
 	h2 {

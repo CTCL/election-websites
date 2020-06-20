@@ -6,8 +6,16 @@ $tile_size: 170px;
 	grid-row-gap: 16px;
 	margin: 24px 0;
 
+	@include breakpoint(phone) {
+		margin: 0;
+	}
+
 	&.full-width {
 		grid-template-columns: repeat(4, $tile_size);
+
+		@include breakpoint(phone) {
+			grid-template-columns: repeat(2, $tile_size);
+		}
 	}
 
 	.tile {

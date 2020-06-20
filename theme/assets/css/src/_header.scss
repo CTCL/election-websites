@@ -37,15 +37,21 @@ header {
 		@extend %wp-menu;
 		@extend %wp-menu-links;
 
-		.menu-item {
-			font-size: 15px;
-			line-height: 19px;
-			display: inline-block;
-			margin-left: 24px;
+		@include breakpoint(phone) {
+			display: none;
+		}
 
-			&.current-menu-item a {
-				font-weight: bold;
-				color: #000;
+		@include breakpoint(desktop) {
+			.menu-item {
+				font-size: 15px;
+				line-height: 19px;
+				display: inline-block;
+				margin-left: 24px;
+
+				&.current-menu-item a {
+					font-weight: bold;
+					color: #000;
+				}
 			}
 		}
 	}
