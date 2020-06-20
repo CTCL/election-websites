@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<main>
+<main class="front-page">
 	<div class="tile-wrapper full-width">
 		<div class="tile">Register to Vote</div>
 		<div class="tile">Vote by Mail</div>
