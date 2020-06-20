@@ -32,6 +32,10 @@ main {
 	h4,
 	h5 {
 		margin: 20px 0 8px;
+
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 
 	p {

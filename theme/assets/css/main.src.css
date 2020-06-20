@@ -371,6 +371,14 @@ main h5 {
   margin: 20px 0 8px;
 }
 
+main h1:first-child,
+main h2:first-child,
+main h3:first-child,
+main h4:first-child,
+main h5:first-child {
+  margin-top: 0;
+}
+
 main p {
   margin: 8px 0;
 }
