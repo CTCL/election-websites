@@ -108,6 +108,18 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		svgmin: {
+			options: {
+				plugins: [
+					{ removeViewBox: false }
+				]
+			},
+			dist: {
+				expand: true,
+				src: [ 'assets/images/*.svg', 'assets/images/**/*.svg' ]
+			},
+		},
+
 		watch:  {
 			php: {
 				files: [ '*.php', 'template-parts/**/*.php', 'includes/**/*.php', '!vendor/**' ],
