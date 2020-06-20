@@ -1,9 +1,16 @@
 .banner div, header, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
-  width: 70%;
-  min-width: 730px;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 20px;
+}
+
+@media (min-width: 1024px) {
+  .banner div, header, footer .footer-content-wrapper,
+  footer .abbreviated-footer, main {
+    margin: 0 auto;
+    width: 70%;
+    min-width: 730px;
+    max-width: 1000px;
+  }
 }
 
 .tile-wrapper {
@@ -13,8 +20,20 @@ footer .abbreviated-footer, main {
   margin: 24px 0;
 }
 
+@media (max-width: 767px) {
+  .tile-wrapper {
+    margin: 0;
+  }
+}
+
 .tile-wrapper.full-width {
   grid-template-columns: repeat(4, 170px);
+}
+
+@media (max-width: 767px) {
+  .tile-wrapper.full-width {
+    grid-template-columns: repeat(2, 170px);
+  }
 }
 
 .tile-wrapper .tile {
@@ -75,10 +94,17 @@ footer .abbreviated-footer, main {
 
 .banner div, header, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
-  width: 70%;
-  min-width: 730px;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 20px;
+}
+
+@media (min-width: 1024px) {
+  .banner div, header, footer .footer-content-wrapper,
+  footer .abbreviated-footer, main {
+    margin: 0 auto;
+    width: 70%;
+    min-width: 730px;
+    max-width: 1000px;
+  }
 }
 
 header .menu, footer .menu {
@@ -101,7 +127,13 @@ main ul a {
 .banner {
   background-color: #00599c;
   color: white;
-  padding: 20px 0;
+  padding: 20px;
+}
+
+@media (max-width: 767px) {
+  .banner {
+    padding: 20px 0;
+  }
 }
 
 .banner.major {
@@ -111,6 +143,12 @@ main ul a {
 .banner img {
   float: right;
   padding-left: 10px;
+}
+
+@media (max-width: 767px) {
+  .banner img {
+    display: none;
+  }
 }
 
 .banner h2 {
@@ -124,10 +162,17 @@ main ul a {
 
 .banner div, header, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
-  width: 70%;
-  min-width: 730px;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 20px;
+}
+
+@media (min-width: 1024px) {
+  .banner div, header, footer .footer-content-wrapper,
+  footer .abbreviated-footer, main {
+    margin: 0 auto;
+    width: 70%;
+    min-width: 730px;
+    max-width: 1000px;
+  }
 }
 
 header .menu, footer .menu {
@@ -179,24 +224,38 @@ header .site-title {
   color: #000;
 }
 
-header .menu .menu-item {
-  font-size: 15px;
-  line-height: 19px;
-  display: inline-block;
-  margin-left: 24px;
+@media (max-width: 767px) {
+  header .menu {
+    display: none;
+  }
 }
 
-header .menu .menu-item.current-menu-item a {
-  font-weight: bold;
-  color: #000;
+@media (min-width: 1024px) {
+  header .menu .menu-item {
+    font-size: 15px;
+    line-height: 19px;
+    display: inline-block;
+    margin-left: 24px;
+  }
+  header .menu .menu-item.current-menu-item a {
+    font-weight: bold;
+    color: #000;
+  }
 }
 
 .banner div, header, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
-  width: 70%;
-  min-width: 730px;
-  max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 20px;
+}
+
+@media (min-width: 1024px) {
+  .banner div, header, footer .footer-content-wrapper,
+  footer .abbreviated-footer, main {
+    margin: 0 auto;
+    width: 70%;
+    min-width: 730px;
+    max-width: 1000px;
+  }
 }
 
 header .menu, footer .menu {
