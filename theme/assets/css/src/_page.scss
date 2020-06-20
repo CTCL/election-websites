@@ -16,15 +16,6 @@ main {
 		}
 	}
 
-	section {
-		padding: 18px 0;
-		border-top: 3px solid #000;
-
-		&:first-of-type {
-			margin-top: 18px;
-		}
-	}
-
 	ul {
 		margin: 8px 0;
 		padding-left: 0;
@@ -35,16 +26,33 @@ main {
 		}
 	}
 
-	h3 {
-		margin: 4px 0;
-	}
-
+	h1,
+	h2,
+	h3,
+	h4,
 	h5 {
 		margin: 20px 0 8px;
 	}
 
 	p {
 		margin: 8px 0;
+	}
+
+	.wp-block-group {
+		padding: 20px 0;
+		border-top: 3px solid #000;
+
+		&:first-of-type {
+			margin-top: 18px;
+		}
+
+		:first-child {
+			margin-top: 0;
+		}
+
+		:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 

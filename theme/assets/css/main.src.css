@@ -294,15 +294,6 @@ main ul a {
   color: #000;
 }
 
-main section {
-  padding: 18px 0;
-  border-top: 3px solid #000;
-}
-
-main section:first-of-type {
-  margin-top: 18px;
-}
-
 main ul {
   margin: 8px 0;
   padding-left: 0;
@@ -313,16 +304,33 @@ main ul li {
   list-style-position: inside;
 }
 
-main h3 {
-  margin: 4px 0;
-}
-
+main h1,
+main h2,
+main h3,
+main h4,
 main h5 {
   margin: 20px 0 8px;
 }
 
 main p {
   margin: 8px 0;
+}
+
+main .wp-block-group {
+  padding: 20px 0;
+  border-top: 3px solid #000;
+}
+
+main .wp-block-group:first-of-type {
+  margin-top: 18px;
+}
+
+main .wp-block-group :first-child {
+  margin-top: 0;
+}
+
+main .wp-block-group :last-child {
+  margin-bottom: 0;
 }
 
 main.front-page {
