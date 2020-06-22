@@ -403,12 +403,14 @@ main ul a {
   color: #000;
 }
 
-main ul {
+main ul,
+main ol {
   margin: 8px 0;
   padding-left: 0;
 }
 
-main ul li {
+main ul li,
+main ol li {
   line-height: 28px;
   list-style-position: inside;
 }
