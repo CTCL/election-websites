@@ -1,10 +1,10 @@
-.banner div, header, footer .footer-content-wrapper,
+.banner div, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header, footer .footer-content-wrapper,
+  .banner div, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
@@ -92,13 +92,13 @@ footer .abbreviated-footer, main {
   margin-bottom: 8px;
 }
 
-.banner div, header, footer .footer-content-wrapper,
+.banner div, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header, footer .footer-content-wrapper,
+  .banner div, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
@@ -160,13 +160,13 @@ main ul a {
   line-height: 24px;
 }
 
-.banner div, header, footer .footer-content-wrapper,
+.banner div, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header, footer .footer-content-wrapper,
+  .banner div, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
@@ -193,6 +193,12 @@ main ul a {
 }
 
 header {
+  box-shadow: 0 1px 4px -1px rgba(28, 48, 74, 0.5);
+  width: 100%;
+  z-index: 1;
+}
+
+header .header-wrapper {
   display: grid;
   grid-template-columns: -webkit-max-content 1fr;
   grid-template-columns: max-content 1fr;
@@ -243,13 +249,13 @@ header .site-title {
   }
 }
 
-.banner div, header, footer .footer-content-wrapper,
+.banner div, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header, footer .footer-content-wrapper,
+  .banner div, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
