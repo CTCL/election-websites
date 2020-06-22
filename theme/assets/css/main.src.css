@@ -447,6 +447,15 @@ main.front-page {
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+main {
+  flex-grow: 1;
+  align-items: start;
 }
 
 h1,
