@@ -2,9 +2,9 @@
 @import "utility/typography";
 
 header {
+	background: #fff;
 	box-shadow: 0 1px 4px -1px hsla(214, 45%, 20%, 0.5);
 	width: 100%;
-	z-index: 1;
 
 	.header-wrapper {
 		@extend %fit-to-page;
@@ -65,3 +65,16 @@ header {
 		}
 	}
 }
+
+// fixed header css
+// header {
+// 	height: 90px;
+// 	z-index: 1;
+// 	position: fixed;
+// 	top: 0;
+// }
+
+// header + section,
+// header + main {
+// 	margin-top: 90px;
+// }

@@ -193,9 +193,9 @@ main ul a {
 }
 
 header {
+  background: #fff;
   box-shadow: 0 1px 4px -1px rgba(28, 48, 74, 0.5);
   width: 100%;
-  z-index: 1;
 }
 
 header .header-wrapper {
