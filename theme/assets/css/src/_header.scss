@@ -54,9 +54,12 @@ header {
 				display: inline-block;
 				margin-left: 24px;
 
-				&.current-menu-item a {
-					font-weight: bold;
-					color: #000;
+				&.current-menu-item,
+				&.current-page-ancestor {
+					a {
+						font-weight: bold;
+						color: #000;
+					}
 				}
 			}
 		}

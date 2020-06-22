@@ -243,7 +243,7 @@ header .site-title {
     display: inline-block;
     margin-left: 24px;
   }
-  header .menu .menu-item.current-menu-item a {
+  header .menu .menu-item.current-menu-item a, header .menu .menu-item.current-page-ancestor a {
     font-weight: bold;
     color: #000;
   }
