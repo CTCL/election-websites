@@ -9,7 +9,7 @@
 get_header();
 
 $tiles = [
-	'register-to-vote'      => 'Register to Vote',
+	'registration'          => 'Register to Vote',
 	"vote-by-mail"          => 'Vote by Mail',
 	"view-election-results" => 'View Election Results',
 	"whats-on-ballot"       => 'What’s on the ballot',
