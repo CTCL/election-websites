@@ -56,8 +56,8 @@ footer .abbreviated-footer, main {
   background-position: center 40px;
 }
 
-.tile-wrapper .tile#register-to-vote {
-  background-image: url(../images/tiles/register-to-vote.svg);
+.tile-wrapper .tile#registration {
+  background-image: url(../images/tiles/registration.svg);
 }
 
 .tile-wrapper .tile#vote-by-mail {
