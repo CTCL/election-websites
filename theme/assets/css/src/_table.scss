@@ -28,4 +28,9 @@ figure.wp-block-table {
 	tr:nth-child(2n) {
 		background-color: #f5f5f5;
 	}
+
+	th,
+	td {
+		vertical-align: top;
+	}
 }

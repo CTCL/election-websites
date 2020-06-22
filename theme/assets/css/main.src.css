@@ -351,6 +351,11 @@ figure.wp-block-table tr:nth-child(2n) {
   background-color: #f5f5f5;
 }
 
+figure.wp-block-table th,
+figure.wp-block-table td {
+  vertical-align: top;
+}
+
 header .menu, footer .menu {
   list-style: none;
   padding-left: 0;
