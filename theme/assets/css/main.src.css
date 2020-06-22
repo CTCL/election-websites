@@ -196,6 +196,9 @@ header {
   background: #fff;
   box-shadow: 0 1px 4px -1px rgba(28, 48, 74, 0.5);
   width: 100%;
+  height: 90px;
+  z-index: 1;
+  position: fixed;
 }
 
 header .header-wrapper {
@@ -247,6 +250,11 @@ header .site-title {
     font-weight: bold;
     color: #000;
   }
+}
+
+header + section,
+header + main {
+  margin-top: 90px;
 }
 
 .banner div, header .header-wrapper, footer .footer-content-wrapper,
