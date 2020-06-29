@@ -16,7 +16,7 @@ $tiles = [
 	'where-to-vote'         => 'Where to Vote',
 	'become-poll-worker'    => 'Become a Poll Worker',
 	'campaign-resources'    => 'Campaign Resources',
-	'news'                  => 'News',
+	'news'                  => 'News & Press Releases',
 ];
 
 
