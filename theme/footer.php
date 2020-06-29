@@ -15,12 +15,6 @@
 				<p class="info-item"><b>Email:</b> office@nevadacountyvotes.gov</p>
 				<p class="info-item"><b>Phone:</b> 415.555.5555</p>
 			</div>
-			<div>
-				<p class="section-title"><b>Support</b></p>
-			</div>
-			<div>
-				<p class="section-title"><b>Campaign Resources</b></p>
-			</div>
 		</div>
 	<?php } else { ?>
 		<div class="abbreviated-footer">
