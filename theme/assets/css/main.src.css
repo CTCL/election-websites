@@ -284,10 +284,12 @@ footer .abbreviated-footer {
   padding: 32px 0;
 }
 
-footer .footer-content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 170px 170px;
-  grid-column-gap: 16px;
+@media (min-width: 1024px) {
+  footer .footer-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 170px 170px;
+    grid-column-gap: 16px;
+  }
 }
 
 footer .abbreviated-footer {
