@@ -1,13 +1,28 @@
 @import "utility/layout";
 @import "utility/typography";
 
-header {
-	@extend %fit-to-page;
+$HEADER-HEIGHT: 90px;
 
-	display: grid;
-	grid-template-columns: max-content 1fr;
-	align-items: center;
-	padding: 16px 0;
+header {
+	background: #fff;
+	box-shadow: 0 1px 4px -1px hsla(214, 45%, 20%, 0.5);
+	width: 100%;
+	height: $HEADER-HEIGHT;
+	z-index: 1;
+	position: fixed;
+
+	.header-wrapper {
+		@extend %fit-to-page;
+
+		display: grid;
+		grid-template-columns: max-content 1fr;
+		align-items: center;
+		padding: 16px 0;
+
+		@include breakpoint(phone) {
+			grid-template-columns: max-content;
+		}
+	}
 
 	.site-title-wrapper {
 		display: flex;
@@ -20,11 +35,6 @@ header {
 		display: inline-block;
 	}
 
-	[class$="-container"] {
-		display: inline-block;
-		justify-self: flex-end;
-	}
-
 	img {
 		margin-right: 16px;
 	}
@@ -33,26 +43,37 @@ header {
 		color: #000;
 	}
 
-	.menu {
-		@extend %wp-menu;
-		@extend %wp-menu-links;
+	[class$="-container"] {
+		display: inline-block;
+		justify-self: flex-end;
 
 		@include breakpoint(phone) {
 			display: none;
 		}
+	}
 
-		@include breakpoint(desktop) {
-			.menu-item {
-				font-size: 15px;
-				line-height: 19px;
-				display: inline-block;
-				margin-left: 24px;
+	.menu {
+		@extend %wp-menu;
+		@extend %wp-menu-links;
 
-				&.current-menu-item a {
+		.menu-item {
+			font-size: 15px;
+			line-height: 19px;
+			display: inline-block;
+			margin-left: 24px;
+
+			&.current-menu-item,
+			&.current-page-ancestor {
+				a {
 					font-weight: bold;
 					color: #000;
 				}
 			}
 		}
 	}
+}
+
+header + section,
+header + main {
+	margin-top: $HEADER-HEIGHT;
 }

@@ -12,10 +12,16 @@ footer {
 	}
 
 	.footer-content-wrapper {
-		@include breakpoint(desktop) {
-			display: grid;
-			grid-template-columns: 1fr 170px 170px;
-			grid-column-gap: 16px;
+		display: grid;
+		grid-template-columns: 1fr 170px 170px;
+		grid-column-gap: 16px;
+
+		@include breakpoint(phone) {
+			grid-template-columns: 1fr;
+
+			.footer-sub-menu {
+				display: none;
+			}
 		}
 	}
 

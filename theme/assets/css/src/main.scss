@@ -14,10 +14,17 @@
 
 body {
 	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
 }
 
 main {
 	@extend %fit-to-page;
+
+	flex-grow: 1;
+	align-items: start;
 }
 
 h1,

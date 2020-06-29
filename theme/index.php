@@ -13,10 +13,10 @@ get_header();
 	<h1><?php echo esc_html( get_the_title() ); ?></h1>
 	<?php
 		$curr_page = get_post();
-		if ( is_object( $curr_page ) ) {
-			$content   = apply_filters( 'the_content', $curr_page->post_content );
-			echo wp_kses_post( $content );
-		}
+	if ( is_object( $curr_page ) ) {
+		$content = apply_filters( 'the_content', $curr_page->post_content );
+		echo wp_kses_post( $content );
+	}
 	?>
 </main>
 

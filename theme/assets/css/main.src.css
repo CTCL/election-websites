@@ -1,10 +1,10 @@
-.banner div, header, footer .footer-content-wrapper,
+.banner div, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header, footer .footer-content-wrapper,
+  .banner div, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
@@ -92,13 +92,13 @@ footer .abbreviated-footer, main {
   margin-bottom: 8px;
 }
 
-.banner div, header, footer .footer-content-wrapper,
+.banner div, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header, footer .footer-content-wrapper,
+  .banner div, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
@@ -160,13 +160,13 @@ main ul a {
   line-height: 24px;
 }
 
-.banner div, header, footer .footer-content-wrapper,
+.banner div, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header, footer .footer-content-wrapper,
+  .banner div, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
@@ -193,11 +193,27 @@ main ul a {
 }
 
 header {
+  background: #fff;
+  box-shadow: 0 1px 4px -1px rgba(28, 48, 74, 0.5);
+  width: 100%;
+  height: 90px;
+  z-index: 1;
+  position: fixed;
+}
+
+header .header-wrapper {
   display: grid;
   grid-template-columns: -webkit-max-content 1fr;
   grid-template-columns: max-content 1fr;
   align-items: center;
   padding: 16px 0;
+}
+
+@media (max-width: 767px) {
+  header .header-wrapper {
+    grid-template-columns: -webkit-max-content;
+    grid-template-columns: max-content;
+  }
 }
 
 header .site-title-wrapper {
@@ -211,11 +227,6 @@ header .site-title {
   display: inline-block;
 }
 
-header [class$="-container"] {
-  display: inline-block;
-  justify-self: flex-end;
-}
-
 header img {
   margin-right: 16px;
 }
@@ -224,32 +235,41 @@ header .site-title {
   color: #000;
 }
 
+header [class$="-container"] {
+  display: inline-block;
+  justify-self: flex-end;
+}
+
 @media (max-width: 767px) {
-  header .menu {
+  header [class$="-container"] {
     display: none;
   }
 }
 
-@media (min-width: 1024px) {
-  header .menu .menu-item {
-    font-size: 15px;
-    line-height: 19px;
-    display: inline-block;
-    margin-left: 24px;
-  }
-  header .menu .menu-item.current-menu-item a {
-    font-weight: bold;
-    color: #000;
-  }
+header .menu .menu-item {
+  font-size: 15px;
+  line-height: 19px;
+  display: inline-block;
+  margin-left: 24px;
 }
 
-.banner div, header, footer .footer-content-wrapper,
+header .menu .menu-item.current-menu-item a, header .menu .menu-item.current-page-ancestor a {
+  font-weight: bold;
+  color: #000;
+}
+
+header + section,
+header + main {
+  margin-top: 90px;
+}
+
+.banner div, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header, footer .footer-content-wrapper,
+  .banner div, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
@@ -284,11 +304,18 @@ footer .abbreviated-footer {
   padding: 32px 0;
 }
 
-@media (min-width: 1024px) {
+footer .footer-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 170px 170px;
+  grid-column-gap: 16px;
+}
+
+@media (max-width: 767px) {
   footer .footer-content-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 170px 170px;
-    grid-column-gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  footer .footer-content-wrapper .footer-sub-menu {
+    display: none;
   }
 }
 
@@ -391,12 +418,14 @@ main ul a {
   color: #000;
 }
 
-main ul {
+main ul,
+main ol {
   margin: 8px 0;
   padding-left: 0;
 }
 
-main ul li {
+main ul li,
+main ol li {
   line-height: 28px;
   list-style-position: inside;
 }
@@ -449,6 +478,15 @@ main.front-page {
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+main {
+  flex-grow: 1;
+  align-items: start;
 }
 
 h1,
