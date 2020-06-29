@@ -12,9 +12,11 @@ footer {
 	}
 
 	.footer-content-wrapper {
-		display: grid;
-		grid-template-columns: 1fr 170px 170px;
-		grid-column-gap: 16px;
+		@include breakpoint(desktop) {
+			display: grid;
+			grid-template-columns: 1fr 170px 170px;
+			grid-column-gap: 16px;
+		}
 	}
 
 	.abbreviated-footer {
