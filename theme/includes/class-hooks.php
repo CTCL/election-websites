@@ -85,8 +85,43 @@ class Hooks {
 	public static function set_image_sizes() {
 		add_image_size( 'header-icon', 56, 56 );
 	}
+
+	/**
+	 * Initialize custom blocks
+	 */
+	public static function init_block_editors() {
+		if ( ! function_exists( 'register_block_type' ) ) {
+			return;
+		}
+
+		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
+
+		wp_register_script(
+			'block-editor',
+			get_template_directory_uri() . "/assets/js/blocks.{$type}.js",
+			[ 'wp-block-editor', 'wp-element', 'wp-hooks', 'wp-compose' ],
+			THEME_VERSION,
+			true
+		);
+
+		wp_register_style(
+			'block-editors',
+			get_template_directory_uri() . "/assets/css/block-editors.${type}.css",
+			[],
+			THEME_VERSION
+		);
+
+		register_block_type(
+			'ctcl-election-website/numbered-section-block',
+			[
+				'editor_script' => 'block-editor',
+				'editor_style'  => 'block-editors',
+			]
+		);
+	}
 }
 
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'setup_hooks' ] );
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'configure_theme' ] );
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'set_image_sizes' ] );
+add_action( 'init', [ '\CTCL\ElectionWebsite\Hooks', 'init_block_editors' ] );

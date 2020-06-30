@@ -2,7 +2,7 @@ module.exports = function( grunt ) {
 
 	// All a variable to be passed, eg. --url=http://test.dev
 	var localURL = grunt.option( 'url' );
-	const sass = require( 'node-sass' );
+	var sass = require( 'node-sass' );
 
 	// Load all grunt tasks
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
@@ -19,16 +19,23 @@ module.exports = function( grunt ) {
 			},
 			main: {
 				src: [
-					'assets/js/src/main.js',
+					'assets/js/src/main.js'
 				],
 				dest: 'assets/js/main.src.js'
+			},
+			block: {
+				src: [
+					'assets/js/src/blocks/*.js'
+				],
+				dest: 'assets/js/blocks.src.js'
 			}
 		},
 
 		uglify: {
 			all: {
 				files: {
-					'assets/js/main.min.js': [ 'assets/js/main.src.js' ]
+					'assets/js/main.min.js': [ 'assets/js/main.src.js' ],
+					'assets/js/blocks.min.js': [ 'assets/js/blocks.src.js' ]
 				},
 				options: {
 					mangle: {
@@ -58,10 +65,10 @@ module.exports = function( grunt ) {
 		sass: {
 			theme: {
 				options: {
-					implementation:   sass,
-					imagePath:        'assets/images',
-					outputStyle:      'expanded',
-					sourceMap:        true
+					implementation: sass,
+					imagePath: 'assets/images',
+					outputStyle: 'expanded',
+					sourceMap: true
 				},
 				files: [ {
 					expand: true,
@@ -83,28 +90,28 @@ module.exports = function( grunt ) {
 				options: {
 					map: false,
 					processors: [
-						require('autoprefixer')()
+						require( 'autoprefixer' )()
 					]
 				},
-				files: [{
+				files: [ {
 					expand: true,
 					cwd: 'assets/css',
-					src: ['*.src.css'],
+					src: [ '*.src.css' ],
 					dest: 'assets/css',
 					ext: '.src.css'
-				}]
+				} ]
 			}
 		},
 
 		cssmin: {
 			theme: {
-				files: [{
+				files: [ {
 					expand: true,
 					cwd: 'assets/css',
-					src: ['*.src.css'],
+					src: [ '*.src.css' ],
 					dest: 'assets/css',
 					ext: '.min.css'
-				}]
+				} ]
 			}
 		},
 
@@ -117,10 +124,10 @@ module.exports = function( grunt ) {
 			dist: {
 				expand: true,
 				src: [ 'assets/images/*.svg', 'assets/images/**/*.svg' ]
-			},
+			}
 		},
 
-		watch:  {
+		watch: {
 			php: {
 				files: [ '*.php', 'template-parts/**/*.php', 'includes/**/*.php', '!vendor/**' ],
 				tasks: [ 'phplint' ]
