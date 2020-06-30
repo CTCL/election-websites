@@ -7,12 +7,12 @@ main {
 
 	p,
 	ul {
-		color: #636363;
+		color: $grey;
 
 		a {
 			@extend %bold-text-links;
 
-			color: #000;
+			color: $black;
 		}
 	}
 
@@ -45,7 +45,7 @@ main {
 
 	.wp-block-group {
 		padding: 20px 0;
-		border-top: 3px solid #000;
+		border-top: 3px solid $black;
 
 		&:first-of-type {
 			margin-top: 18px;
