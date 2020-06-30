@@ -93,10 +93,6 @@ class Hooks {
 	 * Initialize custom blocks
 	 */
 	public static function init_block_editors() {
-		if ( ! function_exists( 'register_block_type' ) ) {
-			return;
-		}
-
 		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
 
 		wp_register_script(
