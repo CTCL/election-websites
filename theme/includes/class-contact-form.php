@@ -3,6 +3,7 @@ namespace CTCL\ElectionWebsite;
 
 class Contact_Form {
 
+	public static $default_topic = 'Other';
 
 	public static function setup_hooks() {
 		add_shortcode( 'contactform', [ __CLASS__, 'render' ] );
@@ -17,6 +18,16 @@ class Contact_Form {
 			add_action( 'wp_enqueue_scripts', [ '\CTCL\ElectionWebsite\Recaptcha', 'wp_enqueue_scripts' ] );
 		}
 	}
+
+	// TODO: Get list from settings page
+	public static function topic_list() {
+		return [
+			'Data Request',
+			'Shoes',
+			self::$default_topic,
+		];
+	}
+
 	public static function validate() {
 		$errors = [];
 
@@ -37,15 +48,8 @@ class Contact_Form {
 			$errors[] = 'Please enter a message';
 		}
 
-		$default_topic = 'Other';
-		$topic_list    = [
-			'Data Request',
-			'Shoes',
-			$default_topic,
-		];
-
-		if ( ! in_array( $topic, $topic_list, true ) ) {
-			$topic = $default_topic;
+		if ( ! in_array( $topic, self::$topic_list, true ) ) {
+			$topic = self::$default_topic;
 		}
 
 		return [
@@ -115,6 +119,11 @@ class Contact_Form {
 			<p>
 				<label for="contact-topic">Topic</label>
 				<select id="topic" name="topic">
+					<?php
+					foreach ( self::topic_list() as $current_topic ) {
+						echo '<option>' . esc_html( $current_topic ) . '</option>';
+					}
+					?>
 					<option>Data request</option>
 				</select>
 			</p>
