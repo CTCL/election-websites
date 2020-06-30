@@ -118,6 +118,11 @@ class Hooks {
 			]
 		);
 
+		register_block_type(
+			'ctcl-election-website/contact-form',
+		);
+	}
+
 	public static function block_categories( $categories ) {
 		$categories[] = [
 			'title' => 'Election Blocks',
