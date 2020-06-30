@@ -42,8 +42,8 @@ footer .abbreviated-footer, main {
   justify-content: center;
   width: 170px;
   height: 170px;
-  border: 1px solid #d1d1d1;
-  color: #000;
+  border: 1px solid #979797;
+  color: #f1f1f1;
   box-sizing: border-box;
   border-radius: 2px;
   padding: 14px 32px;
@@ -125,7 +125,7 @@ main ul a {
 }
 
 .banner {
-  background-color: #00599c;
+  background-color: #00439d;
   color: white;
   padding: 20px;
 }
@@ -232,7 +232,7 @@ header img {
 }
 
 header .site-title {
-  color: #000;
+  color: #f1f1f1;
 }
 
 header [class$="-container"] {
@@ -255,7 +255,7 @@ header .menu .menu-item {
 
 header .menu .menu-item.current-menu-item a, header .menu .menu-item.current-page-ancestor a {
   font-weight: bold;
-  color: #000;
+  color: #f1f1f1;
 }
 
 header + section,
@@ -357,11 +357,11 @@ figure.wp-block-table {
 figure.wp-block-table table {
   border: 1px solid #979797;
   border-spacing: 0;
-  color: #1f1f1f;
+  color: #f1f1f1;
 }
 
 figure.wp-block-table thead {
-  background-color: #004478;
+  background-color: #00439d;
   color: #fff;
   text-transform: uppercase;
   font-size: 14px;
@@ -383,6 +383,29 @@ figure.wp-block-table tr:nth-child(2n) {
 figure.wp-block-table th,
 figure.wp-block-table td {
   vertical-align: top;
+}
+
+.contact-form button {
+  background-color: #00439d;
+  color: #fff;
+  border-radius: 15px;
+  border: none;
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.contact-form input[type='text'] {
+  border-radius: 5px;
+}
+
+.contact-form textarea,
+.contact-form select,
+.contact-form input[type='text'] {
+  width: 75%;
+  display: block;
+  padding: 5px 10px;
+  box-sizing: border-box;
 }
 
 header .menu, footer .menu {
@@ -410,12 +433,12 @@ main {
 
 main p,
 main ul {
-  color: #636363;
+  color: #979797;
 }
 
 main p a,
 main ul a {
-  color: #000;
+  color: #f1f1f1;
 }
 
 main ul,
@@ -452,7 +475,7 @@ main p {
 
 main .wp-block-group {
   padding: 20px 0;
-  border-top: 3px solid #000;
+  border-top: 3px solid #f1f1f1;
 }
 
 main .wp-block-group:first-of-type {
