@@ -24,9 +24,6 @@ class Hooks {
 		add_filter( 'comments_open', '__return_false' );
 		add_filter( 'pings_open', '__return_false' );
 		add_filter( 'comments_array', '__return_empty_array' );
-
-		add_action( 'init', [ __CLASS__, 'init_block_editors' ] );
-		add_filter( 'block_categories', [ __CLASS__, 'block_categories' ] );
 	}
 
 	/**
@@ -87,50 +84,6 @@ class Hooks {
 
 	public static function set_image_sizes() {
 		add_image_size( 'header-icon', 56, 56 );
-	}
-
-	/**
-	 * Initialize custom blocks
-	 */
-	public static function init_block_editors() {
-		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
-
-		wp_register_script(
-			'block-editor',
-			get_template_directory_uri() . "/assets/js/blocks.${type}.js",
-			[ 'wp-block-editor', 'wp-element', 'wp-hooks', 'wp-compose' ],
-			THEME_VERSION,
-			true
-		);
-
-		wp_register_style(
-			'block-editors',
-			get_template_directory_uri() . "/assets/css/block-editors.${type}.css",
-			[],
-			THEME_VERSION
-		);
-
-		register_block_type(
-			'ctcl-election-website/numbered-section-block',
-			[
-				'editor_script' => 'block-editor',
-				'editor_style'  => 'block-editors',
-			]
-		);
-
-		register_block_type(
-			'ctcl-election-website/contact-form',
-		);
-	}
-
-	public static function block_categories( $categories ) {
-		$categories[] = [
-			'title' => 'Election Blocks',
-			'slug'  => 'election-blocks',
-			'icon'  => 'dashicons-carrot',
-		];
-
-		return $categories;
 	}
 }
 
