@@ -1,9 +1,10 @@
 {
-  "extends": "wordpress",
-  "rules": {
-    "camelcase": [ "error", { "properties": "never" } ],
-    "yoda": [ "error", "always", { "onlyEquality": true } ],
-    "space-in-parens": ["error", "always", { "exceptions": ["empty"] } ],
-    "eqeqeq": [ "error" ]
-  }
+	"extends": "wordpress",
+	"rules": {
+		"camelcase": [ "error", { "properties": "never" } ],
+		"yoda": [ "error", "always", { "onlyEquality": true } ],
+		"space-in-parens": ["error", "always", { "exceptions": ["empty"] } ],
+		"eqeqeq": [ "error" ],
+		"indent": ["error", "tab"]
+	}
 }
