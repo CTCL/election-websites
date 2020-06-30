@@ -12,3 +12,4 @@ define( 'THEME_VERSION', '0.5' );
 require __DIR__ . '/includes/class-helpers.php';
 require __DIR__ . '/includes/class-hooks.php';
 require __DIR__ . '/includes/class-recaptcha.php';
+require __DIR__ . '/includes/class-contact-form.php';
