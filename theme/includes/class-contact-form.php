@@ -28,7 +28,7 @@ class Contact_Form {
 		}
 
 		$default_topic = 'Other';
-		$topic_list = [
+		$topic_list    = [
 			'Data Request',
 			'Shoes',
 			$default_topic,
@@ -38,14 +38,25 @@ class Contact_Form {
 			$topic = $default_topic;
 		}
 
-		return [ 'name' => $name, 'email' => $email, 'topic' => $topic, 'message' => $message, 'errors' => $errors ];
+		return [
+			'name'    => $name,
+			'email'   => $email,
+			'topic'   => $topic,
+			'message' => $message,
+			'errors'  => $errors,
+		];
 	}
 
 
 	public static function render( $atts, $content = null ) {
 		$token             = filter_input( INPUT_POST, 'token', FILTER_SANITIZE_STRING );
 		$show_form         = true;
-		$validation_result = [ 'name' => '', 'email' => '', 'topic' => '', 'message' => '' ];
+		$validation_result = [
+			'name'    => '',
+			'email'   => '',
+			'topic'   => '',
+			'message' => '',
+		];
 
 		Recaptcha::wp_enqueue_scripts();
 
@@ -58,14 +69,14 @@ class Contact_Form {
 				$recaptcha_result = Recaptcha::verify( $token, $ip_address );
 				if ( $recaptcha_result ) {
 					$show_form = false;
-					print "success";
+					print 'success';
 				}
 			}
 		}
 
 		if ( $show_form ) {
 			ob_start();
-		?>
+			?>
 		<form id="contact-form" action="<?php the_permalink(); ?>" method="post">
 
 			<?php
@@ -75,11 +86,11 @@ class Contact_Form {
 				<ul>
 				<?php
 				foreach ( $validation_result['errors'] as $error ) {
-					echo "<li>" . esc_html( $error ) . "</li>";
+					echo '<li>' . esc_html( $error ) . '</li>';
 				}
 				?>
 				</ul>
-			<?php
+				<?php
 			}
 			?>
 
@@ -112,7 +123,7 @@ class Contact_Form {
 			<button class="g-recaptcha" data-sitekey="<?php echo esc_attr( Recaptcha::get_site_key() ); ?>" data-callback='submitContactForm' data-action='submit'>Send Message</button>
 		</form>
 
-		<?php
+			<?php
 		} // else
 		return ob_get_clean();
 	}

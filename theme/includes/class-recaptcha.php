@@ -37,11 +37,13 @@ class Recaptcha {
 			return false;
 		}
 
-		$parameters = array_filter( [
-			'secret'   => $secret,
-			'response' => $response,
-			'remoteip' => $ip_address,
-		] );
+		$parameters = array_filter(
+			[
+				'secret'   => $secret,
+				'response' => $response,
+				'remoteip' => $ip_address,
+			]
+		);
 
 		$response = wp_remote_post( self::API_URL, [ 'body' => $parameters ] );
 
@@ -61,13 +63,13 @@ class Recaptcha {
 			return false;
 		}
 
-		/*
+		/* phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 			Result format
 			{
-			  "success": true|false,
-			  "challenge_ts": timestamp,  // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
-			  "hostname": string,         // the hostname of the site where the reCAPTCHA was solved
-			  "error-codes": [...]        // optional
+				"success": true|false,
+				"challenge_ts": timestamp,  // timestamp of the challenge load (ISO format yyyy-MM-dd'T'HH:mm:ssZZ)
+				"hostname": string,         // the hostname of the site where the reCAPTCHA was solved
+				"error-codes": [...]        // optional
 			}
 		*/
 
