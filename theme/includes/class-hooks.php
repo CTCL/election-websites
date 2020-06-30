@@ -24,6 +24,7 @@ class Hooks {
 		add_filter( 'comments_open', '__return_false' );
 		add_filter( 'pings_open', '__return_false' );
 		add_filter( 'comments_array', '__return_empty_array' );
+		add_filter( 'block_categories', [ __CLASS__, 'block_categories' ] );
 	}
 
 	/**
@@ -118,6 +119,15 @@ class Hooks {
 				'editor_style'  => 'block-editors',
 			]
 		);
+
+	public static function block_categories( $categories ) {
+		$categories[] = [
+			'title' => 'Election Blocks',
+			'slug'  => 'election-blocks',
+			'icon'  => 'dashicons-carrot',
+		];
+
+		return $categories;
 	}
 }
 
