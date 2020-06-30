@@ -3,13 +3,20 @@ namespace CTCL\ElectionWebsite;
 
 class Contact_Form {
 
-	public static function hooks() {
+
+	public static function setup_hooks() {
 		add_shortcode( 'contactform', [ __CLASS__, 'render' ] );
 
 		// KSES: Allow additional tags/attributes
 		add_action( 'init', [ __CLASS__, 'kses_allow_additional_tags' ] );
 	}
 
+	// TODO: detect presence of form (in case page is renamed); maybe add to block
+	public static function hooks() {
+		if ( is_page( 'about-us' ) ) {
+			add_action( 'wp_enqueue_scripts', [ '\CTCL\ElectionWebsite\Recaptcha', 'wp_enqueue_scripts' ] );
+		}
+	}
 	public static function validate() {
 		$errors = [];
 
@@ -60,8 +67,6 @@ class Contact_Form {
 			'topic'   => '',
 			'message' => '',
 		];
-
-		Recaptcha::wp_enqueue_scripts();
 
 		if ( $token ) {
 			$validation_result = self::validate();
@@ -188,4 +193,5 @@ class Contact_Form {
 	}
 }
 
-add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Contact_Form', 'hooks' ] );
+add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Contact_Form', 'setup_hooks' ] );
+add_action( 'wp', [ '\CTCL\ElectionWebsite\Contact_Form', 'hooks' ] );
