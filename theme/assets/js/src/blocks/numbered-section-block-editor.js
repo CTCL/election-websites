@@ -3,7 +3,7 @@ var el = wp.element.createElement;
 wp.blocks.registerBlockType( 'ctcl-election-website/numbered-section-block', {
 	title: 'Numbered Section',
 	icon: 'editor-ol',
-	category: 'common',
+	category: 'election-blocks',
 
 	edit: function( props ) {
 		return el( 'section',
