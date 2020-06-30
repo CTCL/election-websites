@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-$logo_id    = get_option( 'site_icon' );
+$logo_id    = get_theme_mod( 'custom_logo' );
 $site_title = get_bloginfo( 'title' );
 ?>
 <!DOCTYPE html>
