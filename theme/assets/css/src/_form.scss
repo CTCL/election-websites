@@ -1,0 +1,24 @@
+.contact-form {
+	button {
+		background-color: $blue;
+		color: $white;
+		border-radius: 15px;
+		border: none;
+		padding: 10px 30px;
+		font-weight: bold;
+		font-size: 18px;
+	}
+
+	input[type='text'] {
+		border-radius: 5px;
+	}
+
+	textarea,
+	select,
+	input[type='text'] {
+		width: 75%;
+		display: block;
+		padding: 5px 10px;
+		box-sizing: border-box;
+	}
+}
