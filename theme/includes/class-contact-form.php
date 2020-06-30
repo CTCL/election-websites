@@ -144,14 +144,29 @@ class Contact_Form {
 		];
 
 		$allowed_tags_data = [
-			'form'  => array_merge(
+			'form'   => array_merge(
 				$style_attributes,
 				[
 					'action' => true,
 				]
 			),
 
-			'input' => array_merge(
+			'select' => array_merge(
+				$style_attributes,
+				[
+					'name' => true,
+				]
+			),
+
+			'option' => array_merge(
+				$style_attributes,
+				[
+					'value'    => true,
+					'selected' => true,
+				]
+			),
+
+			'input'  => array_merge(
 				$style_attributes,
 				[
 					'name'        => true,
