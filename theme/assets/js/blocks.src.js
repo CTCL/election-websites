@@ -1,42 +1,58 @@
 var el = wp.element.createElement;
 
+wp.blocks.registerBlockType( 'ctcl-election-website/contact-form', {
+	title: 'Contact Form',
+	icon: 'email',
+	category: 'election-blocks',
+
+	edit: function( props ) {
+		return el( 'div', {}, 'Hello world' );
+	},
+
+	save: function( props ) {
+		return el( 'a', { href: url }, 'something else' );
+	}
+} );
+
+var el = wp.element.createElement;
+
 wp.blocks.registerBlockType( 'ctcl-election-website/numbered-section-block', {
-    title: 'Numbered Section',
-    icon: 'editor-ol',
-    category: 'common',
+	title: 'Numbered Section',
+	icon: 'editor-ol',
+	category: 'election-blocks',
 
-    edit: function( props ) {
-        return el( 'section',
-            {
-                className: 'numbered-section-block-editor'
-            },
-            el( 'div',
-                {
-                    className: 'numbered-section-block-editor-counter'
-                }
-            ),
-            el( 'div',
-                {
-                    className: 'numbered-section-block-editor-content'
-                },
-                el( wp.blockEditor.InnerBlocks )
-            )
-        );
-    },
+	edit: function( props ) {
+		return el( 'section',
+			{
+				className: 'numbered-section-block-editor'
+			},
+			el( 'div',
+				{
+					className: 'numbered-section-block-editor-counter'
+				}
+			),
+			el( 'div',
+				{
+					className: 'numbered-section-block-editor-content'
+				},
+				el( wp.blockEditor.InnerBlocks )
+			)
+		);
+	},
 
-    save: function( props ) {
-        return el( 'section',
-            {
-                className: 'numbered-section'
-            },
-            el( 'div',
-                {
-                    className: 'numbered-section-content'
-                },
-                el( wp.blockEditor.InnerBlocks.Content )
-            )
-        );
-    }
+	save: function( props ) {
+		return el( 'section',
+			{
+				className: 'numbered-section'
+			},
+			el( 'div',
+				{
+					className: 'numbered-section-content'
+				},
+				el( wp.blockEditor.InnerBlocks.Content )
+			)
+		);
+	}
 } );
 
 // var el = wp.element.createElement;
