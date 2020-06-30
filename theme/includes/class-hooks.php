@@ -24,6 +24,8 @@ class Hooks {
 		add_filter( 'comments_open', '__return_false' );
 		add_filter( 'pings_open', '__return_false' );
 		add_filter( 'comments_array', '__return_empty_array' );
+
+		add_action( 'init', [ __CLASS__, 'init_block_editors' ] );
 		add_filter( 'block_categories', [ __CLASS__, 'block_categories' ] );
 	}
 
@@ -134,4 +136,3 @@ class Hooks {
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'setup_hooks' ] );
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'configure_theme' ] );
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'set_image_sizes' ] );
-add_action( 'init', [ '\CTCL\ElectionWebsite\Hooks', 'init_block_editors' ] );
