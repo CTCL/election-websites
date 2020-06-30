@@ -101,7 +101,7 @@ class Hooks {
 
 		wp_register_script(
 			'block-editor',
-			get_template_directory_uri() . "/assets/js/blocks.{$type}.js",
+			get_template_directory_uri() . "/assets/js/blocks.${type}.js",
 			[ 'wp-block-editor', 'wp-element', 'wp-hooks', 'wp-compose' ],
 			THEME_VERSION,
 			true
