@@ -5,6 +5,9 @@ class Contact_Form {
 
 	public static function hooks() {
 		add_shortcode( 'contactform', [ __CLASS__, 'render' ] );
+
+		// KSES: Allow additional tags/attributes
+		add_action( 'init', [ __CLASS__, 'kses_allow_additional_tags' ] );
 	}
 
 	public static function validate() {
@@ -77,7 +80,7 @@ class Contact_Form {
 		if ( $show_form ) {
 			ob_start();
 			?>
-		<form id="contact-form" action="<?php the_permalink(); ?>" method="post">
+		<form class="contact-form" id="contact-form" action="<?php the_permalink(); ?>" method="post">
 
 			<?php
 			if ( isset( $validation_result['errors'] ) && $validation_result['errors'] ) {
@@ -128,6 +131,46 @@ class Contact_Form {
 		return ob_get_clean();
 	}
 
+	/**
+	 * Allow additional tags and attributes.
+	 */
+	public static function kses_allow_additional_tags() {
+		global $allowedposttags;
+
+		$style_attributes = [
+			'class' => true,
+			'id'    => true,
+			'style' => true,
+		];
+
+		$allowed_tags_data = [
+			'form'  => array_merge(
+				$style_attributes,
+				[
+					'action' => true,
+				]
+			),
+
+			'input' => array_merge(
+				$style_attributes,
+				[
+					'name'        => true,
+					'value'       => true,
+					'placeholder' => true,
+					'type'        => true,
+				]
+			),
+		];
+
+
+		foreach ( $allowed_tags_data as $tag => $new_attributes ) {
+			if ( ! isset( $allowedposttags[ $tag ] ) || ! is_array( $allowedposttags[ $tag ] ) ) {
+				$allowedposttags[ $tag ] = []; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+			}
+
+			$allowedposttags[ $tag ] = array_merge( $allowedposttags[ $tag ], $new_attributes ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+		}
+	}
 }
 
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Contact_Form', 'hooks' ] );
