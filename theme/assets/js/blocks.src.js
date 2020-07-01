@@ -2,18 +2,17 @@
 "use strict";
 
 var registerBlockType = wp.blocks.registerBlockType;
+var _wp = wp,
+    ServerSideRender = _wp.serverSideRender;
 registerBlockType('ctcl-election-website/contact-form', {
   title: 'Contact Form',
   icon: 'email',
   category: 'election-blocks',
-  edit: function edit(_ref) {
-    var className = _ref.className;
-    return /*#__PURE__*/React.createElement("p", {
-      className: className
-    }, "Hello World, step 2 (from the editor, in green).");
-  },
-  save: function save() {
-    return /*#__PURE__*/React.createElement("p", null, "Hello World, step 2 (from the frontend, in red).");
+  edit: function edit(props) {
+    return /*#__PURE__*/React.createElement(ServerSideRender, {
+      block: "ctcl-election-website/contact-form",
+      attributes: props.attributes
+    });
   }
 });
 
