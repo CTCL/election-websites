@@ -15,9 +15,9 @@ class Blocks {
 		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
 
 		wp_register_script(
-			'block-editor',
+			'block-editors',
 			get_template_directory_uri() . "/assets/js/blocks.${type}.js",
-			[ 'wp-block-editor', 'wp-element', 'wp-hooks', 'wp-compose' ],
+			[ 'wp-block-editor', 'wp-element', 'wp-components' ],
 			THEME_VERSION,
 			true
 		);
@@ -32,7 +32,23 @@ class Blocks {
 		register_block_type(
 			'ctcl-election-website/numbered-section-block',
 			[
-				'editor_script' => 'block-editor',
+				'editor_script' => 'block-editors',
+				'editor_style'  => 'block-editors',
+			]
+		);
+
+		register_block_type(
+			'ctcl-election-website/tile-nav-section-block',
+			[
+				'editor_script' => 'block-editors',
+				'editor_style'  => 'block-editors',
+			]
+		);
+
+		register_block_type(
+			'ctcl-election-website/tile-nav-block',
+			[
+				'editor_script' => 'block-editors',
 				'editor_style'  => 'block-editors',
 			]
 		);

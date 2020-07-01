@@ -6,7 +6,7 @@
 		"src/utility/_variables.scss",
 		"src/utility/_mixins.scss",
 		"src/utility/_layout.scss",
-		"src/_tiles.scss",
+		"src/blocks/_tile-nav-block.scss",
 		"src/_banner.scss",
 		"src/utility/_typography.scss",
 		"src/_header.scss",
