@@ -43,7 +43,7 @@ footer .abbreviated-footer, main {
   width: 170px;
   height: 170px;
   border: 1px solid #979797;
-  color: #f1f1f1;
+  color: #000;
   box-sizing: border-box;
   border-radius: 2px;
   padding: 14px 32px;
@@ -232,7 +232,7 @@ header img {
 }
 
 header .site-title {
-  color: #f1f1f1;
+  color: #000;
 }
 
 header [class$="-container"] {
@@ -255,7 +255,7 @@ header .menu .menu-item {
 
 header .menu .menu-item.current-menu-item a, header .menu .menu-item.current-page-ancestor a {
   font-weight: bold;
-  color: #f1f1f1;
+  color: #000;
 }
 
 header + section,
@@ -357,7 +357,7 @@ figure.wp-block-table {
 figure.wp-block-table table {
   border: 1px solid #979797;
   border-spacing: 0;
-  color: #f1f1f1;
+  color: #000;
 }
 
 figure.wp-block-table thead {
@@ -438,7 +438,7 @@ main ul {
 
 main p a,
 main ul a {
-  color: #f1f1f1;
+  color: #000;
 }
 
 main ul,
@@ -475,7 +475,7 @@ main p {
 
 main .wp-block-group {
   padding: 20px 0;
-  border-top: 3px solid #f1f1f1;
+  border-top: 3px solid #000;
 }
 
 main .wp-block-group:first-of-type {
