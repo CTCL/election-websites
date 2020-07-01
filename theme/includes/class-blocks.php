@@ -38,7 +38,9 @@ class Blocks {
 		);
 
 		register_block_type(
-			'ctcl-election-website/contact-form',
+			'ctcl-election-website/contact-form', [
+				'render_callback' => [ '\CTCL\ElectionWebsite\Contact_Form', 'block_render' ]
+			]
 		);
 	}
 
