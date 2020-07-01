@@ -23,11 +23,13 @@ $tiles = [
 ?>
 
 <main class="front-page">
-	<nav class="tile-wrapper full-width">
+	<nav class="tile-wrapper">
 		<?php
 		foreach ( $tiles as $slug => $page_title ) {
 			$url = home_url( $slug );
-			echo '<a href="' . esc_url( $url ) . '" id="' . esc_attr( $slug ) . '" class="tile">' . esc_html( $page_title ) . '</a>';
+			echo '<a href="' . esc_url( $url ) . '" class="tile">
+					  <div id="' . esc_attr( $slug ) . '" class="bounding-box"></div>
+					  <span>' . esc_html( $page_title ) . '</span></a>';
 		}
 		?>
 	</div>
