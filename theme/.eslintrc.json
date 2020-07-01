@@ -6,5 +6,12 @@
 		"space-in-parens": ["error", "always", { "exceptions": ["empty"] } ],
 		"eqeqeq": [ "error" ],
 		"indent": ["error", "tab"]
+	},
+	"parserOptions": {
+		"ecmaVersion": 8,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
 	}
 }
