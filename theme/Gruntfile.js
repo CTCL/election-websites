@@ -15,12 +15,14 @@ module.exports = function( grunt ) {
 		browserify: {
 			dist: {
 				files: {
-					'assets/js/contact-form.src.js': [ 'assets/js/src/contact-form.js' ],
-					'assets/js/numbered-section-block-editor.src.js': [ 'assets/js/src/numbered-section-block-editor.js' ],
-					'assets/js/tile-nav-block-editor.src.js': [ 'assets/js/src/tile-nav-block-editor.js' ]
+					'assets/js/blocks.src.js': [
+						'assets/js/src/blocks/contact-form.js',
+						'assets/js/src/blocks/numbered-section-block-editor.js',
+						'assets/js/src/blocks/tile-nav-block-editor.js'
+					]
 				},
 				options: {
-					transform        : [ [ 'babelify', { presets: [ "@babel/preset-env", "@babel/preset-react" ] } ] ],
+					transform        : [ [ 'babelify', { presets: [ "@babel/preset-env", "@babel/preset-react" ], compact: false } ] ],
 					browserifyOptions: {
 						debug: false
 					}
@@ -38,14 +40,6 @@ module.exports = function( grunt ) {
 					'assets/js/src/main.js'
 				],
 				dest: 'assets/js/main.src.js'
-			},
-			block: {
-				src: [
-					'assets/js/contact-form.src.js',
-					'assets/js/contact-form.src.js',
-					'assets/js/contact-form.src.js'
-				],
-				dest: 'assets/js/blocks.src.js'
 			}
 		},
 
