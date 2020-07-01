@@ -21,8 +21,10 @@
 	"devDependencies": {
 		"@lodder/grunt-postcss": "^2.0.4",
 		"autoprefixer": "^9.8.0",
+		"babelify": "^10.0.0",
 		"eslint-config-wordpress": "^2.0.0",
 		"grunt": "^1.1.0",
+		"grunt-browserify": "^5.3.0",
 		"grunt-chmod": "^1.1.1",
 		"grunt-contrib-concat": "^1.0.1",
 		"grunt-contrib-cssmin": "^3.0.0",

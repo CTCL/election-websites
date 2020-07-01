@@ -12,6 +12,22 @@ module.exports = function( grunt ) {
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
 
+		browserify: {
+			dist: {
+				files: {
+					'assets/js/contact-form.src.js': [ 'assets/js/src/contact-form.js' ],
+					'assets/js/numbered-section-block-editor.src.js': [ 'assets/js/src/numbered-section-block-editor.js' ],
+					'assets/js/tile-nav-block-editor.src.js': [ 'assets/js/src/tile-nav-block-editor.js' ]
+				},
+				options: {
+					transform        : [ [ 'babelify', { presets: [ "@babel/preset-env", "@babel/preset-react" ] } ] ],
+					browserifyOptions: {
+						debug: false
+					}
+				}
+			}
+		},
+
 		concat: {
 			options: {
 				stripBanners: true,
@@ -25,7 +41,9 @@ module.exports = function( grunt ) {
 			},
 			block: {
 				src: [
-					'assets/js/src/blocks/*.js'
+					'assets/js/contact-form.src.js',
+					'assets/js/contact-form.src.js',
+					'assets/js/contact-form.src.js'
 				],
 				dest: 'assets/js/blocks.src.js'
 			}
@@ -200,7 +218,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'php', [ 'phplint', 'phpcs' ] );
 
 	// JS Only
-	grunt.registerTask( 'js', [ 'eslint', 'concat', 'uglify' ] );
+	grunt.registerTask( 'js', [ 'eslint', 'browserify', 'concat', 'uglify' ] );
 
 	// CSS Only
 	grunt.registerTask( 'css', [ 'stylelint', 'sass', 'postcss', 'cssmin' ] );
