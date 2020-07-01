@@ -1,15 +1,15 @@
-var el = wp.element.createElement;
+const { registerBlockType } = wp.blocks;
 
-wp.blocks.registerBlockType( 'ctcl-election-website/contact-form', {
+registerBlockType( 'ctcl-election-website/contact-form', {
 	title: 'Contact Form',
 	icon: 'email',
 	category: 'election-blocks',
 
-	edit: function( props ) {
-		return el( 'div', {}, 'Hello world' );
+	edit( { className } ) {
+		return <p className={ className }>Hello World, step 2 (from the editor, in green).</p>;
 	},
 
-	save: function( props ) {
-		return el( 'a', { href: url }, 'something else' );
+	save() {
+		return <p>Hello World, step 2 (from the frontend, in red).</p>;
 	}
 } );
