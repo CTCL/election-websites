@@ -162,6 +162,7 @@ class Contact_Form {
 				$style_attributes,
 				[
 					'action' => true,
+					'method' => true,
 				]
 			),
 
