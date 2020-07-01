@@ -19,7 +19,7 @@
 	<?php } else { ?>
 		<div class="abbreviated-footer">
 			<h4><?php bloginfo( 'title' ); ?></h4>
-			<p><b>Email:</b> office@nevadacountyvotes.gov <b>Phone:</b> 415.555.5555</p>
+			<p><b>Email:</b> office@nevadacountyvotes.gov | <b>Phone:</b> 415.555.5555</p>
 		</div>
 	<?php } ?>
 </footer>
