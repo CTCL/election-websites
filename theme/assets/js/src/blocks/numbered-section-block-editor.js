@@ -1,4 +1,6 @@
-var el = wp.element.createElement;
+const { registerBlockType } = wp.blocks;
+const { serverSideRender: ServerSideRender } = wp;
+const { createElement } = wp.element;
 
 wp.blocks.registerBlockType( 'ctcl-election-website/numbered-section-block', {
 	title: 'Numbered Section',
@@ -6,34 +8,34 @@ wp.blocks.registerBlockType( 'ctcl-election-website/numbered-section-block', {
 	category: 'election-blocks',
 
 	edit: function( props ) {
-		return el( 'section',
+		return createElement( 'section',
 			{
 				className: 'numbered-section-block-editor'
 			},
-			el( 'div',
+			createElement( 'div',
 				{
 					className: 'numbered-section-block-editor-counter'
 				}
 			),
-			el( 'div',
+			createElement( 'div',
 				{
 					className: 'numbered-section-block-editor-content'
 				},
-				el( wp.blockEditor.InnerBlocks )
+				createElement( wp.blockEditor.InnerBlocks )
 			)
 		);
 	},
 
 	save: function( props ) {
-		return el( 'section',
+		return createElement( 'section',
 			{
 				className: 'numbered-section'
 			},
-			el( 'div',
+			createElement( 'div',
 				{
 					className: 'numbered-section-content'
 				},
-				el( wp.blockEditor.InnerBlocks.Content )
+				createElement( wp.blockEditor.InnerBlocks.Content )
 			)
 		);
 	}
