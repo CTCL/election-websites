@@ -2,7 +2,8 @@
 @import "utility/typography";
 
 footer {
-	background-color: $grey-light;
+	background-color: $footer-bg;
+	color: $body-highlight;
 
 	.footer-content-wrapper,
 	.abbreviated-footer {

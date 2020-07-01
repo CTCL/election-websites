@@ -2,33 +2,12 @@
 @import "utility/typography";
 
 .banner {
-	background-color: $blue;
-	color: white;
-	padding: 20px;
+	// @include breakpoint(phone) {
+	// 	padding: 34px 0;
+	// }
 
-	@include breakpoint(phone) {
-		padding: 20px 0;
-	}
-
-	&.major {
-		min-height: 100px;
-	}
-
-	div {
+	.banner-wrapper {
 		@extend %fit-to-page;
-	}
-
-	img {
-		float: right;
-		padding-left: 10px;
-
-		@include breakpoint(phone) {
-			display: none;
-		}
-	}
-
-	h2 {
-		margin-bottom: 8px;
 	}
 
 	p {
@@ -37,6 +16,61 @@
 
 		a {
 			@extend %bold-text-links;
+		}
+	}
+
+	&.alert {
+		background-color: $alert-bg;
+		color: $white;
+		padding: 20px 0;
+
+		@include breakpoint(phone) {
+			padding: 8px 0 10px;
+		}
+
+		a {
+			color: $white;
+		}
+	}
+
+	&.major {
+		min-height: 100px;
+		background-color: $banner-bg;
+		color: $banner-font;
+
+		.banner-wrapper {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			grid-column-gap: 100px;
+
+			@include breakpoint(phone) {
+				grid-template-columns: 1fr;
+			}
+
+			> :nth-child(1) {
+				padding: 34px 0;
+				justify-content: center;
+
+				@include breakpoint(phone) {
+					padding: 20px 0;
+				}
+			}
+
+			> :nth-child(2) {
+				justify-self: baseline;
+			}
+		}
+
+		h2 {
+			margin-bottom: 8px;
+		}
+
+		img {
+			@include breakpoint(phone) {
+				display: none;
+			}
+
+			margin-top: 24px;
 		}
 	}
 }

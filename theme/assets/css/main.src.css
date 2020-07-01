@@ -1,10 +1,10 @@
-.banner div, header .header-wrapper, footer .footer-content-wrapper,
+.banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header .header-wrapper, footer .footer-content-wrapper,
+  .banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
@@ -42,8 +42,8 @@ footer .abbreviated-footer, main {
   justify-content: center;
   width: 170px;
   height: 170px;
-  border: 1px solid #979797;
-  color: #000;
+  border: 1px solid #b7bcce;
+  color: #17234c;
   box-sizing: border-box;
   border-radius: 2px;
   padding: 14px 32px;
@@ -92,13 +92,13 @@ footer .abbreviated-footer, main {
   margin-bottom: 8px;
 }
 
-.banner div, header .header-wrapper, footer .footer-content-wrapper,
+.banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header .header-wrapper, footer .footer-content-wrapper,
+  .banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
@@ -115,7 +115,7 @@ header .menu, footer .menu {
 
 header .menu .menu-item a, footer .menu .menu-item a {
   font-weight: normal;
-  color: #6e6e6e;
+  color: #4e4e4e;
 }
 
 .banner p a, main p a,
@@ -124,49 +124,81 @@ main ul a {
   text-decoration: underline;
 }
 
-.banner {
-  background-color: #00439d;
-  color: white;
-  padding: 20px;
-}
-
-@media (max-width: 767px) {
-  .banner {
-    padding: 20px 0;
-  }
-}
-
-.banner.major {
-  min-height: 100px;
-}
-
-.banner img {
-  float: right;
-  padding-left: 10px;
-}
-
-@media (max-width: 767px) {
-  .banner img {
-    display: none;
-  }
-}
-
-.banner h2 {
-  margin-bottom: 8px;
-}
-
 .banner p {
   font-size: 16px;
   line-height: 24px;
 }
 
-.banner div, header .header-wrapper, footer .footer-content-wrapper,
+.banner.alert {
+  background-color: #192754;
+  color: #fff;
+  padding: 20px 0;
+}
+
+@media (max-width: 767px) {
+  .banner.alert {
+    padding: 8px 0 10px;
+  }
+}
+
+.banner.alert a {
+  color: #fff;
+}
+
+.banner.major {
+  min-height: 100px;
+  background-color: #55d5f1;
+  color: #162147;
+}
+
+.banner.major .banner-wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-column-gap: 100px;
+}
+
+@media (max-width: 767px) {
+  .banner.major .banner-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.banner.major .banner-wrapper > :nth-child(1) {
+  padding: 34px 0;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .banner.major .banner-wrapper > :nth-child(1) {
+    padding: 20px 0;
+  }
+}
+
+.banner.major .banner-wrapper > :nth-child(2) {
+  justify-self: baseline;
+}
+
+.banner.major h2 {
+  margin-bottom: 8px;
+}
+
+.banner.major img {
+  margin-top: 24px;
+}
+
+@media (max-width: 767px) {
+  .banner.major img {
+    display: none;
+  }
+}
+
+.banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header .header-wrapper, footer .footer-content-wrapper,
+  .banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
@@ -183,7 +215,7 @@ header .menu, footer .menu {
 
 header .menu .menu-item a, footer .menu .menu-item a {
   font-weight: normal;
-  color: #6e6e6e;
+  color: #4e4e4e;
 }
 
 .banner p a, main p a,
@@ -194,7 +226,7 @@ main ul a {
 
 header {
   background: #fff;
-  box-shadow: 0 1px 4px -1px rgba(28, 48, 74, 0.5);
+  box-shadow: 0 1px 4px -1px rgba(28, 48, 74, 0.25);
   width: 100%;
   height: 90px;
   z-index: 1;
@@ -232,7 +264,7 @@ header img {
 }
 
 header .site-title {
-  color: #000;
+  color: #17234c;
 }
 
 header [class$="-container"] {
@@ -255,7 +287,7 @@ header .menu .menu-item {
 
 header .menu .menu-item.current-menu-item a, header .menu .menu-item.current-page-ancestor a {
   font-weight: bold;
-  color: #000;
+  color: #17234c;
 }
 
 header + section,
@@ -263,13 +295,13 @@ header + main {
   margin-top: 90px;
 }
 
-.banner div, header .header-wrapper, footer .footer-content-wrapper,
+.banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
 footer .abbreviated-footer, main {
   margin: 0 20px;
 }
 
 @media (min-width: 1024px) {
-  .banner div, header .header-wrapper, footer .footer-content-wrapper,
+  .banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
     width: 70%;
@@ -286,7 +318,7 @@ header .menu, footer .menu {
 
 header .menu .menu-item a, footer .menu .menu-item a {
   font-weight: normal;
-  color: #6e6e6e;
+  color: #4e4e4e;
 }
 
 .banner p a, main p a,
@@ -296,7 +328,8 @@ main ul a {
 }
 
 footer {
-  background-color: #f5f5f5;
+  background-color: #f5f6fa;
+  color: #17234c;
 }
 
 footer .footer-content-wrapper,
@@ -355,13 +388,13 @@ figure.wp-block-table {
 }
 
 figure.wp-block-table table {
-  border: 1px solid #979797;
+  border: 1px solid #d7d8e0;
   border-spacing: 0;
-  color: #000;
+  color: #17234c;
 }
 
 figure.wp-block-table thead {
-  background-color: #00439d;
+  background-color: #002d75;
   color: #fff;
   text-transform: uppercase;
   font-size: 14px;
@@ -377,7 +410,7 @@ figure.wp-block-table td {
 }
 
 figure.wp-block-table tr:nth-child(2n) {
-  background-color: #f5f5f5;
+  background-color: #f5f7fd;
 }
 
 figure.wp-block-table th,
@@ -386,7 +419,7 @@ figure.wp-block-table td {
 }
 
 .contact-form button {
-  background-color: #00439d;
+  background-color: #17234c;
   color: #fff;
   border-radius: 15px;
   border: none;
@@ -416,7 +449,7 @@ header .menu, footer .menu {
 
 header .menu .menu-item a, footer .menu .menu-item a {
   font-weight: normal;
-  color: #6e6e6e;
+  color: #4e4e4e;
 }
 
 .banner p a, main p a,
@@ -433,12 +466,12 @@ main {
 
 main p,
 main ul {
-  color: #979797;
+  color: #4e4e4e;
 }
 
 main p a,
 main ul a {
-  color: #000;
+  color: #17234c;
 }
 
 main ul,
@@ -475,7 +508,7 @@ main p {
 
 main .wp-block-group {
   padding: 20px 0;
-  border-top: 3px solid #000;
+  border-top: 3px solid #17234c;
 }
 
 main .wp-block-group:first-of-type {

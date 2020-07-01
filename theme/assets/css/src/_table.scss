@@ -4,13 +4,13 @@ figure.wp-block-table {
 	padding: 8px 0;
 
 	table {
-		border: 1px solid $grey;
+		border: 1px solid $table-border;
 		border-spacing: 0;
-		color: $black;
+		color: $body-highlight;
 	}
 
 	thead {
-		background-color: $blue;
+		background-color: $table-header-bg;
 		color: $white;
 		text-transform: uppercase;
 		font-size: 14px;
@@ -26,7 +26,7 @@ figure.wp-block-table {
 	}
 
 	tr:nth-child(2n) {
-		background-color: $grey-light;
+		background-color: $table-row-bg;
 	}
 
 	th,
