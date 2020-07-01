@@ -6,8 +6,6 @@ class Contact_Form {
 	public static $default_topic = 'Other';
 
 	public static function setup_hooks() {
-		add_shortcode( 'contactform', [ __CLASS__, 'shortcode' ] );
-
 		// KSES: Allow additional tags/attributes
 		add_action( 'init', [ __CLASS__, 'kses_allow_additional_tags' ] );
 	}
@@ -31,12 +29,12 @@ class Contact_Form {
 	public static function validate() {
 		$errors = [];
 
-		$name    = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'name', FILTER_SANITIZE_STRING ) ) );
-		$email   = filter_input( INPUT_POST, 'email', FILTER_SANITIZE_EMAIL );
-		$topic   = filter_input( INPUT_POST, 'topic', FILTER_SANITIZE_STRING );
-		$message = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'message', FILTER_SANITIZE_STRING ) ) );
+		$fullname = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'fullname', FILTER_SANITIZE_STRING ) ) );
+		$email    = filter_input( INPUT_POST, 'email', FILTER_SANITIZE_EMAIL );
+		$topic    = filter_input( INPUT_POST, 'topic', FILTER_SANITIZE_STRING );
+		$message  = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'message', FILTER_SANITIZE_STRING ) ) );
 
-		if ( ! $name ) {
+		if ( ! $fullname ) {
 			$errors[] = 'Please enter your name';
 		}
 
@@ -53,50 +51,55 @@ class Contact_Form {
 		}
 
 		return [
-			'name'    => $name,
-			'email'   => $email,
-			'topic'   => $topic,
-			'message' => $message,
-			'errors'  => $errors,
+			'fullname' => $fullname,
+			'email'    => $email,
+			'topic'    => $topic,
+			'message'  => $message,
+			'errors'   => $errors,
 		];
 	}
 
-	public static function block_render( $block_attributes, $content ) {
-		return self::render();
+	public static function send_message( $atts ) {
+		// TODO: send this message
+		$atts['fullname'];
+		$atts['email'];
+		$atts['topic'];
+		$atts['message'];
 	}
 
-	public static function shortcode( $attr, $content = null ) {
-		$token             = filter_input( INPUT_POST, 'token', FILTER_SANITIZE_STRING );
-		if ( ! $token ) {
-			var_dump('shortcode bails out');
-			return self::render( $attr );
-		}
+	public static function block_render( $block_attributes, $content ) {
+		$token = filter_input( INPUT_POST, 'token', FILTER_SANITIZE_STRING );
 
-		$validation_result = self::validate();
+		if ( $token ) {
+			$validation_result = self::validate();
 
-		if ( $validation_result['errors'] ) {
-			var_dump('errors');
-			var_dump($validation_result['errors'] );
-			return self::render( $validation_result );
-		} else {
-			$ip_address = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_SANITIZE_STRING );
+			if ( $validation_result['errors'] ) {
+				return self::render( $validation_result );
+			} else {
+				$ip_address = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_SANITIZE_STRING );
 
-			$recaptcha_result = Recaptcha::verify( $token, $ip_address );
-			if ( $recaptcha_result ) {
-				$show_form = false;
-				print 'success';
+				$recaptcha_result = Recaptcha::verify( $token, $ip_address );
+				if ( $recaptcha_result ) {
+					self::send_message( $validation_result );
+					return 'Thanks! Your message has been sent.';
+				} else {
+					$validation_result['errors'][] = 'ReCAPTCHA could not validate you are a human';
+					return self::render( $validation_result );
+				}
 			}
 		}
+
+		return self::render();
 	}
 
 	public static function render( $attr = null, $content = null ) {
 		$attr = shortcode_atts(
 			[
-				'name'    => '',
-				'email'   => '',
-				'topic'   => self::$default_topic,
-				'message' => '',
-				'errors'  => [],
+				'fullname' => '',
+				'email'    => '',
+				'topic'    => self::$default_topic,
+				'message'  => '',
+				'errors'   => [],
 			],
 			$attr
 		);
@@ -121,8 +124,8 @@ class Contact_Form {
 			?>
 
 			<p>
-				<label for="contact-name">Name</label>
-				<input id="contact-name" type="text" name="name" value="<?php echo esc_attr( $attr['name'] ); ?>" />
+				<label for="contact-fullname">Name</label>
+				<input id="contact-fullname" type="text" name="fullname" value="<?php echo esc_attr( $attr['fullname'] ); ?>" />
 			</p>
 
 			<p>
