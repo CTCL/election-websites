@@ -541,18 +541,17 @@ main.front-page {
   justify-content: center;
 }
 
+main {
+  counter-reset: numbered-section;
+}
+
 .numbered-section {
-  /* border: 1px dashed lightgrey; */
   display: flex;
   align-items: flex-start;
 }
 
 .numbered-section:not(:first-child) {
   margin-top: 18px;
-}
-
-main {
-  counter-reset: numbered-section;
 }
 
 .numbered-section::before {
@@ -569,13 +568,13 @@ main {
   line-height: 28px;
 }
 
-.numbered-section-content {
+.numbered-section .numbered-section-content {
   display: inline-block;
   margin-left: 18px;
   padding-top: 4px;
 }
 
-.numbered-section-content :first-child {
+.numbered-section .numbered-section-content:first-child {
   margin-top: 0;
 }
 

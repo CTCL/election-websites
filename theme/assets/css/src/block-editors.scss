@@ -2,3 +2,8 @@
 @import "blocks/numbered-section-block-editor";
 @import "blocks/tile-nav-block-editor";
 
+#editor {
+	.wp-block-group {
+		border-top: 3px solid $black;
+	}
+}
