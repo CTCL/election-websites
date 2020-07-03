@@ -67,14 +67,6 @@ class Helpers {
 		];
 	}
 
-	public static function format_email_address( $s ) {
-		return strtolower( filter_var( $s, FILTER_SANITIZE_EMAIL ) );
-	}
-
-	public static function format_hours( $s ) {
-		return trim( wp_strip_all_tags( filter_var( $s, FILTER_SANITIZE_STRING ) ) );
-	}
-
 	public static function format_phone_number( $p ) {
 		$p = preg_replace( '/[^\d]/', '', $p );
 		if ( ! $p ) {

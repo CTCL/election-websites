@@ -26,6 +26,7 @@ class Inquiries_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'Blah Blah',
 				'label_for'   => 'question_list',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 		];
 

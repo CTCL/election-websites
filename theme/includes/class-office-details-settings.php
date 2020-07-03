@@ -34,7 +34,7 @@ class Office_Details_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'jane.doe@mycounty.gov',
 				'label_for'   => 'email_address',
-				'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_email_address' ] ],
+				'args'        => [ 'sanitize_callback' => 'sanitize_email' ],
 			],
 			[
 				'uid'         => 'phone',
@@ -107,7 +107,7 @@ class Office_Details_Settings extends Settings {
 				'type'        => 'textarea',
 				'placeholder' => "Monday Friday\n9am - 5pm",
 				'label_for'   => 'hours',
-				'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_hours' ] ],
+				'args'        => [ 'sanitize_callback' => 'sanitize_textarea_field' ],
 			],
 			[
 				'uid'         => 'twitter',

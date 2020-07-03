@@ -33,6 +33,7 @@ class Google_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'UA-123456789-0',
 				'label_for'   => 'tracking_id',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 			[
 				'uid'         => 'recaptcha_site_key',
@@ -41,6 +42,7 @@ class Google_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'Site Key',
 				'label_for'   => 'recaptcha_site_key',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 			[
 				'uid'         => 'recaptcha_secret_key',
@@ -49,6 +51,7 @@ class Google_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'Secret Key',
 				'label_for'   => 'recaptcha_secret_key',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 		];
 
