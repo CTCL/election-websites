@@ -17,4 +17,6 @@ require_once __DIR__ . '/includes/class-blocks.php';
 require_once __DIR__ . '/includes/class-settings.php';
 require_once __DIR__ . '/includes/class-google-analytics.php';
 require_once __DIR__ . '/includes/class-google-settings.php';
+require_once __DIR__ . '/includes/class-banner-settings.php';
+require_once __DIR__ . '/includes/class-inquiries-settings.php';
 require_once __DIR__ . '/includes/class-recaptcha.php'; // must be after settings page
