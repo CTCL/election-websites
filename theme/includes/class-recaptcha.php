@@ -13,11 +13,8 @@ class Recaptcha {
 		return get_option( 'recaptcha_secret_key' );
 	}
 
-	// TODO: detect presence of form (in case page is renamed); maybe add to block
 	public static function wp_enqueue_scripts() {
-		if ( is_page( 'about-us' ) ) {
-			wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', [], THEME_VERSION, true );
-		}
+		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', [], null, true );
 	}
 
 	public static function verify( $response, $ip_address ) {
