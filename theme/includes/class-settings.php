@@ -9,7 +9,7 @@ class Settings {
 	}
 
 	public static function register_menu() {
-		add_menu_page( 'Elections', 'Elections', 'manage_options', 'elections', [ __CLASS__, 'office_info' ], 'dashicons-tickets' );
+		add_menu_page( 'Elections', 'Elections', 'manage_options', 'elections', [ __CLASS__, 'office_info' ], 'dashicons-star-filled', 2 );
 		add_submenu_page( 'elections', 'Office Details', 'Office Details', 'manage_options', 'elections', [ __CLASS__, 'office_info' ] );
 		add_submenu_page( 'elections', 'Inquiries', 'Inquiries', 'manage_options', 'inquiries', [ __CLASS__, 'inquiries' ] );
 		add_submenu_page( 'elections', 'Banner', 'Banner', 'manage_options', 'banner', [ __CLASS__, 'banner' ] );
