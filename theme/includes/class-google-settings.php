@@ -17,14 +17,14 @@ class Google_Settings {
 			'analytics_section',
 			'Google Analytics',
 			false,
-			'analytics_fields'
+			'google_fields'
 		);
 
 		add_settings_section(
 			'recaptcha_section',
 			'ReCAPTCHA',
 			false,
-			'recaptcha_fields'
+			'google_fields'
 		);
 
 		$fields = [
@@ -60,7 +60,7 @@ class Google_Settings {
 			],
 		];
 
-		\CTCL\ElectionWebsite\Settings::configure_fields( $fields );
+		\CTCL\ElectionWebsite\Settings::configure_fields( $fields, 'google_fields' );
 	}
 
 	public static function options_page() {
@@ -68,12 +68,11 @@ class Google_Settings {
 		<form method="post" action="options.php">
 			<h2>Google Settings</h2>
 			<?php
-				settings_fields( 'analytics_fields' );
+				settings_fields( 'google_fields' );
 			if ( filter_input( INPUT_GET, 'settings-updated', FILTER_SANITIZE_STRING ) ) {
 				\CTCL\ElectionWebsite\Settings::admin_notice();
 			}
-				do_settings_sections( 'analytics_fields' );
-				do_settings_sections( 'recaptcha_fields' );
+				do_settings_sections( 'google_fields' );
 				submit_button();
 			?>
 		</form>

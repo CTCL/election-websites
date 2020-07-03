@@ -20,14 +20,14 @@ class Settings {
 			'contact_section',
 			'Contact details',
 			false,
-			'contact_fields'
+			'contact_fields_all'
 		);
 
 		add_settings_section(
 			'social_section',
 			'Social media',
 			false,
-			'social_fields'
+			'contact_fields_all'
 		);
 
 		$fields = [
@@ -141,15 +141,15 @@ class Settings {
 			],
 		];
 
-		self::configure_fields( $fields );
+		self::configure_fields( $fields, 'contact_fields_all' );
 	}
 
-	public static function configure_fields( $fields ) {
+	public static function configure_fields( $fields, $group ) {
 		foreach ( $fields as $field_slug => $field_list ) {
 			foreach ( $field_list as $field_data ) {
-				add_settings_field( $field_data['uid'], $field_data['label'], [ 'CTCL\ElectionWebsite\Settings', 'field_callback' ], $field_slug, $field_data['section'], $field_data );
+				add_settings_field( $field_data['uid'], $field_data['label'], [ 'CTCL\ElectionWebsite\Settings', 'field_callback' ], $group, $field_data['section'], $field_data );
 				$args = $field_data['args'] ?? [];
-				register_setting( $field_slug, $field_data['uid'], $args );
+				register_setting( $group, $field_data['uid'], $args );
 			}
 		}
 	}
@@ -201,12 +201,11 @@ class Settings {
 		<form method="post" action="options.php">
 			<h1>Office Information</h1>
 			<?php
-				settings_fields( 'contact_fields' );
+				settings_fields( 'contact_fields_all' );
 			if ( filter_input( INPUT_GET, 'settings-updated', FILTER_SANITIZE_STRING ) ) {
 				self::admin_notice();
 			}
-				do_settings_sections( 'contact_fields' );
-				do_settings_sections( 'social_fields' );
+				do_settings_sections( 'contact_fields_all' );
 				submit_button();
 			?>
 		</form>
