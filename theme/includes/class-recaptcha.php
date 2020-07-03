@@ -6,25 +6,53 @@ class Recaptcha {
 	const API_URL = 'https://www.google.com/recaptcha/api/siteverify';
 
 	public static function hooks() {
-		add_action( 'admin_menu', [ __CLASS__, 'register_options_page' ] );
+		add_action( 'admin_menu', [ __CLASS__, 'register_submenu' ] );
 		add_action( 'admin_init', [ __CLASS__, 'register_settings' ] );
 	}
 
-	public static function register_options_page() {
-		add_options_page( 'ReCAPTCHA', 'ReCAPTCHA', 'manage_options', 'recaptcha', [ __CLASS__, 'options_page' ] );
+	public static function register_submenu() {
+		add_submenu_page( 'elections', 'ReCAPTCHA', 'ReCAPTCHA', 'manage_options', 'recaptcha', [ __CLASS__, 'options_page' ] );
 	}
 
 	public static function register_settings() {
-		register_setting( 'recaptcha_options_group', 'repatcha_site_key' );
-		register_setting( 'recaptcha_options_group', 'repatcha_secret_key' );
+		add_settings_section(
+			'recaptcha_section',
+			false,
+			false,
+			'recaptcha_fields'
+		);
+
+		$fields = [
+			'recaptcha_fields' =>
+			[
+				[
+					'uid'         => 'recaptcha_site_key',
+					'label'       => 'Site Key',
+					'section'     => 'recaptcha_section',
+					'type'        => 'text',
+					'placeholder' => 'Site Key',
+					'label_for'   => 'recaptcha_site_key',
+				],
+				[
+					'uid'         => 'recaptcha_secret_key',
+					'label'       => 'Secret Key',
+					'section'     => 'recaptcha_section',
+					'type'        => 'text',
+					'placeholder' => 'Secret Key',
+					'label_for'   => 'recaptcha_secret_key',
+				],
+			],
+		];
+
+		\CTCL\ElectionWebsite\Settings::configure_fields( $fields );
 	}
 
 	public static function get_site_key() {
-		return get_option( 'repatcha_site_key' );
+		return get_option( 'recaptcha_site_key' );
 	}
 
 	public static function get_secret_key() {
-		return get_option( 'repatcha_secret_key' );
+		return get_option( 'recaptcha_secret_key' );
 	}
 
 	public static function wp_enqueue_scripts() {
@@ -78,27 +106,17 @@ class Recaptcha {
 
 	public static function options_page() {
 		?>
-
-		<h2>ReCAPTCHA</h2>
-
 		<form method="post" action="options.php">
-			<?php settings_fields( 'recaptcha_options_group' ); ?>
-
-			<table>
-				<tr>
-					<th><label for="repatcha_site_key">Site Key</label></th>
-					<td><input type="text" size="50" id="repatcha_site_key" name="repatcha_site_key" value="<?php echo esc_attr( get_option( 'repatcha_site_key' ) ); ?>" /></td>
-				</tr>
-
-				<tr>
-					<th><label for="repatcha_secret_key">Secret Key</label></th>
-					<td><input type="text" size="50" id="repatcha_secret_key" name="repatcha_secret_key" value="<?php echo esc_attr( get_option( 'repatcha_secret_key' ) ); ?>" /></td>
-				</tr>
-			</table>
-
-			<?php submit_button(); ?>
-			</form>
-
+			<h2>ReCAPTCHA</h2>
+			<?php
+				settings_fields( 'recaptcha_fields' );
+			if ( filter_input( INPUT_GET, 'settings-updated', FILTER_SANITIZE_STRING ) ) {
+				\CTCL\ElectionWebsite\Settings::admin_notice();
+			}
+				do_settings_sections( 'recaptcha_fields' );
+				submit_button();
+			?>
+		</form>
 		<?php
 	}
 }
