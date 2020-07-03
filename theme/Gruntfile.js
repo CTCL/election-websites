@@ -32,16 +32,19 @@ module.exports = function( grunt ) {
 				sourceMap: true
 			},
 			main: {
-				src: [
-					'assets/js/src/main.js'
-				],
+				src: [ 'assets/js/src/main.js' ],
 				dest: 'assets/js/main.src.js'
+			},
+			admin: {
+				src: [ 'assets/js/src/admin.js' ],
+				dest: 'assets/js/admin.src.js'
 			}
 		},
 
 		uglify: {
 			all: {
 				files: {
+					'assets/js/admin.min.js': [ 'assets/js/admin.src.js' ],
 					'assets/js/main.min.js': [ 'assets/js/main.src.js' ],
 					'assets/js/blocks.min.js': [ 'assets/js/blocks.src.js' ]
 				},
