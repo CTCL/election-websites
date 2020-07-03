@@ -18,10 +18,11 @@ require_once __DIR__ . '/includes/class-contact-form.php';
 require_once __DIR__ . '/includes/class-office-info.php';
 
 // settings
-require_once __DIR__ . '/includes/class-banner-settings.php';
-require_once __DIR__ . '/includes/class-google-settings.php';
-require_once __DIR__ . '/includes/class-inquiries-settings.php';
+require_once __DIR__ . '/includes/class-settings.php';
 require_once __DIR__ . '/includes/class-office-details-settings.php';
+require_once __DIR__ . '/includes/class-banner-settings.php';
+require_once __DIR__ . '/includes/class-inquiries-settings.php';
+require_once __DIR__ . '/includes/class-google-settings.php';
 
 // google integration
 require_once __DIR__ . '/includes/class-google-analytics.php';

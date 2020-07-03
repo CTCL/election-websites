@@ -1,15 +1,10 @@
 <?php
 namespace CTCL\ElectionWebsite;
 
-class Banner_Settings {
-
-	public static function hooks() {
-		add_action( 'admin_menu', [ __CLASS__, 'register_menu' ] );
-		add_action( 'admin_init', [ __CLASS__, 'register_settings' ] );
-	}
+class Banner_Settings extends Settings {
 
 	public static function register_menu() {
-		add_submenu_page( 'elections', 'Banner', 'Banner', 'manage_options', 'banner', [ __CLASS__, 'options_page' ] );
+		add_submenu_page( 'elections', 'Banner', 'Banner', 'manage_options', 'banner', [ get_called_class(), 'options_page' ] );
 	}
 
 	public static function register_settings() {
@@ -38,6 +33,14 @@ class Banner_Settings {
 					'placeholder' => 'Important News',
 					'label_for'   => 'banner_title',
 				],
+				[
+					'uid'         => 'banner_description',
+					'label'       => 'Title',
+					'section'     => 'banner_section',
+					'type'        => 'textarea',
+					'placeholder' => 'Lorem ipsum…',
+					'label_for'   => 'banner_description',
+				],
 			],
 			'alert_banner_fields' =>
 			[
@@ -62,7 +65,7 @@ class Banner_Settings {
 			<?php
 				settings_fields( 'banner_fields' );
 			if ( filter_input( INPUT_GET, 'settings-updated', FILTER_SANITIZE_STRING ) ) {
-				\CTCL\ElectionWebsite\Settings::admin_notice();
+				self::admin_notice();
 			}
 				do_settings_sections( 'banner_fields' );
 				submit_button();
@@ -70,6 +73,6 @@ class Banner_Settings {
 		</form>
 		<?php
 	}
-
 }
+
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Banner_Settings', 'hooks' ] );

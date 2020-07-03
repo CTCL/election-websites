@@ -1,16 +1,11 @@
 <?php
 namespace CTCL\ElectionWebsite;
 
-class Office_Details_Settings {
-
-	public static function hooks() {
-		add_action( 'admin_menu', [ __CLASS__, 'register_menu' ] );
-		add_action( 'admin_init', [ __CLASS__, 'register_settings' ] );
-	}
+class Office_Details_Settings extends Settings {
 
 	public static function register_menu() {
-		add_menu_page( 'Elections', 'Elections', 'manage_options', 'elections', [ __CLASS__, 'office_info' ], 'dashicons-star-filled', 2 );
-		add_submenu_page( 'elections', 'Office Details', 'Office Details', 'manage_options', 'elections', [ __CLASS__, 'office_info' ] );
+		add_menu_page( 'Elections', 'Elections', 'manage_options', 'elections', [ get_called_class(), 'office_info' ], 'dashicons-star-filled', 2 );
+		add_submenu_page( 'elections', 'Office Details', 'Office Details', 'manage_options', 'elections', [ get_called_class(), 'office_info' ] );
 	}
 
 	public static function register_settings() {
@@ -149,39 +144,6 @@ class Office_Details_Settings {
 		];
 
 		self::configure_fields( $fields, 'contact_fields_all' );
-	}
-
-	public static function configure_fields( $fields, $group ) {
-		foreach ( $fields as $field_slug => $field_list ) {
-			foreach ( $field_list as $field_data ) {
-				add_settings_field( $field_data['uid'], $field_data['label'], [ 'CTCL\ElectionWebsite\Settings', 'field_callback' ], $group, $field_data['section'], $field_data );
-				$args = $field_data['args'] ?? [];
-				register_setting( $group, $field_data['uid'], $args );
-			}
-		}
-	}
-
-	public static function field_callback( $args ) {
-
-		switch ( $args['type'] ) {
-			case 'text':
-				echo '<input size="50" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '" value="' . esc_attr( get_option( $args['uid'] ) ) . '" />';
-				break;
-			case 'textarea':
-				echo '<textarea cols="50" rows="5" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '">' . esc_textarea( get_option( $args['uid'] ) ) . '</textarea>';
-				break;
-			case 'select':
-				echo '<select id="' . esc_attr( $args['uid'] ) . '" name="' . esc_attr( $args['uid'] ) . '">';
-				foreach ( $args['options'] as $value => $label ) {
-					echo '<option value="' . esc_attr( $value ) . '"' . selected( $value, get_option( $args['uid'] ), false ) . '>' . esc_html( $label ) . '</option>';
-				}
-					echo '</select>';
-				break;
-		}
-	}
-
-	public static function admin_notice() {
-		echo '<div class="notice notice-success is-dismissible"><p>Your settings have been updated.</p></div>';
 	}
 
 	public static function inquiries() {

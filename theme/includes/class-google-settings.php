@@ -1,15 +1,10 @@
 <?php
 namespace CTCL\ElectionWebsite;
 
-class Google_Settings {
+class Google_Settings extends Settings {
 
-	public static function hooks() {
-		add_action( 'admin_menu', [ __CLASS__, 'register_submenu' ] );
-		add_action( 'admin_init', [ __CLASS__, 'register_settings' ] );
-	}
-
-	public static function register_submenu() {
-		add_submenu_page( 'elections', 'Google', 'Google', 'manage_options', 'google', [ __CLASS__, 'options_page' ] );
+	public static function register_menu() {
+		add_submenu_page( 'elections', 'Google', 'Google', 'manage_options', 'google', [ get_called_class(), 'options_page' ] );
 	}
 
 	public static function register_settings() {
@@ -70,7 +65,7 @@ class Google_Settings {
 			<?php
 				settings_fields( 'google_fields' );
 			if ( filter_input( INPUT_GET, 'settings-updated', FILTER_SANITIZE_STRING ) ) {
-				\CTCL\ElectionWebsite\Settings::admin_notice();
+				self::admin_notice();
 			}
 				do_settings_sections( 'google_fields' );
 				submit_button();
@@ -78,6 +73,6 @@ class Google_Settings {
 		</form>
 		<?php
 	}
-
 }
+
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Google_Settings', 'hooks' ] );
