@@ -47,7 +47,8 @@ class Hooks {
 	public static function admin_enqueue_scripts() {
 		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
 
-		wp_enqueue_style( 'main', get_template_directory_uri() . "/assets/css/admin.{$type}.css", [], THEME_VERSION );
+		wp_enqueue_style( 'admin', get_template_directory_uri() . "/assets/css/admin.{$type}.css", [], THEME_VERSION );
+		wp_enqueue_script( 'admin', get_template_directory_uri() . "/assets/js/admin.{$type}.js", [ 'jquery', 'underscore', 'wp-util' ], THEME_VERSION, false );
 	}
 
 	/**
