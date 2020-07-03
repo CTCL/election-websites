@@ -53,6 +53,7 @@ class Banner_Settings extends Settings {
 				'label_for'   => 'banner_link',
 				'args'        => [ 'sanitize_callback' => 'sanitize_url' ],
 			],
+			// TODO: use media library
 			[
 				'uid'         => 'banner_image',
 				'label'       => 'Image',
