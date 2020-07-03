@@ -103,6 +103,14 @@ class Settings {
 					'label_for'   => 'zip',
 					'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_zip' ] ],
 				],
+				[
+					'uid'         => 'hours',
+					'label'       => 'Hours',
+					'section'     => 'contact_section',
+					'type'        => 'textarea',
+					'placeholder' => "Monday Friday\n9am - 5pm",
+					'label_for'   => 'hours',
+				],
 			],
 			'social_fields'  =>
 			[
@@ -150,9 +158,10 @@ class Settings {
 
 		switch ( $args['type'] ) {
 			case 'text':
-			case 'password':
-			case 'number':
 				echo '<input size="50" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '" value="' . esc_attr( get_option( $args['uid'] ) ) . '" />';
+				break;
+			case 'textarea':
+				echo '<textarea cols="50" rows="5" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '">' . esc_textarea( get_option( $args['uid'] ) ) . '</textarea>';
 				break;
 			case 'select':
 				echo '<select id="' . esc_attr( $args['uid'] ) . '" name="' . esc_attr( $args['uid'] ) . '">';
