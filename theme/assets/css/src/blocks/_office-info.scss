@@ -1,0 +1,40 @@
+.office-info {
+	h4 {
+		margin-bottom: 0;
+
+		&::before {
+			content: '';
+			background-repeat: no-repeat;
+			display: inline-block;
+			height: 30px;
+			width: 40px;
+			margin-left: -40px;
+		}
+
+		& + p {
+			margin-top: 0;
+		}
+
+		&.email::before {
+			background-image: url(../images/office/email.svg);
+		}
+
+		&.hours::before {
+			background-image: url(../images/office/email.svg);
+		}
+
+		&.location::before {
+			background-image: url(../images/office/location.svg);
+		}
+
+		&.phone::before {
+			background-image: url(../images/office/phone.svg);
+		}
+	}
+
+	a {
+		color: $body-font;
+		text-decoration: none;
+		font-weight: normal;
+	}
+}
