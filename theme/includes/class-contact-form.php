@@ -141,7 +141,6 @@ class Contact_Form {
 						echo '<option' . selected( $current_topic, $attr['topic'], false ) . '>' . esc_html( $current_topic ) . '</option>';
 					}
 					?>
-					<option>Data request</option>
 				</select>
 			</p>
 
