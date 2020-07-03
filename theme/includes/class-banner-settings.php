@@ -33,6 +33,7 @@ class Banner_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'Important News',
 				'label_for'   => 'banner_title',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 			[
 				'uid'         => 'banner_description',
@@ -41,6 +42,25 @@ class Banner_Settings extends Settings {
 				'type'        => 'textarea',
 				'placeholder' => 'Lorem ipsum…',
 				'label_for'   => 'banner_description',
+				'args'        => [ 'sanitize_callback' => 'sanitize_textarea_field' ],
+			],
+			[
+				'uid'         => 'banner_link',
+				'label'       => 'Description',
+				'section'     => 'banner_section',
+				'type'        => 'text',
+				'placeholder' => 'https://www.example.com/',
+				'label_for'   => 'banner_link',
+				'args'        => [ 'sanitize_callback' => 'sanitize_url' ],
+			],
+			[
+				'uid'         => 'banner_image',
+				'label'       => 'Image',
+				'section'     => 'banner_section',
+				'type'        => 'text',
+				'placeholder' => 'Important News',
+				'label_for'   => 'banner_image',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 			[
 				'uid'         => 'alert_banner_title',
@@ -49,6 +69,24 @@ class Banner_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'Don’t Forget',
 				'label_for'   => 'alert_banner_title',
+			],
+			[
+				'uid'         => 'alert_banner_description',
+				'label'       => 'Description',
+				'section'     => 'alert_banner_section',
+				'type'        => 'text',
+				'placeholder' => 'Lorem ipsum…',
+				'label_for'   => 'alert_banner_description',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+			],
+			[
+				'uid'         => 'alert_banner_link',
+				'label'       => 'Description',
+				'section'     => 'alert_banner_section',
+				'type'        => 'text',
+				'placeholder' => 'https://www.example.com/',
+				'label_for'   => 'alert_banner_link',
+				'args'        => [ 'sanitize_callback' => 'sanitize_url' ],
 			],
 		];
 
