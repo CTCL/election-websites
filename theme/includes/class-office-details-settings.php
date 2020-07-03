@@ -3,9 +3,12 @@ namespace CTCL\ElectionWebsite;
 
 class Office_Details_Settings extends Settings {
 
+	const PAGE_TITLE = 'Office Information';
+	const FIELD_GROUP = 'contact_fields_all';
+
 	public static function register_menu() {
-		add_menu_page( 'Elections', 'Elections', 'manage_options', 'elections', [ get_called_class(), 'office_info' ], 'dashicons-star-filled', 2 );
-		add_submenu_page( 'elections', 'Office Details', 'Office Details', 'manage_options', 'elections', [ get_called_class(), 'office_info' ] );
+		add_menu_page( 'Elections', 'Elections', 'manage_options', 'elections', [ get_called_class(), 'page' ], 'dashicons-star-filled', 2 );
+		add_submenu_page( 'elections', 'Office Details', 'Office Details', 'manage_options', 'elections', [ get_called_class(), 'page' ] );
 	}
 
 	public static function register_settings() {
@@ -13,14 +16,14 @@ class Office_Details_Settings extends Settings {
 			'contact_section',
 			'Contact details',
 			false,
-			'contact_fields_all'
+			static::FIELD_GROUP
 		);
 
 		add_settings_section(
 			'social_section',
 			'Social media',
 			false,
-			'contact_fields_all'
+			static::FIELD_GROUP
 		);
 
 		$fields = [
@@ -143,27 +146,7 @@ class Office_Details_Settings extends Settings {
 			],
 		];
 
-		self::configure_fields( $fields, 'contact_fields_all' );
-	}
-
-	public static function inquiries() {
-		echo "subject lines";
-	}
-
-	public static function office_info() {
-		?>
-		<form method="post" action="options.php">
-			<h1>Office Information</h1>
-			<?php
-				settings_fields( 'contact_fields_all' );
-			if ( filter_input( INPUT_GET, 'settings-updated', FILTER_SANITIZE_STRING ) ) {
-				self::admin_notice();
-			}
-				do_settings_sections( 'contact_fields_all' );
-				submit_button();
-			?>
-		</form>
-		<?php
+		self::configure_fields( $fields, static::FIELD_GROUP );
 	}
 }
 

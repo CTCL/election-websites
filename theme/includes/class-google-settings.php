@@ -3,8 +3,11 @@ namespace CTCL\ElectionWebsite;
 
 class Google_Settings extends Settings {
 
+	const PAGE_TITLE = 'Google';
+	const FIELD_GROUP = 'google_fields';
+
 	public static function register_menu() {
-		add_submenu_page( 'elections', 'Google', 'Google', 'manage_options', 'google', [ get_called_class(), 'options_page' ] );
+		add_submenu_page( 'elections', 'Google', 'Google', 'manage_options', 'google', [ get_called_class(), 'page' ] );
 	}
 
 	public static function register_settings() {
@@ -12,14 +15,14 @@ class Google_Settings extends Settings {
 			'analytics_section',
 			'Google Analytics',
 			false,
-			'google_fields'
+			static::FIELD_GROUP
 		);
 
 		add_settings_section(
 			'recaptcha_section',
 			'ReCAPTCHA',
 			false,
-			'google_fields'
+			static::FIELD_GROUP
 		);
 
 		$fields = [
@@ -55,23 +58,7 @@ class Google_Settings extends Settings {
 			],
 		];
 
-		\CTCL\ElectionWebsite\Settings::configure_fields( $fields, 'google_fields' );
-	}
-
-	public static function options_page() {
-		?>
-		<form method="post" action="options.php">
-			<h2>Google Settings</h2>
-			<?php
-				settings_fields( 'google_fields' );
-			if ( filter_input( INPUT_GET, 'settings-updated', FILTER_SANITIZE_STRING ) ) {
-				self::admin_notice();
-			}
-				do_settings_sections( 'google_fields' );
-				submit_button();
-			?>
-		</form>
-		<?php
+		self::configure_fields( $fields, static::FIELD_GROUP );
 	}
 }
 

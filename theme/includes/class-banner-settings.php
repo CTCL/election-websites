@@ -3,8 +3,11 @@ namespace CTCL\ElectionWebsite;
 
 class Banner_Settings extends Settings {
 
+	const PAGE_TITLE = 'Banner';
+	const FIELD_GROUP = 'banner_fields';
+
 	public static function register_menu() {
-		add_submenu_page( 'elections', 'Banner', 'Banner', 'manage_options', 'banner', [ get_called_class(), 'options_page' ] );
+		add_submenu_page( 'elections', 'Banner', 'Banner', 'manage_options', 'banner', [ get_called_class(), 'page' ] );
 	}
 
 	public static function register_settings() {
@@ -12,14 +15,14 @@ class Banner_Settings extends Settings {
 			'banner_section',
 			'Banner',
 			false,
-			'banner_fields'
+			static::FIELD_GROUP
 		);
 
 		add_settings_section(
 			'alert_banner_section',
 			'Alert Banner',
 			false,
-			'banner_fields'
+			static::FIELD_GROUP
 		);
 
 		$fields = [
@@ -35,7 +38,7 @@ class Banner_Settings extends Settings {
 				],
 				[
 					'uid'         => 'banner_description',
-					'label'       => 'Title',
+					'label'       => 'Description',
 					'section'     => 'banner_section',
 					'type'        => 'textarea',
 					'placeholder' => 'Lorem ipsum…',
@@ -55,23 +58,7 @@ class Banner_Settings extends Settings {
 			],
 		];
 
-		\CTCL\ElectionWebsite\Settings::configure_fields( $fields, 'banner_fields' );
-	}
-
-	public static function options_page() {
-		?>
-		<form method="post" action="options.php">
-			<h2>Banner Settings</h2>
-			<?php
-				settings_fields( 'banner_fields' );
-			if ( filter_input( INPUT_GET, 'settings-updated', FILTER_SANITIZE_STRING ) ) {
-				self::admin_notice();
-			}
-				do_settings_sections( 'banner_fields' );
-				submit_button();
-			?>
-		</form>
-		<?php
+		self::configure_fields( $fields, static::FIELD_GROUP );
 	}
 }
 
