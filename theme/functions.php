@@ -21,7 +21,7 @@ require_once __DIR__ . '/includes/class-office-info.php';
 require_once __DIR__ . '/includes/class-settings.php';
 require_once __DIR__ . '/includes/class-office-details-settings.php';
 require_once __DIR__ . '/includes/class-banner-settings.php';
-require_once __DIR__ . '/includes/class-inquiries-settings.php';
+require_once __DIR__ . '/includes/class-topics-settings.php';
 require_once __DIR__ . '/includes/class-google-settings.php';
 
 // google integration
