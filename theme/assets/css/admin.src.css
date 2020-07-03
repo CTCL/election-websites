@@ -1,0 +1,58 @@
+figure.wp-block-table {
+  margin: 0;
+  padding: 8px 0;
+}
+
+figure.wp-block-table table {
+  border: 1px solid #d7d8e0;
+  border-spacing: 0;
+  color: #17234c;
+}
+
+figure.wp-block-table thead {
+  background-color: #002d75;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+figure.wp-block-table th {
+  padding: 4px 16px;
+}
+
+figure.wp-block-table td {
+  padding: 16px;
+}
+
+figure.wp-block-table tr:nth-child(2n) {
+  background-color: #f5f7fd;
+}
+
+figure.wp-block-table th,
+figure.wp-block-table td {
+  vertical-align: top;
+}
+
+.contact-form button {
+  background-color: #17234c;
+  color: #fff;
+  border-radius: 15px;
+  border: none;
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.contact-form input[type='text'] {
+  border-radius: 5px;
+}
+
+.contact-form textarea,
+.contact-form select,
+.contact-form input[type='text'] {
+  width: 75%;
+  display: block;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
