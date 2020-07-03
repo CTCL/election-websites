@@ -14,7 +14,6 @@ class Settings {
 
 	public static function configure_fields( $fields, $group ) {
 		foreach ( $fields as $field_data ) {
-			// var_dump($field_data);exit;
 			add_settings_field( $field_data['uid'], $field_data['label'], [ 'CTCL\ElectionWebsite\Settings', 'field_callback' ], $group, $field_data['section'], $field_data );
 			$args = $field_data['args'] ?? [];
 			register_setting( $group, $field_data['uid'], $args );
@@ -25,6 +24,26 @@ class Settings {
 		switch ( $args['type'] ) {
 			case 'text':
 				echo '<input size="50" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '" value="' . esc_attr( get_option( $args['uid'] ) ) . '" />';
+				break;
+			case 'multitext':
+				$value_list = get_option( $args['uid'] );
+				if ( ! is_array( $value_list ) ) {
+					$value_list = [ '' ];
+				}
+				$value_list_length = count( $value_list );
+				$index = 1;
+
+				echo '<div id="' . esc_attr( $args['uid'] . '_wrapper' ) . '">';
+				foreach ( $value_list as $value ) {
+					echo '<div><input size="50" class="multitext" name="' . esc_attr( $args['uid'] ) . '[]" type="text" placeholder="' . esc_attr( $args['placeholder'] ) . '" value="' . esc_attr( $value ) . '" />';
+					if ( $index++ < $value_list_length ) {
+						echo '<input type="button" class="button remove" value="Remove" />';
+					} else {
+						echo '<input type="button" class="button add" id="' . esc_attr( 'add_' . $args['uid'] ) . '" value="Add" />';
+					}
+					echo '</div>';
+				}
+				echo '</div>';
 				break;
 			case 'textarea':
 				echo '<textarea cols="50" rows="5" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '">' . esc_textarea( get_option( $args['uid'] ) ) . '</textarea>';
