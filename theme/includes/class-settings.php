@@ -13,12 +13,11 @@ class Settings {
 	}
 
 	public static function configure_fields( $fields, $group ) {
-		foreach ( $fields as $field_slug => $field_list ) {
-			foreach ( $field_list as $field_data ) {
-				add_settings_field( $field_data['uid'], $field_data['label'], [ 'CTCL\ElectionWebsite\Settings', 'field_callback' ], $group, $field_data['section'], $field_data );
-				$args = $field_data['args'] ?? [];
-				register_setting( $group, $field_data['uid'], $args );
-			}
+		foreach ( $fields as $field_data ) {
+			// var_dump($field_data);exit;
+			add_settings_field( $field_data['uid'], $field_data['label'], [ 'CTCL\ElectionWebsite\Settings', 'field_callback' ], $group, $field_data['section'], $field_data );
+			$args = $field_data['args'] ?? [];
+			register_setting( $group, $field_data['uid'], $args );
 		}
 	}
 

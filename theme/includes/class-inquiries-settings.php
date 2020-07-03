@@ -19,16 +19,13 @@ class Inquiries_Settings extends Settings {
 		);
 
 		$fields = [
-			'inquiries_fields' =>
 			[
-				[
-					'uid'         => 'question_list',
-					'label'       => 'Question',
-					'section'     => 'inquiries_section',
-					'type'        => 'text',
-					'placeholder' => 'Blah Blah',
-					'label_for'   => 'question_list',
-				],
+				'uid'         => 'question_list',
+				'label'       => 'Question',
+				'section'     => 'inquiries_section',
+				'type'        => 'text',
+				'placeholder' => 'Blah Blah',
+				'label_for'   => 'question_list',
 			],
 		];
 
