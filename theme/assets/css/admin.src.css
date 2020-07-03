@@ -1,3 +1,42 @@
+.office-info h4 {
+  margin-bottom: 0;
+}
+
+.office-info h4::before {
+  content: '';
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 30px;
+  width: 40px;
+  margin-left: -40px;
+}
+
+.office-info h4 + p {
+  margin-top: 0;
+}
+
+.office-info h4.email::before {
+  background-image: url(../images/office/email.svg);
+}
+
+.office-info h4.hours::before {
+  background-image: url(../images/office/email.svg);
+}
+
+.office-info h4.location::before {
+  background-image: url(../images/office/location.svg);
+}
+
+.office-info h4.phone::before {
+  background-image: url(../images/office/phone.svg);
+}
+
+.office-info a {
+  color: #4e4e4e;
+  text-decoration: none;
+  font-weight: normal;
+}
+
 figure.wp-block-table {
   margin: 0;
   padding: 8px 0;
