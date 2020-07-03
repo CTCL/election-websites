@@ -15,11 +15,7 @@ module.exports = function( grunt ) {
 		browserify: {
 			dist: {
 				files: {
-					'assets/js/blocks.src.js': [
-						'assets/js/src/blocks/contact-form.js',
-						'assets/js/src/blocks/numbered-section-block-editor.js',
-						'assets/js/src/blocks/tile-nav-block-editor.js'
-					]
+					'assets/js/blocks.src.js': [ 'assets/js/src/blocks/*.js' ]
 				},
 				options: {
 					transform        : [ [ 'babelify', { presets: [ "@babel/preset-env", "@babel/preset-react" ], compact: false } ] ],
