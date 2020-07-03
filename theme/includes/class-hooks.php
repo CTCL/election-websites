@@ -25,6 +25,9 @@ class Hooks {
 		add_filter( 'comments_open', '__return_false' );
 		add_filter( 'pings_open', '__return_false' );
 		add_filter( 'comments_array', '__return_empty_array' );
+
+		// KSES: Allow additional tags/attributes
+		add_action( 'init', [ __CLASS__, 'kses_allow_additional_tags' ] );
 	}
 
 	/**
@@ -94,6 +97,63 @@ class Hooks {
 
 	public static function set_image_sizes() {
 		add_image_size( 'header-icon', 56, 56 );
+	}
+
+	/**
+	 * Allow additional tags and attributes.
+	 */
+	public static function kses_allow_additional_tags() {
+		global $allowedposttags;
+
+		$style_attributes = [
+			'class' => true,
+			'id'    => true,
+			'style' => true,
+		];
+
+		$allowed_tags_data = [
+			'form'   => array_merge(
+				$style_attributes,
+				[
+					'action' => true,
+					'method' => true,
+				]
+			),
+
+			'select' => array_merge(
+				$style_attributes,
+				[
+					'name' => true,
+				]
+			),
+
+			'option' => array_merge(
+				$style_attributes,
+				[
+					'value'    => true,
+					'selected' => true,
+				]
+			),
+
+			'input'  => array_merge(
+				$style_attributes,
+				[
+					'name'        => true,
+					'value'       => true,
+					'placeholder' => true,
+					'type'        => true,
+				]
+			),
+		];
+
+
+		foreach ( $allowed_tags_data as $tag => $new_attributes ) {
+			if ( ! isset( $allowedposttags[ $tag ] ) || ! is_array( $allowedposttags[ $tag ] ) ) {
+				$allowedposttags[ $tag ] = []; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+			}
+
+			$allowedposttags[ $tag ] = array_merge( $allowedposttags[ $tag ], $new_attributes ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+		}
 	}
 }
 
