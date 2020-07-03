@@ -1,7 +1,7 @@
 <?php
 namespace CTCL\ElectionWebsite;
 
-class Settings {
+class Office_Details_Settings {
 
 	public static function hooks() {
 		add_action( 'admin_menu', [ __CLASS__, 'register_menu' ] );
@@ -205,4 +205,4 @@ class Settings {
 	}
 }
 
-add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Settings', 'hooks' ] );
+add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Office_Details_Settings', 'hooks' ] );
