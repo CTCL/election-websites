@@ -67,6 +67,7 @@ class Settings {
 					'type'        => 'text',
 					'placeholder' => '47 Oak Drive',
 					'label_for'   => 'address',
+					'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 				],
 				[
 					'uid'         => 'address2',
@@ -75,6 +76,7 @@ class Settings {
 					'type'        => 'text',
 					'placeholder' => 'Floor 3',
 					'label_for'   => 'address2',
+					'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 				],
 				[
 					'uid'         => 'city',
@@ -83,6 +85,7 @@ class Settings {
 					'type'        => 'text',
 					'placeholder' => 'Riverdale',
 					'label_for'   => 'city',
+					'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 				],
 				[
 					'uid'         => 'state',
@@ -110,6 +113,7 @@ class Settings {
 					'type'        => 'textarea',
 					'placeholder' => "Monday Friday\n9am - 5pm",
 					'label_for'   => 'hours',
+					'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_hours' ] ],
 				],
 			],
 			'social_fields'  =>
@@ -120,7 +124,8 @@ class Settings {
 					'section'     => 'social_section',
 					'type'        => 'text',
 					'placeholder' => 'MyCountyVotes',
-					'label_for'   => 'recaptcha_site_key',
+					'label_for'   => 'twitter',
+					'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_twitter' ] ],
 				],
 				[
 					'uid'         => 'facebook',
@@ -128,7 +133,9 @@ class Settings {
 					'section'     => 'social_section',
 					'type'        => 'text',
 					'placeholder' => 'MyCountyVotes',
-					'label_for'   => 'recaptcha_site_key',
+					'label_for'   => 'facebook',
+					'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+					'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_facebook' ] ],
 				],
 				[
 					'uid'         => 'instagram',
@@ -136,7 +143,9 @@ class Settings {
 					'section'     => 'social_section',
 					'type'        => 'text',
 					'placeholder' => 'MyCountyVotes',
-					'label_for'   => 'recaptcha_site_key',
+					'label_for'   => 'instagram',
+					'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+					'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_instagram' ] ],
 				],
 			],
 		];
