@@ -13,7 +13,7 @@ class Banner_Settings extends Settings {
 	public static function register_settings() {
 		add_settings_section(
 			'banner_section',
-			'Banner',
+			'Home Page Banner',
 			false,
 			static::FIELD_GROUP
 		);
