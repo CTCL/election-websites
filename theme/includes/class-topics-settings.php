@@ -24,7 +24,7 @@ class Topics_Settings extends Settings {
 				'label'       => 'Topics',
 				'section'     => 'topics_section',
 				'type'        => 'multitext',
-				'placeholder' => 'Blah Blah',
+				'placeholder' => 'Lorem Ipsum',
 				'label_for'   => 'topic_list',
 				'args'        => [ 'sanitize_callback' => [ __CLASS__, 'sanitize_topic_list' ] ],
 			],
@@ -34,10 +34,7 @@ class Topics_Settings extends Settings {
 	}
 
 	public static function sanitize_topic_list( $args ) {
-
-		return $args;
-		var_dump($args);
-		exit;
+		return array_map( 'sanitize_text_field', $args );
 	}
 }
 
