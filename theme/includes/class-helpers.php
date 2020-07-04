@@ -2,6 +2,7 @@
 namespace CTCL\ElectionWebsite;
 
 class Helpers {
+
 	public static function state_list() {
 		return [
 			''   => 'Select a State',
