@@ -22,3 +22,14 @@
 		box-sizing: border-box;
 	}
 }
+
+#banner_image_wrapper {
+	#banner_image_thumbnail {
+		display: block;
+		margin-top: 20px;
+	}
+
+	.button + .button {
+		margin-left: 10px;
+	}
+}
