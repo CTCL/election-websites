@@ -11,10 +11,10 @@ $site_title = get_bloginfo( 'title' );
 
 if ( is_front_page() ) {
 	$banner_enabled = \CTCL\ElectionWebsite\Banner::is_enabled();
-	$banner_title = $banner_enabled ? \CTCL\ElectionWebsite\Banner::title() : '';
+	$banner_title   = $banner_enabled ? \CTCL\ElectionWebsite\Banner::title() : '';
 } else {
 	$banner_enabled = \CTCL\ElectionWebsite\Alert_Banner::is_enabled();
-	$banner_title = $banner_enabled ? \CTCL\ElectionWebsite\Alert_Banner::title() : '';
+	$banner_title   = $banner_enabled ? \CTCL\ElectionWebsite\Alert_Banner::title() : '';
 }
 ?>
 <!DOCTYPE html>
@@ -53,7 +53,7 @@ if ( is_front_page() ) {
 				<h2><?php echo esc_html( $banner_title ); ?></h2>
 				<p><?php echo esc_html( \CTCL\ElectionWebsite\Banner::description() ); ?></p>
 				<?php $link = \CTCL\ElectionWebsite\Banner::link(); ?>
-				<?php if ( $link ): ?>
+				<?php if ( $link ) : ?>
 				<p><a class="button learn-more" href="<?php echo esc_url( $link ); ?>">Learn More</a></p>
 				<?php endif; ?>
 			</div>
@@ -78,7 +78,7 @@ if ( is_front_page() ) {
 					echo esc_html( \CTCL\ElectionWebsite\Alert_Banner::description() );
 					$link = \CTCL\ElectionWebsite\Alert_Banner::link();
 				?>
-				<?php if ( $link ): ?>
+				<?php if ( $link ) : ?>
 				<a class="alert learn-more" href="<?php echo esc_url( $link ); ?>">Learn More</a>
 				<?php endif; ?>
 			</p>
