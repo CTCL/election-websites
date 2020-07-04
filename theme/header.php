@@ -8,6 +8,14 @@
 
 $logo_id    = get_theme_mod( 'custom_logo' );
 $site_title = get_bloginfo( 'title' );
+
+if ( is_front_page() ) {
+	$banner_enabled = \CTCL\ElectionWebsite\Banner::is_enabled();
+	$banner_title = $banner_enabled ? \CTCL\ElectionWebsite\Banner::title() : '';
+} else {
+	$banner_enabled = \CTCL\ElectionWebsite\Alert_Banner::is_enabled();
+	$banner_title = $banner_enabled ? \CTCL\ElectionWebsite\Alert_Banner::title() : '';
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -36,22 +44,46 @@ $site_title = get_bloginfo( 'title' );
 			?>
 	</div>
 </header>
-<?php
-if ( is_front_page() ) {
-	?>
-<section class="banner major">
-	<div class="banner-wrapper">
-		<div>
-			<h2>Vote by Mail in Upcoming Elections</h2>
-			<p>To help prevent the community spread of COVID-19, all registered, eligible voters may apply to vote by mail ballot. Learn more</p>
+<?php if ( is_front_page() ) : ?>
+
+	<?php if ( $banner_enabled && $banner_title ) : ?>
+	<section class="banner major">
+		<div class="banner-wrapper">
+			<div>
+				<h2><?php echo esc_html( $banner_title ); ?></h2>
+				<p><?php echo esc_html( \CTCL\ElectionWebsite\Banner::description() ); ?></p>
+				<?php $link = \CTCL\ElectionWebsite\Banner::link(); ?>
+				<?php if ( $link ): ?>
+				<p><a class="button learn-more" href="<?php echo esc_url( $link ); ?>">Learn More</a></p>
+				<?php endif; ?>
+			</div>
+			<?php
+			$banner_id = \CTCL\ElectionWebsite\Banner::image_id();
+			if ( $banner_id ) {
+				echo wp_kses_post( wp_get_attachment_image( $banner_id, 'banner' ) );
+			}
+			?>
 		</div>
-		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/envelope.png' ); ?>" alr="Envelope" width="228" height="216" />
-	</div>
-</section>
-<?php } else { ?>
-<section class="banner alert">
-	<div class="banner-wrapper">
-		<p><b>Important Information Banner</b> / Really important info if you need it on all pages <a>Learn more</a></p>
-	</div>
-</section>
-<?php } ?>
+	</section>
+	<?php endif; ?>
+
+<?php else : ?>
+	<?php if ( $banner_enabled && $banner_title ) : ?>
+	<section class="banner alert">
+		<div class="banner-wrapper">
+			<p>
+				<b><?php echo esc_html( $banner_title ); ?></b>
+				/
+				<?php
+					echo esc_html( \CTCL\ElectionWebsite\Alert_Banner::description() );
+					$link = \CTCL\ElectionWebsite\Alert_Banner::link();
+				?>
+				<?php if ( $link ): ?>
+				<a class="alert learn-more" href="<?php echo esc_url( $link ); ?>">Learn More</a>
+				<?php endif; ?>
+			</p>
+		</div>
+	</section>
+	<?php endif; ?>
+
+<?php endif; ?>
