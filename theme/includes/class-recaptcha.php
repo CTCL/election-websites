@@ -14,7 +14,8 @@ class Recaptcha {
 	}
 
 	public static function wp_enqueue_scripts() {
-		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', [], null, true );
+		// Don't set a resource version here. We don't want query parameters passed to Google.
+		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', [], null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 	}
 
 	public static function verify( $response, $ip_address ) {

@@ -18,7 +18,8 @@ class Google_Analytics {
 
 		$google_url = add_query_arg( [ 'id' => $tracking_id ], 'https://www.googletagmanager.com/gtag/js' );
 
-		wp_enqueue_script( 'gtm', $google_url, [], null, false );
+		// Don't set a resource version here. We don't want query parameters passed to Google.
+		wp_enqueue_script( 'gtm', $google_url, [], null, false ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 		wp_add_inline_script( 'gtm', "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '" . esc_js( $tracking_id ) . "');" );
 	}
 
