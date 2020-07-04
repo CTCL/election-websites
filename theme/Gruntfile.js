@@ -141,7 +141,7 @@ module.exports = function( grunt ) {
 		watch: {
 			php: {
 				files: [ '*.php', 'template-parts/**/*.php', 'includes/**/*.php', '!vendor/**' ],
-				tasks: [ 'phplint' ]
+				tasks: [ 'phplint', 'phpcbf' ]
 			},
 
 			css: {
@@ -181,6 +181,16 @@ module.exports = function( grunt ) {
 			},
 			options: {
 				bin: 'vendor/bin/phpcs'
+			}
+		},
+
+		phpcbf: {
+			options: {
+				bin: 'vendor/bin/phpcbf',
+				noPatch: false
+			},
+			files: {
+				src: [ '*.php', 'template-parts/**/*.php', 'includes/**/*.php' ]
 			}
 		}
 
