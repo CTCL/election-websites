@@ -178,6 +178,18 @@ main ul a {
   text-decoration: underline;
 }
 
+.banner .banner-wrapper .button.learn-more {
+  background-color: #17234c;
+  color: #fff;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  line-height: 60px;
+}
+
 .banner p {
   font-size: 16px;
   line-height: 24px;
@@ -475,11 +487,12 @@ figure.wp-block-table td {
 .contact-form button {
   background-color: #17234c;
   color: #fff;
-  border-radius: 15px;
+  border-radius: 20px;
   border: none;
   padding: 10px 30px;
   font-weight: bold;
   font-size: 18px;
+  text-decoration: none;
 }
 
 .contact-form input[type='text'] {
