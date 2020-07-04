@@ -3,7 +3,7 @@ namespace CTCL\ElectionWebsite;
 
 class Contact_Form {
 
-	public static $default_topic = 'Other';
+	const DEFAULT_TOPIC = 'Other';
 
 	// TODO: detect presence of form (in case page is renamed); maybe add to block
 	public static function hooks() {
@@ -12,13 +12,16 @@ class Contact_Form {
 		}
 	}
 
-	// TODO: Get list from settings page
 	public static function topic_list() {
-		return [
-			'Data Request',
-			'Shoes',
-			self::$default_topic,
-		];
+		$topics = get_option( 'topic_list' );
+		if ( is_array( $topics ) ) {
+			array_unshift( $topics, '' );
+			$topics[] = self::DEFAULT_TOPIC;
+		} else {
+			$topics = [ '', self::DEFAULT_TOPIC ];
+		}
+
+		return $topics;
 	}
 
 	public static function validate() {
@@ -42,7 +45,7 @@ class Contact_Form {
 		}
 
 		if ( ! in_array( $topic, self::topic_list(), true ) ) {
-			$topic = self::$default_topic;
+			$topic = '';
 		}
 
 		return [
@@ -92,7 +95,7 @@ class Contact_Form {
 			[
 				'fullname' => '',
 				'email'    => '',
-				'topic'    => self::$default_topic,
+				'topic'    => '',
 				'message'  => '',
 				'errors'   => [],
 			],
