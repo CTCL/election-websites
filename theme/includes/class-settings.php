@@ -34,8 +34,8 @@ class Settings {
 				echo '<input type="button" class="button upload" id="' . esc_attr( 'upload_' . $args['uid'] ) . '" value="Select Image" />';
 				echo '<input type="button" class="button remove" id="remove_banner_image" value="Remove Image"';
 				if ( ! $image_id ) {
-				 echo ' disabled="disabled"';
-			 	}
+					echo ' disabled="disabled"';
+				}
 				echo '" />';
 
 				if ( $image_id ) {
@@ -50,7 +50,7 @@ class Settings {
 					$value_list = [ '' ];
 				}
 				$value_list_length = count( $value_list );
-				$index = 1;
+				$index             = 1;
 
 				echo '<div id="' . esc_attr( $args['uid'] . '_wrapper' ) . '">';
 				foreach ( $value_list as $value ) {

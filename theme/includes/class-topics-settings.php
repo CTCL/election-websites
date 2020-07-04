@@ -3,7 +3,7 @@ namespace CTCL\ElectionWebsite;
 
 class Topics_Settings extends Settings {
 
-	const PAGE_TITLE = 'Contact Form Topics';
+	const PAGE_TITLE  = 'Contact Form Topics';
 	const FIELD_GROUP = 'topics_fields';
 
 	public static function register_menu() {

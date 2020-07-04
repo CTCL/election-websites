@@ -3,9 +3,9 @@ namespace CTCL\ElectionWebsite;
 
 class Office_Info {
 	public static function block_render() {
-		$email    = get_option( 'email_address' );
-		$phone    = get_option( 'phone' );
-		$fax      = get_option( 'fax' );
+		$email = get_option( 'email_address' );
+		$phone = get_option( 'phone' );
+		$fax   = get_option( 'fax' );
 
 		$address  = get_option( 'address' );
 		$address2 = get_option( 'address2' );
@@ -13,7 +13,7 @@ class Office_Info {
 		$state    = get_option( 'state' );
 		$zip      = get_option( 'zip' );
 
-		$hours    = get_option( 'hours' );
+		$hours = get_option( 'hours' );
 
 		ob_start();
 		?>
@@ -26,7 +26,7 @@ class Office_Info {
 		<?php if ( $phone || $fax ) : ?>
 		<h4 class="phone">Phone numbers</h4>
 		<p>
-		<?php
+			<?php
 			if ( $phone ) {
 				echo 'Phone: ' . esc_html( $phone );
 			}
@@ -36,19 +36,20 @@ class Office_Info {
 			if ( $fax ) {
 				echo 'Fax: ' . esc_html( $fax );
 			}
-		?>
+			?>
 		</p>
 		<?php endif; ?>
 
 		<?php if ( $address ) : ?>
 		<h4 class="location">Office address</h4>
-		<p><?php
+		<p>
+			<?php
 			echo esc_html( $address );
 			if ( $address2 ) {
 				echo '<br />' . esc_html( $address2 );
 			}
 			echo '<br />' . esc_html( sprintf( '%s %s, %s', $city, $state, $zip ) );
-		?>
+			?>
 		</p>
 		<?php endif; ?>
 

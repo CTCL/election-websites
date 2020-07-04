@@ -3,7 +3,7 @@ namespace CTCL\ElectionWebsite;
 
 class Google_Settings extends Settings {
 
-	const PAGE_TITLE = 'Google';
+	const PAGE_TITLE  = 'Google';
 	const FIELD_GROUP = 'google_fields';
 
 	public static function register_menu() {

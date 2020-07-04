@@ -3,7 +3,7 @@ namespace CTCL\ElectionWebsite;
 
 class Banner_Settings extends Settings {
 
-	const PAGE_TITLE = 'Banner';
+	const PAGE_TITLE  = 'Banner';
 	const FIELD_GROUP = 'banner_fields';
 
 	public static function register_menu() {

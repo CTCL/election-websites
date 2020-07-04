@@ -3,7 +3,7 @@ namespace CTCL\ElectionWebsite;
 
 class Office_Details_Settings extends Settings {
 
-	const PAGE_TITLE = 'Office Information';
+	const PAGE_TITLE  = 'Office Information';
 	const FIELD_GROUP = 'contact_fields_all';
 
 	public static function register_menu() {
