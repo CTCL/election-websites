@@ -11,3 +11,14 @@
 		@warn "Breakpoint mixin supports: phone and desktop";
 	}
 }
+
+@mixin button {
+	background-color: $blue-1;
+	color: $white;
+	border-radius: 20px;
+	border: none;
+	padding: 10px 30px;
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;
+}

@@ -2,12 +2,14 @@
 @import "utility/typography";
 
 .banner {
-	// @include breakpoint(phone) {
-	// 	padding: 34px 0;
-	// }
-
 	.banner-wrapper {
 		@extend %fit-to-page;
+
+		.button.learn-more {
+			@include button;
+
+			line-height: 60px;
+		}
 	}
 
 	p {

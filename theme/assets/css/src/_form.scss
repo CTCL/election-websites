@@ -1,12 +1,6 @@
 .contact-form {
 	button {
-		background-color: $blue-1;
-		color: $white;
-		border-radius: 15px;
-		border: none;
-		padding: 10px 30px;
-		font-weight: bold;
-		font-size: 18px;
+		@include button;
 	}
 
 	input[type='text'] {
