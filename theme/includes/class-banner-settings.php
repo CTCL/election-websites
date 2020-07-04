@@ -98,7 +98,7 @@ class Banner_Settings extends Settings {
 			],
 			[
 				'uid'         => 'alert_banner_link',
-				'label'       => 'Description',
+				'label'       => 'Link',
 				'section'     => 'alert_banner_section',
 				'type'        => 'text',
 				'placeholder' => 'https://www.example.com/',
