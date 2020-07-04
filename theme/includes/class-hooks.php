@@ -44,8 +44,12 @@ class Hooks {
 	/**
 	 * Enqueue scripts and styles.
 	 */
-	public static function admin_enqueue_scripts() {
+	public static function admin_enqueue_scripts( $hook ) {
 		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
+
+		if ( in_array( $hook, [ 'elections_page_banner' ], true ) ) {
+			wp_enqueue_media();
+		}
 
 		wp_enqueue_style( 'admin', get_template_directory_uri() . "/assets/css/admin.{$type}.css", [], THEME_VERSION );
 		wp_enqueue_script( 'admin', get_template_directory_uri() . "/assets/js/admin.{$type}.js", [ 'jquery', 'underscore', 'wp-util' ], THEME_VERSION, false );

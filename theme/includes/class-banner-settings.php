@@ -53,15 +53,13 @@ class Banner_Settings extends Settings {
 				'label_for'   => 'banner_link',
 				'args'        => [ 'sanitize_callback' => 'sanitize_url' ],
 			],
-			// TODO: use media library
 			[
 				'uid'         => 'banner_image',
 				'label'       => 'Image',
 				'section'     => 'banner_section',
-				'type'        => 'text',
-				'placeholder' => 'Important News',
+				'type'        => 'upload',
 				'label_for'   => 'banner_image',
-				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+				'args'        => [ 'sanitize_callback' => 'absint' ],
 			],
 			[
 				'uid'         => 'alert_banner_title',

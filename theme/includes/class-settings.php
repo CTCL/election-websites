@@ -21,9 +21,28 @@ class Settings {
 	}
 
 	public static function field_callback( $args ) {
+		$placeholder = $args['placeholder'] ?? '';
+
 		switch ( $args['type'] ) {
 			case 'text':
-				echo '<input size="50" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '" value="' . esc_attr( get_option( $args['uid'] ) ) . '" />';
+				echo '<input size="50" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( get_option( $args['uid'] ) ) . '" />';
+				break;
+			case 'upload':
+				$image_id = get_option( $args['uid'] );
+				echo '<div id="' . esc_attr( $args['uid'] . '_wrapper' ) . '">';
+				echo '<input name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="hidden" value="' . esc_attr( $image_id ) . '" />';
+				echo '<input type="button" class="button upload" id="' . esc_attr( 'upload_' . $args['uid'] ) . '" value="Select Image" />';
+				echo '<input type="button" class="button remove" id="remove_banner_image" value="Remove Image"';
+				if ( ! $image_id ) {
+				 echo ' disabled="disabled"';
+			 	}
+				echo '" />';
+
+				if ( $image_id ) {
+					echo wp_kses_post( wp_get_attachment_image( $image_id, 'thumbnail', false, [ 'id' => 'banner_image_thumbnail' ] ) );
+				}
+
+				echo '</div>';
 				break;
 			case 'multitext':
 				$value_list = get_option( $args['uid'] );
@@ -35,7 +54,7 @@ class Settings {
 
 				echo '<div id="' . esc_attr( $args['uid'] . '_wrapper' ) . '">';
 				foreach ( $value_list as $value ) {
-					echo '<div><input size="50" class="multitext" name="' . esc_attr( $args['uid'] ) . '[]" type="text" placeholder="' . esc_attr( $args['placeholder'] ) . '" value="' . esc_attr( $value ) . '" />';
+					echo '<div><input size="50" class="multitext" name="' . esc_attr( $args['uid'] ) . '[]" type="text" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( $value ) . '" />';
 					if ( $index++ < $value_list_length ) {
 						echo '<input type="button" class="button remove" value="Remove" />';
 					} else {
@@ -46,7 +65,7 @@ class Settings {
 				echo '</div>';
 				break;
 			case 'textarea':
-				echo '<textarea cols="50" rows="5" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '">' . esc_textarea( get_option( $args['uid'] ) ) . '</textarea>';
+				echo '<textarea cols="50" rows="5" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $placeholder ) . '">' . esc_textarea( get_option( $args['uid'] ) ) . '</textarea>';
 				break;
 			case 'select':
 				echo '<select id="' . esc_attr( $args['uid'] ) . '" name="' . esc_attr( $args['uid'] ) . '">';
