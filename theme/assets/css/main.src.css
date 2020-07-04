@@ -495,6 +495,15 @@ figure.wp-block-table td {
   box-sizing: border-box;
 }
 
+#banner_image_wrapper #banner_image_thumbnail {
+  display: block;
+  margin-top: 20px;
+}
+
+#banner_image_wrapper .button + .button {
+  margin-left: 10px;
+}
+
 header .menu, footer .menu {
   list-style: none;
   padding-left: 0;

@@ -98,3 +98,12 @@ figure.wp-block-table td {
   padding: 5px 10px;
   box-sizing: border-box;
 }
+
+#banner_image_wrapper #banner_image_thumbnail {
+  display: block;
+  margin-top: 20px;
+}
+
+#banner_image_wrapper .button + .button {
+  margin-left: 10px;
+}
