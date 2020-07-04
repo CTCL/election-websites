@@ -24,6 +24,12 @@ class Settings {
 		$placeholder = $args['placeholder'] ?? '';
 
 		switch ( $args['type'] ) {
+			case 'checkbox':
+				echo '<input name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" value="' . esc_attr( $args['value'] ) . '" ' . checked( $args['value'], get_option( $args['uid'] ), false ) . '/>';
+				break;
+			case 'number':
+			case 'password':
+			case 'email':
 			case 'text':
 				echo '<input size="50" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( get_option( $args['uid'] ) ) . '" />';
 				break;
