@@ -8,9 +8,9 @@ window.ctcl = {
 		newRemoveButton.setAttribute( 'type', 'button' );
 		newRemoveButton.setAttribute( 'class', 'button remove' );
 		newRemoveButton.setAttribute( 'value', 'Remove' );
-		newRemoveButton.addEventListener( 'click', removeTopic );
+		newRemoveButton.addEventListener( 'click', window.ctcl.removeTopic );
 
-		newRow.querySelector( '.button.add' ).addEventListener( 'click', addTopic );
+		newRow.querySelector( '.button.add' ).addEventListener( 'click', window.ctcl.addTopic );
 		newRow.querySelector( '.multitext' ).value = '';
 		lastRow.appendChild( newRemoveButton );
 		lastAddButton.remove();
