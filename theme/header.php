@@ -52,9 +52,9 @@ if ( is_front_page() ) {
 			<div>
 				<h2><?php echo esc_html( $banner_title ); ?></h2>
 				<p><?php echo esc_html( \CTCL\ElectionWebsite\Banner::description() ); ?></p>
-				<?php $link = \CTCL\ElectionWebsite\Banner::link(); ?>
-				<?php if ( $link ) : ?>
-				<p><a class="button learn-more" href="<?php echo esc_url( $link ); ?>">Learn More</a></p>
+				<?php $learn_more = \CTCL\ElectionWebsite\Banner::link(); ?>
+				<?php if ( $learn_more ) : ?>
+				<p><a class="button learn-more" href="<?php echo esc_url( $learn_more ); ?>">Learn More</a></p>
 				<?php endif; ?>
 			</div>
 			<?php
@@ -76,10 +76,10 @@ if ( is_front_page() ) {
 				/
 				<?php
 					echo esc_html( \CTCL\ElectionWebsite\Alert_Banner::description() );
-					$link = \CTCL\ElectionWebsite\Alert_Banner::link();
+					$learn_more = \CTCL\ElectionWebsite\Alert_Banner::link();
 				?>
-				<?php if ( $link ) : ?>
-				<a class="alert learn-more" href="<?php echo esc_url( $link ); ?>">Learn More</a>
+				<?php if ( $learn_more ) : ?>
+				<a class="alert learn-more" href="<?php echo esc_url( $learn_more ); ?>">Learn More</a>
 				<?php endif; ?>
 			</p>
 		</div>
