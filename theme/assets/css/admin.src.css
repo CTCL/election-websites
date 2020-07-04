@@ -1,3 +1,45 @@
+.office-info h4 {
+  margin-bottom: 0;
+  margin-top: 40px;
+}
+
+.office-info h4::before {
+  content: '';
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 35px;
+  width: 50px;
+  margin-left: -40px;
+  margin-bottom: -20px;
+}
+
+.office-info h4 + p {
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.office-info h4.email::before {
+  background-image: url(../images/office/email.svg);
+}
+
+.office-info h4.hours::before {
+  background-image: url(../images/office/email.svg);
+}
+
+.office-info h4.location::before {
+  background-image: url(../images/office/location.svg);
+}
+
+.office-info h4.phone::before {
+  background-image: url(../images/office/phone.svg);
+}
+
+.office-info a {
+  color: #4e4e4e;
+  text-decoration: none;
+  font-weight: normal;
+}
+
 figure.wp-block-table {
   margin: 0;
   padding: 8px 0;
@@ -55,4 +97,13 @@ figure.wp-block-table td {
   display: block;
   padding: 5px 10px;
   box-sizing: border-box;
+}
+
+#banner_image_wrapper #banner_image_thumbnail {
+  display: block;
+  margin-top: 20px;
+}
+
+#banner_image_wrapper .button + .button {
+  margin-left: 10px;
 }

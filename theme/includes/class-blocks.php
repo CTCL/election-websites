@@ -59,6 +59,13 @@ class Blocks {
 				'render_callback' => [ '\CTCL\ElectionWebsite\Contact_Form', 'block_render' ],
 			]
 		);
+
+		register_block_type(
+			'ctcl-election-website/office-info',
+			[
+				'render_callback' => [ '\CTCL\ElectionWebsite\Office_Info', 'block_render' ],
+			]
+		);
 	}
 
 	public static function block_categories( $categories ) {

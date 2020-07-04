@@ -1,6 +1,7 @@
 /** Only import styles necessary for block editing **/
 @import "blocks/numbered-section-block-editor";
 @import "blocks/tile-nav-block-editor";
+@import "blocks/office-info";
 
 #editor {
 	.wp-block-group {

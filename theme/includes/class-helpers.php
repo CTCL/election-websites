@@ -67,10 +67,6 @@ class Helpers {
 		];
 	}
 
-	public static function format_email_address( $e ) {
-		return strtolower( filter_var( $e, FILTER_SANITIZE_EMAIL ) );
-	}
-
 	public static function format_phone_number( $p ) {
 		$p = preg_replace( '/[^\d]/', '', $p );
 		if ( ! $p ) {
@@ -80,10 +76,20 @@ class Helpers {
 		return sprintf( '(%s) %s-%s', substr( $p, 0, 3 ), substr( $p, 3, 3 ), substr( $p, 6, 4 ) );
 	}
 
-	public static function format_zip( $p ) {
-		$p = preg_replace( '/[^\d]/', '', $p );
+	public static function format_zip( $s ) {
+		return substr( preg_replace( '/[^\d]/', '', $s ), 0, 5 );
+	}
 
-		return substr( $p, 0, 5 );
+	public static function format_twitter( $s ) {
+		return substr( preg_replace( '/[^A-Z0-9_]/i', '', $s ), 0, 15 );
+	}
+
+	public static function format_facebook( $s ) {
+		return preg_replace( '/[^A-Z0-9\.]/i', '', $s );
+	}
+
+	public static function format_instagram( $s ) {
+		return preg_replace( '/[^A-Z0-9_\.]/i', '', $s );
 	}
 
 	public static function validate_state( $s ) {
@@ -95,5 +101,4 @@ class Helpers {
 
 		return '';
 	}
-
 }

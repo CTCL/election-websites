@@ -51,6 +51,24 @@ wp.blocks.registerBlockType('ctcl-election-website/numbered-section-block', {
 var registerBlockType = wp.blocks.registerBlockType;
 var _wp = wp,
     ServerSideRender = _wp.serverSideRender;
+registerBlockType('ctcl-election-website/office-info', {
+  title: 'Office Info',
+  icon: 'building',
+  category: 'election-blocks',
+  edit: function edit(props) {
+    return /*#__PURE__*/React.createElement(ServerSideRender, {
+      block: "ctcl-election-website/office-info",
+      attributes: props.attributes
+    });
+  }
+});
+
+},{}],4:[function(require,module,exports){
+"use strict";
+
+var registerBlockType = wp.blocks.registerBlockType;
+var _wp = wp,
+    ServerSideRender = _wp.serverSideRender;
 var createElement = wp.element.createElement;
 registerBlockType('ctcl-election-website/tile-nav-section-block', {
   title: 'Tile Navigation Section',
@@ -163,4 +181,4 @@ registerBlockType('ctcl-election-website/tile-nav-block', {
   }
 });
 
-},{}]},{},[1,2,3]);
+},{}]},{},[1,2,3,4]);
