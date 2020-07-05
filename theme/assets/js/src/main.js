@@ -1,4 +1,10 @@
 function submitContactForm( token ) {
-	document.getElementById( 'recaptcha-token' ).value = token;
-	document.getElementById( 'contact-form' ).submit();
+	var tokenField = document.getElementById( 'recaptcha-token' );
+	var contactForm = document.getElementById( 'contact-form' );
+	if ( tokenField ) {
+		tokenField.value = token;
+	}
+	if ( contactForm ) {
+		contactForm.submit();
+	}
 }

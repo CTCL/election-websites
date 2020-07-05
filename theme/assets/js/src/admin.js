@@ -84,7 +84,11 @@ window.ctcl = {
 			var removeButton = e.target.parentNode.querySelector( '.button.remove' );
 			var newImgTag = document.createElement( 'img' );
 			var attachment = mediaUploader.state().get( 'selection' ).first().toJSON();
-			document.getElementById( 'banner_image' ).value = attachment.id;
+			var bannerImageId = document.getElementById( 'banner_image' );
+
+			if ( bannerImageId ) {
+				bannerImageId.value = attachment.id;
+			}
 
 			if ( imgTag ) {
 				imgTag.remove();
