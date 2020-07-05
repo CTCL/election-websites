@@ -33,7 +33,7 @@ class Google_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'UA-123456789-0',
 				'label_for'   => 'tracking_id',
-				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+				'args'        => [ 'sanitize_callback' => [ get_called_class(), 'validate_tracking_id' ] ],
 			],
 			[
 				'uid'         => 'recaptcha_site_key',
@@ -57,6 +57,15 @@ class Google_Settings extends Settings {
 
 		self::configure_fields( $fields, static::FIELD_GROUP );
 	}
+
+	public static function validate_tracking_id( $s ) {
+		if ( preg_match( '/^UA-\d{4,9}-\d{1,4}$/', $s ) ) {
+			return $s;
+		}
+
+		return '';
+	}
+
 }
 
 add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Google_Settings', 'hooks' ] );
