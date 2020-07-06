@@ -27,13 +27,12 @@ class Banner_Settings extends Settings {
 
 		$fields = [
 			[
-				'uid'       => 'banner_enabled',
-				'label'     => 'Enabled',
-				'section'   => 'banner_section',
-				'type'      => 'checkbox',
-				'value'     => 1,
-				'label_for' => 'banner_enabled',
-				'args'      => [ 'sanitize_callback' => 'absint' ],
+				'uid'     => 'banner_enabled',
+				'title'   => 'Enabled',
+				'section' => 'banner_section',
+				'type'    => 'checkbox',
+				'value'   => 1,
+				'args'    => [ 'sanitize_callback' => 'absint' ],
 			],
 			[
 				'uid'         => 'banner_title',
@@ -71,13 +70,12 @@ class Banner_Settings extends Settings {
 				'args'      => [ 'sanitize_callback' => 'absint' ],
 			],
 			[
-				'uid'       => 'alert_banner_enabled',
-				'label'     => 'Enabled',
-				'section'   => 'alert_banner_section',
-				'type'      => 'checkbox',
-				'value'     => 1,
-				'label_for' => 'alert_banner_enabled',
-				'args'      => [ 'sanitize_callback' => 'absint' ],
+				'uid'     => 'alert_banner_enabled',
+				'title'   => 'Enabled',
+				'section' => 'alert_banner_section',
+				'type'    => 'checkbox',
+				'value'   => 1,
+				'args'    => [ 'sanitize_callback' => 'absint' ],
 			],
 			[
 				'uid'         => 'alert_banner_title',

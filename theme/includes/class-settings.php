@@ -14,8 +14,9 @@ class Settings {
 
 	public static function configure_fields( $fields, $group ) {
 		foreach ( $fields as $field_data ) {
-			add_settings_field( $field_data['uid'], $field_data['label'], [ 'CTCL\ElectionWebsite\Settings', 'field_callback' ], $group, $field_data['section'], $field_data );
-			$args = $field_data['args'] ?? [];
+			$label = $field_data['label'] ?? '';
+			$args  = $field_data['args'] ?? [];
+			add_settings_field( $field_data['uid'], $label, [ 'CTCL\ElectionWebsite\Settings', 'field_callback' ], $group, $field_data['section'], $field_data );
 			register_setting( $group, $field_data['uid'], $args );
 		}
 	}
@@ -26,6 +27,9 @@ class Settings {
 		switch ( $args['type'] ) {
 			case 'checkbox':
 				echo '<input name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" value="' . esc_attr( $args['value'] ) . '" ' . checked( $args['value'], get_option( $args['uid'] ), false ) . '/>';
+				if ( isset( $args['title'] ) && $args['title'] ) {
+					echo '<label for="' . esc_attr( $args['uid'] ) . '">' . esc_html( $args['title'] ) . '</label>';
+				}
 				break;
 			case 'number':
 			case 'password':
