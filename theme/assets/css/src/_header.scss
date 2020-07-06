@@ -1,13 +1,11 @@
 @import "utility/layout";
 @import "utility/typography";
 
-$HEADER-HEIGHT: 90px;
-
 header {
 	background: $white;
 	box-shadow: 0 1px 4px -1px hsla(214, 45%, 20%, 0.25);
 	width: 100%;
-	height: $HEADER-HEIGHT;
+	height: $header-height;
 	z-index: 1;
 	position: fixed;
 
@@ -75,5 +73,5 @@ header {
 
 header + section,
 header + main {
-	margin-top: $HEADER-HEIGHT;
+	margin-top: $header-height;
 }
