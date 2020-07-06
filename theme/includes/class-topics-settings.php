@@ -34,7 +34,7 @@ class Topics_Settings extends Settings {
 	}
 
 	public static function sanitize_topic_list( $args ) {
-		return array_map( 'sanitize_text_field', $args );
+		return array_filter( array_map( 'sanitize_text_field', $args ) );
 	}
 }
 
