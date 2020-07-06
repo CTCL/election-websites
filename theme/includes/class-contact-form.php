@@ -4,6 +4,8 @@ namespace CTCL\ElectionWebsite;
 class Contact_Form {
 
 	const DEFAULT_TOPIC = 'Other';
+	const NONCE_KEY     = 'contact_form_nonce';
+	const NONCE_ACTION  = 'contact_form_submit';
 
 	// TODO: detect presence of form (in case page is renamed); maybe add to block
 	public static function hooks() {
@@ -40,12 +42,13 @@ class Contact_Form {
 			$errors[] = 'Please enter your email address';
 		}
 
-		if ( ! $message ) {
-			$errors[] = 'Please enter a message';
+		if ( ! $topic || ! in_array( $topic, self::topic_list(), true ) ) {
+			$topic = '';
+			$errors[] = 'Please select a topic';
 		}
 
-		if ( ! in_array( $topic, self::topic_list(), true ) ) {
-			$topic = '';
+		if ( ! $message ) {
+			$errors[] = 'Please enter a message';
 		}
 
 		return [
@@ -63,27 +66,50 @@ class Contact_Form {
 		$atts['email'];
 		$atts['topic'];
 		$atts['message'];
+
+		return 'Thanks! Your message has been sent.';
 	}
 
 	public static function block_render( $block_attributes, $content ) {
-		$token = filter_input( INPUT_POST, 'token', FILTER_SANITIZE_STRING );
+		$nonce = filter_input( INPUT_POST, self::NONCE_KEY, FILTER_SANITIZE_STRING );
 
-		if ( $token ) {
-			$validation_result = self::validate();
+		// initial load; show the form
+		if ( ! $nonce ) {
+			return self::render();
+		}
 
+		$validation_result = self::validate();
+		if ( ! wp_verify_nonce( $nonce, self::NONCE_ACTION ) ) {
+			$validation_result['errors'][] = 'Re-submit the form with the nonce present';
+			return self::render( $validation_result );
+		}
+
+		$recaptcha_enabled = Recaptcha::is_configured();
+		if ( ! $recaptcha_enabled ) {
 			if ( $validation_result['errors'] ) {
 				return self::render( $validation_result );
 			} else {
-				$ip_address = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_SANITIZE_STRING );
+				return self::send_message( $validation_result );
+			}
+		}
 
-				$recaptcha_result = Recaptcha::verify( $token, $ip_address );
-				if ( $recaptcha_result ) {
-					self::send_message( $validation_result );
-					return 'Thanks! Your message has been sent.';
-				} else {
-					$validation_result['errors'][] = 'ReCAPTCHA could not validate you are a human';
-					return self::render( $validation_result );
-				}
+		$token = filter_input( INPUT_POST, 'token', FILTER_SANITIZE_STRING );
+		if ( ! $token ) {
+			$validation_result['errors'][] = 'Re-submit the form with the token present';
+			return self::render( $validation_result );
+		}
+
+		if ( $validation_result['errors'] ) {
+			return self::render( $validation_result );
+		} else {
+			$ip_address = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_SANITIZE_STRING );
+
+			$recaptcha_result = Recaptcha::verify( $token, $ip_address );
+			if ( $recaptcha_result ) {
+				return self::send_message( $validation_result );
+			} else {
+				$validation_result['errors'][] = 'ReCAPTCHA could not validate you are a human';
+				return self::render( $validation_result );
 			}
 		}
 
@@ -107,6 +133,7 @@ class Contact_Form {
 		<form class="contact-form" id="contact-form" action="<?php the_permalink(); ?>" method="post">
 
 			<?php
+			wp_nonce_field( self::NONCE_ACTION, self::NONCE_KEY );
 			if ( $attr['errors'] ) {
 				?>
 				<p>Please correct the following errors:</p>
