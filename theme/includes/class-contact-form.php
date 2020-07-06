@@ -43,7 +43,7 @@ class Contact_Form {
 		}
 
 		if ( ! $topic || ! in_array( $topic, self::topic_list(), true ) ) {
-			$topic = '';
+			$topic    = '';
 			$errors[] = 'Please select a topic';
 		}
 
