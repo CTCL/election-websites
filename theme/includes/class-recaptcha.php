@@ -13,16 +13,25 @@ class Recaptcha {
 		return get_option( 'recaptcha_secret_key' );
 	}
 
+	public static function is_configured() {
+		return self::get_site_key() && self::get_secret_key();
+	}
+
 	public static function wp_enqueue_scripts() {
+		if ( ! self::is_configured() ) {
+			return;
+		}
+
 		// Don't set a resource version here. We don't want query parameters passed to Google.
 		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', [], null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 	}
 
 	public static function verify( $response, $ip_address ) {
-		$secret = self::get_secret_key();
-		if ( ! $secret ) {
+		if ( ! self::is_configured() ) {
 			return false;
 		}
+
+		$secret = self::get_secret_key();
 
 		$parameters = array_filter(
 			[
