@@ -55,7 +55,7 @@ class Banner_Settings extends Settings {
 			],
 			[
 				'uid'         => 'banner_link',
-				'label'       => 'Description',
+				'label'       => 'Link',
 				'section'     => 'banner_section',
 				'type'        => 'text',
 				'placeholder' => 'https://www.example.com/',
