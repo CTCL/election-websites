@@ -60,7 +60,7 @@ class Banner_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'https://www.example.com/',
 				'label_for'   => 'banner_link',
-				'args'        => [ 'sanitize_callback' => 'sanitize_url' ],
+				'args'        => [ 'sanitize_callback' => 'esc_url_raw' ],
 			],
 			[
 				'uid'       => 'banner_image',
@@ -103,7 +103,7 @@ class Banner_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'https://www.example.com/',
 				'label_for'   => 'alert_banner_link',
-				'args'        => [ 'sanitize_callback' => 'sanitize_url' ],
+				'args'        => [ 'sanitize_callback' => 'esc_url_raw' ],
 			],
 		];
 
