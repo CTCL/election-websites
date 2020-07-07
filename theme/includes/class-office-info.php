@@ -3,61 +3,74 @@ namespace CTCL\ElectionWebsite;
 
 class Office_Info {
 	public static function block_render() {
-		$email = get_option( 'email_address' );
-		$phone = get_option( 'phone' );
-		$fax   = get_option( 'fax' );
 
-		$address  = get_option( 'address' );
-		$address2 = get_option( 'address2' );
-		$city     = get_option( 'city' );
-		$state    = get_option( 'state' );
-		$zip      = get_option( 'zip' );
+		$contact_info = [
+			'email_address' => get_option( 'email_address' ),
+			'phone'         => get_option( 'phone' ),
+			'fax'           => get_option( 'fax' ),
+			'address'       => get_option( 'address' ),
+			'address2'      => get_option( 'address2' ),
+			'city'          => get_option( 'city' ),
+			'state'         => get_option( 'state' ),
+			'zip'           => get_option( 'zip' ),
+			'hours'         => get_option( 'hours' ),
+		];
 
-		$hours = get_option( 'hours' );
+		// Fill in placeholder values on the backend.
+		$is_backend = Helpers::is_block_backend();
+		if ( $is_backend ) {
+			$defaults = [];
+			foreach ( Office_Details_Settings::get_fields() as $field_info ) {
+				$defaults [ $field_info['uid'] ] = $field_info['placeholder'];
+			}
+
+			// Filter out the blank items. If something is '', it counts as present for wp_parse_args(), and is not replaced with a default value.
+			$contact_info = wp_parse_args( array_filter( $contact_info ), $defaults );
+		}
 
 		ob_start();
 		?>
 		<div class="office-info">
-		<?php if ( $email ) : ?>
+		<?php if ( $contact_info['email_address'] ) : ?>
 		<h4 class="email">Email</h4>
-		<p><a href="<?php echo esc_url( 'mailto:' . $email ); ?>"><?php echo esc_html( $email ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'mailto:' . $contact_info['email_address'] ); ?>"><?php echo esc_html( $contact_info['email_address'] ); ?></a></p>
 		<?php endif; ?>
 
-		<?php if ( $phone || $fax ) : ?>
+		<?php if ( $contact_info['phone'] || $contact_info['fax'] ) : ?>
 		<h4 class="phone">Phone numbers</h4>
 		<p>
 			<?php
-			if ( $phone ) {
-				echo 'Phone: ' . esc_html( $phone );
+			if ( $contact_info['phone'] ) {
+				echo 'Phone: ' . esc_html( $contact_info['phone'] );
 			}
-			if ( $phone && $fax ) {
+			if ( $contact_info['phone'] && $contact_info['fax'] ) {
 				echo '<br />';
 			}
-			if ( $fax ) {
-				echo 'Fax: ' . esc_html( $fax );
+			if ( $contact_info['fax'] ) {
+				echo 'Fax: ' . esc_html( $contact_info['fax'] );
 			}
 			?>
 		</p>
 		<?php endif; ?>
 
-		<?php if ( $address ) : ?>
+		<?php if ( $contact_info['address'] ) : ?>
 		<h4 class="location">Office address</h4>
 		<p>
 			<?php
-			echo esc_html( $address );
-			if ( $address2 ) {
-				echo '<br />' . esc_html( $address2 );
+			echo esc_html( $contact_info['address'] );
+			if ( $contact_info['address2'] ) {
+				echo '<br />' . esc_html( $contact_info['address2'] );
 			}
-			if ( $city && $state && $zip ) {
-				echo '<br />' . esc_html( sprintf( '%s %s, %s', $city, $state, $zip ) );
+			if ( $contact_info['city'] && $contact_info['state'] && $contact_info['zip'] ) {
+				echo '<br />' . esc_html( sprintf( '%s %s, %s', $contact_info['city'], $contact_info['state'], $contact_info['zip'] ) );
 			}
 			?>
 		</p>
 		<?php endif; ?>
 
-		<?php if ( $hours ) : ?>
+		<?php if ( $contact_info['hours'] ) : ?>
 		<h4 class="hours">Hours</h4>
-		<p><?php echo wp_kses( nl2br( $hours ), [ 'br' => true ] ); ?></p>
+		<p><?php echo wp_kses( nl2br( $contact_info['hours'] ), [ 'br' => true ] ); ?></p>
 		<?php endif; ?>
 		</div>
 
