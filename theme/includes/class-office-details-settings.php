@@ -11,22 +11,8 @@ class Office_Details_Settings extends Settings {
 		add_submenu_page( 'elections', 'Office Details', 'Office Details', 'manage_options', 'elections', [ get_called_class(), 'page' ] );
 	}
 
-	public static function register_settings() {
-		add_settings_section(
-			'contact_section',
-			'Contact details',
-			false,
-			static::FIELD_GROUP
-		);
-
-		add_settings_section(
-			'social_section',
-			'Social media',
-			false,
-			static::FIELD_GROUP
-		);
-
-		$fields = [
+	public static function get_fields() {
+		return [
 			[
 				'uid'         => 'email_address',
 				'label'       => 'Email Address',
@@ -139,6 +125,24 @@ class Office_Details_Settings extends Settings {
 				'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_instagram' ] ],
 			],
 		];
+	}
+
+	public static function register_settings() {
+		add_settings_section(
+			'contact_section',
+			'Contact details',
+			false,
+			static::FIELD_GROUP
+		);
+
+		add_settings_section(
+			'social_section',
+			'Social media',
+			false,
+			static::FIELD_GROUP
+		);
+
+		$fields = self::get_fields();
 
 		self::configure_fields( $fields, static::FIELD_GROUP );
 	}
