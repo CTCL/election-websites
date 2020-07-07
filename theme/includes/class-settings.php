@@ -13,6 +13,10 @@ class Settings {
 	}
 
 	public static function configure_fields( $fields, $group ) {
+		if ( ! is_array( $fields ) ) {
+			return;
+		}
+
 		foreach ( $fields as $field_data ) {
 			$label = $field_data['label'] ?? '';
 			$args  = $field_data['args'] ?? [];
