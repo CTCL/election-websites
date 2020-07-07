@@ -608,6 +608,10 @@ main .wp-block-group :last-child {
   margin-bottom: 0;
 }
 
+main hr {
+  border: 3px solid #17234c;
+}
+
 main.front-page {
   display: flex;
   justify-content: center;

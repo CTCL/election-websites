@@ -60,6 +60,10 @@ main {
 			margin-bottom: 0;
 		}
 	}
+
+	hr {
+		border: 3px solid $body-highlight;
+	}
 }
 
 main.front-page {
