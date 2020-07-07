@@ -48,7 +48,9 @@ class Office_Info {
 			if ( $address2 ) {
 				echo '<br />' . esc_html( $address2 );
 			}
-			echo '<br />' . esc_html( sprintf( '%s %s, %s', $city, $state, $zip ) );
+			if ( $city && $state && $zip ) {
+				echo '<br />' . esc_html( sprintf( '%s %s, %s', $city, $state, $zip ) );
+			}
 			?>
 		</p>
 		<?php endif; ?>
