@@ -102,4 +102,8 @@ class Helpers {
 
 		return '';
 	}
+
+	public static function is_block_backend() {
+		return defined( 'REST_REQUEST' ) && true === REST_REQUEST && 'edit' === filter_input( INPUT_GET, 'context', FILTER_SANITIZE_STRING );
+	}
 }
