@@ -1,4 +1,11 @@
 <?php
+/**
+ * Helpers to get front page banner content.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Banner {

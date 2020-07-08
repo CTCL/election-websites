@@ -1,4 +1,11 @@
 <?php
+/**
+ * Load Google Analytics tracking.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Google_Analytics {

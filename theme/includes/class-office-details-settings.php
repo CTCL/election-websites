@@ -1,4 +1,11 @@
 <?php
+/**
+ * Configure the Office Details settings page.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Office_Details_Settings extends Settings {

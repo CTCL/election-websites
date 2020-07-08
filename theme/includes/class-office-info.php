@@ -1,4 +1,11 @@
 <?php
+/**
+ * Render the Office Info block.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Office_Info {

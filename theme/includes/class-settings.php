@@ -1,4 +1,11 @@
 <?php
+/**
+ * Base class for settings pages.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Settings {

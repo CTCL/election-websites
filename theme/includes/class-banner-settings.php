@@ -1,4 +1,11 @@
 <?php
+/**
+ * Configure the Banner settings page.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Banner_Settings extends Settings {

@@ -1,4 +1,11 @@
 <?php
+/**
+ * Configure the Google settings page.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Google_Settings extends Settings {

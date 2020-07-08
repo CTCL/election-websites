@@ -1,4 +1,11 @@
 <?php
+/**
+ * Register custom blocks and block categories.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Blocks {

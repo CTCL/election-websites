@@ -1,4 +1,11 @@
 <?php
+/**
+ * Initialize and verify Google ReCAPTCHA.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Recaptcha {

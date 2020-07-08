@@ -1,4 +1,11 @@
 <?php
+/**
+ * Render, validate and send the Contact Form block.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Contact_Form {

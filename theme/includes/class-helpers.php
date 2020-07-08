@@ -1,4 +1,11 @@
 <?php
+/**
+ * Helper functions called directly, and not from initialization actions.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Helpers {

@@ -5,6 +5,7 @@
  * @package CTCL\Elections
  * @since 1.0.0
  */
+
 ?>
 <footer>
 	<?php if ( is_front_page() ) { ?>

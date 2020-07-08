@@ -1,4 +1,11 @@
 <?php
+/**
+ * Helpers to get alert banner content.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Alert_Banner {

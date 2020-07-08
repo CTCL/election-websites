@@ -1,4 +1,11 @@
 <?php
+/**
+ * Configure the Topics settings page.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
+
 namespace CTCL\Elections;
 
 class Topics_Settings extends Settings {
