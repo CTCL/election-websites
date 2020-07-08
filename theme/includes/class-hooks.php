@@ -3,6 +3,7 @@ namespace CTCL\Elections;
 
 /**
  * WordPress filters/actions and their callbacks
+ *
  * @package CTCL\Elections
  * @since 1.0.0
  */
@@ -73,6 +74,7 @@ class Hooks {
 
 	/**
 	 * Remove nodes from admin bar menu.
+	 *
 	 * @param $wp_admin_bar
 	 */
 	public static function remove_admin_bar_new_post( $wp_admin_bar ) {
