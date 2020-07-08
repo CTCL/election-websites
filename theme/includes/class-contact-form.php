@@ -26,7 +26,7 @@ class Contact_Form {
 	 */
 	public static function hooks() {
 		if ( is_page( 'about-us' ) ) {
-			add_action( 'wp_enqueue_scripts', [ '\CTCL\Elections\Recaptcha', 'wp_enqueue_scripts' ] );
+			add_action( 'wp_enqueue_scripts', [ '\CTCL\Elections\Google_Recaptcha', 'wp_enqueue_scripts' ] );
 		}
 	}
 
@@ -102,7 +102,7 @@ class Contact_Form {
 		}
 
 		// If no ReCAPTCHA, process the form.
-		$recaptcha_enabled = Recaptcha::is_configured();
+		$recaptcha_enabled = Google_Recaptcha::is_configured();
 		if ( ! $recaptcha_enabled ) {
 			if ( $validation_result['errors'] ) {
 				return self::render( $validation_result );
@@ -123,7 +123,7 @@ class Contact_Form {
 		} else {
 			$ip_address = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_SANITIZE_STRING );
 
-			$recaptcha_result = Recaptcha::verify( $token, $ip_address );
+			$recaptcha_result = Google_Recaptcha::verify( $token, $ip_address );
 			if ( $recaptcha_result ) {
 				return self::send_message( $validation_result );
 			} else {
@@ -199,7 +199,7 @@ class Contact_Form {
 
 
 			<input id="recaptcha-token" type="hidden" name="token" />
-			<button class="g-recaptcha" data-sitekey="<?php echo esc_attr( Recaptcha::get_site_key() ); ?>" data-callback='submitContactForm' data-action='submit'>Send Message</button>
+			<button class="g-recaptcha" data-sitekey="<?php echo esc_attr( Google_Recaptcha::get_site_key() ); ?>" data-callback='submitContactForm' data-action='submit'>Send Message</button>
 		</form>
 
 		<?php
