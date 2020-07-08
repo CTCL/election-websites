@@ -7,10 +7,6 @@
 	<rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
 		<severity>0</severity>
 	</rule>
-	<!-- see https://github.com/WordPress/WordPress-Coding-Standards/issues/1819 -->
-	<rule ref="WordPress.WP.TimezoneChange.DeprecatedSniff">
-		<severity>0</severity>
-	</rule>
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
 	<config name="testVersion" value="7.4-"/>
