@@ -15,6 +15,10 @@ class Contact_Form {
 	const NONCE_ACTION  = 'contact_form_submit';
 
 	// TODO: detect presence of form (in case page is renamed); maybe add to block.
+
+	/**
+	 * Set up actions and filters.
+	 */
 	public static function hooks() {
 		if ( is_page( 'about-us' ) ) {
 			add_action( 'wp_enqueue_scripts', [ '\CTCL\Elections\Recaptcha', 'wp_enqueue_scripts' ] );

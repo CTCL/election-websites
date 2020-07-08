@@ -9,6 +9,10 @@
 namespace CTCL\Elections;
 
 class Google_Analytics {
+
+	/**
+	 * Set up actions and filters.
+	 */
 	public static function hooks() {
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'wp_enqueue_scripts' ] );
 		add_filter( 'script_loader_tag', [ __CLASS__, 'async_js' ], 10, 2 );

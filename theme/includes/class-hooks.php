@@ -17,7 +17,7 @@ namespace CTCL\Elections;
 
 class Hooks {
 	/**
-	 * Set up WordPress hooks.
+	 * Set up actions and filters.
 	 */
 	public static function setup_hooks() {
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'wp_enqueue_scripts' ] );

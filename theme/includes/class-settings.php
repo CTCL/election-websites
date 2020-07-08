@@ -10,6 +10,9 @@ namespace CTCL\Elections;
 
 class Settings {
 
+	/**
+	 * Set up actions and filters.
+	 */
 	public static function hooks() {
 		add_action( 'admin_menu', [ get_called_class(), 'register_menu' ] );
 		add_action( 'admin_init', [ get_called_class(), 'register_settings' ] );
