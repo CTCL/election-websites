@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Google class.
+ *
+ * Implements the Google settings page (Analytics and ReCAPTCHA).
+ */
 class Google_Settings extends Settings {
 
 	const PAGE_TITLE  = 'Google';

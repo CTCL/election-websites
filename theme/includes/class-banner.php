@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Banner class.
+ *
+ * Helpers to get banner content.
+ */
 class Banner {
 
 	public static function is_enabled() {

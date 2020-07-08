@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Contact Form class.
+ *
+ * Implements the contact form block.
+ */
 class Contact_Form {
 
 	const DEFAULT_TOPIC = 'Other';

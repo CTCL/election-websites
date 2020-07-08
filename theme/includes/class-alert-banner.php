@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Alert Banner class.
+ *
+ * Helpers to get alert banner content.
+ */
 class Alert_Banner {
 
 	public static function is_enabled() {

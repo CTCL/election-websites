@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Banner class.
+ *
+ * Implements the Banner settings page.
+ */
 class Banner_Settings extends Settings {
 
 	const PAGE_TITLE  = 'Banner';

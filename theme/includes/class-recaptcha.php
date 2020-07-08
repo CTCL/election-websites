@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * ReCAPTCHA class.
+ *
+ * Implements ReCAPTCHA loading and verification.
+ */
 class Recaptcha {
 
 	const API_URL = 'https://www.google.com/recaptcha/api/siteverify';

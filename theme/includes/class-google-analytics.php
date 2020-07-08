@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Google Analytics class.
+ *
+ * Implements Google Analytics loading.
+ */
 class Google_Analytics {
 
 	const TRACKING_ID = 'tracking_id';

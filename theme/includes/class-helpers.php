@@ -8,6 +8,12 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Helper functions.
+ *
+ * @package CTCL\Elections
+ * @since 1.0.0
+ */
 class Helpers {
 
 	public static function state_list() {

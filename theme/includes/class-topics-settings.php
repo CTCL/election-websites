@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Topic Settings class.
+ *
+ * Implements the Topic settings page.
+ */
 class Topics_Settings extends Settings {
 
 	const PAGE_TITLE  = 'Contact Form Topics';

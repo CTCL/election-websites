@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Settings base class.
+ *
+ * Implements common functions for settings (field setup and callbacks, notices, page rendering).
+ */
 class Settings {
 
 	/**

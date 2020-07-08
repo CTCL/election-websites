@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Office Details class.
+ *
+ * Implements the Office Details settings page.
+ */
 class Office_Details_Settings extends Settings {
 
 	const PAGE_TITLE  = 'Office Information';

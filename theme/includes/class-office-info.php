@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Office Info class.
+ *
+ * Implements the office info block.
+ */
 class Office_Info {
 	public static function block_render() {
 

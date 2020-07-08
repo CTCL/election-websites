@@ -8,6 +8,11 @@
 
 namespace CTCL\Elections;
 
+/**
+ * Blocks class.
+ *
+ * Implements block registration and categorization.
+ */
 class Blocks {
 
 	/**
