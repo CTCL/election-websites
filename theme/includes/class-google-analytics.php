@@ -10,6 +10,8 @@ namespace CTCL\Elections;
 
 class Google_Analytics {
 
+	const TRACKING_ID = 'tracking_id';
+
 	/**
 	 * Set up actions and filters.
 	 */
@@ -22,7 +24,7 @@ class Google_Analytics {
 	 * Enqueue Google Analytics JavaScript
 	 */
 	public static function wp_enqueue_scripts() {
-		$tracking_id = get_option( 'tracking_id ' );
+		$tracking_id = get_option( self::TRACKING_ID );
 		if ( ! $tracking_id ) {
 			return;
 		}

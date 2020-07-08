@@ -34,12 +34,12 @@ class Google_Settings extends Settings {
 
 		$fields = [
 			[
-				'uid'         => 'tracking_id',
+				'uid'         => Google_Analytics::TRACKING_ID,
 				'label'       => 'Tracking ID',
 				'section'     => 'analytics_section',
 				'type'        => 'text',
 				'placeholder' => 'UA-123456789-0',
-				'label_for'   => 'tracking_id',
+				'label_for'   => Google_Analytics::TRACKING_ID,
 				'args'        => [ 'sanitize_callback' => [ get_called_class(), 'validate_tracking_id' ] ],
 			],
 			[
