@@ -1,5 +1,5 @@
 <?php
-namespace CTCL\ElectionWebsite;
+namespace CTCL\Elections;
 
 class Google_Analytics {
 	public static function hooks() {
@@ -40,4 +40,4 @@ class Google_Analytics {
 	}
 }
 
-add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Google_Analytics', 'hooks' ] );
+add_action( 'after_setup_theme', [ '\CTCL\Elections\Google_Analytics', 'hooks' ] );

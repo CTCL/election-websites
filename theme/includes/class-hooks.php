@@ -1,9 +1,9 @@
 <?php
-namespace CTCL\ElectionWebsite;
+namespace CTCL\Elections;
 
 /**
  * WordPress filters/actions and their callbacks
- * @package CTCL\ElectionWebsite
+ * @package CTCL\Elections
  * @since 1.0.0
  */
 
@@ -163,6 +163,6 @@ class Hooks {
 	}
 }
 
-add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'setup_hooks' ] );
-add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'configure_theme' ] );
-add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Hooks', 'set_image_sizes' ] );
+add_action( 'after_setup_theme', [ '\CTCL\Elections\Hooks', 'setup_hooks' ] );
+add_action( 'after_setup_theme', [ '\CTCL\Elections\Hooks', 'configure_theme' ] );
+add_action( 'after_setup_theme', [ '\CTCL\Elections\Hooks', 'set_image_sizes' ] );

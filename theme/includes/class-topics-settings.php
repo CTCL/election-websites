@@ -1,5 +1,5 @@
 <?php
-namespace CTCL\ElectionWebsite;
+namespace CTCL\Elections;
 
 class Topics_Settings extends Settings {
 
@@ -38,4 +38,4 @@ class Topics_Settings extends Settings {
 	}
 }
 
-add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Topics_Settings', 'hooks' ] );
+add_action( 'after_setup_theme', [ '\CTCL\Elections\Topics_Settings', 'hooks' ] );

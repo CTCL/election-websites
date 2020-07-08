@@ -1,5 +1,5 @@
 <?php
-namespace CTCL\ElectionWebsite;
+namespace CTCL\Elections;
 
 class Settings {
 
@@ -20,7 +20,7 @@ class Settings {
 		foreach ( $fields as $field_data ) {
 			$label = $field_data['label'] ?? '';
 			$args  = $field_data['args'] ?? [];
-			add_settings_field( $field_data['uid'], $label, [ 'CTCL\ElectionWebsite\Settings', 'field_callback' ], $group, $field_data['section'], $field_data );
+			add_settings_field( $field_data['uid'], $label, [ 'CTCL\Elections\Settings', 'field_callback' ], $group, $field_data['section'], $field_data );
 			register_setting( $group, $field_data['uid'], $args );
 		}
 	}

@@ -1,5 +1,5 @@
 <?php
-namespace CTCL\ElectionWebsite;
+namespace CTCL\Elections;
 
 class Office_Info {
 	public static function block_render() {

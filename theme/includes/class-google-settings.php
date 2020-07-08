@@ -1,5 +1,5 @@
 <?php
-namespace CTCL\ElectionWebsite;
+namespace CTCL\Elections;
 
 class Google_Settings extends Settings {
 
@@ -68,4 +68,4 @@ class Google_Settings extends Settings {
 
 }
 
-add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Google_Settings', 'hooks' ] );
+add_action( 'after_setup_theme', [ '\CTCL\Elections\Google_Settings', 'hooks' ] );

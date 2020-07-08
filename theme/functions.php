@@ -2,7 +2,7 @@
 /**
  * CTCL election template functions and definitions
  *
- * @package CTCL\ElectionWebsite
+ * @package CTCL\Elections
  * @since   1.0.0
  */
 

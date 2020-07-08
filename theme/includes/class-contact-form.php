@@ -1,5 +1,5 @@
 <?php
-namespace CTCL\ElectionWebsite;
+namespace CTCL\Elections;
 
 class Contact_Form {
 
@@ -10,7 +10,7 @@ class Contact_Form {
 	// TODO: detect presence of form (in case page is renamed); maybe add to block
 	public static function hooks() {
 		if ( is_page( 'about-us' ) ) {
-			add_action( 'wp_enqueue_scripts', [ '\CTCL\ElectionWebsite\Recaptcha', 'wp_enqueue_scripts' ] );
+			add_action( 'wp_enqueue_scripts', [ '\CTCL\Elections\Recaptcha', 'wp_enqueue_scripts' ] );
 		}
 	}
 
@@ -188,4 +188,4 @@ class Contact_Form {
 	}
 }
 
-add_action( 'wp', [ '\CTCL\ElectionWebsite\Contact_Form', 'hooks' ] );
+add_action( 'wp', [ '\CTCL\Elections\Contact_Form', 'hooks' ] );

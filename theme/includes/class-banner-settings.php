@@ -1,5 +1,5 @@
 <?php
-namespace CTCL\ElectionWebsite;
+namespace CTCL\Elections;
 
 class Banner_Settings extends Settings {
 
@@ -109,4 +109,4 @@ class Banner_Settings extends Settings {
 	}
 }
 
-add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Banner_Settings', 'hooks' ] );
+add_action( 'after_setup_theme', [ '\CTCL\Elections\Banner_Settings', 'hooks' ] );

@@ -1,5 +1,5 @@
 <?php
-namespace CTCL\ElectionWebsite;
+namespace CTCL\Elections;
 
 class Blocks {
 
@@ -56,14 +56,14 @@ class Blocks {
 		register_block_type(
 			'ctcl-election-website/contact-form',
 			[
-				'render_callback' => [ '\CTCL\ElectionWebsite\Contact_Form', 'block_render' ],
+				'render_callback' => [ '\CTCL\Elections\Contact_Form', 'block_render' ],
 			]
 		);
 
 		register_block_type(
 			'ctcl-election-website/office-info',
 			[
-				'render_callback' => [ '\CTCL\ElectionWebsite\Office_Info', 'block_render' ],
+				'render_callback' => [ '\CTCL\Elections\Office_Info', 'block_render' ],
 			]
 		);
 	}
@@ -79,4 +79,4 @@ class Blocks {
 	}
 }
 
-add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Blocks', 'hooks' ] );
+add_action( 'after_setup_theme', [ '\CTCL\Elections\Blocks', 'hooks' ] );

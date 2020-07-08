@@ -2,7 +2,7 @@
 /**
  * Index Template.
  *
- * @package CTCL\ElectionWebsite
+ * @package CTCL\Elections
  * @since   1.0.0
  */
 

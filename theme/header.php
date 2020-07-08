@@ -2,7 +2,7 @@
 /**
  * The template for displaying the header.
  *
- * @package CTCL\ElectionWebsite
+ * @package CTCL\Elections
  * @since 1.0.0
  */
 
@@ -10,11 +10,11 @@ $logo_id    = get_theme_mod( 'custom_logo' );
 $site_title = get_bloginfo( 'title' );
 
 if ( is_front_page() ) {
-	$banner_enabled = \CTCL\ElectionWebsite\Banner::is_enabled();
-	$banner_title   = $banner_enabled ? \CTCL\ElectionWebsite\Banner::title() : '';
+	$banner_enabled = \CTCL\Elections\Banner::is_enabled();
+	$banner_title   = $banner_enabled ? \CTCL\Elections\Banner::title() : '';
 } else {
-	$banner_enabled = \CTCL\ElectionWebsite\Alert_Banner::is_enabled();
-	$banner_title   = $banner_enabled ? \CTCL\ElectionWebsite\Alert_Banner::title() : '';
+	$banner_enabled = \CTCL\Elections\Alert_Banner::is_enabled();
+	$banner_title   = $banner_enabled ? \CTCL\Elections\Alert_Banner::title() : '';
 }
 ?>
 <!DOCTYPE html>
@@ -51,14 +51,14 @@ if ( is_front_page() ) {
 		<div class="banner-wrapper">
 			<div>
 				<h2><?php echo esc_html( $banner_title ); ?></h2>
-				<p><?php echo esc_html( \CTCL\ElectionWebsite\Banner::description() ); ?></p>
-				<?php $learn_more = \CTCL\ElectionWebsite\Banner::link(); ?>
+				<p><?php echo esc_html( \CTCL\Elections\Banner::description() ); ?></p>
+				<?php $learn_more = \CTCL\Elections\Banner::link(); ?>
 				<?php if ( $learn_more ) : ?>
 				<p><a class="button learn-more" href="<?php echo esc_url( $learn_more ); ?>">Learn More</a></p>
 				<?php endif; ?>
 			</div>
 			<?php
-			$banner_id = \CTCL\ElectionWebsite\Banner::image_id();
+			$banner_id = \CTCL\Elections\Banner::image_id();
 			if ( $banner_id ) {
 				echo wp_kses_post( wp_get_attachment_image( $banner_id, 'banner' ) );
 			}
@@ -75,8 +75,8 @@ if ( is_front_page() ) {
 				<b><?php echo esc_html( $banner_title ); ?></b>
 				/
 				<?php
-					echo esc_html( \CTCL\ElectionWebsite\Alert_Banner::description() );
-					$learn_more = \CTCL\ElectionWebsite\Alert_Banner::link();
+					echo esc_html( \CTCL\Elections\Alert_Banner::description() );
+					$learn_more = \CTCL\Elections\Alert_Banner::link();
 				?>
 				<?php if ( $learn_more ) : ?>
 				<a class="alert learn-more" href="<?php echo esc_url( $learn_more ); ?>">Learn More</a>

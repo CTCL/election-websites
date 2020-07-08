@@ -1,5 +1,5 @@
 <?php
-namespace CTCL\ElectionWebsite;
+namespace CTCL\Elections;
 
 class Office_Details_Settings extends Settings {
 
@@ -29,7 +29,7 @@ class Office_Details_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => '(415) 867-5309',
 				'label_for'   => 'phone',
-				'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_phone_number' ] ],
+				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_phone_number' ] ],
 			],
 			[
 				'uid'         => 'fax',
@@ -38,7 +38,7 @@ class Office_Details_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => '(415) 867-5309',
 				'label_for'   => 'fax',
-				'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_phone_number' ] ],
+				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_phone_number' ] ],
 			],
 			[
 				'uid'         => 'address',
@@ -75,7 +75,7 @@ class Office_Details_Settings extends Settings {
 				'options'     => Helpers::state_list(),
 				'placeholder' => '47 Oak Drive',
 				'label_for'   => 'state',
-				'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'validate_state' ] ],
+				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'validate_state' ] ],
 			],
 			[
 				'uid'         => 'zip',
@@ -84,7 +84,7 @@ class Office_Details_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => '90210',
 				'label_for'   => 'zip',
-				'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_zip' ] ],
+				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_zip' ] ],
 			],
 			[
 				'uid'         => 'hours',
@@ -102,7 +102,7 @@ class Office_Details_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'MyCountyVotes',
 				'label_for'   => 'twitter',
-				'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_twitter' ] ],
+				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_twitter' ] ],
 			],
 			[
 				'uid'         => 'facebook',
@@ -112,7 +112,7 @@ class Office_Details_Settings extends Settings {
 				'placeholder' => 'MyCountyVotes',
 				'label_for'   => 'facebook',
 				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
-				'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_facebook' ] ],
+				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_facebook' ] ],
 			],
 			[
 				'uid'         => 'instagram',
@@ -122,7 +122,7 @@ class Office_Details_Settings extends Settings {
 				'placeholder' => 'MyCountyVotes',
 				'label_for'   => 'instagram',
 				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
-				'args'        => [ 'sanitize_callback' => [ '\CTCL\ElectionWebsite\Helpers', 'format_instagram' ] ],
+				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_instagram' ] ],
 			],
 		];
 	}
@@ -148,4 +148,4 @@ class Office_Details_Settings extends Settings {
 	}
 }
 
-add_action( 'after_setup_theme', [ '\CTCL\ElectionWebsite\Office_Details_Settings', 'hooks' ] );
+add_action( 'after_setup_theme', [ '\CTCL\Elections\Office_Details_Settings', 'hooks' ] );
