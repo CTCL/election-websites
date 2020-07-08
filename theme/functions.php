@@ -30,4 +30,4 @@ require_once __DIR__ . '/includes/class-google-settings.php';
 
 // Google integration.
 require_once __DIR__ . '/includes/class-google-analytics.php';
-require_once __DIR__ . '/includes/class-recaptcha.php'; // Must be after settings page.
+require_once __DIR__ . '/includes/class-google-recaptcha.php'; // Must be after settings page.
