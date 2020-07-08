@@ -17,16 +17,16 @@ require_once __DIR__ . '/includes/class-banner.php';
 require_once __DIR__ . '/includes/class-alert-banner.php';
 
 // Blocks.
-require_once __DIR__ . '/includes/class-blocks.php';
-require_once __DIR__ . '/includes/class-contact-form.php';
-require_once __DIR__ . '/includes/class-office-info.php';
+require_once __DIR__ . '/includes/blocks/class-blocks.php';
+require_once __DIR__ . '/includes/blocks/class-contact-form.php';
+require_once __DIR__ . '/includes/blocks/class-office-info.php';
 
 // Settings.
-require_once __DIR__ . '/includes/class-settings.php';
-require_once __DIR__ . '/includes/class-office-details-settings.php';
-require_once __DIR__ . '/includes/class-banner-settings.php';
-require_once __DIR__ . '/includes/class-topics-settings.php';
-require_once __DIR__ . '/includes/class-google-settings.php';
+require_once __DIR__ . '/includes/settings/class-settings.php';
+require_once __DIR__ . '/includes/settings/class-office-details-settings.php';
+require_once __DIR__ . '/includes/settings/class-banner-settings.php';
+require_once __DIR__ . '/includes/settings/class-topics-settings.php';
+require_once __DIR__ . '/includes/settings/class-google-settings.php';
 
 // Google integration.
 require_once __DIR__ . '/includes/class-google-analytics.php';
