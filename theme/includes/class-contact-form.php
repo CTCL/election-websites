@@ -7,7 +7,7 @@ class Contact_Form {
 	const NONCE_KEY     = 'contact_form_nonce';
 	const NONCE_ACTION  = 'contact_form_submit';
 
-	// TODO: detect presence of form (in case page is renamed); maybe add to block
+	// TODO: detect presence of form (in case page is renamed); maybe add to block.
 	public static function hooks() {
 		if ( is_page( 'about-us' ) ) {
 			add_action( 'wp_enqueue_scripts', [ '\CTCL\Elections\Recaptcha', 'wp_enqueue_scripts' ] );
@@ -61,7 +61,7 @@ class Contact_Form {
 	}
 
 	public static function send_message( $atts ) {
-		// TODO: send this message
+		// TODO: send this message.
 		$atts['fullname'];
 		$atts['email'];
 		$atts['topic'];
@@ -73,17 +73,19 @@ class Contact_Form {
 	public static function block_render( $block_attributes, $content ) {
 		$nonce = filter_input( INPUT_POST, self::NONCE_KEY, FILTER_SANITIZE_STRING );
 
-		// initial load; show the form
+		// Initial load; show the form.
 		if ( ! $nonce ) {
 			return self::render();
 		}
 
+		// Nonce is present; validate the form.
 		$validation_result = self::validate();
 		if ( ! wp_verify_nonce( $nonce, self::NONCE_ACTION ) ) {
 			$validation_result['errors'][] = 'Re-submit the form with the nonce present';
 			return self::render( $validation_result );
 		}
 
+		// If no ReCAPTCHA, process the form.
 		$recaptcha_enabled = Recaptcha::is_configured();
 		if ( ! $recaptcha_enabled ) {
 			if ( $validation_result['errors'] ) {
@@ -93,6 +95,7 @@ class Contact_Form {
 			}
 		}
 
+		// If ReCAPTCHA, validate the token, and process the form if the token is valid.
 		$token = filter_input( INPUT_POST, 'token', FILTER_SANITIZE_STRING );
 		if ( ! $token ) {
 			$validation_result['errors'][] = 'Re-submit the form with the token present';

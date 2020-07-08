@@ -15,18 +15,18 @@ class Hooks {
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'wp_enqueue_scripts' ] );
 		add_action( 'admin_enqueue_scripts', [ __CLASS__, 'admin_enqueue_scripts' ] );
 
-		// disable default post type
+		// Disable default 'post' post type.
 		add_action( 'admin_bar_menu', [ __CLASS__, 'remove_admin_bar_new_post' ], 99 );
 		add_action( 'admin_menu', [ __CLASS__, 'update_menu_pages' ], 998 );
 		add_action( 'load-post-new.php', [ __CLASS__, 'prevent_default_post_new' ] );
 		add_action( 'load-edit.php', [ __CLASS__, 'prevent_default_post_new' ] );
 
-		// disable comments
+		// Disable comments.
 		add_filter( 'comments_open', '__return_false' );
 		add_filter( 'pings_open', '__return_false' );
 		add_filter( 'comments_array', '__return_empty_array' );
 
-		// KSES: Allow additional tags/attributes
+		// KSES: Allow additional tags/attributes.
 		add_action( 'init', [ __CLASS__, 'kses_allow_additional_tags' ] );
 	}
 
