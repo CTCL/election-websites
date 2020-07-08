@@ -15,7 +15,7 @@ class Google_Analytics {
 	 */
 	public static function hooks() {
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'wp_enqueue_scripts' ] );
-		add_filter( 'script_loader_tag', [ __CLASS__, 'async_js' ], 10, 2 );
+		add_filter( 'script_loader_tag', [ __CLASS__, 'async_js' ], 10, 3 );
 	}
 
 	/**
@@ -37,12 +37,13 @@ class Google_Analytics {
 	/**
 	 * Defer Google Analytics JavaScript
 	 *
-	 * @param $tag
-	 * @param $handle
+	 * @param string $tag    The `<script>` tag for the enqueued script.
+	 * @param string $handle The script's registered handle.
+	 * @param string $src    The script's source URL.
 	 *
 	 * @return $string
 	 */
-	public static function async_js( $tag, $handle ) {
+	public static function async_js( $tag, $handle, $src ) {
 		if ( in_array( $handle, [ 'gtm' ], true ) ) {
 			return str_replace( ' src', ' async="async" src', $tag );
 		}

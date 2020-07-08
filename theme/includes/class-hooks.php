@@ -82,7 +82,7 @@ class Hooks {
 	/**
 	 * Remove nodes from admin bar menu.
 	 *
-	 * @param $wp_admin_bar
+	 * @param WP_Admin_Bar $wp_admin_bar WP_Admin_Bar instance, passed by reference.
 	 */
 	public static function remove_admin_bar_new_post( $wp_admin_bar ) {
 		$wp_admin_bar->remove_node( 'new-post' );
