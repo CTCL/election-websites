@@ -14,7 +14,15 @@ namespace CTCL\Elections;
  * Implements the office info block.
  */
 class Office_Info {
-	public static function block_render() {
+	/**
+	 * Render the Office Info block.
+	 *
+	 * @param array[] $block_attributes  Array of block attributes.
+	 * @param string  $content           Post content.
+	 *
+	 * @return string
+	 */
+	public static function block_render( $block_attributes, $content ) {
 
 		$contact_info = [
 			'email_address' => get_option( 'email_address' ),

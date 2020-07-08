@@ -30,6 +30,11 @@ class Contact_Form {
 		}
 	}
 
+	/**
+	 * Get the list of topics.
+	 *
+	 * @return array
+	 */
 	public static function topic_list() {
 		$topics = get_option( 'topic_list' );
 		if ( is_array( $topics ) ) {
@@ -42,6 +47,11 @@ class Contact_Form {
 		return $topics;
 	}
 
+	/**
+	 * Validate the contact form content as an email.
+	 *
+	 * @return array
+	 */
 	public static function validate() {
 		$errors = [];
 
@@ -76,6 +86,13 @@ class Contact_Form {
 		];
 	}
 
+	/**
+	 * Send the contact form content as an email.
+	 *
+	 * @param array $atts Form contents (sender, subject, message body).
+	 *
+	 * @return string
+	 */
 	public static function send_message( $atts ) {
 		// TODO: send this message.
 		$atts['fullname'];
@@ -86,6 +103,14 @@ class Contact_Form {
 		return 'Thanks! Your message has been sent.';
 	}
 
+	/**
+	 * Validate and render the Contact Form block.
+	 *
+	 * @param array[] $block_attributes  Array of block attributes.
+	 * @param string  $content           Post content.
+	 *
+	 * @return string
+	 */
 	public static function block_render( $block_attributes, $content ) {
 		$nonce = filter_input( INPUT_POST, self::NONCE_KEY, FILTER_SANITIZE_STRING );
 
@@ -135,7 +160,14 @@ class Contact_Form {
 		return self::render();
 	}
 
-	public static function render( $attr = null, $content = null ) {
+	/**
+	 * Render the Contact Form block.
+	 *
+	 * @param array[] $attr         Array of contact form attributes.
+	 *
+	 * @return string
+	 */
+	public static function render( $attr = null ) {
 		$attr = shortcode_atts(
 			[
 				'fullname' => '',

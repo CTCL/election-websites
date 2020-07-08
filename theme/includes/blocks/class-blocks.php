@@ -20,7 +20,7 @@ class Blocks {
 	 */
 	public static function hooks() {
 		add_action( 'init', [ __CLASS__, 'init_block_editors' ] );
-		add_filter( 'block_categories', [ __CLASS__, 'block_categories' ] );
+		add_filter( 'block_categories', [ __CLASS__, 'block_categories' ], 10, 2 );
 	}
 
 	/**
@@ -83,7 +83,15 @@ class Blocks {
 		);
 	}
 
-	public static function block_categories( $categories ) {
+	/**
+	 * Add Election Blocks to the list of block categories.
+	 *
+	 * @param array[] $categories  Array of block categories.
+	 * @param WP_Post $post         Post being loaded.
+	 *
+	 * @return array
+	 */
+	public static function block_categories( $categories, $post ) {
 		$categories[] = [
 			'title' => 'Election Blocks',
 			'slug'  => 'election-blocks',
