@@ -14,8 +14,8 @@ namespace CTCL\Elections;
  * @package CTCL\Elections
  * @since 1.0.0
  */
-
 class Hooks {
+
 	/**
 	 * Set up actions and filters.
 	 */
@@ -39,7 +39,7 @@ class Hooks {
 	}
 
 	/**
-	 * Enqueue scripts and styles.
+	 * Enqueue frontend scripts and styles.
 	 */
 	public static function wp_enqueue_scripts() {
 		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
@@ -50,7 +50,9 @@ class Hooks {
 	}
 
 	/**
-	 * Enqueue scripts and styles.
+	 * Enqueue backend scripts and styles.
+	 *
+	 * @param string $hook The current admin page.
 	 */
 	public static function admin_enqueue_scripts( $hook ) {
 		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
@@ -109,6 +111,9 @@ class Hooks {
 		remove_menu_page( 'edit-comments.php' );
 	}
 
+	/**
+	 * Add custom image sizes for this theme.
+	 */
 	public static function set_image_sizes() {
 		add_image_size( 'header-icon', 56, 56 );
 		add_image_size( 'banner', 228, 228 );
