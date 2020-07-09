@@ -207,12 +207,8 @@ class Contact_Form {
 		);
 
 		ob_start();
-		$classes = [ 'contact-form' ];
-		if ( Helpers::is_block_backend() ) {
-			$classes[] = 'disabled';
-		}
 		?>
-		<form class="<?php echo esc_attr( join( ' ', $classes ) ); ?>" id="contact-form" action="<?php the_permalink(); ?>" method="post">
+		<form class="contact-form" id="contact-form" action="<?php the_permalink(); ?>" method="post">
 
 			<?php
 			wp_nonce_field( self::NONCE_ACTION, self::NONCE_KEY );

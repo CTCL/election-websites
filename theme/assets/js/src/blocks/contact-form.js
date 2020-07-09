@@ -1,5 +1,6 @@
 const { registerBlockType } = wp.blocks;
 const { serverSideRender: ServerSideRender } = wp;
+const { Disabled } = wp.components;
 
 registerBlockType( 'ctcl-election-website/contact-form', {
 	title: 'Contact Form',
@@ -8,10 +9,12 @@ registerBlockType( 'ctcl-election-website/contact-form', {
 
 	edit: function( props ) {
 		return (
-			<ServerSideRender
-				block="ctcl-election-website/contact-form"
-				attributes={ props.attributes }
-			/>
+			<Disabled>
+				<ServerSideRender
+					block="ctcl-election-website/contact-form"
+					attributes={ props.attributes }
+				/>
+			</Disabled>
 		);
 	}
 } );
