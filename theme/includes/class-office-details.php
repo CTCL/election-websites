@@ -45,7 +45,7 @@ class Office_Details {
 	 *
 	 * @return string
 	 */
-	public static function title() {
+	public static function official_title() {
 		return get_option( 'official_title' );
 	}
 
