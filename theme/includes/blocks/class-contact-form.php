@@ -31,6 +31,15 @@ class Contact_Form {
 	}
 
 	/**
+	 * Whether or not the contact form is enabled. Requires an email address to be present in Settings > Office Details.
+	 *
+	 * @return array
+	 */
+	public static function is_enabled() {
+		return strlen( get_option( 'email_address' ) );
+	}
+
+	/**
 	 * Get the list of topics.
 	 *
 	 * @return array
@@ -112,6 +121,11 @@ class Contact_Form {
 	 * @return string
 	 */
 	public static function block_render( $block_attributes, $content ) {
+		if ( ! self::is_enabled() ) {
+			$permalink = admin_url( 'admin.php?page=' . Settings::MENU_SLUG );
+			return 'Please specify an email address in <a href="' . esc_url( $permalink ) . '">Settings > Office Details</a>';
+		}
+
 		$nonce = filter_input( INPUT_POST, self::NONCE_KEY, FILTER_SANITIZE_STRING );
 
 		// Initial load; show the form.
