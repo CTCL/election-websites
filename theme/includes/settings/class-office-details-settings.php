@@ -34,6 +34,24 @@ class Office_Details_Settings extends Settings {
 	public static function get_fields() {
 		return [
 			[
+				'uid'         => 'official_name',
+				'label'       => 'Election Official Name',
+				'section'     => 'contact_section',
+				'type'        => 'text',
+				'placeholder' => 'Jane Smith',
+				'label_for'   => 'official_name',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+			],
+			[
+				'uid'         => 'official_title',
+				'label'       => 'Election Official Title',
+				'section'     => 'contact_section',
+				'type'        => 'text',
+				'placeholder' => 'Registrar of Voters',
+				'label_for'   => 'official_title',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+			],
+			[
 				'uid'         => 'email_address',
 				'label'       => 'Email Address',
 				'section'     => 'contact_section',
