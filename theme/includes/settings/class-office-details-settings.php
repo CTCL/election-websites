@@ -22,8 +22,8 @@ class Office_Details_Settings extends Settings {
 	 * Add Elections menu. Set first item to Office Details.
 	 */
 	public static function register_menu() {
-		add_menu_page( 'Elections', 'Elections', 'manage_options', Settings::MENU_SLUG, [ get_called_class(), 'page' ], 'dashicons-star-filled', 2 );
-		add_submenu_page( Settings::MENU_SLUG, 'Office Details', 'Office Details', 'manage_options', Settings::MENU_SLUG, [ get_called_class(), 'page' ] );
+		add_menu_page( 'Elections', 'Elections', 'edit_pages', Settings::MENU_SLUG, [ get_called_class(), 'page' ], 'dashicons-star-filled', 2 );
+		add_submenu_page( Settings::MENU_SLUG, 'Office Details', 'Office Details', 'edit_pages', Settings::MENU_SLUG, [ get_called_class(), 'page' ] );
 	}
 
 	/**

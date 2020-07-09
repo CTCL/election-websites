@@ -22,7 +22,7 @@ class Topics_Settings extends Settings {
 	 * Add Topics submenu page.
 	 */
 	public static function register_menu() {
-		add_submenu_page( Settings::MENU_SLUG, 'Topics', 'Topics', 'manage_options', 'topics', [ get_called_class(), 'page' ] );
+		add_submenu_page( Settings::MENU_SLUG, 'Topics', 'Topics', 'edit_pages', 'topics', [ get_called_class(), 'page' ] );
 	}
 
 	/**
