@@ -88,63 +88,75 @@ class Helpers {
 	/**
 	 * Format US phone numbers.
 	 *
+	 * @param string $phone  Phone number.
+	 *
 	 * @return string
 	 */
-	public static function format_phone_number( $p ) {
-		$p = preg_replace( '/[^\d]/', '', $p );
-		if ( ! $p ) {
+	public static function format_phone_number( $phone ) {
+		$phone = preg_replace( '/[^\d]/', '', $phone );
+		if ( ! $phone ) {
 			return '';
 		}
 
-		return sprintf( '(%s) %s-%s', substr( $p, 0, 3 ), substr( $p, 3, 3 ), substr( $p, 6, 4 ) );
+		return sprintf( '(%s) %s-%s', substr( $phone, 0, 3 ), substr( $phone, 3, 3 ), substr( $phone, 6, 4 ) );
 	}
 
 	/**
 	 * Format 5-digit zip codes.
 	 *
+	 * @param string $zip  Zip code.
+	 *
 	 * @return string
 	 */
-	public static function format_zip( $s ) {
-		return substr( preg_replace( '/[^\d]/', '', $s ), 0, 5 );
+	public static function format_zip( $zip ) {
+		return substr( preg_replace( '/[^\d]/', '', $zip ), 0, 5 );
 	}
 
 	/**
 	 * Format Twitter usernames.
 	 *
+	 * @param string $username  Username.
+	 *
 	 * @return string
 	 */
-	public static function format_twitter( $s ) {
-		return substr( preg_replace( '/[^A-Z0-9_]/i', '', $s ), 0, 15 );
+	public static function format_twitter( $username ) {
+		return substr( preg_replace( '/[^A-Z0-9_]/i', '', $username ), 0, 15 );
 	}
 
 	/**
 	 * Format Facebook usernames.
 	 *
+	 * @param string $username  Username.
+	 *
 	 * @return string
 	 */
-	public static function format_facebook( $s ) {
-		return preg_replace( '/[^A-Z0-9\.]/i', '', $s );
+	public static function format_facebook( $username ) {
+		return preg_replace( '/[^A-Z0-9\.]/i', '', $username );
 	}
 
 	/**
 	 * Format Instagram usernames.
 	 *
+	 * @param string $username  Username.
+	 *
 	 * @return string
 	 */
-	public static function format_instagram( $s ) {
-		return preg_replace( '/[^A-Z0-9_\.]/i', '', $s );
+	public static function format_instagram( $username ) {
+		return preg_replace( '/[^A-Z0-9_\.]/i', '', $username );
 	}
 
 	/**
 	 * Ensure state is from list of valid state abbreviations.
 	 *
+	 * @param string $state  State abbreviation.
+	 *
 	 * @return string
 	 */
-	public static function validate_state( $s ) {
+	public static function validate_state( $state ) {
 		$state_list = self::state_list();
 
-		if ( in_array( $s, array_keys( $state_list ), true ) ) {
-			return $s;
+		if ( in_array( $state, array_keys( $state_list ), true ) ) {
+			return $state;
 		}
 
 		return '';
