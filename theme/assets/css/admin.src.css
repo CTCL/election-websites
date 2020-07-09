@@ -100,10 +100,6 @@ figure.wp-block-table td {
   box-sizing: border-box;
 }
 
-.contact-form.disabled {
-  pointer-events: none;
-}
-
 #topic_list_wrapper > div {
   margin-bottom: 10px;
 }

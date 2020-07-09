@@ -4,15 +4,16 @@
 var registerBlockType = wp.blocks.registerBlockType;
 var _wp = wp,
     ServerSideRender = _wp.serverSideRender;
+var Disabled = wp.components.Disabled;
 registerBlockType('ctcl-election-website/contact-form', {
   title: 'Contact Form',
   icon: 'email',
   category: 'election-blocks',
   edit: function edit(props) {
-    return /*#__PURE__*/React.createElement(ServerSideRender, {
+    return /*#__PURE__*/React.createElement(Disabled, null, /*#__PURE__*/React.createElement(ServerSideRender, {
       block: "ctcl-election-website/contact-form",
       attributes: props.attributes
-    });
+    }));
   }
 });
 
