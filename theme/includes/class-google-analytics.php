@@ -26,7 +26,7 @@ class Google_Analytics {
 	}
 
 	/**
-	 * Enqueue Google Analytics JavaScript
+	 * Enqueue Google Analytics JavaScript.
 	 */
 	public static function wp_enqueue_scripts() {
 		$tracking_id = get_option( self::TRACKING_ID );
@@ -42,13 +42,13 @@ class Google_Analytics {
 	}
 
 	/**
-	 * Defer Google Analytics JavaScript
+	 * Defer Google Analytics JavaScript.
 	 *
 	 * @param string $tag    The `<script>` tag for the enqueued script.
 	 * @param string $handle The script's registered handle.
 	 * @param string $src    The script's source URL.
 	 *
-	 * @return $string
+	 * @return string
 	 */
 	public static function async_js( $tag, $handle, $src ) {
 		if ( in_array( $handle, [ 'gtm' ], true ) ) {
