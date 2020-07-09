@@ -22,7 +22,7 @@ class Google_Settings extends Settings {
 	 * Add Google submenu page.
 	 */
 	public static function register_menu() {
-		add_submenu_page( 'elections', 'Google', 'Google', 'manage_options', 'google', [ get_called_class(), 'page' ] );
+		add_submenu_page( Settings::MENU_SLUG, 'Google', 'Google', 'manage_options', 'google', [ get_called_class(), 'page' ] );
 	}
 
 	/**

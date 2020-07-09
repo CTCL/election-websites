@@ -15,6 +15,8 @@ namespace CTCL\Elections;
  */
 class Settings {
 
+	const MENU_SLUG = 'elections';
+
 	/**
 	 * Set up actions and filters.
 	 */

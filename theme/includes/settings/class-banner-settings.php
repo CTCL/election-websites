@@ -22,7 +22,7 @@ class Banner_Settings extends Settings {
 	 * Add Banner submenu page.
 	 */
 	public static function register_menu() {
-		add_submenu_page( 'elections', 'Banner', 'Banner', 'manage_options', 'banner', [ get_called_class(), 'page' ] );
+		add_submenu_page( Settings::MENU_SLUG, 'Banner', 'Banner', 'manage_options', 'banner', [ get_called_class(), 'page' ] );
 	}
 
 	/**
