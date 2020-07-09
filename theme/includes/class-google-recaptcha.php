@@ -17,18 +17,36 @@ class Google_Recaptcha {
 
 	const API_URL = 'https://www.google.com/recaptcha/api/siteverify';
 
+	/**
+	 * ReCAPTCHA Site Key.
+	 *
+	 * @return string
+	 */
 	public static function get_site_key() {
 		return get_option( 'recaptcha_site_key' );
 	}
 
+	/**
+	 * ReCAPTCHA Secret Key.
+	 *
+	 * @return string
+	 */
 	public static function get_secret_key() {
 		return get_option( 'recaptcha_secret_key' );
 	}
 
+	/**
+	 * Whether or not ReCAPTCHA is configured (has both site key and secret key).
+	 *
+	 * @return boolean
+	 */
 	public static function is_configured() {
 		return self::get_site_key() && self::get_secret_key();
 	}
 
+	/**
+	 * Enqueue Google ReCAPTCHA JavaScript.
+	 */
 	public static function wp_enqueue_scripts() {
 		if ( ! self::is_configured() ) {
 			return;
@@ -38,6 +56,14 @@ class Google_Recaptcha {
 		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', [], null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 	}
 
+	/**
+	 * Verify a ReCAPTCHA response.
+	 *
+	 * @param string $response    The response string (token).
+	 * @param string $ip_address  The client's IP address.
+	 *
+	 * @return boolean
+	 */
 	public static function verify( $response, $ip_address ) {
 		if ( ! self::is_configured() ) {
 			return false;
