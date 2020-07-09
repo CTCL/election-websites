@@ -86,7 +86,7 @@ class Blocks {
 	/**
 	 * Add Election Blocks to the list of block categories.
 	 *
-	 * @param array $categories  Array of block categories.
+	 * @param array   $categories  Array of block categories.
 	 * @param WP_Post $post         Post being loaded.
 	 *
 	 * @return array

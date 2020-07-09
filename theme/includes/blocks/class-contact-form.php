@@ -115,8 +115,8 @@ class Contact_Form {
 	/**
 	 * Validate and render the Contact Form block.
 	 *
-	 * @param array $block_attributes  Array of block attributes.
-	 * @param string  $content           Post content.
+	 * @param array  $block_attributes  Array of block attributes.
+	 * @param string $content           Post content.
 	 *
 	 * @return string
 	 */
