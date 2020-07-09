@@ -7,7 +7,7 @@
  */
 
 $logo_id    = get_theme_mod( 'custom_logo' );
-$site_title = get_bloginfo( 'title' );
+$site_title = \CTCL\Elections\Office_Details::title();
 
 if ( is_front_page() ) {
 	$banner_enabled = \CTCL\Elections\Banner::is_enabled();

@@ -11,7 +11,7 @@
 	<?php if ( is_front_page() ) { ?>
 		<div class="footer-content-wrapper">
 			<div>
-				<h4 class="section-title"><?php bloginfo( 'title' ); ?></h4>
+				<h4 class="section-title"><?php echo esc_html( \CTCL\Elections\Office_Details::title() ); ?></h4>
 				<p class="info-item">
 					<b><?php echo esc_html( \CTCL\Elections\Office_Details::official() ); ?>,</b>
 					<?php echo esc_html( \CTCL\Elections\Office_Details::title() ); ?>
@@ -22,7 +22,7 @@
 		</div>
 	<?php } else { ?>
 		<div class="abbreviated-footer">
-			<h4><?php bloginfo( 'title' ); ?></h4>
+			<h4><?php echo esc_html( \CTCL\Elections\Office_Details::title() ); ?></h4>
 			<p>
 				<b>Email:</b> <?php \CTCL\Elections\Office_Details::email( true, true ); ?>
 				| <b>Phone:</b> <?php echo esc_html( \CTCL\Elections\Office_Details::phone() ); ?>

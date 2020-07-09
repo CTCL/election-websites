@@ -23,6 +23,15 @@ class Office_Details {
 	public static $allowed_link_tags = [ 'a' => [ 'href' => true ] ];
 
 	/**
+	 * The election office name.
+	 *
+	 * @return string
+	 */
+	public static function title() {
+		return get_bloginfo( 'title' );
+	}
+
+	/**
 	 * The election official name.
 	 *
 	 * @return string
