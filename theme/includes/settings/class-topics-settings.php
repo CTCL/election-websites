@@ -18,10 +18,16 @@ class Topics_Settings extends Settings {
 	const PAGE_TITLE  = 'Contact Form Topics';
 	const FIELD_GROUP = 'topics_fields';
 
+	/**
+	 * Add Topics submenu page.
+	 */
 	public static function register_menu() {
 		add_submenu_page( 'elections', 'Topics', 'Topics', 'manage_options', 'topics', [ get_called_class(), 'page' ] );
 	}
 
+	/**
+	 * Configure Topics settings.
+	 */
 	public static function register_settings() {
 		add_settings_section(
 			'topics_section',
@@ -45,8 +51,15 @@ class Topics_Settings extends Settings {
 		self::configure_fields( $fields, static::FIELD_GROUP );
 	}
 
-	public static function sanitize_topic_list( $args ) {
-		return array_filter( array_map( 'sanitize_text_field', $args ) );
+	/**
+	 * Format topic list: sanitize text and remove empty items.
+	 *
+	 * @param array $topics Topic list.
+	 *
+	 * @return array
+	 */
+	public static function sanitize_topic_list( $topics ) {
+		return array_filter( array_map( 'sanitize_text_field', $topics ) );
 	}
 }
 

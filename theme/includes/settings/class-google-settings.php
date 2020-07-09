@@ -18,10 +18,16 @@ class Google_Settings extends Settings {
 	const PAGE_TITLE  = 'Google';
 	const FIELD_GROUP = 'google_fields';
 
+	/**
+	 * Add Google submenu page.
+	 */
 	public static function register_menu() {
 		add_submenu_page( 'elections', 'Google', 'Google', 'manage_options', 'google', [ get_called_class(), 'page' ] );
 	}
 
+	/**
+	 * Configure Google settings.
+	 */
 	public static function register_settings() {
 		add_settings_section(
 			'analytics_section',
@@ -70,9 +76,16 @@ class Google_Settings extends Settings {
 		self::configure_fields( $fields, static::FIELD_GROUP );
 	}
 
-	public static function validate_tracking_id( $s ) {
-		if ( preg_match( '/^UA-\d{4,9}-\d{1,4}$/', $s ) ) {
-			return $s;
+	/**
+	 * Ensure Google tracking ID is of the correct format.
+	 *
+	 * @param array $tracking_id Google tracking ID.
+	 *
+	 * @return string
+	 */
+	public static function validate_tracking_id( $tracking_id ) {
+		if ( preg_match( '/^UA-\d{4,9}-\d{1,4}$/', $tracking_id ) ) {
+			return $tracking_id;
 		}
 
 		return '';

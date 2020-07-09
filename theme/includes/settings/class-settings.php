@@ -23,10 +23,19 @@ class Settings {
 		add_action( 'admin_init', [ get_called_class(), 'register_settings' ] );
 	}
 
+	/**
+	 * Display a notice indicating the settings were updated.
+	 */
 	public static function admin_notice() {
 		echo '<div class="notice notice-success is-dismissible"><p>Your settings have been updated.</p></div>';
 	}
 
+	/**
+	 * Add and register settings fields.
+	 *
+	 * @param array $fields Settings fields.
+	 * @param array $group Settings group name.
+	 */
 	public static function configure_fields( $fields, $group ) {
 		if ( ! is_array( $fields ) ) {
 			return;
@@ -40,6 +49,11 @@ class Settings {
 		}
 	}
 
+	/**
+	 * Print a settings field.
+	 *
+	 * @param array $args Field properties (uid, label, placeholder, etc.).
+	 */
 	public static function field_callback( $args ) {
 		$placeholder = $args['placeholder'] ?? '';
 
@@ -106,6 +120,9 @@ class Settings {
 		}
 	}
 
+	/**
+	 * Render the settings page.
+	 */
 	public static function page() {
 		?>
 		<form method="post" action="options.php">

@@ -18,11 +18,19 @@ class Office_Details_Settings extends Settings {
 	const PAGE_TITLE  = 'Office Information';
 	const FIELD_GROUP = 'contact_fields_all';
 
+	/**
+	 * Add Elections menu. Set first item to Office Details.
+	 */
 	public static function register_menu() {
 		add_menu_page( 'Elections', 'Elections', 'manage_options', 'elections', [ get_called_class(), 'page' ], 'dashicons-star-filled', 2 );
 		add_submenu_page( 'elections', 'Office Details', 'Office Details', 'manage_options', 'elections', [ get_called_class(), 'page' ] );
 	}
 
+	/**
+	 * Get Office Details settings fields. Abstracted out so we can use placeholder text in the block backend.
+	 *
+	 * @return array
+	 */
 	public static function get_fields() {
 		return [
 			[
@@ -139,6 +147,9 @@ class Office_Details_Settings extends Settings {
 		];
 	}
 
+	/**
+	 * Configure Office Details settings.
+	 */
 	public static function register_settings() {
 		add_settings_section(
 			'contact_section',

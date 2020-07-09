@@ -18,10 +18,16 @@ class Banner_Settings extends Settings {
 	const PAGE_TITLE  = 'Banner';
 	const FIELD_GROUP = 'banner_fields';
 
+	/**
+	 * Add Banner submenu page.
+	 */
 	public static function register_menu() {
 		add_submenu_page( 'elections', 'Banner', 'Banner', 'manage_options', 'banner', [ get_called_class(), 'page' ] );
 	}
 
+	/**
+	 * Configure Banner settings.
+	 */
 	public static function register_settings() {
 		add_settings_section(
 			'banner_section',
