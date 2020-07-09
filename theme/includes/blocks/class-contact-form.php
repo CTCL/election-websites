@@ -103,13 +103,26 @@ class Contact_Form {
 	 * @return string
 	 */
 	public static function send_message( $atts ) {
-		// TODO: send this message.
-		$atts['fullname'];
-		$atts['email'];
-		$atts['topic'];
-		$atts['message'];
+		$recipient = get_option( 'email_address' );
+		$subject   = $atts['topic'];
+		$sender    = sprintf( '"%s" <%s>', $atts['fullname'], $atts['email'] );
+		$headers   = [
+			'Reply-To' => $sender,
+		];
+		$message   = sprintf( "From: %s\n\n%s", $sender, $atts['message'] );
 
-		return 'Thanks! Your message has been sent.';
+		// TODO: send this message.
+		if ( false ) {
+			$result = wp_mail( $recipient, $subject, $message, $headers ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_mail_wp_mail
+		} else {
+			$result = true;
+		}
+
+		if ( $result ) {
+			return 'Thanks! Your message has been sent.';
+		} else {
+			return 'Your message failed to send. Please try again later.';
+		}
 	}
 
 	/**
