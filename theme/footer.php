@@ -12,15 +12,21 @@
 		<div class="footer-content-wrapper">
 			<div>
 				<h4 class="section-title"><?php bloginfo( 'title' ); ?></h4>
-				<p class="info-item"><b>Gregory J. Diaz,</b> Registrar of Voters</p>
-				<p class="info-item"><b>Email:</b> office@nevadacountyvotes.gov</p>
-				<p class="info-item"><b>Phone:</b> 415.555.5555</p>
+				<p class="info-item">
+					<b><?php echo esc_html( \CTCL\Elections\Office_Details::official() ); ?>,</b>
+					<?php echo esc_html( \CTCL\Elections\Office_Details::title() ); ?>
+				</p>
+				<p class="info-item"><b>Email:</b> <?php \CTCL\Elections\Office_Details::email( true, true ); ?></p>
+				<p class="info-item"><b>Phone:</b> <?php echo esc_html( \CTCL\Elections\Office_Details::phone() ); ?></p>
 			</div>
 		</div>
 	<?php } else { ?>
 		<div class="abbreviated-footer">
 			<h4><?php bloginfo( 'title' ); ?></h4>
-			<p><b>Email:</b> office@nevadacountyvotes.gov | <b>Phone:</b> 415.555.5555</p>
+			<p>
+				<b>Email:</b> <?php \CTCL\Elections\Office_Details::email( true, true ); ?>
+				| <b>Phone:</b> <?php echo esc_html( \CTCL\Elections\Office_Details::phone() ); ?>
+			</p>
 		</div>
 	<?php } ?>
 </footer>
