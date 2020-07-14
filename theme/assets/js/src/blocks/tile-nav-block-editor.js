@@ -33,6 +33,7 @@ registerBlockType( 'ctcl-election-website/tile-nav-block', {
 	title: 'Tile',
 	icon: 'screenoptions',
 	category: 'election-blocks',
+	parent: [ 'ctcl-election-website/tile-nav-section-block' ],
 	attributes: {
 		icon: {
 			type: 'string'
