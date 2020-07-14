@@ -8,3 +8,17 @@ function submitContactForm( token ) {
 		contactForm.submit();
 	}
 }
+
+( function( $ ) {
+	$( document ).ready( function() {
+		$( '.accordion-header' ).click( function( e ) {
+			$target = $( e.target );
+			if ( $target.hasClass( 'open' ) ) {
+				$target.removeClass( 'open' );
+			} else {
+				$target.addClass( 'open' );
+			}
+		} );
+	} );
+
+} ( jQuery ) );

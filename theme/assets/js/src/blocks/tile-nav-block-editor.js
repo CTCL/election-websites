@@ -3,7 +3,7 @@ const { serverSideRender: ServerSideRender } = wp;
 const { createElement } = wp.element;
 
 registerBlockType( 'ctcl-election-website/tile-nav-section-block', {
-	title: 'Tile Navigation Section',
+	title: 'Tile Nav Group',
 	icon: 'screenoptions',
 	category: 'election-blocks',
 	edit: function( props ) {
@@ -30,7 +30,7 @@ registerBlockType( 'ctcl-election-website/tile-nav-section-block', {
 } );
 
 registerBlockType( 'ctcl-election-website/tile-nav-block', {
-	title: 'Tile Navigation',
+	title: 'Tile',
 	icon: 'screenoptions',
 	category: 'election-blocks',
 	attributes: {
