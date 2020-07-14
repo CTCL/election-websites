@@ -10,29 +10,19 @@ $official_name  = \CTCL\Elections\Office_Details::official();
 $official_title = \CTCL\Elections\Office_Details::official_title();
 ?>
 <footer>
-	<?php if ( is_front_page() ) { ?>
-		<div class="footer-content-wrapper">
-			<div>
-				<h4 class="section-title"><?php echo esc_html( \CTCL\Elections\Office_Details::title() ); ?></h4>
-				<?php if ( $official_name && $official_title ) : ?>
-				<p class="info-item">
-					<b><?php echo esc_html( $official_name ); ?>,</b>
-					<?php echo esc_html( $official_title ); ?>
-				</p>
-				<?php endif; ?>
-				<p class="info-item"><b>Email:</b> <?php \CTCL\Elections\Office_Details::email( true, true ); ?></p>
-				<p class="info-item"><b>Phone:</b> <?php echo esc_html( \CTCL\Elections\Office_Details::phone() ); ?></p>
-			</div>
-		</div>
-	<?php } else { ?>
-		<div class="abbreviated-footer">
-			<h4><?php echo esc_html( \CTCL\Elections\Office_Details::title() ); ?></h4>
-			<p>
-				<b>Email:</b> <?php \CTCL\Elections\Office_Details::email( true, true ); ?>
-				| <b>Phone:</b> <?php echo esc_html( \CTCL\Elections\Office_Details::phone() ); ?>
+	<div class="footer-content-wrapper">
+		<div>
+			<h4 class="section-title"><?php echo esc_html( \CTCL\Elections\Office_Details::title() ); ?></h4>
+			<?php if ( $official_name && $official_title ) : ?>
+			<p class="info-item">
+				<b><?php echo esc_html( $official_name ); ?>,</b>
+				<?php echo esc_html( $official_title ); ?>
 			</p>
+			<?php endif; ?>
+			<p class="info-item"><b>Email:</b> <?php \CTCL\Elections\Office_Details::email( true, true ); ?></p>
+			<p class="info-item"><b>Phone:</b> <?php echo esc_html( \CTCL\Elections\Office_Details::phone() ); ?></p>
 		</div>
-	<?php } ?>
+	</div>
 </footer>
 
 	<?php wp_footer(); ?>
