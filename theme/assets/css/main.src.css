@@ -574,7 +574,8 @@ main h1,
 main h2,
 main h3,
 main h4,
-main h5 {
+main h5,
+main h6 {
   margin: 20px 0 8px;
   color: #17234c;
 }
@@ -583,7 +584,8 @@ main h1:first-child,
 main h2:first-child,
 main h3:first-child,
 main h4:first-child,
-main h5:first-child {
+main h5:first-child,
+main h6:first-child {
   margin-top: 0;
 }
 
@@ -609,7 +611,7 @@ main .wp-block-group :last-child {
 }
 
 main hr {
-  border: 3px solid #17234c;
+  border: 1.5px solid #17234c;
 }
 
 main.front-page {
@@ -652,6 +654,85 @@ main {
 
 .numbered-section .numbered-section-content:first-child {
   margin-top: 0;
+}
+
+.accordion-group:not(.subsection) {
+  margin: 24px 0;
+}
+
+.accordion-group .accordion-section-wrapper {
+  border-top: 3px solid #17234c;
+}
+
+.accordion-group .accordion-section-wrapper:last-child {
+  border-bottom: 3px solid #17234c;
+}
+
+.accordion-group .accordion-section-wrapper.subsection {
+  border-top: 1px solid #b7bcce;
+}
+
+.accordion-group .accordion-section-wrapper.subsection:first-child {
+  border-top: none;
+}
+
+.accordion-group .accordion-section-wrapper.subsection:last-child {
+  border-bottom: none;
+}
+
+.accordion-group .accordion-section-wrapper .accordion-section-header {
+  margin: 18px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.accordion-group .accordion-section-wrapper .accordion-section-header::after {
+  border-style: solid;
+  border-width: 0 0 3px 3px;
+  content: '';
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  right: 5px;
+  position: relative;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  border-color: #002d75;
+  transition: all 0.5s;
+}
+
+.accordion-group .accordion-section-wrapper h1.accordion-section-header::after {
+  top: 0.25em;
+}
+
+.accordion-group .accordion-section-wrapper h3.accordion-section-header::after {
+  top: 0.25em;
+}
+
+.accordion-group .accordion-section-wrapper .accordion-section-header.open::after {
+  transform: rotate(-225deg);
+}
+
+.accordion-group .accordion-section-wrapper h1.accordion-section-header.open::after {
+  top: 0.4em;
+}
+
+.accordion-group .accordion-section-wrapper h3.accordion-section-header.open::after {
+  top: 0.45em;
+}
+
+.accordion-group .accordion-section-wrapper h5.accordion-section-header.open::after {
+  top: 0.45em;
+}
+
+.accordion-group .accordion-section-wrapper .accordion-section-content {
+  padding-bottom: 18px;
+}
+
+.accordion-group .accordion-section-wrapper .accordion-section-header:not(.open) + .accordion-section-content {
+  display: none;
 }
 
 * {
@@ -702,6 +783,11 @@ h4 {
 }
 
 h5 {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+h6 {
   font-size: 16px;
   line-height: 22px;
 }

@@ -2,6 +2,128 @@
 "use strict";
 
 var registerBlockType = wp.blocks.registerBlockType;
+var createElement = wp.element.createElement;
+var _wp$blockEditor = wp.blockEditor,
+    InspectorControls = _wp$blockEditor.InspectorControls,
+    InnerBlocks = _wp$blockEditor.InnerBlocks,
+    RichText = _wp$blockEditor.RichText;
+var _wp$components = wp.components,
+    PanelBody = _wp$components.PanelBody,
+    PanelRow = _wp$components.PanelRow,
+    SelectControl = _wp$components.SelectControl;
+var PARENT_BLOCK = 'ctcl-election-website/accordion-group-block';
+var CHILD_BLOCK = 'ctcl-election-website/accordion-section-block';
+var DEFAULT_HEADER_TAG = 'h1';
+var TEMPLATE = [[CHILD_BLOCK, {
+  headerTag: DEFAULT_HEADER_TAG
+}]];
+var AccordionBlockContext = wp.element.createContext(DEFAULT_HEADER_TAG);
+registerBlockType(CHILD_BLOCK, {
+  title: 'Collapsible Section',
+  icon: 'book',
+  category: 'election-blocks',
+  parent: [PARENT_BLOCK],
+  attributes: {
+    headerTag: {
+      type: 'string',
+      default: DEFAULT_HEADER_TAG
+    },
+    heading: {
+      type: 'array',
+      source: 'children',
+      selector: '.accordion-section-header'
+    }
+  },
+  edit: function edit(props) {
+    function updateHeading(newdata) {
+      props.setAttributes({
+        heading: newdata
+      });
+    }
+
+    return /*#__PURE__*/React.createElement("div", {
+      className: "accordion-section-editor"
+    }, /*#__PURE__*/React.createElement(AccordionBlockContext.Consumer, null, function (value) {
+      props.setAttributes({
+        headerTag: value
+      });
+    }), /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
+      title: "Specify section settings",
+      initialOpen: true
+    })), /*#__PURE__*/React.createElement(RichText, {
+      className: "accordion-section-header",
+      tagName: props.attributes.headerTag,
+      onChange: updateHeading,
+      value: props.attributes.heading,
+      placeholder: "Enter header here..."
+    }), /*#__PURE__*/React.createElement(InnerBlocks, {
+      className: "accordion-section-content-editor"
+    }));
+  },
+  save: function save(props) {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "accordion-section-wrapper ".concat('h5' === props.attributes.headerTag ? 'subsection' : '')
+    }, createElement(props.attributes.headerTag, {
+      className: 'accordion-section-header'
+    }, props.attributes.heading), /*#__PURE__*/React.createElement("section", {
+      className: "accordion-section-content"
+    }, /*#__PURE__*/React.createElement(InnerBlocks.Content, null)));
+  }
+});
+registerBlockType(PARENT_BLOCK, {
+  title: 'Collapsible Group',
+  icon: 'book',
+  category: 'election-blocks',
+  attributes: {
+    headerTag: {
+      type: 'string',
+      default: DEFAULT_HEADER_TAG
+    }
+  },
+  edit: function edit(props) {
+    var clientId = props.clientId;
+    return /*#__PURE__*/React.createElement("div", {
+      className: "accordion-group-editor"
+    }, /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
+      title: "Collapsible Group Settings",
+      initialOpen: true
+    }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(SelectControl, {
+      label: "Header Style",
+      value: props.attributes.headerTag,
+      options: [{
+        label: 'H1 headers',
+        value: 'h1'
+      }, {
+        label: 'H3 headers with icon',
+        value: 'h3'
+      }, {
+        label: 'H5 headers (subsections)',
+        value: 'h5'
+      }],
+      onChange: function onChange(val) {
+        return props.setAttributes({
+          headerTag: val
+        });
+      }
+    })))), /*#__PURE__*/React.createElement(AccordionBlockContext.Provider, {
+      value: props.attributes.headerTag
+    }, /*#__PURE__*/React.createElement(InnerBlocks, {
+      className: "accordion-group-wrapper",
+      allowedBlocks: [CHILD_BLOCK],
+      template: TEMPLATE
+    })));
+  },
+  save: function save(props) {
+    return /*#__PURE__*/React.createElement("section", {
+      className: "accordion-group ".concat('h5' === props.attributes.headerTag ? 'subsection' : '')
+    }, /*#__PURE__*/React.createElement(InnerBlocks.Content, null));
+  }
+});
+
+},{}],2:[function(require,module,exports){
+"use strict";
+
+var registerBlockType = wp.blocks.registerBlockType;
 var _wp = wp,
     ServerSideRender = _wp.serverSideRender;
 var Disabled = wp.components.Disabled;
@@ -17,7 +139,7 @@ registerBlockType('ctcl-election-website/contact-form', {
   }
 });
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 "use strict";
 
 var registerBlockType = wp.blocks.registerBlockType;
@@ -46,7 +168,7 @@ wp.blocks.registerBlockType('ctcl-election-website/numbered-section-block', {
   }
 });
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 "use strict";
 
 var registerBlockType = wp.blocks.registerBlockType;
@@ -64,22 +186,24 @@ registerBlockType('ctcl-election-website/office-info', {
   }
 });
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 var registerBlockType = wp.blocks.registerBlockType;
 var _wp = wp,
     ServerSideRender = _wp.serverSideRender;
 var createElement = wp.element.createElement;
-registerBlockType('ctcl-election-website/tile-nav-section-block', {
-  title: 'Tile Navigation Section',
+var PARENT_BLOCK = 'ctcl-election-website/tile-nav-section-block';
+var CHILD_BLOCK = 'ctcl-election-website/tile-nav-block';
+registerBlockType(PARENT_BLOCK, {
+  title: 'Tile Navigation',
   icon: 'screenoptions',
   category: 'election-blocks',
   edit: function edit(props) {
     return createElement('div', {
       className: 'tile-nav-section-block-editor'
     }, createElement(wp.blockEditor.InnerBlocks, {
-      allowedBlocks: ['ctcl-election-website/tile-nav-block']
+      allowedBlocks: [CHILD_BLOCK]
     }));
   },
   save: function save(props) {
@@ -88,10 +212,11 @@ registerBlockType('ctcl-election-website/tile-nav-section-block', {
     }, createElement(wp.blockEditor.InnerBlocks.Content));
   }
 });
-registerBlockType('ctcl-election-website/tile-nav-block', {
-  title: 'Tile Navigation',
+registerBlockType(CHILD_BLOCK, {
+  title: 'Tile',
   icon: 'screenoptions',
   category: 'election-blocks',
+  parent: [PARENT_BLOCK],
   attributes: {
     icon: {
       type: 'string'
@@ -182,4 +307,4 @@ registerBlockType('ctcl-election-website/tile-nav-block', {
   }
 });
 
-},{}]},{},[1,2,3,4]);
+},{}]},{},[1,2,3,4,5]);

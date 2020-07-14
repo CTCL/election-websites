@@ -9,4 +9,18 @@ function submitContactForm( token ) {
 	}
 }
 
+( function( $ ) {
+	$( document ).ready( function() {
+		$( '.accordion-section-header' ).click( function( e ) {
+			$target = $( e.target );
+			if ( $target.hasClass( 'open' ) ) {
+				$target.removeClass( 'open' );
+			} else {
+				$target.addClass( 'open' );
+			}
+		} );
+	} );
+
+} ( jQuery ) );
+
 //# sourceMappingURL=main.src.js.map
