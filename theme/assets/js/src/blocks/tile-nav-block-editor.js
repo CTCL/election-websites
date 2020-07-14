@@ -2,8 +2,11 @@ const { registerBlockType } = wp.blocks;
 const { serverSideRender: ServerSideRender } = wp;
 const { createElement } = wp.element;
 
-registerBlockType( 'ctcl-election-website/tile-nav-section-block', {
-	title: 'Tile Nav Group',
+const PARENT_BLOCK = 'ctcl-election-website/tile-nav-section-block';
+const CHILD_BLOCK = 'ctcl-election-website/tile-nav-block';
+
+registerBlockType( PARENT_BLOCK, {
+	title: 'Tile Navigation',
 	icon: 'screenoptions',
 	category: 'election-blocks',
 	edit: function( props ) {
@@ -13,7 +16,7 @@ registerBlockType( 'ctcl-election-website/tile-nav-section-block', {
 			},
 			createElement( wp.blockEditor.InnerBlocks,
 				{
-					allowedBlocks: [ 'ctcl-election-website/tile-nav-block' ]
+					allowedBlocks: [ CHILD_BLOCK ]
 				}
 			)
 		);
@@ -29,11 +32,11 @@ registerBlockType( 'ctcl-election-website/tile-nav-section-block', {
 	}
 } );
 
-registerBlockType( 'ctcl-election-website/tile-nav-block', {
+registerBlockType( CHILD_BLOCK, {
 	title: 'Tile',
 	icon: 'screenoptions',
 	category: 'election-blocks',
-	parent: [ 'ctcl-election-website/tile-nav-section-block' ],
+	parent: [ PARENT_BLOCK ],
 	attributes: {
 		icon: {
 			type: 'string'

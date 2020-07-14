@@ -11,7 +11,7 @@ function submitContactForm( token ) {
 
 ( function( $ ) {
 	$( document ).ready( function() {
-		$( '.accordion-header' ).click( function( e ) {
+		$( '.accordion-section-header' ).click( function( e ) {
 			$target = $( e.target );
 			if ( $target.hasClass( 'open' ) ) {
 				$target.removeClass( 'open' );

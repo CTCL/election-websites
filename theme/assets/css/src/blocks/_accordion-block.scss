@@ -1,45 +1,81 @@
 
-.accordion-wrapper {
-	border-top: 3px solid $body-highlight;
-
-	.accordion-header {
-		margin: 18px 0;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		cursor: pointer;
+.accordion-group {
+	&:not(.subsection) {
+		margin: 24px 0;
 	}
 
-	.accordion-header::after {
-		border-style: solid;
-		border-width: 0 0 3px 3px;
-		content: '';
-		display: inline-block;
-		height: 0.25em;
-		right: 5px;
-		position: relative;
-		top: 0.25em;
-		transform: rotate(-45deg);
-		vertical-align: top;
-		width: 0.25em;
-		border-color: $blue-4;
-		transition: all 0.5s;
-	}
+	.accordion-section-wrapper {
+		border-top: 3px solid $body-highlight;
 
-	.accordion-header.open::after {
-		top: 0.4em;
-		transform: rotate(-225deg);
-	}
+		&:last-child {
+			border-bottom: 3px solid $body-highlight;
+		}
 
-	.accordion-content {
-		padding-bottom: 18px;
-	}
+		&.subsection {
+			border-top: 1px solid $grey-3;
 
-	.accordion-header:not(.open) + .accordion-content {
-		display: none;
-	}
-}
+			&:first-child {
+				border-top: none;
+			}
 
-.accordion-wrapper:last-child {
-	border-bottom: 3px solid $body-highlight;
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+
+		.accordion-section-header {
+			margin: 18px 0;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			cursor: pointer;
+		}
+
+		.accordion-section-header::after {
+			border-style: solid;
+			border-width: 0 0 3px 3px;
+			content: '';
+			display: inline-block;
+			height: 10px;
+			width: 10px;
+			right: 5px;
+			position: relative;
+			transform: rotate(-45deg);
+			vertical-align: top;
+			border-color: $blue-4;
+			transition: all 0.5s;
+		}
+
+		h1.accordion-section-header::after {
+			top: 0.25em;
+		}
+
+		h3.accordion-section-header::after {
+			top: 0.25em;
+		}
+
+		.accordion-section-header.open::after {
+			transform: rotate(-225deg);
+		}
+
+		h1.accordion-section-header.open::after {
+			top: 0.4em;
+		}
+
+		h3.accordion-section-header.open::after {
+			top: 0.45em;
+		}
+
+		h5.accordion-section-header.open::after {
+			top: 0.45em;
+		}
+
+		.accordion-section-content {
+			padding-bottom: 18px;
+		}
+
+		.accordion-section-header:not(.open) + .accordion-section-content {
+			display: none;
+		}
+	}
 }

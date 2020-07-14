@@ -32,7 +32,7 @@ class Blocks {
 		wp_register_script(
 			'block-editors',
 			get_template_directory_uri() . "/assets/js/blocks.${type}.js",
-			[ 'wp-block-editor', 'wp-element', 'wp-components' ],
+			[ 'wp-block-editor', 'wp-element', 'wp-components', 'wp-data' ],
 			THEME_VERSION,
 			true
 		);
@@ -69,7 +69,15 @@ class Blocks {
 		);
 
 		register_block_type(
-			'ctcl-election-website/accordion-block',
+			'ctcl-election-website/accordion-section-block',
+			[
+				'editor_script' => 'block-editors',
+				'editor_style'  => 'block-editors',
+			]
+		);
+
+		register_block_type(
+			'ctcl-election-website/accordion-group-block',
 			[
 				'editor_script' => 'block-editors',
 				'editor_style'  => 'block-editors',
