@@ -116,12 +116,23 @@ class Settings {
 			case 'textarea':
 				echo '<textarea cols="50" rows="5" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $placeholder ) . '">' . esc_textarea( get_option( $args['uid'] ) ) . '</textarea>';
 				break;
+			case 'radio':
+				$first_item_shown = 0;
+				foreach ( $args['options'] as $value => $label ) {
+					$field_id = $args['uid'] . '_' . sanitize_html_class( $value );
+					if ( $first_item_shown++ ) {
+						echo '<br />';
+					}
+					echo '<input id="' . esc_attr( $field_id ) . '" type="radio" name="' . esc_attr( $args['uid'] ) . '" value="' . esc_attr( $value ) . '"' . checked( $value, get_option( $args['uid'] ), false ) . ' />';
+					echo '<label for="' . esc_attr( $field_id ) . '">' . esc_html( $label ) . '</label>';
+				}
+				break;
 			case 'select':
 				echo '<select id="' . esc_attr( $args['uid'] ) . '" name="' . esc_attr( $args['uid'] ) . '">';
 				foreach ( $args['options'] as $value => $label ) {
 					echo '<option value="' . esc_attr( $value ) . '"' . selected( $value, get_option( $args['uid'] ), false ) . '>' . esc_html( $label ) . '</option>';
 				}
-					echo '</select>';
+				echo '</select>';
 				break;
 		}
 	}
