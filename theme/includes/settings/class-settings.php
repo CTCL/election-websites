@@ -70,6 +70,10 @@ class Settings {
 			case 'password':
 			case 'email':
 			case 'text':
+				$prefix = $args['prefix'] ?? '';
+				if ( $prefix ) {
+					echo '<span class="prefix">' . esc_html( $prefix ) . '</span>';
+				}
 				echo '<input size="50" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( get_option( $args['uid'] ) ) . '" />';
 				break;
 			case 'upload':
