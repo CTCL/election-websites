@@ -25,6 +25,7 @@ require_once __DIR__ . '/includes/blocks/class-office-info.php';
 
 // Settings.
 require_once __DIR__ . '/includes/settings/class-settings.php';
+require_once __DIR__ . '/includes/settings/class-elections-settings.php';
 require_once __DIR__ . '/includes/settings/class-office-details-settings.php';
 require_once __DIR__ . '/includes/settings/class-banner-settings.php';
 require_once __DIR__ . '/includes/settings/class-topics-settings.php';
