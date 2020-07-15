@@ -40,42 +40,6 @@
   font-weight: normal;
 }
 
-figure.wp-block-table {
-  margin: 0;
-  padding: 8px 0;
-}
-
-figure.wp-block-table table {
-  border: 1px solid #d7d8e0;
-  border-spacing: 0;
-  color: #17234c;
-}
-
-figure.wp-block-table thead {
-  background-color: #002d75;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 1px;
-}
-
-figure.wp-block-table th {
-  padding: 4px 16px;
-}
-
-figure.wp-block-table td {
-  padding: 16px;
-}
-
-figure.wp-block-table tr:nth-child(2n) {
-  background-color: #f5f7fd;
-}
-
-figure.wp-block-table th,
-figure.wp-block-table td {
-  vertical-align: top;
-}
-
 .contact-form button {
   background-color: #17234c;
   color: #fff;
@@ -115,4 +79,46 @@ figure.wp-block-table td {
 
 #banner_image_wrapper .button + .button {
   margin-left: 10px;
+}
+
+.prefix {
+  margin-left: -15px;
+  width: 15px;
+  display: inline-block;
+}
+
+figure.wp-block-table {
+  margin: 0;
+  padding: 8px 0;
+}
+
+figure.wp-block-table table {
+  border: 1px solid #d7d8e0;
+  border-spacing: 0;
+  color: #17234c;
+}
+
+figure.wp-block-table thead {
+  background-color: #002d75;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+figure.wp-block-table th {
+  padding: 4px 16px;
+}
+
+figure.wp-block-table td {
+  padding: 16px;
+}
+
+figure.wp-block-table tr:nth-child(2n) {
+  background-color: #f5f7fd;
+}
+
+figure.wp-block-table th,
+figure.wp-block-table td {
+  vertical-align: top;
 }
