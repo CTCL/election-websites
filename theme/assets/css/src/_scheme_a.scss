@@ -5,24 +5,26 @@ $rust: #ba483a;
 $rose: #ee5c4a;
 
 $blue-dark: #17234c;
-$blue-medium: #144691;
+$blue-medium: #144691; // homepage banner-only
 $blue-light: #004cb2;
 
 $turquoise: #55d5f1;
 
-$grey-text: #5b5b5b;
+$grey-text: #4e4e4e;
+
 $grey-dark: #d7d8e0;
+$grey-medium: #b7bcce;
 $grey-light: #f4f6ff;
 
 // body text
 $body-font: $grey-text;
-$body-highlight: $blue-medium;
+$body-highlight: $blue-dark;
 
 // table
 $table-border: $grey-light;
 $table-row-bg: $grey-light;
 $table-header-bg: $blue-dark;
-$tile-border: $grey-dark;
+$tile-border: $grey-medium;
 
 // accordion
 $accordion-section-border: $grey-dark;
@@ -33,7 +35,7 @@ $banner-font: $white;
 $banner-bg: $blue-medium;
 
 // alert banner
-$alert-bg: $blue-medium;
+$alert-bg: $blue-dark;
 
 // buttons
 $button-bg: $rose;
