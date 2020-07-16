@@ -10,7 +10,7 @@ get_header();
 
 $tiles = [
 	'register-to-vote'     => 'Register to Vote',
-	'vote-by-mail-2'       => 'Vote by Mail',
+	'vote-by-mail'         => 'Vote by Mail',
 	'election-results'     => 'View Election Results',
 	'whats-on-the-ballot'  => 'What’s on the ballot',
 	'polling-locations'    => 'Where to Vote',
