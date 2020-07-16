@@ -8,6 +8,8 @@
 		.button.learn-more {
 			@include button;
 
+			background-color: $button-bg;
+			color: $button-text;
 			line-height: 60px;
 		}
 	}

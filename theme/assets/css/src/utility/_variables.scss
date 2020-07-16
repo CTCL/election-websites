@@ -3,29 +3,50 @@
 $white: #fff;
 $black: #000;
 
-$grey-1: #4e4e4e;
-$grey-2: #d7d8e0;
-$grey-3: #b7bcce;
-$grey-4: #f5f7fd;
-$grey-5: #f5f6fa;
+$rust: #ba483a;
+$rose: #ee5c4a;
 
-$blue-1: #17234c;
-$blue-2: #162147;
-$blue-3: #192754;
-$blue-4: #002d75;
-$blue-pop: #55d5f1;
+$blue-dark: #17234c;
+$blue-medium: #144691;
+$blue-light: #004cb2;
 
-$body-font: $grey-1;
-$body-highlight: $blue-1;
+$turquoise: #55d5f1;
 
-$table-border: $grey-2;
-$table-row-bg: $grey-4;
-$table-header-bg: $blue-4;
-$tile-border: $grey-3;
+$grey-text: #5b5b5b;
+$grey-dark: #d7d8e0;
+$grey-light: #f4f6ff;
 
-$banner-font: $blue-2;
-$banner-bg: $blue-pop;
-$alert-bg: $blue-3;
-$footer-bg: $grey-5;
+// body text
+$body-font: $grey-text;
+$body-highlight: $blue-medium;
+
+// table
+$table-border: $grey-light;
+$table-row-bg: $grey-light;
+$table-header-bg: $blue-dark;
+$tile-border: $grey-dark;
+
+// accordion
+$accordion-section-border: $grey-dark;
+$accordion-border: $blue-dark;
+
+// main banner
+$banner-font: $white;
+$banner-bg: $blue-medium;
+
+// alert banner
+$alert-bg: $blue-medium;
+
+// buttons
+$button-bg: $rose;
+$button-text: $white;
+
+// header
+$header-bg: $white;
+
+// footer
+$footer-bg: $grey-light;
+
+// Sizes
 
 $header-height: 90px;

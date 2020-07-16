@@ -12,7 +12,7 @@
 		}
 
 		&.subsection {
-			border-top: 1px solid $grey-3;
+			border-top: 1px solid $accordion-section-border;
 
 			&:first-child {
 				border-top: none;
@@ -42,7 +42,7 @@
 			position: relative;
 			transform: rotate(-45deg);
 			vertical-align: top;
-			border-color: $blue-4;
+			border-color: $accordion-border;
 			transition: all 0.5s;
 		}
 
