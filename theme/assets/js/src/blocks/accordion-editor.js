@@ -7,7 +7,7 @@ const { PanelBody, PanelRow, SelectControl } = wp.components;
 const PARENT_BLOCK = 'ctcl-election-website/accordion-group-block';
 const CHILD_BLOCK = 'ctcl-election-website/accordion-section-block';
 
-const DEFAULT_HEADER_TAG = 'h1';
+const DEFAULT_HEADER_TAG = 'h3';
 const TEMPLATE = [ [
 	CHILD_BLOCK,
 	{
@@ -100,8 +100,8 @@ registerBlockType( PARENT_BLOCK, {
 							label="Header Style"
 							value={props.attributes.headerTag}
 							options={[
-								{ label: 'H1 headers', value: 'h1' },
-								{ label: 'H3 headers with icon', value: 'h3' },
+								{ label: 'H3 headers', value: 'h3' },
+								{ label: 'H4 headers with icon', value: 'h4' },
 								{ label: 'H5 headers (subsections)', value: 'h5' }
 							]}
 							onChange={( val ) => props.setAttributes( { headerTag: val } )}
