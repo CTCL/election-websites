@@ -20,8 +20,12 @@ class Hooks {
 	 * Set up actions and filters.
 	 */
 	public static function setup_hooks() {
+		// Enqueue CSS and JS.
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'wp_enqueue_scripts' ] );
 		add_action( 'admin_enqueue_scripts', [ __CLASS__, 'admin_enqueue_scripts' ] );
+
+		// Set body class.
+		add_filter( 'body_class', [ __CLASS__, 'filter_body_class' ] );
 
 		// Disable default 'post' post type.
 		add_action( 'admin_bar_menu', [ __CLASS__, 'remove_admin_bar_new_post' ], 99 );
@@ -63,6 +67,19 @@ class Hooks {
 
 		wp_enqueue_style( 'admin', get_template_directory_uri() . "/assets/css/admin.{$type}.css", [], THEME_VERSION );
 		wp_enqueue_script( 'admin', get_template_directory_uri() . "/assets/js/admin.{$type}.js", [ 'jquery', 'underscore', 'wp-util' ], THEME_VERSION, false );
+	}
+
+	/**
+	 * Add theme to body class.
+	 *
+	 * @param array $classes Existing CSS classes.
+	 *
+	 * @return array
+	 */
+	public static function filter_body_class( $classes ) {
+		$classes[] = Elections_Settings::get_color_scheme();
+
+		return $classes;
 	}
 
 	/**

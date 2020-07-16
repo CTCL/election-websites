@@ -18,6 +18,8 @@ class Elections_Settings extends Settings {
 	const PAGE_TITLE  = 'Appearance';
 	const FIELD_GROUP = 'appearance_all';
 
+	const DEFAULT_COLOR_SCHEME = 'a';
+
 	/**
 	 * Add Elections menu. Set first item to Office Details.
 	 */
@@ -59,9 +61,18 @@ class Elections_Settings extends Settings {
 	 */
 	public static function color_scheme_list() {
 		return [
-			'A' => 'Scheme A',
-			'B' => 'Scheme B',
+			'a' => 'Scheme A',
+			'b' => 'Scheme B',
 		];
+	}
+
+	/**
+	 * Active color scheme.
+	 *
+	 * @return array
+	 */
+	public static function get_color_scheme() {
+		return 'scheme-' . ( get_option( 'color_scheme' ) ?? self::DEFAULT_COLOR_SCHEME );
 	}
 
 	/**
