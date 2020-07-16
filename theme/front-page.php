@@ -9,14 +9,14 @@
 get_header();
 
 $tiles = [
-	'registration'          => 'Register to Vote',
-	'vote-by-mail'          => 'Vote by Mail',
-	'view-election-results' => 'View Election Results',
-	'whats-on-ballot'       => 'What’s on the ballot',
-	'where-to-vote'         => 'Where to Vote',
-	'become-poll-worker'    => 'Become a Poll Worker',
-	'campaign-resources'    => 'Campaign Resources',
-	'news'                  => 'News & Press Releases',
+	'register-to-vote'     => 'Register to Vote',
+	'vote-by-mail-2'       => 'Vote by Mail',
+	'election-results'     => 'View Election Results',
+	'whats-on-the-ballot'  => 'What’s on the ballot',
+	'polling-locations'    => 'Where to Vote',
+	'become-a-poll-worker' => 'Become a Poll Worker',
+	'campaign-resources'   => 'Campaign Resources',
+	'news'                 => 'News & Press Releases',
 ];
 
 
