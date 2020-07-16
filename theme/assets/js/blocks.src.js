@@ -13,7 +13,7 @@ var _wp$components = wp.components,
     SelectControl = _wp$components.SelectControl;
 var PARENT_BLOCK = 'ctcl-election-website/accordion-group-block';
 var CHILD_BLOCK = 'ctcl-election-website/accordion-section-block';
-var DEFAULT_HEADER_TAG = 'h1';
+var DEFAULT_HEADER_TAG = 'h3';
 var TEMPLATE = [[CHILD_BLOCK, {
   headerTag: DEFAULT_HEADER_TAG
 }]];
@@ -91,11 +91,11 @@ registerBlockType(PARENT_BLOCK, {
       label: "Header Style",
       value: props.attributes.headerTag,
       options: [{
-        label: 'H1 headers',
-        value: 'h1'
-      }, {
-        label: 'H3 headers with icon',
+        label: 'H3 headers',
         value: 'h3'
+      }, {
+        label: 'H4 headers with icon',
+        value: 'h4'
       }, {
         label: 'H5 headers (subsections)',
         value: 'h5'

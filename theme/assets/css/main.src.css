@@ -599,7 +599,8 @@ main {
   display: inline-block;
   font-size: 26px;
   font-weight: bold;
-  border: 3px solid black;
+  border-width: 3px;
+  border-style: solid;
   border-radius: 100%;
   width: 30px;
   height: 30px;
@@ -705,7 +706,7 @@ main {
 
 .scheme-a main p a,
 .scheme-a main ul a {
-  color: #17234c;
+  color: #004cb2;
 }
 
 .scheme-a main h1,
@@ -738,7 +739,7 @@ main {
 }
 
 .scheme-a .accordion-group .accordion-section-wrapper .accordion-section-header::after {
-  border-color: #17234c;
+  border-color: #004cb2;
 }
 
 .scheme-a header .menu .menu-item a, header .scheme-a .menu .menu-item a, .scheme-a footer .menu .menu-item a, footer .scheme-a .menu .menu-item a {
@@ -773,8 +774,13 @@ main {
   border-top-color: #000;
 }
 
+.scheme-a .numbered-section::before {
+  border-color: #17234c;
+  color: #17234c;
+}
+
 .scheme-a figure.wp-block-table table {
-  border-color: #f4f6ff;
+  border-color: #f5f6fa;
   color: #17234c;
 }
 
@@ -784,7 +790,7 @@ main {
 }
 
 .scheme-a figure.wp-block-table tr:nth-child(2n) {
-  background-color: #f4f6ff;
+  background-color: #f5f6fa;
 }
 
 .scheme-a header {
@@ -800,7 +806,7 @@ main {
 }
 
 .scheme-a footer {
-  background-color: #f4f6ff;
+  background-color: #f5f6fa;
   color: #17234c;
 }
 
