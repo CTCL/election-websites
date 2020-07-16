@@ -161,6 +161,11 @@ figure.wp-block-table td {
   border-color: #004cb2;
 }
 
+.scheme-a .contact-form button {
+  background-color: #17234c;
+  color: #fff;
+}
+
 .scheme-a .banner .banner-wrapper .button.learn-more {
   background-color: #ee5c4a;
   color: #fff;

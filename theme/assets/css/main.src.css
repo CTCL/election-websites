@@ -750,6 +750,11 @@ main {
   color: #4e4e4e;
 }
 
+.scheme-a .contact-form button {
+  background-color: #17234c;
+  color: #fff;
+}
+
 .scheme-a .banner .banner-wrapper .button.learn-more {
   background-color: #ee5c4a;
   color: #fff;
