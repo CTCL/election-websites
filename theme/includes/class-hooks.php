@@ -25,6 +25,7 @@ class Hooks {
 		add_action( 'admin_enqueue_scripts', [ __CLASS__, 'admin_enqueue_scripts' ] );
 
 		// Set body class.
+		add_filter( 'admin_body_class', [ __CLASS__, 'filter_admin_body_class' ] );
 		add_filter( 'body_class', [ __CLASS__, 'filter_body_class' ] );
 
 		// Disable default 'post' post type.
@@ -78,6 +79,19 @@ class Hooks {
 	 */
 	public static function filter_body_class( $classes ) {
 		$classes[] = Elections_Settings::get_color_scheme();
+
+		return $classes;
+	}
+
+	/**
+	 * Add theme to admin body class.
+	 *
+	 * @param string $classes Existing CSS classes.
+	 *
+	 * @return string
+	 */
+	public static function filter_admin_body_class( $classes ) {
+		$classes .= ' ' . Elections_Settings::get_color_scheme();
 
 		return $classes;
 	}
