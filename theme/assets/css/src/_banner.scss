@@ -5,6 +5,10 @@
 	.banner-wrapper {
 		@extend %fit-to-page;
 
+		p.learn-more {
+			margin-top: 1em;
+		}
+
 		.button.learn-more {
 			@include button;
 
