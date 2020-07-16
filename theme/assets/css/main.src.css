@@ -176,6 +176,10 @@ main ul a {
   text-decoration: underline;
 }
 
+.banner .banner-wrapper p.learn-more {
+  margin-top: 1em;
+}
+
 .banner .banner-wrapper .button.learn-more {
   border-radius: 20px;
   border: none;
@@ -696,12 +700,12 @@ main {
 
 .scheme-a main p,
 .scheme-a main ul {
-  color: #5b5b5b;
+  color: #4e4e4e;
 }
 
 .scheme-a main p a,
 .scheme-a main ul a {
-  color: #144691;
+  color: #17234c;
 }
 
 .scheme-a main h1,
@@ -710,23 +714,23 @@ main {
 .scheme-a main h4,
 .scheme-a main h5,
 .scheme-a main h6 {
-  color: #144691;
+  color: #17234c;
 }
 
 .scheme-a main .wp-block-group {
-  border-top-color: #144691;
+  border-top-color: #17234c;
 }
 
 .scheme-a main hr {
-  border-color: #144691;
+  border-color: #17234c;
 }
 
 .scheme-a .accordion-group .accordion-section-wrapper {
-  border-top-color: #144691;
+  border-top-color: #17234c;
 }
 
 .scheme-a .accordion-group .accordion-section-wrapper:last-child {
-  border-bottom-color: #144691;
+  border-bottom-color: #17234c;
 }
 
 .scheme-a .accordion-group .accordion-section-wrapper.subsection {
@@ -738,7 +742,7 @@ main {
 }
 
 .scheme-a header .menu .menu-item a, header .scheme-a .menu .menu-item a, .scheme-a footer .menu .menu-item a, footer .scheme-a .menu .menu-item a {
-  color: #5b5b5b;
+  color: #4e4e4e;
 }
 
 .scheme-a .banner .banner-wrapper .button.learn-more {
@@ -747,7 +751,7 @@ main {
 }
 
 .scheme-a .banner.alert {
-  background-color: #144691;
+  background-color: #17234c;
   color: #fff;
 }
 
@@ -761,8 +765,8 @@ main {
 }
 
 .scheme-a .tile-wrapper .tile {
-  border-color: #d7d8e0;
-  color: #144691;
+  border-color: #b7bcce;
+  color: #17234c;
 }
 
 .scheme-a #editor .wp-block-group {
@@ -771,7 +775,7 @@ main {
 
 .scheme-a figure.wp-block-table table {
   border-color: #f4f6ff;
-  color: #144691;
+  color: #17234c;
 }
 
 .scheme-a figure.wp-block-table thead {
@@ -788,16 +792,16 @@ main {
 }
 
 .scheme-a header .site-title {
-  color: #144691;
+  color: #17234c;
 }
 
 .scheme-a header .menu .menu-item.current-menu-item a, .scheme-a header .menu .menu-item.current-page-ancestor a {
-  color: #144691;
+  color: #17234c;
 }
 
 .scheme-a footer {
   background-color: #f4f6ff;
-  color: #144691;
+  color: #17234c;
 }
 
 .scheme-b {
