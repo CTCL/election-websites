@@ -1,4 +1,3 @@
-
 main {
 	counter-reset: numbered-section;
 }
@@ -17,7 +16,8 @@ main {
 		display: inline-block;
 		font-size: 26px;
 		font-weight: bold;
-		border: 3px solid black;
+		border-width: 3px;
+		border-style: solid;
 		border-radius: 100%;
 		width: 30px;
 		height: 30px;

@@ -141,6 +141,14 @@ $footer-bg: $grey-light;
 		}
 	}
 
+	// numbered list
+	.numbered-section {
+		&::before {
+			border-color: $blue-dark;
+			color: $blue-dark;
+		}
+	}
+
 	// Table
 	figure.wp-block-table {
 		table {
