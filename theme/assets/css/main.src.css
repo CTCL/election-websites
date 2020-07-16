@@ -72,8 +72,8 @@ footer .abbreviated-footer, main {
   background-image: url(../images/tiles/register-to-vote.svg);
 }
 
-.tile-wrapper .tile .bounding-box#vote-by-mail-2 {
-  background-image: url(../images/tiles/vote-by-mail-2.svg);
+.tile-wrapper .tile .bounding-box#vote-by-mail {
+  background-image: url(../images/tiles/vote-by-mail.svg);
 }
 
 .tile-wrapper .tile .bounding-box#election-results {
