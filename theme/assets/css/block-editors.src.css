@@ -118,11 +118,11 @@
 }
 
 .office-info a {
-  color: #5b5b5b;
   text-decoration: none;
   font-weight: normal;
 }
 
 #editor .wp-block-group {
-  border-top: 3px solid #000;
+  border-top-width: 3px;
+  border-top-style: solid;
 }

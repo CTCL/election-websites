@@ -35,7 +35,6 @@
 }
 
 .office-info a {
-  color: #5b5b5b;
   text-decoration: none;
   font-weight: normal;
 }
@@ -91,14 +90,12 @@ figure.wp-block-table {
 }
 
 figure.wp-block-table table {
-  border: 1px solid #f4f6ff;
+  border-width: 1px;
+  border-style: solid;
   border-spacing: 0;
-  color: #144691;
 }
 
 figure.wp-block-table thead {
-  background-color: #17234c;
-  color: #fff;
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 1px;
@@ -110,10 +107,6 @@ figure.wp-block-table th {
 
 figure.wp-block-table td {
   padding: 16px;
-}
-
-figure.wp-block-table tr:nth-child(2n) {
-  background-color: #f4f6ff;
 }
 
 figure.wp-block-table th,
