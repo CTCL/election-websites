@@ -2,9 +2,6 @@
 @import "utility/typography";
 
 footer {
-	background-color: $footer-bg;
-	color: $body-highlight;
-
 	.footer-content-wrapper,
 	.abbreviated-footer {
 		@extend %fit-to-page;

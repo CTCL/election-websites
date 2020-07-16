@@ -5,6 +5,7 @@
 
 #editor {
 	.wp-block-group {
-		border-top: 3px solid $black;
+		border-top-width: 3px;
+		border-top-style: solid;
 	}
 }

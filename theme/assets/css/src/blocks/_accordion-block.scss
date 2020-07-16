@@ -5,14 +5,17 @@
 	}
 
 	.accordion-section-wrapper {
-		border-top: 3px solid $body-highlight;
+		border-top-width: 3px;
+		border-top-style: solid;
 
 		&:last-child {
-			border-bottom: 3px solid $body-highlight;
+			border-bottom-width: 3px;
+			border-bottom-style: solid;
 		}
 
 		&.subsection {
-			border-top: 1px solid $accordion-section-border;
+			border-top-width: 1px;
+			border-top-style: solid;
 
 			&:first-child {
 				border-top: none;
@@ -42,7 +45,6 @@
 			position: relative;
 			transform: rotate(-45deg);
 			vertical-align: top;
-			border-color: $accordion-border;
 			transition: all 0.5s;
 		}
 

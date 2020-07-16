@@ -1,0 +1,184 @@
+$white: #fff;
+$black: #000;
+
+$rust: #ba483a;
+$rose: #ee5c4a;
+
+$blue-dark: #17234c;
+$blue-medium: #144691;
+$blue-light: #004cb2;
+
+$turquoise: #55d5f1;
+
+$grey-text: #5b5b5b;
+$grey-dark: #d7d8e0;
+$grey-light: #f4f6ff;
+
+// body text
+$body-font: $grey-text;
+$body-highlight: $blue-medium;
+
+// table
+$table-border: $grey-light;
+$table-row-bg: $grey-light;
+$table-header-bg: $blue-dark;
+$tile-border: $grey-dark;
+
+// accordion
+$accordion-section-border: $grey-dark;
+$accordion-border: $blue-dark;
+
+// main banner
+$banner-font: $white;
+$banner-bg: $blue-medium;
+
+// alert banner
+$alert-bg: $blue-medium;
+
+// buttons
+$button-bg: $rose;
+$button-text: $white;
+
+// header
+$header-bg: $white;
+
+// footer
+$footer-bg: $grey-light;
+
+.scheme_a {
+	// Page
+	main {
+		p,
+		ul {
+			color: $body-font;
+
+			a {
+				color: $body-highlight;
+			}
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: $body-highlight;
+		}
+
+		.wp-block-group {
+			border-top-color: $body-highlight;
+		}
+
+		hr {
+			border-color: $body-highlight;
+		}
+	}
+
+	// Blocks
+	.accordion-group {
+		.accordion-section-wrapper {
+			border-top-color: $body-highlight;
+
+			&:last-child {
+				border-bottom-color: $body-highlight;
+			}
+
+			&.subsection {
+				border-top-color: $accordion-section-border;
+			}
+
+			.accordion-section-header::after {
+				border-color: $accordion-border;
+			}
+		}
+	}
+
+	// Mixins
+	%wp-menu-links {
+		.menu-item a {
+			color: $body-font;
+		}
+	}
+
+	// Banner
+	.banner {
+		.banner-wrapper {
+			.button.learn-more {
+				background-color: $button-bg;
+				color: $button-text;
+			}
+		}
+
+		&.alert {
+			background-color: $alert-bg;
+			color: $white;
+
+			a {
+				color: $white;
+			}
+		}
+
+		&.major {
+			background-color: $banner-bg;
+			color: $banner-font;
+		}
+	}
+
+	.tile-wrapper {
+		.tile {
+			border-color: $tile-border;
+			color: $body-highlight;
+		}
+	}
+
+	// Block editor
+	#editor {
+		.wp-block-group {
+			border-top-color: $black;
+		}
+	}
+
+	// Table
+	figure.wp-block-table {
+		table {
+			border-color: $table-border;
+			color: $body-highlight;
+		}
+
+		thead {
+			background-color: $table-header-bg;
+			color: $white;
+		}
+
+		tr:nth-child(2n) {
+			background-color: $table-row-bg;
+		}
+	}
+
+	// Header
+	header {
+		background-color: $header-bg;
+
+		.site-title {
+			color: $body-highlight;
+		}
+
+		.menu {
+			.menu-item {
+				&.current-menu-item,
+				&.current-page-ancestor {
+					a {
+						color: $body-highlight;
+					}
+				}
+			}
+		}
+	}
+
+	// Footer
+	footer {
+		background-color: $footer-bg;
+		color: $body-highlight;
+	}
+}

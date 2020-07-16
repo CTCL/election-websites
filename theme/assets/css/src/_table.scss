@@ -3,14 +3,12 @@ figure.wp-block-table {
 	padding: 8px 0;
 
 	table {
-		border: 1px solid $table-border;
+		border-width: 1px;
+		border-style: solid;
 		border-spacing: 0;
-		color: $body-highlight;
 	}
 
 	thead {
-		background-color: $table-header-bg;
-		color: $white;
 		text-transform: uppercase;
 		font-size: 14px;
 		letter-spacing: 1px;
@@ -22,10 +20,6 @@ figure.wp-block-table {
 
 	td {
 		padding: 16px;
-	}
-
-	tr:nth-child(2n) {
-		background-color: $table-row-bg;
 	}
 
 	th,

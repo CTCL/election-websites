@@ -1,5 +1,3 @@
-$tile-size: 170px;
-
 .tile-wrapper {
 	display: inline-grid;
 	grid-template-columns: repeat(4, $tile-size);
@@ -17,6 +15,8 @@ $tile-size: 170px;
 	}
 
 	.tile {
+		border-width: 1px;
+		border-style: solid;
 		display: grid;
 		grid-template-rows: 50px 40px;
 		align-content: center;
@@ -24,8 +24,6 @@ $tile-size: 170px;
 		grid-row-gap: 8px;
 		width: $tile-size;
 		height: $tile-size;
-		border: 1px solid $tile-border;
-		color: $body-highlight;
 		box-sizing: border-box;
 		border-radius: 2px;
 		padding: 14px;

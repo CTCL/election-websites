@@ -8,8 +8,6 @@
 		.button.learn-more {
 			@include button;
 
-			background-color: $button-bg;
-			color: $button-text;
 			line-height: 60px;
 		}
 	}
@@ -24,23 +22,15 @@
 	}
 
 	&.alert {
-		background-color: $alert-bg;
-		color: $white;
 		padding: 20px 0;
 
 		@include breakpoint(phone) {
 			padding: 8px 0 10px;
 		}
-
-		a {
-			color: $white;
-		}
 	}
 
 	&.major {
 		min-height: 100px;
-		background-color: $banner-bg;
-		color: $banner-font;
 
 		.banner-wrapper {
 			display: grid;

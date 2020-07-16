@@ -7,12 +7,8 @@ main {
 
 	p,
 	ul {
-		color: $body-font;
-
 		a {
 			@extend %bold-text-links;
-
-			color: $body-highlight;
 		}
 	}
 
@@ -34,7 +30,6 @@ main {
 	h5,
 	h6 {
 		margin: 20px 0 8px;
-		color: $body-highlight;
 
 		&:first-child {
 			margin-top: 0;
@@ -47,7 +42,8 @@ main {
 
 	.wp-block-group {
 		padding: 20px 0;
-		border-top: 3px solid $body-highlight;
+		border-top-width: 3px;
+		border-top-style: solid;
 
 		&:first-of-type {
 			margin-top: 18px;
@@ -63,7 +59,8 @@ main {
 	}
 
 	hr {
-		border: 1.5px solid $body-highlight;
+		border-width: 1.5px;
+		border-style: solid;
 	}
 }
 
