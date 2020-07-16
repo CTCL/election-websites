@@ -9,13 +9,14 @@
 $logo_id    = get_theme_mod( 'custom_logo' );
 $site_title = \CTCL\Elections\Office_Details::title();
 
-if ( is_front_page() ) {
+$is_front_page = is_front_page();
+if ( $is_front_page ) {
 	$banner_enabled = \CTCL\Elections\Banner::is_enabled();
 	$banner_title   = $banner_enabled ? \CTCL\Elections\Banner::title() : '';
-} else {
-	$banner_enabled = \CTCL\Elections\Alert_Banner::is_enabled();
-	$banner_title   = $banner_enabled ? \CTCL\Elections\Alert_Banner::title() : '';
 }
+
+$alert_banner_enabled = \CTCL\Elections\Alert_Banner::is_enabled();
+$alert_banner_title   = $banner_enabled ? \CTCL\Elections\Alert_Banner::title() : '';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -44,46 +45,42 @@ if ( is_front_page() ) {
 			?>
 	</div>
 </header>
-<?php if ( is_front_page() ) : ?>
 
-	<?php if ( $banner_enabled && $banner_title ) : ?>
-	<section class="banner major">
-		<div class="banner-wrapper">
-			<div>
-				<h2><?php echo esc_html( $banner_title ); ?></h2>
-				<p><?php echo esc_html( \CTCL\Elections\Banner::description() ); ?></p>
-				<?php $learn_more = \CTCL\Elections\Banner::link(); ?>
-				<?php if ( $learn_more ) : ?>
-				<p><a class="button learn-more" href="<?php echo esc_url( $learn_more ); ?>">Learn More</a></p>
-				<?php endif; ?>
-			</div>
+<?php if ( $alert_banner_enabled && $alert_banner_title ) : ?>
+<section class="banner alert">
+	<div class="banner-wrapper">
+		<p>
+			<b><?php echo esc_html( $alert_banner_title ); ?></b>
+			/
 			<?php
-			$banner_id = \CTCL\Elections\Banner::image_id();
-			if ( $banner_id ) {
-				echo wp_kses_post( wp_get_attachment_image( $banner_id, 'banner' ) );
-			}
+				echo esc_html( \CTCL\Elections\Alert_Banner::description() );
+				$learn_more = \CTCL\Elections\Alert_Banner::link();
 			?>
-		</div>
-	</section>
-	<?php endif; ?>
+			<?php if ( $learn_more ) : ?>
+			<a class="alert learn-more" href="<?php echo esc_url( $learn_more ); ?>">Learn More</a>
+			<?php endif; ?>
+		</p>
+	</div>
+</section>
+<?php endif; ?>
 
-<?php else : ?>
-	<?php if ( $banner_enabled && $banner_title ) : ?>
-	<section class="banner alert">
-		<div class="banner-wrapper">
-			<p>
-				<b><?php echo esc_html( $banner_title ); ?></b>
-				/
-				<?php
-					echo esc_html( \CTCL\Elections\Alert_Banner::description() );
-					$learn_more = \CTCL\Elections\Alert_Banner::link();
-				?>
-				<?php if ( $learn_more ) : ?>
-				<a class="alert learn-more" href="<?php echo esc_url( $learn_more ); ?>">Learn More</a>
-				<?php endif; ?>
-			</p>
+<?php if ( $is_front_page && $banner_enabled && $banner_title ) : ?>
+<section class="banner major">
+	<div class="banner-wrapper">
+		<div>
+			<h2><?php echo esc_html( $banner_title ); ?></h2>
+			<p><?php echo esc_html( \CTCL\Elections\Banner::description() ); ?></p>
+			<?php $learn_more = \CTCL\Elections\Banner::link(); ?>
+			<?php if ( $learn_more ) : ?>
+			<p class="learn-more"><a class="button learn-more" href="<?php echo esc_url( $learn_more ); ?>">Learn More</a></p>
+			<?php endif; ?>
 		</div>
-	</section>
-	<?php endif; ?>
-
+		<?php
+		$banner_id = \CTCL\Elections\Banner::image_id();
+		if ( $banner_id ) {
+			echo wp_kses_post( wp_get_attachment_image( $banner_id, 'banner' ) );
+		}
+		?>
+	</div>
+</section>
 <?php endif; ?>
