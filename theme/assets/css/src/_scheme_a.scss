@@ -105,6 +105,14 @@ $footer-bg: $grey-light;
 		}
 	}
 
+	// Contact form
+	.contact-form {
+		button {
+			background-color: $blue-dark;
+			color: $button-text;
+		}
+	}
+
 	// Banner
 	.banner {
 		.banner-wrapper {
