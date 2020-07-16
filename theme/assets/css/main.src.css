@@ -42,8 +42,8 @@ footer .abbreviated-footer, main {
   grid-row-gap: 8px;
   width: 170px;
   height: 170px;
-  border: 1px solid #b7bcce;
-  color: #17234c;
+  border: 1px solid #d7d8e0;
+  color: #144691;
   box-sizing: border-box;
   border-radius: 2px;
   padding: 14px;
@@ -141,7 +141,7 @@ footer .abbreviated-footer, main {
 }
 
 .office-info a {
-  color: #4e4e4e;
+  color: #5b5b5b;
   text-decoration: none;
   font-weight: normal;
 }
@@ -169,7 +169,7 @@ header .menu, footer .menu {
 
 header .menu .menu-item a, footer .menu .menu-item a {
   font-weight: normal;
-  color: #4e4e4e;
+  color: #5b5b5b;
 }
 
 .banner p a, main p a,
@@ -179,14 +179,14 @@ main ul a {
 }
 
 .banner .banner-wrapper .button.learn-more {
-  background-color: #17234c;
-  color: #fff;
   border-radius: 20px;
   border: none;
   padding: 10px 30px;
   font-weight: bold;
   font-size: 18px;
   text-decoration: none;
+  background-color: #ee5c4a;
+  color: #fff;
   line-height: 60px;
 }
 
@@ -196,7 +196,7 @@ main ul a {
 }
 
 .banner.alert {
-  background-color: #192754;
+  background-color: #144691;
   color: #fff;
   padding: 20px 0;
 }
@@ -213,8 +213,8 @@ main ul a {
 
 .banner.major {
   min-height: 100px;
-  background-color: #55d5f1;
-  color: #162147;
+  background-color: #144691;
+  color: #fff;
 }
 
 .banner.major .banner-wrapper {
@@ -281,7 +281,7 @@ header .menu, footer .menu {
 
 header .menu .menu-item a, footer .menu .menu-item a {
   font-weight: normal;
-  color: #4e4e4e;
+  color: #5b5b5b;
 }
 
 .banner p a, main p a,
@@ -330,7 +330,7 @@ header img {
 }
 
 header .site-title {
-  color: #17234c;
+  color: #144691;
 }
 
 header [class$="-container"] {
@@ -353,7 +353,7 @@ header .menu .menu-item {
 
 header .menu .menu-item.current-menu-item a, header .menu .menu-item.current-page-ancestor a {
   font-weight: bold;
-  color: #17234c;
+  color: #144691;
 }
 
 header + section,
@@ -384,7 +384,7 @@ header .menu, footer .menu {
 
 header .menu .menu-item a, footer .menu .menu-item a {
   font-weight: normal;
-  color: #4e4e4e;
+  color: #5b5b5b;
 }
 
 .banner p a, main p a,
@@ -394,8 +394,8 @@ main ul a {
 }
 
 footer {
-  background-color: #f5f6fa;
-  color: #17234c;
+  background-color: #f4f6ff;
+  color: #144691;
 }
 
 footer .footer-content-wrapper,
@@ -454,13 +454,13 @@ figure.wp-block-table {
 }
 
 figure.wp-block-table table {
-  border: 1px solid #d7d8e0;
+  border: 1px solid #f4f6ff;
   border-spacing: 0;
-  color: #17234c;
+  color: #144691;
 }
 
 figure.wp-block-table thead {
-  background-color: #002d75;
+  background-color: #17234c;
   color: #fff;
   text-transform: uppercase;
   font-size: 14px;
@@ -476,7 +476,7 @@ figure.wp-block-table td {
 }
 
 figure.wp-block-table tr:nth-child(2n) {
-  background-color: #f5f7fd;
+  background-color: #f4f6ff;
 }
 
 figure.wp-block-table th,
@@ -485,8 +485,6 @@ figure.wp-block-table td {
 }
 
 .contact-form button {
-  background-color: #17234c;
-  color: #fff;
   border-radius: 20px;
   border: none;
   padding: 10px 30px;
@@ -533,7 +531,7 @@ header .menu, footer .menu {
 
 header .menu .menu-item a, footer .menu .menu-item a {
   font-weight: normal;
-  color: #4e4e4e;
+  color: #5b5b5b;
 }
 
 .banner p a, main p a,
@@ -550,12 +548,12 @@ main {
 
 main p,
 main ul {
-  color: #4e4e4e;
+  color: #5b5b5b;
 }
 
 main p a,
 main ul a {
-  color: #17234c;
+  color: #144691;
 }
 
 main ul,
@@ -577,7 +575,7 @@ main h4,
 main h5,
 main h6 {
   margin: 20px 0 8px;
-  color: #17234c;
+  color: #144691;
 }
 
 main h1:first-child,
@@ -595,7 +593,7 @@ main p {
 
 main .wp-block-group {
   padding: 20px 0;
-  border-top: 3px solid #17234c;
+  border-top: 3px solid #144691;
 }
 
 main .wp-block-group:first-of-type {
@@ -611,7 +609,7 @@ main .wp-block-group :last-child {
 }
 
 main hr {
-  border: 1.5px solid #17234c;
+  border: 1.5px solid #144691;
 }
 
 main.front-page {
@@ -661,15 +659,15 @@ main {
 }
 
 .accordion-group .accordion-section-wrapper {
-  border-top: 3px solid #17234c;
+  border-top: 3px solid #144691;
 }
 
 .accordion-group .accordion-section-wrapper:last-child {
-  border-bottom: 3px solid #17234c;
+  border-bottom: 3px solid #144691;
 }
 
 .accordion-group .accordion-section-wrapper.subsection {
-  border-top: 1px solid #b7bcce;
+  border-top: 1px solid #d7d8e0;
 }
 
 .accordion-group .accordion-section-wrapper.subsection:first-child {
@@ -699,7 +697,7 @@ main {
   position: relative;
   transform: rotate(-45deg);
   vertical-align: top;
-  border-color: #002d75;
+  border-color: #17234c;
   transition: all 0.5s;
 }
 
