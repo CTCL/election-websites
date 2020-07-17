@@ -703,6 +703,19 @@ main {
   display: none;
 }
 
+.scheme-a h1,
+.scheme-a h2,
+.scheme-a h3,
+.scheme-a h4,
+.scheme-a h5,
+.scheme-a h6 {
+  color: #17234c;
+}
+
+.scheme-a header a {
+  color: #17234c;
+}
+
 .scheme-a main p,
 .scheme-a main ul {
   color: #4e4e4e;
@@ -711,15 +724,6 @@ main {
 .scheme-a main p a,
 .scheme-a main ul a {
   color: #004cb2;
-}
-
-.scheme-a main h1,
-.scheme-a main h2,
-.scheme-a main h3,
-.scheme-a main h4,
-.scheme-a main h5,
-.scheme-a main h6 {
-  color: #17234c;
 }
 
 .scheme-a main .wp-block-group {
@@ -750,14 +754,17 @@ main {
   color: #4e4e4e;
 }
 
+.scheme-a .button.learn-more,
 .scheme-a .contact-form button {
-  background-color: #17234c;
   color: #fff;
 }
 
-.scheme-a .banner .banner-wrapper .button.learn-more {
+.scheme-a .contact-form button {
+  background-color: #17234c;
+}
+
+.scheme-a .banner .button.learn-more {
   background-color: #ee5c4a;
-  color: #fff;
 }
 
 .scheme-a .banner.alert {
@@ -771,6 +778,10 @@ main {
 
 .scheme-a .banner.major {
   background-color: #144691;
+}
+
+.scheme-a .banner.major p,
+.scheme-a .banner.major h2 {
   color: #fff;
 }
 
@@ -800,18 +811,6 @@ main {
 
 .scheme-a figure.wp-block-table tr:nth-child(2n) {
   background-color: #f5f6fa;
-}
-
-.scheme-a header {
-  background-color: #fff;
-}
-
-.scheme-a header .site-title {
-  color: #17234c;
-}
-
-.scheme-a header .menu .menu-item.current-menu-item a, .scheme-a header .menu .menu-item.current-page-ancestor a {
-  color: #17234c;
 }
 
 .scheme-a footer {
