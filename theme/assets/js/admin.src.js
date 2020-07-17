@@ -37,21 +37,21 @@ window.ctcl = {
 		}
 	},
 
-	handleBanner: function() {
-		var uploadButton = document.getElementById( 'upload_banner_image' );
+	handleImage: function() {
+		var uploadButton = document.querySelector( '.button.upload' );
 		var removeButton = document.querySelector( '.button.remove' );
 
 		if ( uploadButton ) {
-			uploadButton.addEventListener( 'click', window.ctcl.handleBannerUpload );
+			uploadButton.addEventListener( 'click', window.ctcl.handleImageUpload );
 		}
 
 		if ( removeButton ) {
-			removeButton.addEventListener( 'click', window.ctcl.removeBannerThumbnail );
+			removeButton.addEventListener( 'click', window.ctcl.removeImageThumbnail );
 		}
 	},
 
-	removeBannerThumbnail: function( e ) {
-		var imageId = document.getElementById( 'banner_image' );
+	removeImageThumbnail: function( e ) {
+		var imageId = document.querySelector( '.imageid' );
 		var imageTag = e.target.parentNode.querySelector( 'img' );
 
 		e.target.setAttribute( 'disabled', 'disabled' );
@@ -65,7 +65,7 @@ window.ctcl = {
 		}
 	},
 
-	handleBannerUpload: function( e ) {
+	handleImageUpload: function( e ) {
 		var mediaUploader;
 		e.preventDefault();
 		if ( mediaUploader ) {
@@ -84,10 +84,10 @@ window.ctcl = {
 			var removeButton = e.target.parentNode.querySelector( '.button.remove' );
 			var newImgTag = document.createElement( 'img' );
 			var attachment = mediaUploader.state().get( 'selection' ).first().toJSON();
-			var bannerImageId = document.getElementById( 'banner_image' );
+			var imageId = document.querySelector( '.imageid' );
 
-			if ( bannerImageId ) {
-				bannerImageId.value = attachment.id;
+			if ( imageId ) {
+				imageId.value = attachment.id;
 			}
 
 			if ( imgTag ) {
@@ -98,7 +98,7 @@ window.ctcl = {
 				removeButton.removeAttribute( 'disabled' );
 			}
 
-			newImgTag.setAttribute( 'id', 'banner_image_thumbnail' );
+			newImgTag.setAttribute( 'class', 'image-thumbnail' );
 			newImgTag.setAttribute( 'alt', attachment.title );
 			newImgTag.setAttribute( 'src', attachment.sizes.thumbnail.url );
 			newImgTag.setAttribute( 'width', attachment.sizes.thumbnail.width );
@@ -114,8 +114,8 @@ window.ctcl = {
 document.addEventListener( 'DOMContentLoaded', function() {
 	if ( 'elections_page_topics' === window.pagenow ) {
 		window.ctcl.handleTopics();
-	}	else if ( 'elections_page_banner' === window.pagenow ) {
-		window.ctcl.handleBanner();
+	}	else if ( document.querySelector( '.upload-wrapper' ) ) {
+		window.ctcl.handleImage();
 	}
 } );
 
