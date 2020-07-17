@@ -1,14 +1,11 @@
 $white: #fff;
 $black: #000;
 
-$rust: #ba483a;
 $rose: #ee5c4a;
 
-$blue-dark: #17234c;
 $blue-medium: #144691; // homepage banner-only
+$blue-dark: #17234c;
 $blue-light: #004cb2;
-
-$turquoise: #55d5f1;
 
 $grey-text: #4e4e4e;
 
@@ -16,79 +13,53 @@ $grey-dark: #d7d8e0;
 $grey-medium: #b7bcce;
 $grey-light: #f5f6fa;
 
-// body text
-$body-font: $grey-text;
-$body-highlight: $blue-dark;
-$body-link: $blue-light;
-
-// table
-$table-border: $grey-light;
-$table-row-bg: $grey-light;
-$table-header-bg: $blue-dark;
-$tile-border: $grey-medium;
-
-// accordion
-$accordion-section-border: $grey-dark;
-$accordion-border: $blue-dark;
-
-// main banner
-$banner-font: $white;
-$banner-bg: $blue-medium;
-
-// alert banner
-$alert-bg: $blue-dark;
-
-// buttons
-$button-bg: $rose;
-$button-text: $white;
-
-// header
-$header-bg: $white;
-
-// footer
-$footer-bg: $grey-light;
-
 .scheme-a {
+	// headings
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: $blue-dark;
+	}
+
+	// top nav menu
+	header a {
+		color: $blue-dark;
+	}
+
 	// Page
 	main {
 		p,
 		ul {
-			color: $body-font;
+			color: $grey-text;
 
 			a {
-				color: $body-link;
+				color: $blue-light;
 			}
 		}
 
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			color: $body-highlight;
-		}
-
 		.wp-block-group {
-			border-top-color: $body-highlight;
+			border-top-color: $blue-dark;
 		}
 
 		hr {
-			border-color: $body-highlight;
+			border-color: $blue-dark;
 		}
 	}
 
 	// Blocks
 	.accordion-group {
 		.accordion-section-wrapper {
-			border-top-color: $body-highlight;
+			border-top-color: $blue-dark;
 
 			&:last-child {
-				border-bottom-color: $body-highlight;
+				border-bottom-color: $blue-dark;
 			}
 
 			&.subsection {
-				border-top-color: $accordion-section-border;
+				border-top-color: $grey-dark;
 			}
 
 			// arrow
@@ -98,32 +69,31 @@ $footer-bg: $grey-light;
 		}
 	}
 
-	// Mixins
-	%wp-menu-links {
-		.menu-item a {
-			color: $grey-text;
-		}
+	// top nav menu
+	%wp-menu-links .menu-item a {
+		color: $grey-text;
 	}
 
-	// Contact form
-	.contact-form {
-		button {
-			background-color: $blue-dark;
-			color: $button-text;
-		}
+	// button text
+	.button.learn-more,
+	.contact-form button {
+		color: $white;
+	}
+
+	// contact form button
+	.contact-form button {
+		background-color: $blue-dark;
+	}
+
+	// banner button
+	.banner .button.learn-more {
+		background-color: $rose;
 	}
 
 	// Banner
 	.banner {
-		.banner-wrapper {
-			.button.learn-more {
-				background-color: $button-bg;
-				color: $button-text;
-			}
-		}
-
 		&.alert {
-			background-color: $alert-bg;
+			background-color: $blue-dark;
 			color: $white;
 
 			a {
@@ -132,23 +102,24 @@ $footer-bg: $grey-light;
 		}
 
 		&.major {
-			background-color: $banner-bg;
-			color: $banner-font;
+			background-color: $blue-medium;
+
+			p,
+			h2 {
+				color: $white;
+			}
 		}
 	}
 
-	.tile-wrapper {
-		.tile {
-			border-color: $tile-border;
-			color: $body-highlight;
-		}
+	// Tiles
+	.tile-wrapper .tile {
+		border-color: $grey-medium;
+		color: $blue-dark;
 	}
 
 	// Block editor
-	#editor {
-		.wp-block-group {
-			border-top-color: $black;
-		}
+	#editor .wp-block-group {
+		border-top-color: $black;
 	}
 
 	// numbered list
@@ -162,43 +133,23 @@ $footer-bg: $grey-light;
 	// Table
 	figure.wp-block-table {
 		table {
-			border-color: $table-border;
-			color: $body-highlight;
+			border-color: $grey-light;
+			color: $blue-dark;
 		}
 
 		thead {
-			background-color: $table-header-bg;
+			background-color: $blue-dark;
 			color: $white;
 		}
 
 		tr:nth-child(2n) {
-			background-color: $table-row-bg;
-		}
-	}
-
-	// Header
-	header {
-		background-color: $header-bg;
-
-		.site-title {
-			color: $body-highlight;
-		}
-
-		.menu {
-			.menu-item {
-				&.current-menu-item,
-				&.current-page-ancestor {
-					a {
-						color: $blue-dark;
-					}
-				}
-			}
+			background-color: $grey-light;
 		}
 	}
 
 	// Footer
 	footer {
-		background-color: $footer-bg;
-		color: $body-highlight;
+		background-color: $grey-light;
+		color: $blue-dark;
 	}
 }
