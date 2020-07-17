@@ -12,11 +12,11 @@ $site_title = \CTCL\Elections\Office_Details::title();
 $is_front_page = is_front_page();
 if ( $is_front_page ) {
 	$banner_enabled = \CTCL\Elections\Banner::is_enabled();
-	$banner_title   = $banner_enabled ? \CTCL\Elections\Banner::title() : '';
+	$banner_title   = \CTCL\Elections\Banner::title();
 }
 
 $alert_banner_enabled = \CTCL\Elections\Alert_Banner::is_enabled();
-$alert_banner_title   = $banner_enabled ? \CTCL\Elections\Alert_Banner::title() : '';
+$alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
