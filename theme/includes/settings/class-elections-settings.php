@@ -50,6 +50,15 @@ class Elections_Settings extends Settings {
 				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 			[
+				'uid'       => 'logo',
+				'label'     => 'Logo',
+				'section'   => 'appearance',
+				'type'      => 'upload',
+				'label_for' => 'logo',
+				'value'     => get_theme_mod( 'custom_logo' ), // This isn't a standard WP Option.
+				'args'      => [ 'sanitize_callback' => [ __CLASS__, 'validate_and_save_logo' ] ],
+			],
+			[
 				'uid'       => 'color_scheme',
 				'label'     => 'Color Scheme',
 				'section'   => 'appearance',
@@ -82,6 +91,27 @@ class Elections_Settings extends Settings {
 	 */
 	public static function get_color_scheme() {
 		return 'scheme-' . ( get_option( 'color_scheme' ) ?? self::DEFAULT_COLOR_SCHEME );
+	}
+
+	/**
+	 * Ensure logo is a valid image ID and save it.
+	 *
+	 * @param string $image_id  Image ID.
+	 *
+	 * @return string
+	 */
+	public static function validate_and_save_logo( $image_id ) {
+		$image_id = absint( $image_id );
+		if ( ! $image_id || ! wp_attachment_is_image( $image_id ) ) {
+			remove_theme_mod( 'custom_logo' );
+			return false;
+		}
+
+		// We are storing this as a theme mod, not an option.
+		// Need to manually save, since the Settings API won't do this automatically.
+		set_theme_mod( 'custom_logo', $image_id );
+
+		return $image_id;
 	}
 
 	/**

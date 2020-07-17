@@ -62,7 +62,7 @@ class Hooks {
 	public static function admin_enqueue_scripts( $hook ) {
 		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
 
-		if ( in_array( $hook, [ 'elections_page_banner' ], true ) ) {
+		if ( in_array( $hook, [ 'elections_page_banner', 'toplevel_page_elections' ], true ) ) {
 			wp_enqueue_media();
 		}
 
