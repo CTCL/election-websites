@@ -41,6 +41,15 @@ class Elections_Settings extends Settings {
 
 		$fields = [
 			[
+				'uid'         => 'blogname',
+				'label'       => 'Site Title',
+				'section'     => 'appearance',
+				'type'        => 'text',
+				'placeholder' => 'Washington County Elections',
+				'label_for'   => 'blogname',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+			],
+			[
 				'uid'       => 'color_scheme',
 				'label'     => 'Color Scheme',
 				'section'   => 'appearance',
