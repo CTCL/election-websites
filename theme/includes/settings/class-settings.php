@@ -77,9 +77,14 @@ class Settings {
 				echo '<input size="50" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( get_option( $args['uid'] ) ) . '" />';
 				break;
 			case 'upload':
-				$image_id = get_option( $args['uid'] );
-				echo '<div id="' . esc_attr( $args['uid'] . '_wrapper' ) . '">';
-				echo '<input name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="hidden" value="' . esc_attr( $image_id ) . '" />';
+				$image_id = get_option( $args['uid'] ) ? get_option( $args['uid'] ) : $args['value'];
+
+				if ( $args['value'] ) {
+					delete_option( $args['uid'] );
+				}
+
+				echo '<div class="upload-wrapper">';
+				echo '<input type="hidden" class="imageid" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" value="' . esc_attr( $image_id ) . '" />';
 				echo '<input type="button" class="button upload" id="' . esc_attr( 'upload_' . $args['uid'] ) . '" value="Select Image" />';
 				echo '<input type="button" class="button remove" id="remove_banner_image" value="Remove Image"';
 				if ( ! $image_id ) {
@@ -88,7 +93,7 @@ class Settings {
 				echo '" />';
 
 				if ( $image_id ) {
-					echo wp_kses_post( wp_get_attachment_image( $image_id, 'thumbnail', false, [ 'id' => 'banner_image_thumbnail' ] ) );
+					echo wp_kses_post( wp_get_attachment_image( $image_id, 'thumbnail', false, [ 'class' => 'image-thumbnail' ] ) );
 				}
 
 				echo '</div>';
