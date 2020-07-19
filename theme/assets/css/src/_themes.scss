@@ -1,4 +1,4 @@
-@mixin theme($button-link, $banner-button, $banner-bg) {
+@mixin theme($button-link, $banner-text, $banner-button, $banner-bg) {
 	main {
 		p,
 		ul {
@@ -20,6 +20,12 @@
 
 	// banner
 	.banner {
+		color: $banner-text;
+
+		h2 {
+			color: $banner-text;
+		}
+
 		.button.learn-more {
 			background-color: $banner-button;
 		}
@@ -38,7 +44,7 @@ $a-icon-three: #b8493e;
 $a-banner-bg: #18488f;
 
 .theme-blue {
-	@include theme($a-button-link, $a-icon-two, $a-banner-bg);
+	@include theme($a-button-link, $white, $a-icon-two, $a-banner-bg);
 }
 
 // green
@@ -49,5 +55,5 @@ $b-icon-three: #b04b28;
 $b-banner-bg: #c7e3f8;
 
 .theme-green {
-	@include theme($b-button-link, $a-icon-two, $b-banner-bg);
+	@include theme($b-button-link, $midnight, $a-icon-two, $b-banner-bg);
 }
