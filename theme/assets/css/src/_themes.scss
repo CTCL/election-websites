@@ -1,0 +1,53 @@
+@mixin theme($button-link, $banner-button, $banner-bg) {
+	main {
+		p,
+		ul {
+			a {
+				color: $button-link;
+			}
+		}
+	}
+
+	// contact form button
+	.contact-form button {
+		background-color: $button-link;
+	}
+
+	// arrow
+	.accordion-group .accordion-section-header::after {
+		border-color: $button-link;
+	}
+
+	// banner
+	.banner {
+		.button.learn-more {
+			background-color: $banner-button;
+		}
+
+		&.major {
+			background-color: $banner-bg;
+		}
+	}
+}
+
+// blue
+$a-button-link: #0b4faf;
+$a-icon-one: #5cd5ee;
+$a-icon-two: #ec5d4f;
+$a-icon-three: #b8493e;
+$a-banner-bg: #18488f;
+
+.theme-blue {
+	@include theme($a-button-link, $a-icon-two, $a-banner-bg);
+}
+
+// green
+$b-button-link: #15948b;
+$b-icon-one: #6dd9cc;
+$b-icon-two: #fd6d3a;
+$b-icon-three: #b04b28;
+$b-banner-bg: #c7e3f8;
+
+.theme-green {
+	@include theme($b-button-link, $a-icon-two, $b-banner-bg);
+}
