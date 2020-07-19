@@ -170,4 +170,35 @@ class Helpers {
 	public static function is_block_backend() {
 		return defined( 'REST_REQUEST' ) && true === REST_REQUEST && 'edit' === filter_input( INPUT_GET, 'context', FILTER_SANITIZE_STRING );
 	}
+
+	/**
+	 * Upload an image to the media library.
+	 *
+	 * @param string $file         Image URL.
+	 * @param string $description  Image description.
+	 *
+	 * @return boolean|WP_Error
+	 */
+	public static function upload_image( $file, $description ) {
+		$file_array = [
+			'name'     => wp_basename( $file ),
+			'tmp_name' => download_url( $file ),
+		];
+
+		// If error storing temporarily, return the error.
+		if ( is_wp_error( $file_array['tmp_name'] ) ) {
+			return $file_array['tmp_name'];
+		}
+
+		// Do the validation and storage stuff.
+		$id = media_handle_sideload( $file_array, 0, $description );
+
+		// If error storing permanently, unlink.
+		if ( is_wp_error( $id ) ) {
+			@unlink( $file_array['tmp_name'] ); // phpcs:ignore Generic.PHP.NoSilencedErrors.Forbidden,WordPress.PHP.NoSilencedErrors.Discouraged,WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_unlink
+			return $id;
+		}
+
+		return true;
+	}
 }
