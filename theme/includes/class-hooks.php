@@ -78,7 +78,7 @@ class Hooks {
 	 * @return array
 	 */
 	public static function filter_body_class( $classes ) {
-		$classes[] = Elections_Settings::get_color_scheme();
+		$classes[] = Elections_Settings::get_theme();
 
 		return $classes;
 	}
@@ -91,7 +91,7 @@ class Hooks {
 	 * @return string
 	 */
 	public static function filter_admin_body_class( $classes ) {
-		$classes .= ' ' . Elections_Settings::get_color_scheme();
+		$classes .= ' ' . Elections_Settings::get_theme();
 
 		return $classes;
 	}

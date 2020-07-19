@@ -18,7 +18,7 @@ class Elections_Settings extends Settings {
 	const PAGE_TITLE  = 'Appearance';
 	const FIELD_GROUP = 'appearance_all';
 
-	const DEFAULT_COLOR_SCHEME = 'a';
+	const DEFAULT_THEME = 'blue';
 
 	/**
 	 * Add Elections menu. Set first item to Office Details.
@@ -59,13 +59,13 @@ class Elections_Settings extends Settings {
 				'args'      => [ 'sanitize_callback' => [ __CLASS__, 'validate_and_save_logo' ] ],
 			],
 			[
-				'uid'       => 'color_scheme',
-				'label'     => 'Color Scheme',
+				'uid'       => 'theme',
+				'label'     => 'Theme',
 				'section'   => 'appearance',
 				'type'      => 'radio',
-				'options'   => self::color_scheme_list(),
-				'label_for' => 'color_scheme',
-				'args'      => [ 'sanitize_callback' => [ __CLASS__, 'validate_color_scheme' ] ],
+				'options'   => self::theme_list(),
+				'label_for' => 'theme',
+				'args'      => [ 'sanitize_callback' => [ __CLASS__, 'validate_theme' ] ],
 			],
 		];
 
@@ -73,24 +73,24 @@ class Elections_Settings extends Settings {
 	}
 
 	/**
-	 * List of color schemes to choose from.
+	 * List of themes to choose from.
 	 *
 	 * @return array
 	 */
-	public static function color_scheme_list() {
+	public static function theme_list() {
 		return [
-			'a' => 'Scheme A',
-			'b' => 'Scheme B',
+			'blue'  => 'Blue',
+			'green' => 'Green',
 		];
 	}
 
 	/**
-	 * Active color scheme.
+	 * Active theme.
 	 *
 	 * @return array
 	 */
-	public static function get_color_scheme() {
-		return 'scheme-' . ( get_option( 'color_scheme' ) ?? self::DEFAULT_COLOR_SCHEME );
+	public static function get_theme() {
+		return 'theme-' . ( get_option( 'theme' ) ?? self::DEFAULT_THEME );
 	}
 
 	/**
@@ -115,14 +115,14 @@ class Elections_Settings extends Settings {
 	}
 
 	/**
-	 * Ensure color scheme is from list of valid schemes.
+	 * Ensure theme is from list of valid themes.
 	 *
-	 * @param string $item  Color scheme ID.
+	 * @param string $item  Theme ID.
 	 *
 	 * @return string
 	 */
-	public static function validate_color_scheme( $item ) {
-		$list = self::color_scheme_list();
+	public static function validate_theme( $item ) {
+		$list = self::theme_list();
 
 		if ( in_array( $item, array_keys( $list ), true ) ) {
 			return $item;
