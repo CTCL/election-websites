@@ -28,6 +28,10 @@
 	&.alert {
 		padding: 20px 0;
 
+		.learn-more {
+			margin-left: 10px;
+		}
+
 		@include breakpoint(phone) {
 			padding: 8px 0 10px;
 		}
