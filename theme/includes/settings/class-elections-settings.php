@@ -90,7 +90,7 @@ class Elections_Settings extends Settings {
 	 * @return array
 	 */
 	public static function get_theme() {
-		return 'theme-' . ( get_option( 'theme' ) ?? self::DEFAULT_THEME );
+		return 'theme-' . ( get_option( 'theme', null ) ?? self::DEFAULT_THEME );
 	}
 
 	/**
