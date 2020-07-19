@@ -763,6 +763,10 @@ header .menu .menu-item a, footer .menu .menu-item a {
   color: #fff;
 }
 
+.banner {
+  color: #fff;
+}
+
 .banner.alert {
   background-color: #18244b;
 }
@@ -816,10 +820,6 @@ figure.wp-block-table tr:nth-child(2n) {
   border-color: #0b4faf;
 }
 
-.theme-blue .banner {
-  color: #fff;
-}
-
 .theme-blue .banner .button.learn-more {
   background-color: #ec5d4f;
 }
@@ -839,10 +839,6 @@ figure.wp-block-table tr:nth-child(2n) {
 
 .theme-green .accordion-group .accordion-section-header::after {
   border-color: #15948b;
-}
-
-.theme-green .banner {
-  color: #18244b;
 }
 
 .theme-green .banner .button.learn-more {
