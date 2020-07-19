@@ -203,6 +203,10 @@ main ul a {
   padding: 20px 0;
 }
 
+.banner.alert .learn-more {
+  margin-left: 10px;
+}
+
 @media (max-width: 767px) {
   .banner.alert {
     padding: 8px 0 10px;
