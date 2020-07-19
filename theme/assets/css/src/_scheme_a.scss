@@ -1,160 +1,81 @@
-$white: #fff;
-$black: #000;
+// blue
+$a-button-link: #0b4faf;
+$a-icon-one: #5cd5ee;
+$a-icon-two: #ec5d4f;
+$a-icon-three: #b8493e;
+$a-banner-bg: #18488f;
 
-$rose: #ee5c4a;
+// green
+$b-button-link: #15948b;
+$b-icon-one: #6dd9cc;
+$b-icon-two: #fd6d3a;
+$b-icon-three: #b04b28;
+$b-banner-bg: #c7e3f8;
 
-$blue-medium: #144691; // homepage banner-only
-$blue-dark: #17234c;
-$blue-light: #004cb2;
-
-$grey-text: #4e4e4e;
-
-$grey-dark: #d7d8e0;
-$grey-medium: #b7bcce;
-$grey-light: #f5f6fa;
-
-.scheme-a {
-	// headings
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		color: $blue-dark;
-	}
-
-	// top nav menu
-	header a {
-		color: $blue-dark;
-	}
-
-	// Page
+.theme-blue {
 	main {
 		p,
 		ul {
-			color: $grey-text;
-
 			a {
-				color: $blue-light;
+				color: $a-button-link;
 			}
 		}
-
-		.wp-block-group {
-			border-top-color: $blue-dark;
-		}
-
-		hr {
-			border-color: $blue-dark;
-		}
-	}
-
-	// Blocks
-	.accordion-group {
-		.accordion-section-wrapper {
-			border-top-color: $blue-dark;
-
-			&:last-child {
-				border-bottom-color: $blue-dark;
-			}
-
-			&.subsection {
-				border-top-color: $grey-dark;
-			}
-
-			// arrow
-			.accordion-section-header::after {
-				border-color: $blue-light;
-			}
-		}
-	}
-
-	// top nav menu
-	%wp-menu-links .menu-item a {
-		color: $grey-text;
-	}
-
-	// button text
-	.button.learn-more,
-	.contact-form button {
-		color: $white;
 	}
 
 	// contact form button
 	.contact-form button {
-		background-color: $blue-dark;
+		background-color: $a-button-link;
 	}
 
-	// banner button
-	.banner .button.learn-more {
-		background-color: $rose;
+	// arrow
+	.accordion-group .accordion-section-header::after {
+		border-color: $a-button-link;
 	}
 
-	// Banner
+	// banner
 	.banner {
-		&.alert {
-			background-color: $blue-dark;
-			color: $white;
+		color: $white;
 
-			a {
-				color: $white;
-			}
+		.button.learn-more {
+			background-color: $a-icon-two;
 		}
 
 		&.major {
-			background-color: $blue-medium;
+			background-color: $a-banner-bg;
+		}
+	}
+}
 
-			p,
-			h2 {
-				color: $white;
+.theme-green {
+	main {
+		p,
+		ul {
+			a {
+				color: $b-button-link;
 			}
 		}
 	}
 
-	// Tiles
-	.tile-wrapper .tile {
-		border-color: $grey-medium;
-		color: $blue-dark;
+	// contact form button
+	.contact-form button {
+		background-color: $b-button-link;
 	}
 
-	// Block editor
-	#editor .wp-block-group {
-		border-top-color: $black;
+	// arrow
+	.accordion-group .accordion-section-header::after {
+		border-color: $b-button-link;
 	}
 
-	// numbered list
-	.numbered-section {
-		&::before {
-			border-color: $blue-dark;
-			color: $blue-dark;
-		}
-	}
+	// banner
+	.banner {
+		color: $midnight;
 
-	// Table
-	figure.wp-block-table {
-		table {
-			border-color: $grey-light;
-			color: $blue-dark;
+		.button.learn-more {
+			background-color: $a-icon-two;
 		}
 
-		thead {
-			background-color: $blue-dark;
-			color: $white;
+		&.major {
+			background-color: $b-banner-bg;
 		}
-
-		tr:nth-child(2n) {
-			background-color: $grey-light;
-		}
-	}
-
-	// Header
-	header {
-		background-color: $white;
-	}
-
-	// Footer
-	footer {
-		background-color: $grey-light;
-		color: $blue-dark;
 	}
 }

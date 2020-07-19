@@ -1,0 +1,122 @@
+// headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $midnight;
+}
+
+// Header
+header {
+	background-color: $white;
+
+	// top nav menu
+	a {
+		color: $midnight;
+	}
+}
+
+// Footer
+footer {
+	background-color: $grey-light;
+	color: $midnight;
+
+	a {
+		color: $midnight;
+	}
+}
+
+// Page
+main {
+	p,
+	ul {
+		color: $grey-dark;
+	}
+
+	.wp-block-group {
+		border-top-color: $midnight;
+	}
+
+	hr {
+		border-color: $midnight;
+	}
+}
+
+// top nav menu
+%wp-menu-links .menu-item a {
+	color: $grey-dark;
+}
+
+// Blocks
+.accordion-group {
+	.accordion-section-wrapper {
+		border-top-color: $midnight;
+
+		&:last-child {
+			border-bottom-color: $midnight;
+		}
+
+		&.subsection {
+			border-top-color: $grey-dark;
+		}
+	}
+}
+
+// button text
+.button.learn-more,
+.contact-form button {
+	color: $white;
+}
+
+// Banner
+.banner {
+	&.alert {
+		background-color: $midnight;
+
+		.banner-wrapper {
+			color: $white; // need additional specificity to override scheme text color for homepage banner
+		}
+
+		a {
+			color: $white;
+		}
+	}
+}
+
+// Tiles
+.tile-wrapper .tile {
+	border-color: $grey-medium;
+	color: $midnight;
+}
+
+// Block editor
+#editor .wp-block-group {
+	border-top-color: $black;
+}
+
+// numbered list
+.numbered-section {
+	&::before {
+		border-color: $midnight;
+		color: $midnight;
+	}
+}
+
+// Table
+figure.wp-block-table {
+	table {
+		border-color: $grey-light;
+		color: $midnight;
+	}
+
+	thead {
+		background-color: $midnight;
+		color: $white;
+	}
+
+	tr:nth-child(2n) {
+		background-color: $grey-light;
+	}
+}

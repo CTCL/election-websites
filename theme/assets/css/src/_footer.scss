@@ -52,6 +52,10 @@ footer {
 		}
 	}
 
+	a:hover {
+		text-decoration: underline;
+	}
+
 	.menu {
 		@extend %wp-menu;
 		@extend %wp-menu-links;
