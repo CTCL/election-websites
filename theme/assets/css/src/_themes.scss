@@ -1,4 +1,4 @@
-@mixin theme($button-link, $banner-text, $banner-button, $banner-bg) {
+@mixin theme($button-link, $banner-button) {
 	main {
 		p,
 		ul {
@@ -20,10 +20,10 @@
 
 	// banner
 	.banner {
-		color: $banner-text;
+		color: $white;
 
 		h2 {
-			color: $banner-text;
+			color: $white;
 		}
 
 		.button.learn-more {
@@ -31,7 +31,7 @@
 		}
 
 		&.major {
-			background-color: $banner-bg;
+			background-color: $banner-bg-dark;
 		}
 	}
 }
@@ -41,10 +41,9 @@ $a-button-link: #0b4faf;
 $a-icon-one: #5cd5ee;
 $a-icon-two: #ec5d4f;
 $a-icon-three: #b8493e;
-$a-banner-bg: #18488f;
 
 .theme-blue {
-	@include theme($a-button-link, $white, $a-icon-two, $a-banner-bg);
+	@include theme($a-button-link, $a-icon-two);
 }
 
 // green
@@ -52,8 +51,7 @@ $b-button-link: #15948b;
 $b-icon-one: #6dd9cc;
 $b-icon-two: #fd6d3a;
 $b-icon-three: #b04b28;
-$b-banner-bg: #c7e3f8;
 
 .theme-green {
-	@include theme($b-button-link, $midnight, $a-icon-two, $b-banner-bg);
+	@include theme($b-button-link, $b-button-link);
 }
