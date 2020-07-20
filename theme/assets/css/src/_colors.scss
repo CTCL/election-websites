@@ -83,6 +83,32 @@ main {
 			color: $white;
 		}
 	}
+
+	// banner -- dark
+	&.banner-dark {
+		color: $white;
+
+		h2 {
+			color: $white;
+		}
+
+		&.major {
+			background-color: $banner-bg-dark;
+		}
+	}
+
+	// banner -- light
+	&.banner-light {
+		color: $midnight;
+
+		h2 {
+			color: $midnight;
+		}
+
+		&.major {
+			background-color: $banner-bg-light;
+		}
+	}
 }
 
 // Tiles
