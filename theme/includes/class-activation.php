@@ -54,6 +54,7 @@ class Activation {
 			'ballot-box-2.svg' => 'Ballot box (green)',
 			'mailbox-1.svg'    => 'Mailbox (blue)',
 			'mailbox-2.svg'    => 'Mailbox (green)',
+			'mailbox-3.svg'    => 'Mailbox (dark blue)',
 		];
 
 		foreach ( $image_list as $filename => $description ) {
