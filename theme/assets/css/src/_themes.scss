@@ -18,16 +18,16 @@
 		border-color: $button-link;
 	}
 
-	// banner
+	.button.learn-more {
+		background-color: $banner-button;
+	}
+
+	// banner -- dark
 	.banner {
 		color: $white;
 
 		h2 {
 			color: $white;
-		}
-
-		.button.learn-more {
-			background-color: $banner-button;
 		}
 
 		&.major {
