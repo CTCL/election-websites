@@ -820,16 +820,16 @@ figure.wp-block-table tr:nth-child(2n) {
   border-color: #0b4faf;
 }
 
+.theme-blue .button.learn-more {
+  background-color: #ec5d4f;
+}
+
 .theme-blue .banner {
   color: #fff;
 }
 
 .theme-blue .banner h2 {
   color: #fff;
-}
-
-.theme-blue .banner .button.learn-more {
-  background-color: #ec5d4f;
 }
 
 .theme-blue .banner.major {
@@ -849,16 +849,16 @@ figure.wp-block-table tr:nth-child(2n) {
   border-color: #15948b;
 }
 
+.theme-green .button.learn-more {
+  background-color: #15948b;
+}
+
 .theme-green .banner {
   color: #fff;
 }
 
 .theme-green .banner h2 {
   color: #fff;
-}
-
-.theme-green .banner .button.learn-more {
-  background-color: #15948b;
 }
 
 .theme-green .banner.major {
