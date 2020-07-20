@@ -254,7 +254,7 @@ class Contact_Form {
 
 
 			<input id="recaptcha-token" type="hidden" name="token" />
-			<button class="g-recaptcha" data-sitekey="<?php echo esc_attr( Google_Recaptcha::get_site_key() ); ?>" data-callback='submitContactForm' data-action='submit'>Send Message</button>
+			<button class="g-recaptcha" data-sitekey="<?php echo esc_attr( Google_Recaptcha::get_site_key() ); ?>" data-callback='window.ctcl.submitContactForm' data-action='submit'>Send Message</button>
 		</form>
 
 		<?php
