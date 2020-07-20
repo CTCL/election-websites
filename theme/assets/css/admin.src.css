@@ -253,17 +253,17 @@ figure.wp-block-table tr:nth-child(2n) {
 }
 
 .theme-green .banner {
-  color: #18244b;
+  color: #fff;
 }
 
 .theme-green .banner h2 {
-  color: #18244b;
+  color: #fff;
 }
 
 .theme-green .banner .button.learn-more {
-  background-color: #ec5d4f;
+  background-color: #15948b;
 }
 
 .theme-green .banner.major {
-  background-color: #c7e3f8;
+  background-color: #18488f;
 }
