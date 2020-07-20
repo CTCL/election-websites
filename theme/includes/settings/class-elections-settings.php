@@ -18,7 +18,8 @@ class Elections_Settings extends Settings {
 	const PAGE_TITLE  = 'Appearance';
 	const FIELD_GROUP = 'appearance_all';
 
-	const DEFAULT_THEME = 'blue';
+	const DEFAULT_THEME  = 'blue';
+	const DEFAULT_BANNER = 'dark';
 
 	/**
 	 * Add Elections menu. Set first item to Office Details.
@@ -67,6 +68,15 @@ class Elections_Settings extends Settings {
 				'label_for' => 'theme',
 				'args'      => [ 'sanitize_callback' => [ __CLASS__, 'validate_theme' ] ],
 			],
+			[
+				'uid'       => 'banner',
+				'label'     => 'Banner',
+				'section'   => 'appearance',
+				'type'      => 'radio',
+				'options'   => self::banner_list(),
+				'label_for' => 'banner',
+				'args'      => [ 'sanitize_callback' => [ __CLASS__, 'validate_banner' ] ],
+			],
 		];
 
 		self::configure_fields( $fields, static::FIELD_GROUP );
@@ -85,12 +95,33 @@ class Elections_Settings extends Settings {
 	}
 
 	/**
+	 * List of banner styles to choose from.
+	 *
+	 * @return array
+	 */
+	public static function banner_list() {
+		return [
+			'dark'  => 'Dark',
+			'light' => 'Light',
+		];
+	}
+
+	/**
 	 * Active theme.
 	 *
 	 * @return array
 	 */
 	public static function get_theme() {
 		return 'theme-' . ( get_option( 'theme', null ) ?? self::DEFAULT_THEME );
+	}
+
+	/**
+	 * Active banner style.
+	 *
+	 * @return array
+	 */
+	public static function get_banner() {
+		return 'banner-' . ( get_option( 'banner', null ) ?? self::DEFAULT_BANNER );
 	}
 
 	/**
@@ -115,6 +146,22 @@ class Elections_Settings extends Settings {
 	}
 
 	/**
+	 * When item is in a supplied list, return it. Otherwise return empty string.
+	 *
+	 * @param string $item  Item.
+	 * @param array  $list  List.
+	 *
+	 * @return string
+	 */
+	public static function validate_list_item( $item, $list ) {
+		if ( in_array( $item, array_keys( $list ), true ) ) {
+			return $item;
+		}
+
+		return '';
+	}
+
+	/**
 	 * Ensure theme is from list of valid themes.
 	 *
 	 * @param string $item  Theme ID.
@@ -122,13 +169,18 @@ class Elections_Settings extends Settings {
 	 * @return string
 	 */
 	public static function validate_theme( $item ) {
-		$list = self::theme_list();
+		return self::validate_list_item( $item, self::theme_list() );
+	}
 
-		if ( in_array( $item, array_keys( $list ), true ) ) {
-			return $item;
-		}
-
-		return '';
+	/**
+	 * Ensure banner style is from list of valid banner styles.
+	 *
+	 * @param string $item  Banner ID.
+	 *
+	 * @return string
+	 */
+	public static function validate_banner( $item ) {
+		return self::validate_list_item( $item, self::banner_list() );
 	}
 }
 
