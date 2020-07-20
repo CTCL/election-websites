@@ -20,6 +20,10 @@ class Hooks {
 	 * Set up actions and filters.
 	 */
 	public static function setup_hooks() {
+		// defer CSS/JS to footer. Improves Lighthouse score.
+		remove_action( 'wp_head', 'wp_enqueue_scripts', 1 );
+		add_action( 'wp_footer', 'wp_enqueue_scripts', 5 );
+
 		// Enqueue CSS and JS.
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'wp_enqueue_scripts' ] );
 		add_action( 'admin_enqueue_scripts', [ __CLASS__, 'admin_enqueue_scripts' ] );
