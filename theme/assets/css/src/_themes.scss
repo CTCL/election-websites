@@ -21,6 +21,10 @@
 	.button.learn-more {
 		background-color: $banner-button;
 	}
+
+	.tile-wrapper .tile:hover {
+		color: $button-link;
+	}
 }
 
 // blue
