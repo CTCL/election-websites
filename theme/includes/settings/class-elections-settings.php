@@ -51,6 +51,15 @@ class Elections_Settings extends Settings {
 				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 			[
+				'uid'         => 'blogdescription',
+				'label'       => 'Description',
+				'section'     => 'appearance',
+				'type'        => 'textarea',
+				'placeholder' => 'Find out elections dates and register to vote in Washington County.',
+				'label_for'   => 'blogdescription',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+			],
+			[
 				'uid'       => 'logo',
 				'label'     => 'Logo',
 				'section'   => 'appearance',
