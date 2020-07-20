@@ -136,10 +136,12 @@ class Hooks {
 	/**
 	 * Remove the posts menu.
 	 * Remove the comments menu page.
+	 * Remove the feedback menu page. (From WordPress.com/Jetpack).
 	 */
 	public static function update_menu_pages() {
 		remove_menu_page( 'edit.php' );
 		remove_menu_page( 'edit-comments.php' );
+		remove_menu_page( 'edit.php?post_type=feedback' );
 	}
 
 	/**
