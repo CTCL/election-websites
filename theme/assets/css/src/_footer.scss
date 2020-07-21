@@ -39,7 +39,7 @@ footer {
 	}
 
 	.section-title {
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 		line-height: 22px;
 	}
 
@@ -62,6 +62,7 @@ footer {
 
 			+ li::before {
 				content: " | ";
+				padding: 0 5px;
 			}
 		}
 	}
