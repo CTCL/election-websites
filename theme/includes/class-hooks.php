@@ -38,6 +38,9 @@ class Hooks {
 		add_action( 'load-post-new.php', [ __CLASS__, 'prevent_default_post_new' ] );
 		add_action( 'load-edit.php', [ __CLASS__, 'prevent_default_post_new' ] );
 
+		// Print <meta> description.
+		add_action( 'wp_head', [ __CLASS__, 'meta_tags_output' ], 15 );
+
 		// Disable comments.
 		add_filter( 'comments_open', '__return_false' );
 		add_filter( 'pings_open', '__return_false' );
@@ -136,6 +139,20 @@ class Hooks {
 		if ( 'post' === $typenow ) {
 			wp_safe_redirect( admin_url( '/' ) );
 			die();
+		}
+	}
+
+	/**
+	 * Outputs the <meta> tags
+	 */
+	public static function meta_tags_output() {
+		$description = get_bloginfo( 'description' );
+		if ( ! $description ) {
+			return;
+		}
+
+		if ( is_front_page() ) {
+			echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";
 		}
 	}
 
