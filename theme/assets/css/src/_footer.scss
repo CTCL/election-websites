@@ -11,7 +11,7 @@ footer {
 
 	.footer-content-wrapper {
 		display: grid;
-		grid-template-columns: 1fr 170px 170px;
+		grid-template-columns: 1fr 1fr 170px;
 		grid-column-gap: 16px;
 
 		@include breakpoint(phone) {
@@ -49,6 +49,20 @@ footer {
 
 		&:not(:last-child) {
 			margin-bottom: 12px;
+		}
+	}
+
+	ul.info-item {
+		list-style: none;
+		padding-left: 0;
+
+		li {
+			display: inline;
+			font-weight: bold;
+
+			+ li::before {
+				content: " | ";
+			}
 		}
 	}
 
