@@ -20,9 +20,10 @@ class Hooks {
 	 * Set up actions and filters.
 	 */
 	public static function setup_hooks() {
-		// defer CSS/JS to footer. Improves Lighthouse score.
-		remove_action( 'wp_head', 'wp_enqueue_scripts', 1 );
-		add_action( 'wp_footer', 'wp_enqueue_scripts', 5 );
+
+		/*
+		 * Custom actions and filters.
+		 */
 
 		// Enqueue CSS and JS.
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'wp_enqueue_scripts' ] );
@@ -41,13 +42,18 @@ class Hooks {
 		// Print <meta> description.
 		add_action( 'wp_head', [ __CLASS__, 'meta_tags_output' ], 15 );
 
+		// KSES: Allow additional tags/attributes.
+		add_action( 'init', [ __CLASS__, 'kses_allow_additional_tags' ] );
+
+		/*
+		 * Change default WordPress behaviours.
+		 */
+
 		// Disable comments.
 		add_filter( 'comments_open', '__return_false' );
 		add_filter( 'pings_open', '__return_false' );
 		add_filter( 'comments_array', '__return_empty_array' );
 
-		// KSES: Allow additional tags/attributes.
-		add_action( 'init', [ __CLASS__, 'kses_allow_additional_tags' ] );
 		// Disable emojis.
 		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 		remove_action( 'wp_print_styles', 'print_emoji_styles' );
@@ -56,6 +62,9 @@ class Hooks {
 		remove_action( 'wp_head', 'wlwmanifest_link' );
 		remove_action( 'wp_head', 'rsd_link' );
 
+		// Defer CSS/JS to footer. Improves Lighthouse score.
+		remove_action( 'wp_head', 'wp_enqueue_scripts', 1 );
+		add_action( 'wp_footer', 'wp_enqueue_scripts', 5 );
 	}
 
 	/**
