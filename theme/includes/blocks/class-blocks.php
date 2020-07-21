@@ -108,11 +108,14 @@ class Blocks {
 	 * @return array
 	 */
 	public static function block_categories( $categories, $post ) {
-		$categories[] = [
-			'title' => 'Election Blocks',
-			'slug'  => 'election-blocks',
-			'icon'  => 'dashicons-carrot',
-		];
+		array_unshift(
+			$categories,
+			[
+				'title' => 'Election Blocks',
+				'slug'  => 'election-blocks',
+				'icon'  => 'dashicons-carrot',
+			] 
+		);
 
 		return $categories;
 	}
