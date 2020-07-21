@@ -4,6 +4,10 @@
 		ul {
 			a {
 				color: $button-link;
+
+				&:hover {
+					color: mix(black, $button-link, $tint-percent);
+				}
 			}
 		}
 	}
@@ -11,15 +15,27 @@
 	// contact form button
 	.contact-form button {
 		background-color: $button-link;
+
+		&:hover {
+			background-color: mix(black, $button-link, $tint-percent);
+		}
 	}
 
 	// arrow
 	.accordion-group .accordion-section-header::after {
 		border-color: $button-link;
+
+		&:hover {
+			border-color: mix(black, $button-link, $tint-percent);
+		}
 	}
 
 	.button.learn-more {
 		background-color: $banner-button;
+
+		&:hover {
+			background-color: mix(black, $banner-button, $tint-percent);
+		}
 	}
 
 	.tile-wrapper .tile:hover {
