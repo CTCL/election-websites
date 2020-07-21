@@ -59,6 +59,72 @@ class Office_Details {
 	}
 
 	/**
+	 * The election office Twitter account.
+	 *
+	 * @param boolean $link  Whether to render this as a link (instead of plain text).
+	 * @param boolean $echo  Whether to print this (instead of returning it).
+	 *
+	 * @return string
+	 */
+	public static function twitter( $link = false, $echo = false ) {
+		$handle = get_option( 'twitter' );
+
+		return self::get_link( 'Twitter', 'https://www.twitter.com/' . $handle, $link, $echo );
+	}
+
+	/**
+	 * The election office Facebook page.
+	 *
+	 * @param boolean $link  Whether to render this as a link (instead of plain text).
+	 * @param boolean $echo  Whether to print this (instead of returning it).
+	 *
+	 * @return string
+	 */
+	public static function facebook( $link = false, $echo = false ) {
+		$handle = get_option( 'facebook' );
+
+		return self::get_link( 'Facebook', 'https://www.facebook.com/' . $handle, $link, $echo );
+	}
+
+	/**
+	 * The election office Instagram account.
+	 *
+	 * @param boolean $link  Whether to render this as a link (instead of plain text).
+	 * @param boolean $echo  Whether to print this (instead of returning it).
+	 *
+	 * @return string
+	 */
+	public static function instagram( $link = false, $echo = false ) {
+		$handle = get_option( 'instagram' );
+
+		return self::get_link( 'Instagram', 'https://www.instagram.com/' . $handle, $link, $echo );
+	}
+
+	/**
+	 * Print or return a link.
+	 *
+	 * @param boolean $label  The link label (social media handle).
+	 * @param boolean $url    The link URL.
+	 * @param boolean $link   Whether to render this as a link (instead of plain text).
+	 * @param boolean $echo   Whether to print this (instead of returning it).
+	 *
+	 * @return string
+	 */
+	public static function get_link( $label, $url, $link, $echo ) {
+		if ( $link ) {
+			$result = sprintf( '<a href="%s">%s</a>', esc_url( $url ), $label );
+		} else {
+			$result = $label;
+		}
+
+		if ( $echo ) {
+			echo wp_kses( $result, self::$allowed_link_tags );
+		} else {
+			return $result;
+		}
+	}
+
+	/**
 	 * The election office email address.
 	 *
 	 * @param boolean $link  Whether to render this as a link (instead of plain text).
@@ -69,16 +135,6 @@ class Office_Details {
 	public static function email( $link = false, $echo = false ) {
 		$email = get_option( 'email_address' );
 
-		if ( $link ) {
-			$result = sprintf( '<a href="%s">%s</a>', esc_url( 'mailto:' . $email ), $email );
-		} else {
-			$result = $email;
-		}
-
-		if ( $echo ) {
-			echo wp_kses( $result, self::$allowed_link_tags );
-		} else {
-			return $email;
-		}
+		return self::get_link( $email, 'mailto:' . $email, $link, $echo );
 	}
 }
