@@ -49,6 +49,11 @@ class Hooks {
 		 * Change default WordPress behaviours.
 		 */
 
+		// Remove unused roles.
+		remove_role( 'author' );
+		remove_role( 'contributor' );
+		remove_role( 'subscriber' );
+
 		// Disable comments.
 		add_filter( 'comments_open', '__return_false' );
 		add_filter( 'pings_open', '__return_false' );
