@@ -50,6 +50,7 @@
   font-weight: bold;
   font-size: 18px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .contact-form textarea,
@@ -239,16 +240,33 @@ figure.wp-block-table tr:nth-child(2n) {
   color: #0b4faf;
 }
 
+.theme-blue main p a:hover,
+.theme-blue main ul a:hover {
+  color: #093f8c;
+}
+
 .theme-blue .contact-form button {
   background-color: #0b4faf;
+}
+
+.theme-blue .contact-form button:hover {
+  background-color: #093f8c;
 }
 
 .theme-blue .accordion-group .accordion-section-header::after {
   border-color: #0b4faf;
 }
 
+.theme-blue .accordion-group .accordion-section-header::after:hover {
+  border-color: #093f8c;
+}
+
 .theme-blue .button.learn-more {
   background-color: #ec5d4f;
+}
+
+.theme-blue .button.learn-more:hover {
+  background-color: #bd4a3f;
 }
 
 .theme-blue .tile-wrapper .tile:hover {
@@ -261,16 +279,33 @@ figure.wp-block-table tr:nth-child(2n) {
   color: #15948b;
 }
 
+.theme-green main p a:hover,
+.theme-green main ul a:hover {
+  color: #11766f;
+}
+
 .theme-green .contact-form button {
   background-color: #15948b;
+}
+
+.theme-green .contact-form button:hover {
+  background-color: #11766f;
 }
 
 .theme-green .accordion-group .accordion-section-header::after {
   border-color: #15948b;
 }
 
+.theme-green .accordion-group .accordion-section-header::after:hover {
+  border-color: #11766f;
+}
+
 .theme-green .button.learn-more {
   background-color: #15948b;
+}
+
+.theme-green .button.learn-more:hover {
+  background-color: #11766f;
 }
 
 .theme-green .tile-wrapper .tile:hover {

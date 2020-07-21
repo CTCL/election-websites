@@ -191,6 +191,7 @@ main ul a {
   font-weight: bold;
   font-size: 18px;
   text-decoration: none;
+  cursor: pointer;
   line-height: 60px;
 }
 
@@ -392,7 +393,7 @@ footer .abbreviated-footer {
 
 footer .footer-content-wrapper {
   display: grid;
-  grid-template-columns: 1fr 170px 170px;
+  grid-template-columns: 1fr 1fr 170px;
   grid-column-gap: 16px;
 }
 
@@ -421,7 +422,7 @@ footer .menu-item {
 }
 
 footer .section-title {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   line-height: 22px;
 }
 
@@ -433,6 +434,21 @@ footer .menu-item {
 footer .info-item:not(:last-child),
 footer .menu-item:not(:last-child) {
   margin-bottom: 12px;
+}
+
+footer ul.info-item {
+  list-style: none;
+  padding-left: 0;
+}
+
+footer ul.info-item li {
+  display: inline;
+  font-weight: bold;
+}
+
+footer ul.info-item li + li::before {
+  content: " | ";
+  padding: 0 5px;
 }
 
 footer a:hover {
@@ -476,6 +492,7 @@ figure.wp-block-table td {
   font-weight: bold;
   font-size: 18px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .contact-form textarea,
@@ -836,16 +853,33 @@ figure.wp-block-table tr:nth-child(2n) {
   color: #0b4faf;
 }
 
+.theme-blue main p a:hover,
+.theme-blue main ul a:hover {
+  color: #093f8c;
+}
+
 .theme-blue .contact-form button {
   background-color: #0b4faf;
+}
+
+.theme-blue .contact-form button:hover {
+  background-color: #093f8c;
 }
 
 .theme-blue .accordion-group .accordion-section-header::after {
   border-color: #0b4faf;
 }
 
+.theme-blue .accordion-group .accordion-section-header::after:hover {
+  border-color: #093f8c;
+}
+
 .theme-blue .button.learn-more {
   background-color: #ec5d4f;
+}
+
+.theme-blue .button.learn-more:hover {
+  background-color: #bd4a3f;
 }
 
 .theme-blue .tile-wrapper .tile:hover {
@@ -858,16 +892,33 @@ figure.wp-block-table tr:nth-child(2n) {
   color: #15948b;
 }
 
+.theme-green main p a:hover,
+.theme-green main ul a:hover {
+  color: #11766f;
+}
+
 .theme-green .contact-form button {
   background-color: #15948b;
+}
+
+.theme-green .contact-form button:hover {
+  background-color: #11766f;
 }
 
 .theme-green .accordion-group .accordion-section-header::after {
   border-color: #15948b;
 }
 
+.theme-green .accordion-group .accordion-section-header::after:hover {
+  border-color: #11766f;
+}
+
 .theme-green .button.learn-more {
   background-color: #15948b;
+}
+
+.theme-green .button.learn-more:hover {
+  background-color: #11766f;
 }
 
 .theme-green .tile-wrapper .tile:hover {
