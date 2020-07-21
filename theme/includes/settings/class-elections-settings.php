@@ -116,12 +116,21 @@ class Elections_Settings extends Settings {
 	}
 
 	/**
+	 * Active theme slug.
+	 *
+	 * @return array
+	 */
+	public static function get_theme_slug() {
+		return ( get_option( 'theme', null ) ?? self::DEFAULT_THEME );
+	}
+
+	/**
 	 * Active theme.
 	 *
 	 * @return array
 	 */
 	public static function get_theme() {
-		return 'theme-' . ( get_option( 'theme', null ) ?? self::DEFAULT_THEME );
+		return 'theme-' . self::get_theme_slug();
 	}
 
 	/**
