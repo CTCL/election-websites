@@ -20,7 +20,6 @@ class Hooks {
 	 * Set up actions and filters.
 	 */
 	public static function setup_hooks() {
-
 		/*
 		 * Custom actions and filters.
 		 */
