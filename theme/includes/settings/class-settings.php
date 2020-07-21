@@ -66,7 +66,9 @@ class Settings {
 					echo '<label for="' . esc_attr( $args['uid'] ) . '">' . esc_html( $args['title'] ) . '</label>';
 				}
 				break;
+			case 'url':
 			case 'number':
+			case 'tel':
 			case 'password':
 			case 'email':
 			case 'text':
