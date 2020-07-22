@@ -38,45 +38,6 @@
 			height: 40vw;
 		}
 
-		.bounding-box {
-			height: 100%;
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: contain;
-
-			&#register-to-vote {
-				background-image: url(../images/tiles/register-to-vote.svg);
-			}
-
-			&#vote-by-mail {
-				background-image: url(../images/tiles/vote-by-mail.svg);
-			}
-
-			&#election-results {
-				background-image: url(../images/tiles/election-results.svg);
-			}
-
-			&#whats-on-the-ballot {
-				background-image: url(../images/tiles/whats-on-the-ballot.svg);
-			}
-
-			&#polling-locations {
-				background-image: url(../images/tiles/polling-locations.svg);
-			}
-
-			&#become-a-poll-worker {
-				background-image: url(../images/tiles/become-a-poll-worker.svg);
-			}
-
-			&#campaign-resources {
-				background-image: url(../images/tiles/campaign-resources.svg);
-			}
-
-			&#news {
-				background-image: url(../images/tiles/news.svg);
-			}
-		}
-
 		span {
 			max-width: 100px;
 		}
