@@ -28,6 +28,11 @@ class Hooks {
 		add_action( 'wp_enqueue_scripts', [ __CLASS__, 'wp_enqueue_scripts' ] );
 		add_action( 'admin_enqueue_scripts', [ __CLASS__, 'admin_enqueue_scripts' ] );
 
+		// Defer CSS and JS.
+		add_filter( 'script_loader_tag', [ __CLASS__, 'defer_js' ], 10, 3 );
+		add_filter( 'style_loader_tag', [ __CLASS__, 'defer_css' ], 10, 4 );
+		add_filter( 'page_optimize_style_loader_tag', [ __CLASS__, 'defer_css' ], 10, 4 );
+
 		// Set body class.
 		add_filter( 'admin_body_class', [ __CLASS__, 'filter_admin_body_class' ] );
 		add_filter( 'body_class', [ __CLASS__, 'filter_body_class' ] );
@@ -65,10 +70,6 @@ class Hooks {
 		// Remove wlmanifest and EditURI links.
 		remove_action( 'wp_head', 'wlwmanifest_link' );
 		remove_action( 'wp_head', 'rsd_link' );
-
-		// Defer CSS/JS to footer. Improves Lighthouse score.
-		remove_action( 'wp_head', 'wp_enqueue_scripts', 1 );
-		add_action( 'wp_footer', 'wp_enqueue_scripts', 5 );
 	}
 
 	/**
@@ -98,6 +99,45 @@ class Hooks {
 
 		wp_enqueue_style( 'admin', get_template_directory_uri() . "/assets/css/admin.{$type}.css", [], THEME_VERSION );
 		wp_enqueue_script( 'admin', get_template_directory_uri() . "/assets/js/admin.{$type}.js", [ 'jquery', 'underscore', 'wp-util' ], THEME_VERSION, false );
+	}
+
+	/**
+	 * Defer JS. Only used when Page Optimize is not installed or disabled.
+	 *
+	 * @param string $tag    The `<script>` tag for the enqueued script.
+	 * @param string $handle The script's registered handle.
+	 * @param string $src    The script's source URL.
+	 *
+	 * @return string Script HTML string.
+	 */
+	public static function defer_js( $tag, $handle, $src ) {
+		if ( in_array( $handle, [ 'main' ], true ) ) {
+			return str_replace( ' src', ' defer="defer" src', $tag );
+		}
+
+		return $tag;
+	}
+
+	/**
+	 * Defer CSS.
+	 *
+	 * @param string $html   The link tag for the enqueued style.
+	 * @param string $handle The style's registered handle.
+	 * @param string $href   The stylesheet's source URL.
+	 * @param string $media  The stylesheet's media attribute.
+	 *
+	 * @return string Script HTML string.
+	 */
+	public static function defer_css( $html, $handle, $href, $media ) {
+		$is_main_page_optimize = in_array( 'main', $handle, true );
+		$is_main_standard      = in_array( $handle, [ 'main', 'source-sans' ], true );
+
+		if ( $is_main_page_optimize || $is_main_standard ) {
+			$html  = '<link rel="stylesheet" href="' . esc_url( $href ) . '" media="print" onload="this.onload=null;this.media=\'all\'">' . "\n";
+			$html .= '<noscript><link rel="stylesheet" href="' . esc_url( $href ) . '"></noscript>' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
+		}
+
+		return $html;
 	}
 
 	/**
