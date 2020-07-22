@@ -129,8 +129,12 @@ class Hooks {
 	 * @return string Script HTML string.
 	 */
 	public static function defer_css( $html, $handle, $href, $media ) {
-		$is_main_page_optimize = in_array( 'main', $handle, true );
-		$is_main_standard      = in_array( $handle, [ 'main', 'source-sans' ], true );
+		if ( is_array( $handle ) ) {
+			$is_main_page_optimize = in_array( 'main', $handle, true );
+		} else {
+			$is_main_page_optimize = false;
+		}
+		$is_main_standard = in_array( $handle, [ 'main', 'source-sans' ], true );
 
 		if ( $is_main_page_optimize || $is_main_standard ) {
 			$html  = '<link rel="stylesheet" href="' . esc_url( $href ) . '" media="print" onload="this.onload=null;this.media=\'all\'">' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
