@@ -44,6 +44,12 @@ main {
 	}
 }
 
+.contact-form {
+	label {
+		color: $midnight;
+	}
+}
+
 // top nav menu
 %wp-menu-links .menu-item a {
 	color: $grey-dark;

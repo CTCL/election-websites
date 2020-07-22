@@ -1,13 +1,17 @@
 .tile-wrapper {
 	display: inline-grid;
-	grid-template-columns: repeat(4, $tile-size);
+	grid-template-columns: repeat(4, $tile-width);
 	grid-column-gap: 16px;
 	grid-row-gap: 16px;
 	margin: 24px 0;
 
+	.home & {
+		margin: 16px 0;
+	}
+
 	@include breakpoint(phone) {
 		margin: 0;
-		grid-template-columns: repeat(2, $tile-size);
+		grid-template-columns: repeat(2, $tile-width);
 	}
 
 	@media (max-width: 350px) {
@@ -21,9 +25,9 @@
 		grid-template-rows: 50px 40px;
 		align-content: center;
 		justify-content: center;
-		grid-row-gap: 8px;
-		width: $tile-size;
-		height: $tile-size;
+		grid-row-gap: 18px;
+		width: $tile-width;
+		height: $tile-height;
 		box-sizing: border-box;
 		border-radius: 2px;
 		padding: 14px;
