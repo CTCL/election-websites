@@ -47,7 +47,7 @@ class Tile {
 		$html  = '<a href="' . esc_url( $url ) . '" class="tile">' . $svg . '<span>' . esc_html( $label ) . '</span></a>';
 
 		if ( $svg && $url && $label ) {
-			wp_cache_set( $cache_key, $html, false, 600 );
+			wp_cache_set( $cache_key, $html, Helpers::INLINE_IMAGE_CACHE_KEY, 600 );
 		}
 
 		return $html;

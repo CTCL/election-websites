@@ -15,6 +15,9 @@ namespace CTCL\Elections;
  * @since 1.0.0
  */
 class Helpers {
+
+	const INLINE_IMAGE_CACHE_KEY = 'inline-images';
+
 	/**
 	 * List US states and territories.
 	 *
