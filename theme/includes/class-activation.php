@@ -17,6 +17,15 @@ namespace CTCL\Elections;
 class Activation {
 
 	/**
+	 * Enable CSS, JS and JS defer for the Page Optimize plugin.
+	 */
+	public static function enable_optimization() {
+		update_option( 'page_optimize-js', 1 );
+		update_option( 'page_optimize-load-mode', 'defer' );
+		update_option( 'page_optimize-css', 1 );
+	}
+
+	/**
 	 * Check if an image already exists in the media library.
 	 *
 	 * @param string $file  File name.
