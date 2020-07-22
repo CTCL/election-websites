@@ -204,4 +204,54 @@ class Helpers {
 
 		return true;
 	}
+
+	/**
+	 * Output the image with a data URL.
+	 *
+	 * @param integer $image_id   Image ID.
+	 * @param string  $size        Image size.
+	 * @param string  $alt         Image description.
+	 *
+	 * @return string
+	 */
+	public static function inline_image( $image_id, $size, $alt = false ) {
+		$cache_key = 'inline_image_' . $image_id;
+		$html      = wp_cache_get( $cache_key );
+		if ( false !== $html ) {
+			return $html;
+		}
+
+		$html = wp_get_attachment_image( $image_id, $size, false, [ 'alt' => $alt ] );
+
+		$matches = [];
+
+		if ( ! preg_match( '/src="([^"]+)"/', $html, $matches ) ) {
+			return;
+		}
+
+		if ( ! isset( $matches[1] ) ) {
+			return;
+		}
+
+		$file_path  = get_attached_file( $image_id );
+		$image_data = file_get_contents( $file_path ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+		if ( ! $image_data ) {
+			return;
+		}
+
+		$mime_type = mime_content_type( $file_path );
+
+		if ( 'image/svg' === $mime_type ) {
+			$data_url = 'data:image/svg+xml,' . str_replace( [ '%20', '%3D', '%3A', '%2F' ], [ ' ', '=', ':', '/' ], rawurlencode( $image_data ) );
+		} else {
+			$base64_image_data = base64_encode( $image_data );
+			$data_url          = 'data:' . $mime_type . ';base64,' . $base64_image_data;
+		}
+
+		$html = str_replace( $matches[0], 'src="' . $data_url . '"', $html );
+
+		wp_cache_set( $cache_key, $html, self::INLINE_IMAGE_CACHE_KEY, 600 );
+
+		return $html;
+	}
 }
