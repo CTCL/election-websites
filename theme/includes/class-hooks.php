@@ -312,6 +312,7 @@ class Hooks {
 				'fill'         => true,
 				'width'        => true,
 				'height'       => true,
+				'stroke'       => true,
 				'stroke-width' => true,
 				'rx'           => true,
 				'mask'         => true,
