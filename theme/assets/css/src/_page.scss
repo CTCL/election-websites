@@ -62,9 +62,9 @@ main {
 		border-width: 1.5px;
 		border-style: solid;
 	}
-}
 
-main.front-page {
-	display: flex;
-	justify-content: center;
+	.home & {
+		display: flex;
+		justify-content: center;
+	}
 }
