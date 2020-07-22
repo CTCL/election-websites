@@ -32,6 +32,7 @@ require_once __DIR__ . '/includes/class-alert-banner.php';
 require_once __DIR__ . '/includes/blocks/class-blocks.php';
 require_once __DIR__ . '/includes/blocks/class-contact-form.php';
 require_once __DIR__ . '/includes/blocks/class-office-info.php';
+require_once __DIR__ . '/includes/blocks/class-tile.php';
 
 // Settings.
 require_once __DIR__ . '/includes/settings/class-settings.php';
