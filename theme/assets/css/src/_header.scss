@@ -55,6 +55,10 @@ header {
 			display: inline-block;
 			margin-left: 24px;
 
+			&.current-menu-item {
+				pointer-events: none;
+			}
+
 			&.current-menu-item,
 			&.current-page-ancestor {
 				a {
