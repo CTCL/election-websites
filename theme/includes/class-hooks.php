@@ -285,6 +285,37 @@ class Hooks {
 					'type'        => true,
 				]
 			),
+
+			'svg'    => [
+				'width'   => true,
+				'height'  => true,
+				'viewbox' => true,
+				'fill'    => true,
+				'xmlns'   => true,
+			],
+
+			'path'   => [
+				'd'            => true,
+				'fill'         => true,
+				'stroke'       => true,
+				'stroke-width' => true,
+			],
+
+			'mask'   => [
+				'id'   => true,
+				'fill' => true,
+			],
+
+			'rect'   => [
+				'x'            => true,
+				'y'            => true,
+				'fill'         => true,
+				'width'        => true,
+				'height'       => true,
+				'stroke-width' => true,
+				'rx'           => true,
+				'mask'         => true,
+			],
 		];
 
 
