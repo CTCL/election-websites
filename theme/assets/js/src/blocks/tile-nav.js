@@ -107,18 +107,11 @@ registerBlockType( CHILD_BLOCK, {
 	},
 
 	save: function( props ) {
-		return createElement( 'a',
-			{
-				className: 'tile',
-				href: props.attributes.url
-			},
-			createElement( 'div',
-				{
-					className: 'bounding-box',
-					id: props.attributes.icon
-				}
-			),
-			createElement( 'span', null, props.attributes.label )
+		return (
+			<ServerSideRender
+				block="ctcl-election-website/tile-nav-block"
+				attributes={ props.attributes }
+			/>
 		);
 	}
 } );
