@@ -111,8 +111,7 @@ class Contact_Form {
 		];
 		$message   = sprintf( "From: %s\n\n%s", $sender, $atts['message'] );
 
-		// TODO: send this message.
-		if ( false ) {
+		if ( 'production' === WP_ENVIRONMENT ) {
 			$result = wp_mail( $recipient, $subject, $message, $headers ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_mail_wp_mail
 		} else {
 			$result = true;
