@@ -346,6 +346,10 @@ header .menu .menu-item {
   margin-left: 24px;
 }
 
+header .menu .menu-item.current-menu-item {
+  pointer-events: none;
+}
+
 header .menu .menu-item.current-menu-item a, header .menu .menu-item.current-page-ancestor a {
   font-weight: bold;
 }
