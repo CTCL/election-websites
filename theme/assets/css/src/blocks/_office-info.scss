@@ -1,5 +1,9 @@
 .office-info {
-	margin-top: 10px;
+	margin-top: 45px;
+
+	@include breakpoint(phone) {
+		margin-left: 45px;
+	}
 
 	h4 {
 		margin-bottom: 0;

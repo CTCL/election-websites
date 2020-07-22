@@ -48,6 +48,12 @@ main {
 	label {
 		color: $midnight;
 	}
+
+	textarea,
+	select,
+	input[type='text'] {
+		border-color: $midnight;
+	}
 }
 
 // top nav menu
