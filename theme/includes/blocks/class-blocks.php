@@ -63,8 +63,9 @@ class Blocks {
 		register_block_type(
 			'ctcl-election-website/tile-nav-block',
 			[
-				'editor_script' => 'block-editors',
-				'editor_style'  => 'block-editors',
+				'editor_script'   => 'block-editors',
+				'editor_style'    => 'block-editors',
+				'render_callback' => [ '\CTCL\Elections\Tile', 'block_render' ],
 			]
 		);
 
@@ -114,7 +115,7 @@ class Blocks {
 				'title' => 'Election Blocks',
 				'slug'  => 'election-blocks',
 				'icon'  => 'dashicons-carrot',
-			] 
+			]
 		);
 
 		return $categories;
