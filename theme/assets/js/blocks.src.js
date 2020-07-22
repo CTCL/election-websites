@@ -268,29 +268,32 @@ registerBlockType(CHILD_BLOCK, {
     }), createElement(wp.components.SelectControl, {
       onChange: updateIcon,
       options: [{
-        value: 'registration',
-        label: 'registration'
+        value: '',
+        label: 'Select an Icon'
+      }, {
+        value: 'register-to-vote',
+        label: 'Register to Vote'
       }, {
         value: 'vote-by-mail',
-        label: 'vote-by-mail'
+        label: 'Vote by Mail'
       }, {
         value: 'view-election-results',
-        label: 'view-election-results'
+        label: 'View Election Results'
       }, {
-        value: 'whats-on-ballot',
-        label: 'whats-on-ballot'
+        value: 'whats-on-the-ballot',
+        label: 'What’s on the Ballot'
       }, {
-        value: 'where-to-vote',
-        label: 'where-to-vote'
+        value: 'voting-locations',
+        label: 'Where to Vote'
       }, {
-        value: 'become-poll-worker',
-        label: 'become-poll-worker'
+        value: 'become-a-poll-worker',
+        label: 'Become a Poll Worker'
       }, {
         value: 'campaign-resources',
-        label: 'campaign-resources'
+        label: 'Campaign Resources'
       }, {
         value: 'news',
-        label: 'news'
+        label: 'News & Press Releases'
       }],
       label: 'Icon',
       value: props.attributes.icon

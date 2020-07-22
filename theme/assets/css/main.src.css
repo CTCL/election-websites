@@ -61,43 +61,8 @@ footer .abbreviated-footer, main {
   }
 }
 
-.tile-wrapper .tile .bounding-box {
-  height: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-.tile-wrapper .tile .bounding-box#register-to-vote {
-  background-image: url(../images/tiles/register-to-vote.svg);
-}
-
-.tile-wrapper .tile .bounding-box#vote-by-mail {
-  background-image: url(../images/tiles/vote-by-mail.svg);
-}
-
-.tile-wrapper .tile .bounding-box#election-results {
-  background-image: url(../images/tiles/election-results.svg);
-}
-
-.tile-wrapper .tile .bounding-box#whats-on-the-ballot {
-  background-image: url(../images/tiles/whats-on-the-ballot.svg);
-}
-
-.tile-wrapper .tile .bounding-box#polling-locations {
-  background-image: url(../images/tiles/polling-locations.svg);
-}
-
-.tile-wrapper .tile .bounding-box#become-a-poll-worker {
-  background-image: url(../images/tiles/become-a-poll-worker.svg);
-}
-
-.tile-wrapper .tile .bounding-box#campaign-resources {
-  background-image: url(../images/tiles/campaign-resources.svg);
-}
-
-.tile-wrapper .tile .bounding-box#news {
-  background-image: url(../images/tiles/news.svg);
+.tile-wrapper .tile svg {
+  margin: 0 auto;
 }
 
 .tile-wrapper .tile span {
@@ -604,7 +569,7 @@ main hr {
   border-style: solid;
 }
 
-main.front-page {
+.home main {
   display: flex;
   justify-content: center;
 }
