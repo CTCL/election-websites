@@ -90,14 +90,15 @@ registerBlockType( CHILD_BLOCK, {
 				{
 					onChange: updateIcon,
 					options: [
-						{ value: 'registration', label: 'registration' },
-						{ value: 'vote-by-mail', label: 'vote-by-mail' },
-						{ value: 'view-election-results', label: 'view-election-results' },
-						{ value: 'whats-on-ballot', label: 'whats-on-ballot' },
-						{ value: 'where-to-vote', label: 'where-to-vote' },
-						{ value: 'become-poll-worker', label: 'become-poll-worker' },
-						{ value: 'campaign-resources', label: 'campaign-resources' },
-						{ value: 'news', label: 'news' }
+						{ value: '', label: 'Select an Icon' },
+						{ value: 'register-to-vote', label: 'Register to Vote' },
+						{ value: 'vote-by-mail', label: 'Vote by Mail' },
+						{ value: 'view-election-results', label: 'View Election Results' },
+						{ value: 'whats-on-the-ballot', label: 'What’s on the Ballot' },
+						{ value: 'voting-locations', label: 'Where to Vote' },
+						{ value: 'become-a-poll-worker', label: 'Become a Poll Worker' },
+						{ value: 'campaign-resources', label: 'Campaign Resources' },
+						{ value: 'news', label: 'News & Press Releases' }
 					],
 					label: 'Icon',
 					value: props.attributes.icon
