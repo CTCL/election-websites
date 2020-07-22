@@ -7,24 +7,26 @@ footer .abbreviated-footer, main {
   .banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
-    width: 70%;
-    min-width: 730px;
-    max-width: 1000px;
+    width: 732px;
   }
 }
 
 .tile-wrapper {
   display: inline-grid;
-  grid-template-columns: repeat(4, 170px);
+  grid-template-columns: repeat(4, 171px);
   grid-column-gap: 16px;
   grid-row-gap: 16px;
   margin: 24px 0;
 }
 
+.home .tile-wrapper {
+  margin: 16px 0;
+}
+
 @media (max-width: 767px) {
   .tile-wrapper {
     margin: 0;
-    grid-template-columns: repeat(2, 170px);
+    grid-template-columns: repeat(2, 171px);
   }
 }
 
@@ -41,9 +43,9 @@ footer .abbreviated-footer, main {
   grid-template-rows: 50px 40px;
   align-content: center;
   justify-content: center;
-  grid-row-gap: 8px;
-  width: 170px;
-  height: 170px;
+  grid-row-gap: 18px;
+  width: 171px;
+  height: 158px;
   box-sizing: border-box;
   border-radius: 2px;
   padding: 14px;
@@ -123,9 +125,7 @@ footer .abbreviated-footer, main {
   .banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
-    width: 70%;
-    min-width: 730px;
-    max-width: 1000px;
+    width: 732px;
   }
 }
 
@@ -233,9 +233,7 @@ footer .abbreviated-footer, main {
   .banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
-    width: 70%;
-    min-width: 730px;
-    max-width: 1000px;
+    width: 732px;
   }
 }
 
@@ -333,9 +331,7 @@ footer .abbreviated-footer, main {
   .banner .banner-wrapper, header .header-wrapper, footer .footer-content-wrapper,
   footer .abbreviated-footer, main {
     margin: 0 auto;
-    width: 70%;
-    min-width: 730px;
-    max-width: 1000px;
+    width: 732px;
   }
 }
 
@@ -524,15 +520,6 @@ main ol li {
   list-style-position: inside;
 }
 
-main h1,
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
-  margin: 20px 0 8px;
-}
-
 main h1:first-child,
 main h2:first-child,
 main h3:first-child,
@@ -567,11 +554,13 @@ main .wp-block-group :last-child {
 main hr {
   border-width: 1.5px;
   border-style: solid;
+  margin: 30px 0;
 }
 
 .home main {
   display: flex;
   justify-content: center;
+  padding: 0;
 }
 
 main {
@@ -730,6 +719,10 @@ main .wp-block-group {
 
 main hr {
   border-color: #18244b;
+}
+
+.contact-form label {
+  color: #18244b;
 }
 
 header .menu .menu-item a, footer .menu .menu-item a {

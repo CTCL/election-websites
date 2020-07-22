@@ -154,6 +154,10 @@ main hr {
   border-color: #18244b;
 }
 
+.contact-form label {
+  color: #18244b;
+}
+
 .accordion-group .accordion-section-wrapper {
   border-top-color: #18244b;
 }
