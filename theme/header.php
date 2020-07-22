@@ -6,9 +6,8 @@
  * @since 1.0.0
  */
 
-$logo_id    = get_theme_mod( 'custom_logo' );
-$site_title = \CTCL\Elections\Office_Details::title();
-
+$logo_id       = get_theme_mod( 'custom_logo' );
+$site_title    = \CTCL\Elections\Office_Details::title();
 $is_front_page = is_front_page();
 if ( $is_front_page ) {
 	$banner_enabled = \CTCL\Elections\Banner::is_enabled();
@@ -78,7 +77,7 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 		<?php
 		$banner_id = \CTCL\Elections\Banner::image_id();
 		if ( $banner_id ) {
-			echo wp_kses_post( wp_get_attachment_image( $banner_id, 'banner' ) );
+			echo wp_kses_post( \CTCL\Elections\Helpers::inline_image( $banner_id, 'banner' ) );
 		}
 		?>
 	</div>
