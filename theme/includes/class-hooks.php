@@ -48,6 +48,7 @@ class Hooks {
 
 		// KSES: Allow additional tags/attributes.
 		add_action( 'init', [ __CLASS__, 'kses_allow_additional_tags' ] );
+		add_filter( 'kses_allowed_protocols', [ __CLASS__, 'kses_allow_data_urls' ] );
 
 		/*
 		 * Change default WordPress behaviours.
@@ -327,6 +328,19 @@ class Hooks {
 
 			$allowedposttags[ $tag ] = array_merge( $allowedposttags[ $tag ], $new_attributes ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 		}
+	}
+
+	/**
+	 * Allow data: URLs.
+	 *
+	 * @param array $protocols Array of allowed protocols e.g. 'http', 'ftp', 'tel', and more.
+	 *
+	 * @return array
+	 */
+	public static function kses_allow_data_urls( $protocols ) {
+		$protocols[] = 'data';
+
+		return $protocols;
 	}
 }
 
