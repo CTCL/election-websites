@@ -315,6 +315,25 @@ header .menu .menu-item {
   margin-left: 24px;
 }
 
+header .menu .menu-item a {
+  position: relative;
+}
+
+header .menu .menu-item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 0;
+  height: 1px;
+  transition: width 0.3s ease 0s, width 0.3s ease 0s;
+}
+
+header .menu .menu-item a:hover::after {
+  width: 100%;
+}
+
 header .menu .menu-item.current-menu-item {
   pointer-events: none;
 }
@@ -752,8 +771,8 @@ header .menu .menu-item a, footer .menu .menu-item a {
   color: #464956;
 }
 
-header .menu .menu-item a:hover, footer .menu .menu-item a:hover {
-  text-shadow: 0 0 0.65px #18244b, 0 0 0.65px #18244b;
+header .menu .menu-item a::after, footer .menu .menu-item a::after {
+  background: #18244b;
 }
 
 .accordion-group .accordion-section-wrapper {
