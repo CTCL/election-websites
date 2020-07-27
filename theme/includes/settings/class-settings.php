@@ -81,7 +81,7 @@ class Settings {
 			case 'upload':
 				$image_id = get_option( $args['uid'] ) ? get_option( $args['uid'] ) : $args['value'];
 
-				if ( $args['value'] ) {
+				if ( isset( $args['value'] ) && $args['value'] ) {
 					delete_option( $args['uid'] );
 				}
 
