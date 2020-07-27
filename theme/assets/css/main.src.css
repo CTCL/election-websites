@@ -522,6 +522,32 @@ figure.wp-block-table td {
   margin-left: 10px;
 }
 
+@media (min-width: 1024px) {
+  .ctcl-settings .form-table textarea,
+  .ctcl-settings .form-table input[type='text'],
+  .ctcl-settings .form-table input[type='email'],
+  .ctcl-settings .form-table input[type='password'],
+  .ctcl-settings .form-table input[type='tel'],
+  .ctcl-settings .form-table input[type='number'],
+  .ctcl-settings .form-table input[type='url'],
+  .ctcl-settings .form-table select {
+    width: 350px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ctcl-settings .form-table textarea,
+  .ctcl-settings .form-table input[type='text'],
+  .ctcl-settings .form-table input[type='email'],
+  .ctcl-settings .form-table input[type='password'],
+  .ctcl-settings .form-table input[type='tel'],
+  .ctcl-settings .form-table input[type='number'],
+  .ctcl-settings .form-table input[type='url'],
+  .ctcl-settings .form-table select {
+    width: 100%;
+  }
+}
+
 header .menu, footer .menu {
   list-style: none;
   padding-left: 0;
