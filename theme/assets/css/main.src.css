@@ -867,6 +867,14 @@ figure.wp-block-table tr:nth-child(2n) {
   background-color: #bd4a3f;
 }
 
+.theme-blue .alert .learn-more {
+  color: #55d5f1;
+}
+
+.theme-blue .alert .learn-more:hover {
+  color: #44aac1;
+}
+
 .theme-blue .tile-wrapper .tile:hover {
   color: #0b4faf;
   box-shadow: 0 0 7px rgba(16, 41, 46, 0.17);
@@ -904,6 +912,14 @@ figure.wp-block-table tr:nth-child(2n) {
 
 .theme-green .button.learn-more:hover {
   background-color: #11766f;
+}
+
+.theme-green .alert .learn-more {
+  color: #67dacc;
+}
+
+.theme-green .alert .learn-more:hover {
+  color: #44aac1;
 }
 
 .theme-green .tile-wrapper .tile:hover {
