@@ -6,13 +6,18 @@
 	textarea,
 	select,
 	input[type='text'] {
-		width: 75%;
+		font-size: 16px;
 		display: block;
-		padding: 5px 10px;
+		padding: 14px 10px;
 		box-sizing: border-box;
 		border-width: 1px;
 		border-style: solid;
 		border-radius: 4px;
+		width: 75%;
+
+		@include breakpoint(phone) {
+			width: 100%;
+		}
 	}
 
 	label {

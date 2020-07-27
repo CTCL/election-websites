@@ -49,10 +49,14 @@ main {
 		color: $midnight;
 	}
 
+	p {
+		margin-bottom: 32px;
+	}
+
 	textarea,
 	select,
 	input[type='text'] {
-		border-color: $midnight;
+		border-color: $grey-medium;
 	}
 }
 
