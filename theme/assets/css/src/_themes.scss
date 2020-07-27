@@ -1,4 +1,4 @@
-@mixin theme($button-link, $banner-button) {
+@mixin theme($button-link, $banner-button, $banner-link) {
 	main {
 		p,
 		ul {
@@ -30,11 +30,21 @@
 		}
 	}
 
+	// main banner
 	.button.learn-more {
 		background-color: $banner-button;
 
 		&:hover {
 			background-color: mix(black, $banner-button, $tint-percent);
+		}
+	}
+
+	// alert banner
+	.alert .learn-more {
+		color: $banner-link;
+
+		&:hover {
+			color: mix(black, #55d5f1, $tint-percent);
 		}
 	}
 
@@ -49,9 +59,10 @@ $a-button-link: #0b4faf;
 $a-icon-one: #5cd5ee;
 $a-icon-two: #ec5d4f;
 $a-icon-three: #b8493e;
+$a-banner-link: #55d5f1;
 
 .theme-blue {
-	@include theme($a-button-link, $a-icon-two);
+	@include theme($a-button-link, $a-icon-two, $a-banner-link);
 }
 
 // green
@@ -59,7 +70,8 @@ $b-button-link: #15948b;
 $b-icon-one: #6dd9cc;
 $b-icon-two: #fd6d3a;
 $b-icon-three: #b04b28;
+$b-banner-link: #67dacc;
 
 .theme-green {
-	@include theme($b-button-link, $b-button-link);
+	@include theme($b-button-link, $b-button-link, $b-banner-link);
 }
