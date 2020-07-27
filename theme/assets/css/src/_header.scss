@@ -55,6 +55,25 @@ header {
 			display: inline-block;
 			margin-left: 24px;
 
+			a {
+				position: relative;
+
+				&::after {
+					content: "";
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					display: block;
+					width: 0;
+					height: 1px;
+					transition: width 0.3s ease 0s, width 0.3s ease 0s;
+				}
+
+				&:hover::after {
+					width: 100%;
+				}
+			}
+
 			&.current-menu-item {
 				pointer-events: none;
 			}
