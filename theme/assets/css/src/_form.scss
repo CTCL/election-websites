@@ -44,3 +44,24 @@
 		margin-left: 10px;
 	}
 }
+
+.ctcl-settings {
+	.form-table {
+		textarea,
+		input[type='text'],
+		input[type='email'],
+		input[type='password'],
+		input[type='tel'],
+		input[type='number'],
+		input[type='url'],
+		select {
+			@include breakpoint(desktop) {
+				width: 350px;
+			}
+
+			@include breakpoint(phone) {
+				width: 100%;
+			}
+		}
+	}
+}

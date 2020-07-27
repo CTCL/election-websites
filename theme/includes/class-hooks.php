@@ -159,7 +159,7 @@ class Hooks {
 	}
 
 	/**
-	 * Add theme to admin body class.
+	 * Add theme to admin body class. Add ctcl-settings class on settings pages.
 	 *
 	 * @param string $classes Existing CSS classes.
 	 *
@@ -167,6 +167,15 @@ class Hooks {
 	 */
 	public static function filter_admin_body_class( $classes ) {
 		$classes .= ' ' . Elections_Settings::get_theme();
+
+		$current_screen = get_current_screen();
+		if ( isset( $current_screen->base ) ) {
+			$current_screen_slug = $current_screen->base;
+
+			if ( 'toplevel_page_elections' === $current_screen_slug || 0 === strpos( $current_screen_slug, 'elections_page_' ) ) {
+				$classes .= ' ctcl-settings';
+			}
+		}
 
 		return $classes;
 	}
