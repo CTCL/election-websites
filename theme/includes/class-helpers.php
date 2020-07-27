@@ -206,6 +206,18 @@ class Helpers {
 	}
 
 	/**
+	 * Output a data URL for an SVG.
+	 *
+	 * @param string $svg_data   SVG XML data.
+	 *
+	 * @return string
+	 */
+	public static function inline_svg_url( $svg_data ) {
+		return 'data:image/svg+xml,' . str_replace( [ '%20', '%3D', '%3A', '%2F' ], [ ' ', '=', ':', '/' ], rawurlencode( $svg_data ) );
+
+	}
+
+	/**
 	 * Output the image with a data URL.
 	 *
 	 * @param integer $image_id   Image ID.
@@ -242,7 +254,7 @@ class Helpers {
 		$mime_type = mime_content_type( $file_path );
 
 		if ( 'image/svg' === $mime_type ) {
-			$data_url = 'data:image/svg+xml,' . str_replace( [ '%20', '%3D', '%3A', '%2F' ], [ ' ', '=', ':', '/' ], rawurlencode( $image_data ) );
+			$data_url = self::inline_svg_url( $image_data );
 		} else {
 			$base64_image_data = base64_encode( $image_data );
 			$data_url          = 'data:' . $mime_type . ';base64,' . $base64_image_data;

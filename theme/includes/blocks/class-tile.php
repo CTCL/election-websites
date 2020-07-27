@@ -23,8 +23,10 @@ class Tile {
 	 * @return string
 	 */
 	public static function block_render( $block_attributes, $content ) {
-		$svg  = '';
-		$icon = $block_attributes['icon'] ?? false;
+		$svg   = '';
+		$icon  = $block_attributes['icon'] ?? false;
+		$url   = $block_attributes['url'] ?? '#';
+		$label = $block_attributes['label'] ?? '';
 
 		if ( isset( $icon ) ) {
 			$theme     = \CTCL\Elections\Elections_Settings::get_theme_slug();
@@ -38,13 +40,15 @@ class Tile {
 			$file = get_template_directory() . '/assets/images/tiles/' . $theme . '/' . $icon . '.svg';
 
 			if ( file_exists( $file ) ) {
-				$svg = file_get_contents( $file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+				$svg_data = file_get_contents( $file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+
+				$data_url = \CTCL\Elections\Helpers::inline_svg_url( $svg_data );
+
+				$svg = '<img width="50" height="50" alt="' . esc_attr( $label ) . '" src="' . esc_url( $data_url ) . '" />';
 			}
 		}
 
-		$url   = $block_attributes['url'] ?? '#';
-		$label = $block_attributes['label'] ?? '';
-		$html  = '<a href="' . esc_url( $url ) . '" class="tile">' . $svg . '<span>' . esc_html( $label ) . '</span></a>';
+		$html = '<a href="' . esc_url( $url ) . '" class="tile">' . $svg . '<span>' . esc_html( $label ) . '</span></a>';
 
 		if ( $svg && $url && $label ) {
 			wp_cache_set( $cache_key, $html, Helpers::INLINE_IMAGE_CACHE_KEY, 600 );
