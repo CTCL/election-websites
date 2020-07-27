@@ -15,7 +15,7 @@ namespace CTCL\Elections;
  */
 class Google_Analytics {
 
-	const TRACKING_ID = 'tracking_id';
+	const TRACKING_ID = 'ctcl_tracking_id';
 
 	/**
 	 * Set up actions and filters.

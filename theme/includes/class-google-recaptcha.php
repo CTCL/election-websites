@@ -23,7 +23,7 @@ class Google_Recaptcha {
 	 * @return string
 	 */
 	public static function get_site_key() {
-		return get_option( 'recaptcha_site_key' );
+		return get_option( 'ctcl_recaptcha_site_key' );
 	}
 
 	/**
@@ -32,7 +32,7 @@ class Google_Recaptcha {
 	 * @return string
 	 */
 	public static function get_secret_key() {
-		return get_option( 'recaptcha_secret_key' );
+		return get_option( 'ctcl_recaptcha_secret_key' );
 	}
 
 	/**

@@ -21,7 +21,7 @@ class Banner {
 	 * @return boolean
 	 */
 	public static function is_enabled() {
-		return 1 === absint( get_option( 'banner_enabled' ) );
+		return 1 === absint( get_option( 'ctcl_banner_enabled' ) );
 	}
 
 	/**
@@ -30,7 +30,7 @@ class Banner {
 	 * @return string
 	 */
 	public static function title() {
-		return get_option( 'banner_title' );
+		return get_option( 'ctcl_banner_title' );
 	}
 
 	/**
@@ -39,7 +39,7 @@ class Banner {
 	 * @return string
 	 */
 	public static function description() {
-		return get_option( 'banner_description' );
+		return get_option( 'ctcl_banner_description' );
 	}
 
 	/**
@@ -48,7 +48,7 @@ class Banner {
 	 * @return string
 	 */
 	public static function link() {
-		return get_option( 'banner_link' );
+		return get_option( 'ctcl_banner_link' );
 	}
 
 	/**
@@ -57,6 +57,6 @@ class Banner {
 	 * @return integer
 	 */
 	public static function image_id() {
-		return get_option( 'banner_image' );
+		return get_option( 'ctcl_banner_image' );
 	}
 }

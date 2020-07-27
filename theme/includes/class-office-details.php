@@ -37,7 +37,7 @@ class Office_Details {
 	 * @return string
 	 */
 	public static function official() {
-		return get_option( 'official_name' );
+		return get_option( 'ctcl_official_name' );
 	}
 
 	/**
@@ -46,7 +46,7 @@ class Office_Details {
 	 * @return string
 	 */
 	public static function official_title() {
-		return get_option( 'official_title' );
+		return get_option( 'ctcl_official_title' );
 	}
 
 	/**
@@ -55,7 +55,70 @@ class Office_Details {
 	 * @return string
 	 */
 	public static function phone() {
-		return get_option( 'phone' );
+		return get_option( 'ctcl_phone' );
+	}
+
+	/**
+	 * The election office fax number.
+	 *
+	 * @return string
+	 */
+	public static function fax() {
+		return get_option( 'ctcl_fax' );
+	}
+
+	/**
+	 * The election office address.
+	 *
+	 * @return string
+	 */
+	public static function address() {
+		return get_option( 'ctcl_address' );
+	}
+
+	/**
+	 * The election office address, line 2.
+	 *
+	 * @return string
+	 */
+	public static function address2() {
+		return get_option( 'ctcl_address2' );
+	}
+
+	/**
+	 * The election office city.
+	 *
+	 * @return string
+	 */
+	public static function city() {
+		return get_option( 'ctcl_city' );
+	}
+
+	/**
+	 * The election office state.
+	 *
+	 * @return string
+	 */
+	public static function state() {
+		return get_option( 'ctcl_state' );
+	}
+
+	/**
+	 * The election office zip code.
+	 *
+	 * @return string
+	 */
+	public static function zip() {
+		return get_option( 'ctcl_zip' );
+	}
+
+	/**
+	 * The election office hours.
+	 *
+	 * @return string
+	 */
+	public static function hours() {
+		return get_option( 'ctcl_hours' );
 	}
 
 	/**
@@ -67,7 +130,7 @@ class Office_Details {
 	 * @return string
 	 */
 	public static function twitter( $link = false, $echo = false ) {
-		$handle = get_option( 'twitter' );
+		$handle = get_option( 'ctcl_twitter' );
 
 		return self::get_link( 'Twitter', 'https://www.twitter.com/' . $handle, $link, $echo );
 	}
@@ -81,7 +144,7 @@ class Office_Details {
 	 * @return string
 	 */
 	public static function facebook( $link = false, $echo = false ) {
-		$handle = get_option( 'facebook' );
+		$handle = get_option( 'ctcl_facebook' );
 
 		return self::get_link( 'Facebook', 'https://www.facebook.com/' . $handle, $link, $echo );
 	}
@@ -95,7 +158,7 @@ class Office_Details {
 	 * @return string
 	 */
 	public static function instagram( $link = false, $echo = false ) {
-		$handle = get_option( 'instagram' );
+		$handle = get_option( 'ctcl_instagram' );
 
 		return self::get_link( 'Instagram', 'https://www.instagram.com/' . $handle, $link, $echo );
 	}

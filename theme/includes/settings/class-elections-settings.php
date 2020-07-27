@@ -69,7 +69,7 @@ class Elections_Settings extends Settings {
 				'args'      => [ 'sanitize_callback' => [ __CLASS__, 'validate_and_save_logo' ] ],
 			],
 			[
-				'uid'       => 'theme',
+				'uid'       => 'ctcl_theme',
 				'label'     => 'Theme',
 				'section'   => 'appearance',
 				'type'      => 'radio',
@@ -78,13 +78,13 @@ class Elections_Settings extends Settings {
 				'args'      => [ 'sanitize_callback' => [ __CLASS__, 'validate_theme' ] ],
 			],
 			[
-				'uid'       => 'banner',
+				'uid'       => 'ctcl_banner_style',
 				'label'     => 'Banner',
 				'section'   => 'appearance',
 				'type'      => 'radio',
 				'options'   => self::banner_list(),
-				'label_for' => 'banner',
 				'args'      => [ 'sanitize_callback' => [ __CLASS__, 'validate_banner' ] ],
+				'label_for' => 'ctcl_banner_style',
 			],
 		];
 
@@ -108,7 +108,7 @@ class Elections_Settings extends Settings {
 	 *
 	 * @return array
 	 */
-	public static function banner_list() {
+	public static function banner_style_list() {
 		return [
 			'dark'  => 'Dark',
 			'light' => 'Light',
@@ -121,7 +121,7 @@ class Elections_Settings extends Settings {
 	 * @return array
 	 */
 	public static function get_theme_slug() {
-		return ( get_option( 'theme', null ) ?? self::DEFAULT_THEME );
+		return ( get_option( 'ctcl_theme', null ) ?? self::DEFAULT_THEME );
 	}
 
 	/**
@@ -138,8 +138,8 @@ class Elections_Settings extends Settings {
 	 *
 	 * @return array
 	 */
-	public static function get_banner() {
-		return 'banner-' . ( get_option( 'banner', null ) ?? self::DEFAULT_BANNER );
+	public static function get_banner_style() {
+		return 'banner-' . ( get_option( 'ctcl_banner_style', null ) ?? self::DEFAULT_BANNER );
 	}
 
 	/**
@@ -197,8 +197,8 @@ class Elections_Settings extends Settings {
 	 *
 	 * @return string
 	 */
-	public static function validate_banner( $item ) {
-		return self::validate_list_item( $item, self::banner_list() );
+	public static function validate_banner_style( $item ) {
+		return self::validate_list_item( $item, self::banner_style_list() );
 	}
 }
 

@@ -21,7 +21,7 @@ class Alert_Banner {
 	 * @return boolean
 	 */
 	public static function is_enabled() {
-		return 1 === absint( get_option( 'alert_banner_enabled' ) );
+		return 1 === absint( get_option( 'ctcl_alert_banner_enabled' ) );
 	}
 
 	/**
@@ -30,7 +30,7 @@ class Alert_Banner {
 	 * @return string
 	 */
 	public static function title() {
-		return get_option( 'alert_banner_title' );
+		return get_option( 'ctcl_alert_banner_title' );
 	}
 
 	/**
@@ -39,7 +39,7 @@ class Alert_Banner {
 	 * @return string
 	 */
 	public static function description() {
-		return get_option( 'alert_banner_description' );
+		return get_option( 'ctcl_alert_banner_description' );
 	}
 
 	/**
@@ -48,6 +48,6 @@ class Alert_Banner {
 	 * @return string
 	 */
 	public static function link() {
-		return get_option( 'alert_banner_link' );
+		return get_option( 'ctcl_alert_banner_link' );
 	}
 }

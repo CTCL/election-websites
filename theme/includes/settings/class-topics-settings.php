@@ -38,12 +38,12 @@ class Topics_Settings extends Settings {
 
 		$fields = [
 			[
-				'uid'         => 'topic_list',
+				'uid'         => Topics::TOPIC_LIST_SLUG,
 				'label'       => 'Topics',
 				'section'     => 'topics_section',
 				'type'        => 'multitext',
 				'placeholder' => 'Lorem Ipsum',
-				'label_for'   => 'topic_list',
+				'label_for'   => Topics::TOPIC_LIST_SLUG,
 				'args'        => [ 'sanitize_callback' => [ __CLASS__, 'sanitize_topic_list' ] ],
 			],
 		];
