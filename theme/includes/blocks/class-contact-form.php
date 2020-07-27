@@ -36,7 +36,7 @@ class Contact_Form {
 	 * @return array
 	 */
 	public static function is_enabled() {
-		return strlen( get_option( 'email_address' ) );
+		return strlen( \CTCL\Elections\Office_Details::email_address() ) > 0;
 	}
 
 	/**
@@ -103,7 +103,7 @@ class Contact_Form {
 	 * @return string
 	 */
 	public static function send_message( $atts ) {
-		$recipient = get_option( 'email_address' );
+		$recipient = \CTCL\Elections\Office_Details::email_address();
 		$subject   = $atts['topic'];
 		$sender    = sprintf( '"%s" <%s>', $atts['fullname'], $atts['email'] );
 		$headers   = [

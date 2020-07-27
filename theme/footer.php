@@ -26,7 +26,7 @@ $instagram      = Office_Details::instagram( true );
 			<?php endif; ?>
 		</div>
 		<div>
-			<p class="info-item"><?php Office_Details::email( true, true ); ?></p>
+			<p class="info-item"><?php Office_Details::email_address( true, true ); ?></p>
 			<p class="info-item"><?php echo esc_html( Office_Details::phone() ); ?></p>
 
 			<?php if ( $twitter || $facebook || $instagram ) : ?>

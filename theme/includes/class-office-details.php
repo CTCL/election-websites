@@ -132,8 +132,8 @@ class Office_Details {
 	 *
 	 * @return string
 	 */
-	public static function email( $link = false, $echo = false ) {
-		$email = get_option( 'email_address' );
+	public static function email_address( $link = false, $echo = false ) {
+		$email = get_option( 'ctcl_email_address' );
 
 		return self::get_link( $email, 'mailto:' . $email, $link, $echo );
 	}

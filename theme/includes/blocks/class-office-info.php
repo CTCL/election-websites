@@ -25,7 +25,6 @@ class Office_Info {
 	public static function block_render( $block_attributes, $content ) {
 
 		$contact_info = [
-			'email_address' => get_option( 'email_address' ),
 			'phone'         => get_option( 'phone' ),
 			'fax'           => get_option( 'fax' ),
 			'address'       => get_option( 'address' ),
@@ -34,6 +33,7 @@ class Office_Info {
 			'state'         => get_option( 'state' ),
 			'zip'           => get_option( 'zip' ),
 			'hours'         => get_option( 'hours' ),
+			'email_address' => \CTCL\Elections\Office_Details::email_address(),
 		];
 
 		// Fill in placeholder values on the backend.
