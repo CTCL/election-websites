@@ -25,15 +25,15 @@ class Office_Info {
 	public static function block_render( $block_attributes, $content ) {
 
 		$contact_info = [
-			'phone'         => get_option( 'phone' ),
-			'fax'           => get_option( 'fax' ),
-			'address'       => get_option( 'address' ),
-			'address2'      => get_option( 'address2' ),
-			'city'          => get_option( 'city' ),
-			'state'         => get_option( 'state' ),
-			'zip'           => get_option( 'zip' ),
-			'hours'         => get_option( 'hours' ),
 			'email_address' => \CTCL\Elections\Office_Details::email_address(),
+			'phone'         => \CTCL\Elections\Office_Details::phone(),
+			'fax'           => \CTCL\Elections\Office_Details::fax(),
+			'address'       => \CTCL\Elections\Office_Details::address(),
+			'address2'      => \CTCL\Elections\Office_Details::address2(),
+			'city'          => \CTCL\Elections\Office_Details::city(),
+			'state'         => \CTCL\Elections\Office_Details::state(),
+			'zip'           => \CTCL\Elections\Office_Details::zip(),
+			'hours'         => \CTCL\Elections\Office_Details::hours(),
 		];
 
 		// Fill in placeholder values on the backend.
