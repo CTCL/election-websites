@@ -495,11 +495,11 @@ figure.wp-block-table td {
   margin-left: 10px;
 }
 
-#topic_list_wrapper > div {
+#ctcl_topic_list_wrapper > div {
   margin-bottom: 10px;
 }
 
-#topic_list_wrapper .button {
+#ctcl_topic_list_wrapper .button {
   margin-left: 10px;
 }
 
@@ -750,6 +750,10 @@ main hr {
 
 header .menu .menu-item a, footer .menu .menu-item a {
   color: #464956;
+}
+
+header .menu .menu-item a:hover, footer .menu .menu-item a:hover {
+  text-shadow: 0 0 0.65px #18244b, 0 0 0.65px #18244b;
 }
 
 .accordion-group .accordion-section-wrapper {
