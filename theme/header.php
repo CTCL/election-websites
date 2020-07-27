@@ -64,7 +64,7 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 <?php endif; ?>
 
 <?php if ( $is_front_page && $banner_enabled && $banner_title ) : ?>
-<section class="banner major <?php echo sanitize_html_class( \CTCL\Elections\Elections_Settings::get_banner() ); ?>">
+<section class="banner major <?php echo sanitize_html_class( \CTCL\Elections\Elections_Settings::get_banner_style() ); ?>">
 	<div class="banner-wrapper">
 		<div>
 			<h2><?php echo esc_html( $banner_title ); ?></h2>

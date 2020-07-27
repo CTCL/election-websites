@@ -82,9 +82,9 @@ class Elections_Settings extends Settings {
 				'label'     => 'Banner',
 				'section'   => 'appearance',
 				'type'      => 'radio',
-				'options'   => self::banner_list(),
-				'args'      => [ 'sanitize_callback' => [ __CLASS__, 'validate_banner' ] ],
+				'options'   => self::banner_style_list(),
 				'label_for' => 'ctcl_banner_style',
+				'args'      => [ 'sanitize_callback' => [ __CLASS__, 'validate_banner_style' ] ],
 			],
 		];
 
