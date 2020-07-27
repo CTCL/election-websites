@@ -45,7 +45,7 @@ class Contact_Form {
 	 * @return array
 	 */
 	public static function topic_list() {
-		$topics = get_option( 'topic_list' );
+		$topics = Topics::get_list();
 		if ( is_array( $topics ) ) {
 			array_unshift( $topics, '' );
 			$topics[] = self::DEFAULT_TOPIC;
