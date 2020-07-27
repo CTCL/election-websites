@@ -302,9 +302,14 @@ class Hooks {
 				'stroke-width' => true,
 			],
 
+			'g'      => [
+				'mask' => true,
+			],
+
 			'mask'   => [
-				'id'   => true,
-				'fill' => true,
+				'id'        => true,
+				'fill'      => true,
+				'mask-type' => true,
 			],
 
 			'rect'   => [
