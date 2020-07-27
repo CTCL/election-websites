@@ -62,13 +62,22 @@
 .contact-form textarea,
 .contact-form select,
 .contact-form input[type='text'] {
-  width: 75%;
+  font-size: 16px;
   display: block;
-  padding: 5px 10px;
+  padding: 14px 10px;
   box-sizing: border-box;
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
+  width: 75%;
+}
+
+@media (max-width: 767px) {
+  .contact-form textarea,
+  .contact-form select,
+  .contact-form input[type='text'] {
+    width: 100%;
+  }
 }
 
 .contact-form label {
@@ -202,10 +211,14 @@ main hr {
   color: #18244b;
 }
 
+.contact-form p {
+  margin-bottom: 32px;
+}
+
 .contact-form textarea,
 .contact-form select,
 .contact-form input[type='text'] {
-  border-color: #18244b;
+  border-color: #b7bccd;
 }
 
 .accordion-group .accordion-section-wrapper {
