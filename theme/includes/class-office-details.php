@@ -131,6 +131,9 @@ class Office_Details {
 	 */
 	public static function twitter( $link = false, $echo = false ) {
 		$handle = get_option( 'ctcl_twitter' );
+		if ( ! $handle ) {
+			return;
+		}
 
 		return self::get_link( 'Twitter', 'https://www.twitter.com/' . $handle, $link, $echo );
 	}
@@ -145,6 +148,9 @@ class Office_Details {
 	 */
 	public static function facebook( $link = false, $echo = false ) {
 		$handle = get_option( 'ctcl_facebook' );
+		if ( ! $handle ) {
+			return;
+		}
 
 		return self::get_link( 'Facebook', 'https://www.facebook.com/' . $handle, $link, $echo );
 	}
@@ -159,6 +165,9 @@ class Office_Details {
 	 */
 	public static function instagram( $link = false, $echo = false ) {
 		$handle = get_option( 'ctcl_instagram' );
+		if ( ! $handle ) {
+			return;
+		}
 
 		return self::get_link( 'Instagram', 'https://www.instagram.com/' . $handle, $link, $echo );
 	}
