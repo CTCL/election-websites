@@ -23,6 +23,7 @@ require_once __DIR__ . '/includes/class-activation.php';
 require_once __DIR__ . '/includes/class-helpers.php';
 require_once __DIR__ . '/includes/class-hooks.php';
 require_once __DIR__ . '/includes/class-office-details.php';
+require_once __DIR__ . '/includes/class-topics.php';
 
 // Banners.
 require_once __DIR__ . '/includes/class-banner.php';
