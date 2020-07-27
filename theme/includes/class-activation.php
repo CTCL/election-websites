@@ -59,11 +59,11 @@ class Activation {
 	 */
 	public static function upload_banner_images() {
 		$image_list = [
-			'ballot-box-1.svg' => 'Ballot box (blue)',
-			'ballot-box-2.svg' => 'Ballot box (green)',
-			'mailbox-1.svg'    => 'Mailbox (blue)',
-			'mailbox-2.svg'    => 'Mailbox (green)',
-			'mailbox-3.svg'    => 'Mailbox (dark blue)',
+			'balllot-box-light-blue.svg' => 'Ballot box (light blue)',
+			'ballot-box-greeb.svg'       => 'Ballot box (green)',
+			'mailbox-light-blue.svg'     => 'Mailbox (light blue)',
+			'mailbox-green.svg'          => 'Mailbox (green)',
+			'mailbox-dark-blue.svg'      => 'Mailbox (dark blue)',
 		];
 
 		foreach ( $image_list as $filename => $description ) {
