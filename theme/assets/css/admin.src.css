@@ -399,8 +399,8 @@ figure.wp-block-table tr:nth-child(2n) {
   box-shadow: 0 0 7px rgba(16, 41, 46, 0.17);
 }
 
-.theme-blue .header-wrapper .dashicons {
-  color: #0b4faf;
+.theme-blue .icon-bar {
+  background-color: #0b4faf;
 }
 
 .theme-green main p a,
@@ -450,6 +450,6 @@ figure.wp-block-table tr:nth-child(2n) {
   box-shadow: 0 0 7px rgba(16, 41, 46, 0.17);
 }
 
-.theme-green .header-wrapper .dashicons {
-  color: #15948b;
+.theme-green .icon-bar {
+  background-color: #15948b;
 }

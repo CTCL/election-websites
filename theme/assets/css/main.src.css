@@ -174,6 +174,10 @@ main ul a {
   margin-left: 10px;
 }
 
+.banner.alert .divider {
+  padding: 0 5px;
+}
+
 @media (max-width: 767px) {
   .banner.alert {
     padding: 8px 0 10px;
@@ -283,29 +287,49 @@ header .header-wrapper {
   }
 }
 
-header .header-wrapper .dashicons {
+header .header-wrapper .mobile-menu {
   justify-self: flex-end;
   margin-left: 10px;
   display: none;
 }
 
 @media (max-width: 767px) {
-  header .header-wrapper .dashicons {
+  header .header-wrapper .mobile-menu {
     display: inline-block;
   }
 }
 
-header .header-wrapper .dashicons-menu-alt {
-  width: 40px;
-  height: 40px;
-  font-size: 40px;
+header .header-wrapper .icon-bars {
+  margin-left: auto;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-header .header-wrapper .dashicons-no-alt {
-  width: 60px;
-  height: 60px;
-  font-size: 60px;
-  margin-right: -10px;
+header .header-wrapper .icon-bars .icon-bar {
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+header .header-wrapper .icon-bars .icon-bar.bar-top {
+  margin-top: -12px;
+  transform: rotate(0);
+}
+
+header .header-wrapper .icon-bars .icon-bar.bar-middle {
+  opacity: 1;
+}
+
+header .header-wrapper .icon-bars .icon-bar.bar-bottom {
+  margin-top: 12px;
 }
 
 header .site-title-wrapper {
@@ -341,6 +365,23 @@ header [class$="-container"] {
     display: none;
     width: 100%;
   }
+}
+
+header.active .header-wrapper .icon-bars .bar-top,
+header.active .header-wrapper .icon-bars .bar-bottom {
+  margin-top: 0;
+}
+
+header.active .header-wrapper .icon-bars .bar-top {
+  transform: rotate(45deg);
+}
+
+header.active .header-wrapper .icon-bars .bar-middle {
+  opacity: 0;
+}
+
+header.active .header-wrapper .icon-bars .bar-bottom {
+  transform: rotate(-45deg);
 }
 
 @media (max-width: 767px) {
@@ -1063,8 +1104,8 @@ figure.wp-block-table tr:nth-child(2n) {
   box-shadow: 0 0 7px rgba(16, 41, 46, 0.17);
 }
 
-.theme-blue .header-wrapper .dashicons {
-  color: #0b4faf;
+.theme-blue .icon-bar {
+  background-color: #0b4faf;
 }
 
 .theme-green main p a,
@@ -1114,8 +1155,8 @@ figure.wp-block-table tr:nth-child(2n) {
   box-shadow: 0 0 7px rgba(16, 41, 46, 0.17);
 }
 
-.theme-green .header-wrapper .dashicons {
-  color: #15948b;
+.theme-green .icon-bar {
+  background-color: #15948b;
 }
 
 * {

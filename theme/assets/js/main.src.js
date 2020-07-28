@@ -18,19 +18,11 @@ window.ctcl = {
 
 	handleMobileMenuClick: function( e ) {
 		var header = document.querySelector( 'header' );
-		var mobileMenu = document.querySelector( '.mobile-menu' );
-
-		if ( ! header || ! mobileMenu ) {
+		if ( ! header ) {
 			return;
 		}
 
-		if ( header.classList.contains( 'active' ) ) {
-			header.classList.remove( 'active' );
-			mobileMenu.classList.replace( 'dashicons-no-alt', 'dashicons-menu-alt' );
-		} else {
-			header.classList.add( 'active' );
-			mobileMenu.classList.replace( 'dashicons-menu-alt', 'dashicons-no-alt' );
-		}
+		header.classList.toggle( 'active' );
 
 		// parent element is an <a> tag. Don't want to its click to fire.
 		e.preventDefault();
