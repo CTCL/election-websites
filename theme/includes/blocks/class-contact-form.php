@@ -235,7 +235,7 @@ class Contact_Form {
 				<input id="contact-email" type="text" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>" />
 			</p>
 
-			<p>
+			<p class="select-wrapper">
 				<label for="contact-topic">Topic</label>
 				<select id="topic" name="topic">
 					<?php

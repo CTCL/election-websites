@@ -50,7 +50,7 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 	<div class="banner-wrapper">
 		<p>
 			<b><?php echo esc_html( $alert_banner_title ); ?></b>
-			/
+			&nbsp;&nbsp;/&nbsp;&nbsp;
 			<?php
 				echo esc_html( \CTCL\Elections\Alert_Banner::description() );
 				$learn_more = \CTCL\Elections\Alert_Banner::link();
