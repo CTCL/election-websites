@@ -34,51 +34,71 @@
   margin-top: -28px;
 }
 
-.tile-nav-block-editor {
-  background: lightgrey;
-  padding: 10px;
+.tile-wrapper, .tile-nav-block-editor {
+  display: inline-grid;
+  grid-template-columns: repeat(4, 171px);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+.tile-wrapper .tile, .tile-nav-block-editor .tile {
+  border-width: 1px;
+  border-style: solid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 5px;
-  align-items: center;
+  grid-template-rows: 50px 40px;
+  align-content: center;
+  justify-content: center;
+  grid-row-gap: 18px;
+  width: 171px;
+  height: 158px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  padding: 14px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
 }
 
-.tile-nav-block-editor .components-base-control {
-  margin-bottom: 0;
+@media (max-width: 350px) {
+  .tile-wrapper .tile, .tile-nav-block-editor .tile {
+    width: 40vw;
+    height: 40vw;
+  }
 }
 
-.tile-nav-block-editor .components-base-control__field {
-  display: flex;
-  flex-direction: column;
+.tile-wrapper .tile img, .tile-nav-block-editor .tile img {
+  margin: 0 auto;
 }
 
-.tile-nav-block-editor .components-base-control__field label {
-  font-size: 11px;
-  font-weight: bold;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 4px;
-  line-height: normal;
+.tile-wrapper .tile span, .tile-nav-block-editor .tile span {
+  max-width: 115px;
 }
 
-.tile-nav-block-editor .components-base-control__field [class*="-control__input"],
-.tile-nav-block-editor .components-base-control__field input {
-  width: auto;
-  border: none;
-  border-radius: 0;
-  padding: 8px;
-  line-height: normal;
-  font-size: 13px;
-  height: 35px;
-  margin: 0;
+.tile-wrapper {
+  margin: 24px 0;
 }
 
-.tile-nav-block-editor .components-base-control__field .wp-core-ui select {
-  font-size: 13px;
+.home .tile-wrapper {
+  margin: 16px 0;
 }
 
-.tile-nav-block-editor .block-editor-url-input .components-base-control__field input {
-  width: auto;
+@media (max-width: 767px) {
+  .tile-wrapper {
+    margin: 0;
+    grid-template-columns: repeat(2, 171px);
+  }
+}
+
+@media (max-width: 350px) {
+  .tile-wrapper {
+    grid-template-columns: repeat(2, 40vw);
+  }
+}
+
+.tile-nav-block-editor .placeholder {
+  color: #b7bccd;
 }
 
 .office-info {

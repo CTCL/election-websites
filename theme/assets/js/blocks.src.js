@@ -252,8 +252,34 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var registerBlockType = wp.blocks.registerBlockType;
 var createElement = wp.element.createElement;
+var _wp$blockEditor = wp.blockEditor,
+    InspectorControls = _wp$blockEditor.InspectorControls,
+    InnerBlocks = _wp$blockEditor.InnerBlocks,
+    RichText = _wp$blockEditor.RichText,
+    URLInput = _wp$blockEditor.URLInput;
+var _wp$components = wp.components,
+    PanelBody = _wp$components.PanelBody,
+    PanelRow = _wp$components.PanelRow,
+    SelectControl = _wp$components.SelectControl,
+    TextControl = _wp$components.TextControl;
 var PARENT_BLOCK = 'ctcl-election-website/tile-nav-section-block';
 var CHILD_BLOCK = 'ctcl-election-website/tile-nav-block';
+
+var getIconEl = function getIconEl(attributes) {
+  var icon = attributes.icon;
+
+  if (icon) {
+    var iconUrl = "".concat(blockEditorVars.baseUrl, "/").concat(icon, ".svg");
+    return createElement('img', {
+      width: 50,
+      height: 50,
+      src: iconUrl
+    });
+  }
+
+  return null;
+};
+
 registerBlockType(PARENT_BLOCK, {
   title: 'Tile Navigation',
   icon: 'screenoptions',
@@ -313,21 +339,27 @@ registerBlockType(CHILD_BLOCK, {
       });
     }
 
-    return createElement('div', {
-      className: 'tile-nav-block-editor'
-    }, createElement(wp.blockEditor.URLInput, {
-      onChange: updateLink,
-      value: props.attributes.url,
-      label: 'Link'
-    }), createElement(wp.components.TextControl, {
-      label: 'Label',
-      placeholder: 'Enter label',
+    var _props$attributes = props.attributes,
+        label = _props$attributes.label,
+        icon = _props$attributes.icon;
+    var isEmpty = !label && !icon;
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
+      title: "Specify tile values",
+      initialOpen: true
+    }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(TextControl, {
+      label: "Label",
+      placeholder: "Enter Label",
       onChange: updateLabel,
       value: props.attributes.label
-    }), createElement(wp.components.SelectControl, {
-      onChange: updateIcon,
+    }), /*#__PURE__*/React.createElement(URLInput, {
+      label: "Page",
+      value: props.attributes.url,
+      onChange: updateLink
+    }), /*#__PURE__*/React.createElement(SelectControl, {
+      label: "Icon",
+      value: props.attributes.icon,
       options: [{
-        value: '',
+        value: null,
         label: 'Select an Icon'
       }].concat(_toConsumableArray(blockEditorVars.iconOptions.map(function (option) {
         return {
@@ -335,9 +367,46 @@ registerBlockType(CHILD_BLOCK, {
           label: option
         };
       }))),
-      label: 'Icon',
-      value: props.attributes.icon
-    }));
+      onChange: updateIcon
+    })))), /*#__PURE__*/React.createElement("div", {
+      className: "tile-nav-block-editor"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "tile"
+    }, isEmpty ? /*#__PURE__*/React.createElement("span", {
+      className: "placeholder"
+    }, "Set tile values in control panel to your right.") : [getIconEl(props.attributes), /*#__PURE__*/React.createElement("span", null, label)]))); // return createElement( 'div',
+    // 	{
+    // 		className: 'tile-nav-block-editor'
+    // 	},
+    // 	createElement( wp.blockEditor.URLInput,
+    // 		{
+    // 			onChange: updateLink,
+    // 			value: props.attributes.url,
+    // 			label: 'Link'
+    // 		}
+    // 	),
+    // 	createElement( wp.components.TextControl,
+    // 		{
+    // 			label: 'Label',
+    // 			placeholder: 'Enter label',
+    // 			onChange: updateLabel,
+    // 			value: props.attributes.label
+    // 		}
+    // 	),
+    // 	createElement( wp.components.SelectControl,
+    // 		{
+    // 			onChange: updateIcon,
+    // 			options: [
+    // 				{ value: '', label: 'Select an Icon' },
+    // 				...blockEditorVars.iconOptions.map( option => ( {
+    // 					value: option, label: option
+    // 				} ) )
+    // 			],
+    // 			label: 'Icon',
+    // 			value: props.attributes.icon
+    // 		}
+    // 	)
+    // );
   },
   save: function save(props) {
     return /*#__PURE__*/React.createElement("a", {
