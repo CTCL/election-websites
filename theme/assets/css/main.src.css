@@ -68,7 +68,7 @@ footer .abbreviated-footer, main {
 }
 
 .tile-wrapper .tile span {
-  max-width: 100px;
+  max-width: 115px;
 }
 
 .office-info {
@@ -341,6 +341,7 @@ header .menu .menu-item.current-menu-item {
 
 header .menu .menu-item.current-menu-item a, header .menu .menu-item.current-page-ancestor a {
   font-weight: bold;
+  color: #18244b;
 }
 
 header + section,
@@ -656,7 +657,7 @@ main .wp-block-group :first-child {
   margin-top: 0;
 }
 
-main .wp-block-group :last-child {
+main .wp-block-group :last-child:not(.tile-wrapper) {
   margin-bottom: 0;
 }
 
@@ -742,7 +743,16 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   cursor: pointer;
+}
+
+.accordion-group .accordion-section-wrapper .accordion-section-header span {
+  flex: 1;
+}
+
+.accordion-group .accordion-section-wrapper .accordion-section-header img + span {
+  margin-left: 18px;
 }
 
 .accordion-group .accordion-section-wrapper .accordion-section-header::after {
@@ -759,28 +769,24 @@ main {
   transition: all 0.5s;
 }
 
-.accordion-group .accordion-section-wrapper h1.accordion-section-header::after {
-  top: 0.25em;
+.accordion-group .accordion-section-wrapper h2.accordion-section-header::after {
+  top: -3px;
 }
 
-.accordion-group .accordion-section-wrapper h3.accordion-section-header::after {
-  top: 0.25em;
+.accordion-group .accordion-section-wrapper h5.accordion-section-header::after {
+  top: -5px;
 }
 
 .accordion-group .accordion-section-wrapper .accordion-section-header.open::after {
   transform: rotate(-225deg);
 }
 
-.accordion-group .accordion-section-wrapper h1.accordion-section-header.open::after {
-  top: 0.4em;
-}
-
-.accordion-group .accordion-section-wrapper h3.accordion-section-header.open::after {
-  top: 0.45em;
+.accordion-group .accordion-section-wrapper h2.accordion-section-header.open::after {
+  top: 3px;
 }
 
 .accordion-group .accordion-section-wrapper h5.accordion-section-header.open::after {
-  top: 0.45em;
+  top: 3px;
 }
 
 .accordion-group .accordion-section-wrapper .accordion-section-content {

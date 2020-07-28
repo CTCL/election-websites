@@ -1,6 +1,18 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var registerBlockType = wp.blocks.registerBlockType;
 var createElement = wp.element.createElement;
 var _wp$blockEditor = wp.blockEditor,
@@ -19,7 +31,7 @@ var TEMPLATE = [[CHILD_BLOCK, {
 }]];
 var AccordionBlockContext = wp.element.createContext(DEFAULT_HEADER_TAG);
 registerBlockType(CHILD_BLOCK, {
-  title: 'Collapsible Section',
+  title: 'Section',
   icon: 'book',
   category: 'election-blocks',
   parent: [PARENT_BLOCK],
@@ -29,31 +41,47 @@ registerBlockType(CHILD_BLOCK, {
       default: DEFAULT_HEADER_TAG
     },
     heading: {
-      type: 'array',
-      source: 'children',
-      selector: '.accordion-section-header'
+      type: 'string'
+    },
+    icon: {
+      type: 'string'
     }
   },
   edit: function edit(props) {
-    function updateHeading(newdata) {
-      props.setAttributes({
-        heading: newdata
-      });
-    }
-
     return /*#__PURE__*/React.createElement("div", {
       className: "accordion-section-editor"
     }, /*#__PURE__*/React.createElement(AccordionBlockContext.Consumer, null, function (value) {
       props.setAttributes({
         headerTag: value
       });
-    }), /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
+    }), 'h3' === props.attributes.headerTag ? /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
       title: "Specify section settings",
       initialOpen: true
-    })), /*#__PURE__*/React.createElement(RichText, {
+    }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(SelectControl, {
+      label: "Icon",
+      value: props.attributes.icon,
+      options: [{
+        value: null,
+        label: 'Select an Icon'
+      }].concat(_toConsumableArray(blockEditorVars.iconOptions.map(function (option) {
+        return {
+          value: option,
+          label: option
+        };
+      }))),
+      onChange: function onChange(val) {
+        return props.setAttributes({
+          icon: val
+        });
+      }
+    })))) : /*#__PURE__*/React.createElement(React.Fragment, null), /*#__PURE__*/React.createElement(RichText, {
       className: "accordion-section-header",
       tagName: props.attributes.headerTag,
-      onChange: updateHeading,
+      onChange: function onChange(val) {
+        return props.setAttributes({
+          heading: val
+        });
+      },
       value: props.attributes.heading,
       placeholder: "Enter header here..."
     }), /*#__PURE__*/React.createElement(InnerBlocks, {
@@ -61,11 +89,21 @@ registerBlockType(CHILD_BLOCK, {
     }));
   },
   save: function save(props) {
+    var iconUrl;
+
+    if ('h3' === props.attributes.headerTag && props.attributes.icon) {
+      iconUrl = "".concat(blockEditorVars.baseUrl, "/").concat(props.attributes.icon, ".svg");
+    }
+
     return /*#__PURE__*/React.createElement("div", {
       className: "accordion-section-wrapper ".concat('h5' === props.attributes.headerTag ? 'subsection' : '')
     }, createElement(props.attributes.headerTag, {
       className: 'accordion-section-header'
-    }, props.attributes.heading), /*#__PURE__*/React.createElement("section", {
+    }, iconUrl ? createElement('img', {
+      width: 50,
+      height: 50,
+      src: iconUrl
+    }) : null, createElement('span', null, props.attributes.heading)), /*#__PURE__*/React.createElement("section", {
       className: "accordion-section-content"
     }, /*#__PURE__*/React.createElement(InnerBlocks.Content, null)));
   }
@@ -91,11 +129,11 @@ registerBlockType(PARENT_BLOCK, {
       label: "Header Style",
       value: props.attributes.headerTag,
       options: [{
-        label: 'H3 headers',
-        value: 'h3'
+        label: 'H2 headers',
+        value: 'h2'
       }, {
-        label: 'H4 headers with icon',
-        value: 'h4'
+        label: 'H3 headers with icon',
+        value: 'h3'
       }, {
         label: 'H5 headers (subsections)',
         value: 'h5'
@@ -189,9 +227,19 @@ registerBlockType('ctcl-election-website/office-info', {
 },{}],5:[function(require,module,exports){
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var registerBlockType = wp.blocks.registerBlockType;
-var _wp = wp,
-    ServerSideRender = _wp.serverSideRender;
 var createElement = wp.element.createElement;
 var PARENT_BLOCK = 'ctcl-election-website/tile-nav-section-block';
 var CHILD_BLOCK = 'ctcl-election-website/tile-nav-block';
@@ -270,43 +318,24 @@ registerBlockType(CHILD_BLOCK, {
       options: [{
         value: '',
         label: 'Select an Icon'
-      }, {
-        value: 'register-to-vote',
-        label: 'Register to Vote'
-      }, {
-        value: 'vote-by-mail',
-        label: 'Vote by Mail'
-      }, {
-        value: 'view-election-results',
-        label: 'View Election Results'
-      }, {
-        value: 'whats-on-the-ballot',
-        label: 'What’s on the Ballot'
-      }, {
-        value: 'voting-locations',
-        label: 'Where to Vote'
-      }, {
-        value: 'become-a-poll-worker',
-        label: 'Become a Poll Worker'
-      }, {
-        value: 'campaign-resources',
-        label: 'Campaign Resources'
-      }, {
-        value: 'news',
-        label: 'News & Press Releases'
-      }],
+      }].concat(_toConsumableArray(blockEditorVars.iconOptions.map(function (option) {
+        return {
+          value: option,
+          label: option
+        };
+      }))),
       label: 'Icon',
       value: props.attributes.icon
     }));
   },
   save: function save(props) {
-    return createElement('a', {
-      className: 'tile',
+    return /*#__PURE__*/React.createElement("a", {
+      className: "tile",
       href: props.attributes.url
-    }, createElement('div', {
-      className: 'bounding-box',
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "bounding-box",
       id: props.attributes.icon
-    }), createElement('span', null, props.attributes.label));
+    }), /*#__PURE__*/React.createElement("span", null, props.attributes.label));
   }
 });
 

@@ -11,7 +11,7 @@ window.ctcl = {
 	},
 
 	handleAccordionClick: function( e ) {
-		var clickedItem = e.target;
+		var clickedItem = e.currentTarget;
 
 		clickedItem.classList.toggle( 'open' );
 	}
@@ -21,7 +21,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	var headers = Array.from( document.querySelectorAll( '.accordion-section-header' ) );
 
 	headers.forEach( function( item ) {
-		item.addEventListener( 'click', window.ctcl.handleAccordionClick );
+		item.addEventListener( 'click', window.ctcl.handleAccordionClick, { capture: true } );
 	} );
 } );
 
