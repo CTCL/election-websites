@@ -1,7 +1,5 @@
 module.exports = function( grunt ) {
 
-	// All a variable to be passed, eg. --url=http://test.dev
-	var localURL = grunt.option( 'url' );
 	var sass = require( 'node-sass' );
 
 	// Load all grunt tasks
