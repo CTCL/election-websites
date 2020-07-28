@@ -35,6 +35,12 @@
 		span {
 			max-width: 115px;
 		}
+
+		&[target='_blank'] {
+			background-position: 97% 3%;
+			background-repeat: no-repeat;
+			background-image: svg('assets/images/arrow.svg');
+		}
 	}
 }
 
