@@ -4,7 +4,7 @@
 footer {
 	.footer-content-wrapper,
 	.abbreviated-footer {
-		@extend %fit-to-page;
+		@include fit-to-page;
 
 		padding: 32px 0;
 	}

@@ -27,7 +27,7 @@ body {
 }
 
 main {
-	@extend %fit-to-page;
+	@include fit-to-page;
 
 	flex-grow: 1;
 	align-items: start;

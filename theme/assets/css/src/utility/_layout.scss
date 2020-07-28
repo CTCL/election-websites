@@ -1,4 +1,4 @@
-%fit-to-page {
+@mixin fit-to-page {
 	margin: 0 20px;
 
 	@include breakpoint(desktop) {

@@ -3,7 +3,7 @@
 
 .banner {
 	.banner-wrapper {
-		@extend %fit-to-page;
+		@include fit-to-page;
 
 		p.learn-more {
 			margin-top: 1em;
