@@ -14,15 +14,40 @@ window.ctcl = {
 		var clickedItem = e.currentTarget;
 
 		clickedItem.classList.toggle( 'open' );
+	},
+
+	handleMobileMenuClick: function( e ) {
+		var header = document.querySelector( 'header' );
+		var mobileMenu = document.querySelector( '.mobile-menu' );
+
+		if ( ! header || ! mobileMenu ) {
+			return;
+		}
+
+		if ( header.classList.contains( 'active' ) ) {
+			header.classList.remove( 'active' );
+			mobileMenu.classList.replace( 'dashicons-no-alt', 'dashicons-menu-alt' );
+		} else {
+			header.classList.add( 'active' );
+			mobileMenu.classList.replace( 'dashicons-menu-alt', 'dashicons-no-alt' );
+		}
+
+		// parent element is an <a> tag. Don't want to its click to fire.
+		e.preventDefault();
 	}
 };
 
 document.addEventListener( 'DOMContentLoaded', function() {
-	var headers = Array.from( document.querySelectorAll( '.accordion-section-header' ) );
+	var mobileMenu = document.querySelector( '.mobile-menu' );
+	var accordionHeaders = Array.from( document.querySelectorAll( '.accordion-section-header' ) );
 
-	headers.forEach( function( item ) {
+	accordionHeaders.forEach( function( item ) {
 		item.addEventListener( 'click', window.ctcl.handleAccordionClick, { capture: true } );
 	} );
+
+	if ( mobileMenu ) {
+		mobileMenu.addEventListener( 'click', window.ctcl.handleMobileMenuClick );
+	}
 } );
 
 //# sourceMappingURL=main.src.js.map

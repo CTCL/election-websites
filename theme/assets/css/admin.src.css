@@ -214,6 +214,15 @@ h6 {
   color: #18244b;
 }
 
+footer {
+  background-color: #f5f6fa;
+  color: #18244b;
+}
+
+footer a {
+  color: #18244b;
+}
+
 header {
   background-color: #fff;
 }
@@ -222,12 +231,16 @@ header a {
   color: #18244b;
 }
 
-footer {
-  background-color: #f5f6fa;
-  color: #18244b;
+@media (max-width: 767px) {
+  header menu {
+    background-color: #fff;
+  }
+  header menu .menu-item {
+    border-bottom-color: #b7bccd;
+  }
 }
 
-footer a {
+header menu.current-menu-item a, header menu.current-page-ancestor a {
   color: #18244b;
 }
 
@@ -386,6 +399,10 @@ figure.wp-block-table tr:nth-child(2n) {
   box-shadow: 0 0 7px rgba(16, 41, 46, 0.17);
 }
 
+.theme-blue .header-wrapper .dashicons {
+  color: #0b4faf;
+}
+
 .theme-green main p a,
 .theme-green main ul a {
   color: #15948b;
@@ -431,4 +448,8 @@ figure.wp-block-table tr:nth-child(2n) {
 .theme-green .tile-wrapper .tile:hover {
   color: #15948b;
   box-shadow: 0 0 7px rgba(16, 41, 46, 0.17);
+}
+
+.theme-green .header-wrapper .dashicons {
+  color: #15948b;
 }
