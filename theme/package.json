@@ -49,6 +49,7 @@
 		"grunt-svgmin": "^6.0.0",
 		"matchdep": "^2.0.0",
 		"node-sass": "^4.14.1",
+		"sass-inline-svg": "^1.2.3",
 		"stylelint": "^13.6.1",
 		"stylelint-config-standard": "^20.0.0"
 	}
