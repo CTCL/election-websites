@@ -7,6 +7,10 @@
 %wp-menu-links {
 	.menu-item a {
 		font-weight: normal;
+
+		@include breakpoint(phone) {
+			font-weight: bold;
+		}
 	}
 }
 

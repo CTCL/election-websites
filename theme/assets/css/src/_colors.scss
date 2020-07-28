@@ -8,6 +8,16 @@ h6 {
 	color: $midnight;
 }
 
+// Footer
+footer {
+	background-color: $grey-light;
+	color: $midnight;
+
+	a {
+		color: $midnight;
+	}
+}
+
 // Header
 header {
 	background-color: $white;
@@ -16,15 +26,22 @@ header {
 	a {
 		color: $midnight;
 	}
-}
 
-// Footer
-footer {
-	background-color: $grey-light;
-	color: $midnight;
+	menu {
+		@include breakpoint(phone) {
+			background-color: $white;
 
-	a {
-		color: $midnight;
+			.menu-item {
+				border-bottom-color: $grey-medium;
+			}
+		}
+
+		&.current-menu-item,
+		&.current-page-ancestor {
+			a {
+				color: $midnight;
+			}
+		}
 	}
 }
 

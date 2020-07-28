@@ -8,16 +8,46 @@ header {
 	z-index: 1;
 	position: fixed;
 
+	@include breakpoint(phone) {
+		&.active {
+			height: 100%;
+		}
+	}
+
 	.header-wrapper {
 		@include fit-to-page;
 
 		display: grid;
 		grid-template-columns: max-content 1fr;
+
+		@include breakpoint(phone) {
+			display: block;
+		}
+
 		align-items: center;
 		padding: 16px 0;
 
-		@include breakpoint(phone) {
-			grid-template-columns: max-content;
+		.dashicons {
+			justify-self: flex-end;
+			margin-left: 10px;
+			display: none;
+
+			@include breakpoint(phone) {
+				display: inline-block;
+			}
+		}
+
+		.dashicons-menu-alt {
+			width: 40px;
+			height: 40px;
+			font-size: 40px;
+		}
+
+		.dashicons-no-alt {
+			width: 60px;
+			height: 60px;
+			font-size: 60px;
+			margin-right: -10px;
 		}
 	}
 
@@ -25,6 +55,12 @@ header {
 		display: flex;
 		align-items: center;
 		max-width: 250px;
+
+		@include breakpoint(phone) {
+			max-width: 100%;
+			display: grid;
+			grid-template-columns: 80px 250px 1fr;
+		}
 	}
 
 	img,
@@ -42,6 +78,15 @@ header {
 
 		@include breakpoint(phone) {
 			display: none;
+			width: 100%;
+		}
+	}
+
+	&.active {
+		[class$="-container"] {
+			@include breakpoint(phone) {
+				display: inline-block;
+			}
 		}
 	}
 
@@ -53,7 +98,20 @@ header {
 			font-size: 15px;
 			line-height: 19px;
 			display: inline-block;
+
+			@include breakpoint(phone) {
+				display: block;
+				font-size: 20px;
+				border-bottom-width: 1px;
+				border-bottom-style: solid;
+				padding: 20px 0;
+			}
+
 			margin-left: 24px;
+
+			@include breakpoint(phone) {
+				margin-left: 0;
+			}
 
 			a {
 				position: relative;
