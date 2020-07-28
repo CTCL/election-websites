@@ -31,7 +31,16 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
+			align-items: center;
 			cursor: pointer;
+
+			span {
+				flex: 1;
+			}
+
+			img + span {
+				margin-left: 18px;
+			}
 		}
 
 		.accordion-section-header::after {
@@ -48,28 +57,24 @@
 			transition: all 0.5s;
 		}
 
-		h1.accordion-section-header::after {
-			top: 0.25em;
+		h2.accordion-section-header::after {
+			top: -3px;
 		}
 
-		h3.accordion-section-header::after {
-			top: 0.25em;
+		h5.accordion-section-header::after {
+			top: -5px;
 		}
 
 		.accordion-section-header.open::after {
 			transform: rotate(-225deg);
 		}
 
-		h1.accordion-section-header.open::after {
-			top: 0.4em;
-		}
-
-		h3.accordion-section-header.open::after {
-			top: 0.45em;
+		h2.accordion-section-header.open::after {
+			top: 3px;
 		}
 
 		h5.accordion-section-header.open::after {
-			top: 0.45em;
+			top: 3px;
 		}
 
 		.accordion-section-content {

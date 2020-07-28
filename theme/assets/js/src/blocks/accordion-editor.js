@@ -18,7 +18,7 @@ const TEMPLATE = [ [
 const AccordionBlockContext = wp.element.createContext( DEFAULT_HEADER_TAG );
 
 registerBlockType( CHILD_BLOCK, {
-	title: 'Collapsible Section',
+	title: 'Section',
 	icon: 'book',
 	category: 'election-blocks',
 	parent: [ PARENT_BLOCK ],
@@ -27,14 +27,10 @@ registerBlockType( CHILD_BLOCK, {
 			type: 'string',
 			default: DEFAULT_HEADER_TAG
 		},
-		heading: { type: 'array', source: 'children', selector: '.accordion-section-header' }
+		heading: { type: 'string' },
+		icon: { type: 'string' }
 	},
 	edit: function( props ) {
-
-		function updateHeading( newdata ) {
-			props.setAttributes( { heading: newdata } );
-		}
-
 		return <div className="accordion-section-editor">
 			<AccordionBlockContext.Consumer>
 				{
@@ -43,16 +39,32 @@ registerBlockType( CHILD_BLOCK, {
 					}
 				}
 			</AccordionBlockContext.Consumer>
-			<InspectorControls>
-				<PanelBody
-					title="Specify section settings"
-					initialOpen={true}></PanelBody>
-				{/* for accordion: specify icon if with icon */}
-			</InspectorControls>
+			{ 'h3' === props.attributes.headerTag ?
+				<InspectorControls>
+					<PanelBody
+						title="Specify section settings"
+						initialOpen={true}>
+						<PanelRow>
+							<SelectControl
+								label="Icon"
+								value={props.attributes.icon}
+								options={[
+									{ value: null, label: 'Select an Icon' },
+									...blockEditorVars.iconOptions.map( option => ( {
+										value: option, label: option
+									} ) )
+								]}
+								onChange={( val ) => props.setAttributes( { icon: val } )}
+							></SelectControl>
+						</PanelRow>
+					</PanelBody>
+				</InspectorControls> :
+				<></>
+			}
 			<RichText
 				className="accordion-section-header"
 				tagName={props.attributes.headerTag}
-				onChange={updateHeading}
+				onChange={( val ) => props.setAttributes( { heading: val } ) }
 				value={props.attributes.heading}
 				placeholder="Enter header here...">
 			</RichText>
@@ -62,12 +74,22 @@ registerBlockType( CHILD_BLOCK, {
 	},
 
 	save: function( props ) {
+		let iconUrl;
+		if ( 'h3' === props.attributes.headerTag && props.attributes.icon ) {
+			iconUrl = `${blockEditorVars.baseUrl}/${props.attributes.icon}.svg`;
+		}
+
 		return <div className={`accordion-section-wrapper ${( 'h5' === props.attributes.headerTag ) ? 'subsection' : ''}`}>
 			{ createElement( props.attributes.headerTag,
 				{
 					className: 'accordion-section-header'
 				},
-				props.attributes.heading
+				iconUrl ? createElement( 'img', {
+					width: 50,
+					height: 50,
+					src: iconUrl
+				} ) : null,
+				createElement( 'span', null, props.attributes.heading )
 			) }
 			<section className="accordion-section-content">
 				<InnerBlocks.Content></InnerBlocks.Content>
@@ -100,8 +122,8 @@ registerBlockType( PARENT_BLOCK, {
 							label="Header Style"
 							value={props.attributes.headerTag}
 							options={[
-								{ label: 'H3 headers', value: 'h3' },
-								{ label: 'H4 headers with icon', value: 'h4' },
+								{ label: 'H2 headers', value: 'h2' },
+								{ label: 'H3 headers with icon', value: 'h3' },
 								{ label: 'H5 headers (subsections)', value: 'h5' }
 							]}
 							onChange={( val ) => props.setAttributes( { headerTag: val } )}

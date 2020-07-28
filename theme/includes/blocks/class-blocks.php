@@ -44,6 +44,8 @@ class Blocks {
 			THEME_VERSION
 		);
 
+		$base_url = get_template_directory_uri() . '/assets/images/icons/';
+		$theme    = \CTCL\Elections\Elections_Settings::get_theme_slug();
 		wp_localize_script(
 			'block-editors',
 			'blockEditorVars',
@@ -75,6 +77,7 @@ class Blocks {
 						'whats-on-the-ballot',
 					]
 				),
+				'baseUrl'     => _( $base_url . $theme ),
 			]
 		);
 

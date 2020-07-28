@@ -37,7 +37,7 @@ class Tile {
 				return $html;
 			}
 
-			$file = get_template_directory() . '/assets/images/tiles/' . $theme . '/' . $icon . '.svg';
+			$file = get_template_directory() . '/assets/images/icons/' . $theme . '/' . $icon . '.svg';
 
 			if ( file_exists( $file ) ) {
 				$svg_data = file_get_contents( $file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown

@@ -1,5 +1,4 @@
 const { registerBlockType } = wp.blocks;
-const { serverSideRender: ServerSideRender } = wp;
 const { createElement } = wp.element;
 
 const PARENT_BLOCK = 'ctcl-election-website/tile-nav-section-block';
