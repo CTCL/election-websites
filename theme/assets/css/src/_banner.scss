@@ -32,6 +32,10 @@
 			margin-left: 10px;
 		}
 
+		.divider {
+			padding: 0 5px;
+		}
+
 		@include breakpoint(phone) {
 			padding: 8px 0 10px;
 		}
