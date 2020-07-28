@@ -1,22 +1,8 @@
-.tile-wrapper {
+%tile-nav-block {
 	display: inline-grid;
 	grid-template-columns: repeat(4, $tile-width);
 	grid-column-gap: 16px;
 	grid-row-gap: 16px;
-	margin: 24px 0;
-
-	.home & {
-		margin: 16px 0;
-	}
-
-	@include breakpoint(phone) {
-		margin: 0;
-		grid-template-columns: repeat(2, $tile-width);
-	}
-
-	@media (max-width: 350px) {
-		grid-template-columns: repeat(2, 40vw);
-	}
 
 	.tile {
 		border-width: 1px;
@@ -49,5 +35,24 @@
 		span {
 			max-width: 115px;
 		}
+	}
+}
+
+.tile-wrapper {
+	@extend %tile-nav-block;
+
+	margin: 24px 0;
+
+	.home & {
+		margin: 16px 0;
+	}
+
+	@include breakpoint(phone) {
+		margin: 0;
+		grid-template-columns: repeat(2, $tile-width);
+	}
+
+	@media (max-width: 350px) {
+		grid-template-columns: repeat(2, 40vw);
 	}
 }
