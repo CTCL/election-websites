@@ -27,7 +27,7 @@ header {
 		align-items: center;
 		padding: 16px 0;
 
-		.dashicons {
+		.mobile-menu {
 			justify-self: flex-end;
 			margin-left: 10px;
 			display: none;
@@ -37,17 +37,36 @@ header {
 			}
 		}
 
-		.dashicons-menu-alt {
-			width: 40px;
-			height: 40px;
-			font-size: 40px;
-		}
+		.icon-bars {
+			margin-left: auto;
+			width: 30px;
+			height: 30px;
+			position: relative;
+			cursor: pointer;
+			transition: all 0.3s ease;
 
-		.dashicons-no-alt {
-			width: 60px;
-			height: 60px;
-			font-size: 60px;
-			margin-right: -10px;
+			.icon-bar {
+				height: 4px;
+				width: 100%;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				backface-visibility: hidden;
+				transition: all 0.3s ease;
+
+				&.bar-top {
+					margin-top: -12px;
+					transform: rotate(0);
+				}
+
+				&.bar-middle {
+					opacity: 1;
+				}
+
+				&.bar-bottom {
+					margin-top: 12px;
+				}
+			}
 		}
 	}
 
@@ -83,6 +102,27 @@ header {
 	}
 
 	&.active {
+		.header-wrapper {
+			.icon-bars {
+				.bar-top,
+				.bar-bottom {
+					margin-top: 0;
+				}
+
+				.bar-top {
+					transform: rotate(45deg);
+				}
+
+				.bar-middle {
+					opacity: 0;
+				}
+
+				.bar-bottom {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+
 		[class$="-container"] {
 			@include breakpoint(phone) {
 				display: inline-block;

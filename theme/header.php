@@ -34,7 +34,11 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 			echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false, [ 'alt' => $site_title ] ) );
 			?>
 			<h4 class="site-title"><?php echo esc_html( $site_title ); ?></h4>
-			<span class="mobile-menu dashicons dashicons-menu-alt"></span>
+			<span class="mobile-menu icon-bars">
+				<span class="icon-bar bar-top"></span>
+				<span class="icon-bar bar-middle"></span>
+				<span class="icon-bar bar-bottom"></span>
+			</span>
 		</a>
 		<?php
 			wp_nav_menu(
