@@ -1,6 +1,7 @@
 module.exports = function( grunt ) {
 
 	var sass = require( 'node-sass' );
+	var inliner = require("sass-inline-svg");
 
 	// Load all grunt tasks
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
@@ -77,7 +78,10 @@ module.exports = function( grunt ) {
 					implementation: sass,
 					imagePath: 'assets/images',
 					outputStyle: 'expanded',
-					sourceMap: true
+					sourceMap: true,
+					functions: {
+						svg: inliner('./', { encodingFormat:'uri' } )
+					}
 				},
 				files: [ {
 					expand: true,
