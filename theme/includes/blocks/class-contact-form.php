@@ -213,6 +213,7 @@ class Contact_Form {
 			wp_nonce_field( self::NONCE_ACTION, self::NONCE_KEY );
 			if ( $attr['errors'] ) {
 				?>
+				<div class="error-wrapper">
 				<p>Please correct the following errors:</p>
 				<ul class="errors">
 				<?php
@@ -221,6 +222,7 @@ class Contact_Form {
 				}
 				?>
 				</ul>
+				</div>
 				<?php
 			}
 			?>
