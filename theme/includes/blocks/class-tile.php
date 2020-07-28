@@ -48,7 +48,11 @@ class Tile {
 			}
 		}
 
-		$html = '<a href="' . esc_url( $url ) . '" class="tile">' . $svg . '<span>' . esc_html( $label ) . '</span></a>';
+		$html = '<a href="' . esc_url( $url ) . '" class="tile"';
+		if ( 0 !== strpos( $url, home_url() ) ) {
+			$html .= ' target="_blank"';
+		}
+		$html .= '>' . $svg . '<span>' . esc_html( $label ) . '</span></a>';
 
 		if ( $svg && $url && $label ) {
 			wp_cache_set( $cache_key, $html, Helpers::INLINE_IMAGE_CACHE_KEY, 600 );
