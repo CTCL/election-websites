@@ -30,6 +30,27 @@ var TEMPLATE = [[CHILD_BLOCK, {
   headerTag: DEFAULT_HEADER_TAG
 }]];
 var AccordionBlockContext = wp.element.createContext(DEFAULT_HEADER_TAG);
+
+var hasIconTag = function hasIconTag(attributes) {
+  var headerTag = attributes.headerTag;
+  return 'h3' === headerTag;
+};
+
+var getIconEl = function getIconEl(attributes) {
+  var icon = attributes.icon;
+
+  if (hasIconTag(attributes) && icon) {
+    var iconUrl = "".concat(blockEditorVars.baseUrl, "/").concat(icon, ".svg");
+    return createElement('img', {
+      width: 50,
+      height: 50,
+      src: iconUrl
+    });
+  }
+
+  return null;
+};
+
 registerBlockType(CHILD_BLOCK, {
   title: 'Section',
   icon: 'book',
@@ -54,7 +75,7 @@ registerBlockType(CHILD_BLOCK, {
       props.setAttributes({
         headerTag: value
       });
-    }), 'h3' === props.attributes.headerTag ? /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
+    }), hasIconTag(props.attributes) ? /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
       title: "Specify section settings",
       initialOpen: true
     }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(SelectControl, {
@@ -74,7 +95,7 @@ registerBlockType(CHILD_BLOCK, {
           icon: val
         });
       }
-    })))) : /*#__PURE__*/React.createElement(React.Fragment, null), /*#__PURE__*/React.createElement(RichText, {
+    })))) : /*#__PURE__*/React.createElement(React.Fragment, null), getIconEl(props.attributes), /*#__PURE__*/React.createElement(RichText, {
       className: "accordion-section-header",
       tagName: props.attributes.headerTag,
       onChange: function onChange(val) {
@@ -89,21 +110,11 @@ registerBlockType(CHILD_BLOCK, {
     }));
   },
   save: function save(props) {
-    var iconUrl;
-
-    if ('h3' === props.attributes.headerTag && props.attributes.icon) {
-      iconUrl = "".concat(blockEditorVars.baseUrl, "/").concat(props.attributes.icon, ".svg");
-    }
-
     return /*#__PURE__*/React.createElement("div", {
       className: "accordion-section-wrapper ".concat('h5' === props.attributes.headerTag ? 'subsection' : '')
     }, createElement(props.attributes.headerTag, {
       className: 'accordion-section-header'
-    }, iconUrl ? createElement('img', {
-      width: 50,
-      height: 50,
-      src: iconUrl
-    }) : null, createElement('span', null, props.attributes.heading)), /*#__PURE__*/React.createElement("section", {
+    }, getIconEl(props.attributes), createElement('span', null, props.attributes.heading)), /*#__PURE__*/React.createElement("section", {
       className: "accordion-section-content"
     }, /*#__PURE__*/React.createElement(InnerBlocks.Content, null)));
   }

@@ -17,6 +17,24 @@ const TEMPLATE = [ [
 
 const AccordionBlockContext = wp.element.createContext( DEFAULT_HEADER_TAG );
 
+const hasIconTag = ( attributes ) => {
+	const { headerTag } = attributes;
+	return 'h3' === headerTag;
+};
+
+const getIconEl = ( attributes ) => {
+	const { icon } = attributes;
+	if ( hasIconTag( attributes ) && icon ) {
+		const iconUrl = `${blockEditorVars.baseUrl}/${icon}.svg`;
+		return createElement( 'img', {
+			width: 50,
+			height: 50,
+			src: iconUrl
+		} );
+	}
+	return null;
+};
+
 registerBlockType( CHILD_BLOCK, {
 	title: 'Section',
 	icon: 'book',
@@ -39,7 +57,7 @@ registerBlockType( CHILD_BLOCK, {
 					}
 				}
 			</AccordionBlockContext.Consumer>
-			{ 'h3' === props.attributes.headerTag ?
+			{ hasIconTag( props.attributes ) ?
 				<InspectorControls>
 					<PanelBody
 						title="Specify section settings"
@@ -61,6 +79,7 @@ registerBlockType( CHILD_BLOCK, {
 				</InspectorControls> :
 				<></>
 			}
+			{ getIconEl( props.attributes ) }
 			<RichText
 				className="accordion-section-header"
 				tagName={props.attributes.headerTag}
@@ -74,21 +93,12 @@ registerBlockType( CHILD_BLOCK, {
 	},
 
 	save: function( props ) {
-		let iconUrl;
-		if ( 'h3' === props.attributes.headerTag && props.attributes.icon ) {
-			iconUrl = `${blockEditorVars.baseUrl}/${props.attributes.icon}.svg`;
-		}
-
 		return <div className={`accordion-section-wrapper ${( 'h5' === props.attributes.headerTag ) ? 'subsection' : ''}`}>
 			{ createElement( props.attributes.headerTag,
 				{
 					className: 'accordion-section-header'
 				},
-				iconUrl ? createElement( 'img', {
-					width: 50,
-					height: 50,
-					src: iconUrl
-				} ) : null,
+				getIconEl( props.attributes ),
 				createElement( 'span', null, props.attributes.heading )
 			) }
 			<section className="accordion-section-content">
