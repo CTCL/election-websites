@@ -44,6 +44,40 @@ class Blocks {
 			THEME_VERSION
 		);
 
+		wp_localize_script(
+			'block-editors',
+			'blockEditorVars',
+			[
+				'iconOptions' => __(
+					[
+						'accessible-voting',
+						'add-to-the-ballot',
+						'become-a-poll-worker',
+						'becoming-a-candidate',
+						'campaign-resources',
+						'check-registration-status',
+						'elected-officials',
+						'election-calendar',
+						'military',
+						'news',
+						'open-offices',
+						'petitions-and-recalls',
+						'polling-locations',
+						'register-by-mail',
+						'register-online',
+						'register-to-vote',
+						'sample-ballot',
+						'view-election-results',
+						'vote-by-mail',
+						'voter-info',
+						'voters-choice',
+						'voting-locations',
+						'whats-on-the-ballot',
+					]
+				),
+			]
+		);
+
 		register_block_type(
 			'ctcl-election-website/numbered-section-block',
 			[

@@ -91,14 +91,9 @@ registerBlockType( CHILD_BLOCK, {
 					onChange: updateIcon,
 					options: [
 						{ value: '', label: 'Select an Icon' },
-						{ value: 'register-to-vote', label: 'Register to Vote' },
-						{ value: 'vote-by-mail', label: 'Vote by Mail' },
-						{ value: 'view-election-results', label: 'View Election Results' },
-						{ value: 'whats-on-the-ballot', label: 'What’s on the Ballot' },
-						{ value: 'voting-locations', label: 'Where to Vote' },
-						{ value: 'become-a-poll-worker', label: 'Become a Poll Worker' },
-						{ value: 'campaign-resources', label: 'Campaign Resources' },
-						{ value: 'news', label: 'News & Press Releases' }
+						...blockEditorVars.iconOptions.map( option => ( {
+							value: option, label: option
+						} ) )
 					],
 					label: 'Icon',
 					value: props.attributes.icon
@@ -108,18 +103,9 @@ registerBlockType( CHILD_BLOCK, {
 	},
 
 	save: function( props ) {
-		return createElement( 'a',
-			{
-				className: 'tile',
-				href: props.attributes.url
-			},
-			createElement( 'div',
-				{
-					className: 'bounding-box',
-					id: props.attributes.icon
-				}
-			),
-			createElement( 'span', null, props.attributes.label )
-		);
+		return <a className="tile" href={props.attributes.url}>
+			<div className="bounding-box" id={props.attributes.icon}/>
+			<span>{props.attributes.label}</span>
+		</a>;
 	}
 } );
