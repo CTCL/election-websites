@@ -50,7 +50,7 @@ class Blocks {
 			'block-editors',
 			'blockEditorVars',
 			[
-				'iconOptions' => __(
+				'iconOptions' =>
 					[
 						'accessible-voting',
 						'add-to-the-ballot',
@@ -75,9 +75,8 @@ class Blocks {
 						'voters-choice',
 						'voting-locations',
 						'whats-on-the-ballot',
-					]
-				),
-				'baseUrl'     => _( $base_url . $theme ),
+					],
+				'baseUrl'     => $base_url . $theme,
 			]
 		);
 
