@@ -266,4 +266,22 @@ class Helpers {
 
 		return $html;
 	}
+
+	/**
+	 * Output class="error" when item is true.
+	 */
+	public static function error_class( $item ) {
+		if ( $item ) {
+			echo ' class="error"';
+		}
+	}
+
+	/**
+	 * Format item as error message.
+	 */
+	public static function error_message( $item ) {
+		if ( $item ) {
+			echo '<span class="error">' . esc_html( $item ) . '</span>';
+		}
+	}
 }
