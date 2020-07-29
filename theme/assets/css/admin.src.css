@@ -126,24 +126,6 @@
   pointer-events: none;
 }
 
-.contact-form .error-wrapper {
-  border-radius: 4px;
-  padding: 5px 20px;
-}
-
-.contact-form .error-wrapper p {
-  margin-bottom: 0;
-  font-weight: bold;
-}
-
-.contact-form .error-wrapper ul {
-  margin-top: 0;
-}
-
-.contact-form .error-wrapper ul li {
-  line-height: 20px;
-}
-
 .upload-wrapper .image-thumbnail {
   display: block;
   margin-top: 20px;
@@ -289,13 +271,14 @@ main hr {
   border-color: #b7bccd;
 }
 
-.contact-form .error-wrapper {
-  background-color: #f1dbd8;
+.contact-form textarea.error,
+.contact-form select.error,
+.contact-form input[type='text'].error {
+  border-color: #ee5c4a;
 }
 
-.contact-form .error-wrapper p,
-.contact-form .error-wrapper ul {
-  color: #b8493e;
+.contact-form .error {
+  color: #ee5c4a;
 }
 
 .accordion-group .accordion-section-wrapper {
