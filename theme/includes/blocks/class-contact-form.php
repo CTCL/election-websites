@@ -70,20 +70,20 @@ class Contact_Form {
 		$message  = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'message', FILTER_SANITIZE_STRING ) ) );
 
 		if ( ! $fullname ) {
-			$errors[] = 'Please enter your name';
+			$errors['fullname'] = 'Enter your name.';
 		}
 
 		if ( ! $email ) {
-			$errors[] = 'Please enter your email address';
+			$errors['email'] = 'Enter your email address.';
 		}
 
 		if ( ! $topic || ! in_array( $topic, self::topic_list(), true ) ) {
-			$topic    = '';
-			$errors[] = 'Please select a topic';
+			$topic           = '';
+			$errors['topic'] = 'Select a topic.';
 		}
 
 		if ( ! $message ) {
-			$errors[] = 'Please enter a message';
+			$errors['message'] = 'Enter a message.';
 		}
 
 		return [
@@ -205,52 +205,44 @@ class Contact_Form {
 			$attr
 		);
 
+		$errors = $attr['errors'];
+
 		ob_start();
 		?>
 		<form class="contact-form" id="contact-form" action="<?php the_permalink(); ?>" method="post">
 
 			<?php
 			wp_nonce_field( self::NONCE_ACTION, self::NONCE_KEY );
-			if ( $attr['errors'] ) {
-				?>
-				<div class="error-wrapper">
-				<p>Please correct the following errors:</p>
-				<ul class="errors">
-				<?php
-				foreach ( $attr['errors'] as $error ) {
-					echo '<li>' . esc_html( $error ) . '</li>';
-				}
-				?>
-				</ul>
-				</div>
-				<?php
-			}
 			?>
 
 			<p>
 				<label for="contact-fullname">Name</label>
-				<input id="contact-fullname" type="text" name="fullname" value="<?php echo esc_attr( $attr['fullname'] ); ?>" />
+				<input id="contact-fullname" type="text" name="fullname" value="<?php echo esc_attr( $attr['fullname'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors['fullname'] ); ?>/>
+				<?php \CTCL\Elections\Helpers::error_message( $errors['fullname'] ); ?>
 			</p>
 
 			<p>
 				<label for="contact-name">Email address</label>
-				<input id="contact-email" type="text" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>" />
+				<input id="contact-email" type="text" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors['email'] ); ?>/>
+				<?php \CTCL\Elections\Helpers::error_message( $errors['email'] ); ?>
 			</p>
 
 			<p class="select-wrapper">
 				<label for="contact-topic">Topic</label>
-				<select id="topic" name="topic">
+				<select id="topic" name="topic" <?php \CTCL\Elections\Helpers::error_class( $errors['topic'] ); ?>>
 					<?php
 					foreach ( self::topic_list() as $current_topic ) {
 						echo '<option' . selected( $current_topic, $attr['topic'], false ) . '>' . esc_html( $current_topic ) . '</option>';
 					}
 					?>
 				</select>
+				<?php \CTCL\Elections\Helpers::error_message( $errors['topic'] ); ?>
 			</p>
 
 			<p>
 				<label for="contact-message">Message</label>
-				<textarea id="contact-message" name="message" rows="10" cols="30"><?php echo esc_textarea( $attr['message'] ); ?></textarea>
+				<textarea id="contact-message" name="message" rows="10" cols="30" <?php \CTCL\Elections\Helpers::error_class( $errors['message'] ); ?>><?php echo esc_textarea( $attr['message'] ); ?></textarea>
+				<?php \CTCL\Elections\Helpers::error_message( $errors['message'] ); ?>
 			</p>
 
 

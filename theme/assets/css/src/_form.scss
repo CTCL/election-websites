@@ -58,25 +58,6 @@
 		bottom: 32px;
 		pointer-events: none;
 	}
-
-	.error-wrapper {
-		border-radius: $border-radius;
-
-		p {
-			margin-bottom: 0;
-			font-weight: bold;
-		}
-
-		ul {
-			margin-top: 0;
-
-			li {
-				line-height: 20px;
-			}
-		}
-
-		padding: 5px 20px;
-	}
 }
 
 .upload-wrapper {

@@ -74,15 +74,14 @@ main {
 	select,
 	input[type='text'] {
 		border-color: $grey-medium;
+
+		&.error {
+			border-color: $error;
+		}
 	}
 
-	.error-wrapper {
-		background-color: mix(white, $error, 100 - $tint-percent);
-
-		p,
-		ul {
-			color: $error;
-		}
+	.error {
+		color: $error;
 	}
 }
 
