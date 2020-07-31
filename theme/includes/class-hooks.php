@@ -155,6 +155,10 @@ class Hooks {
 	public static function filter_body_class( $classes ) {
 		$classes[] = Elections_Settings::get_theme();
 
+		if ( is_page() ) {
+			$classes[] = 'page-' . get_post_field( 'post_name', get_post() );
+		}
+
 		return $classes;
 	}
 
