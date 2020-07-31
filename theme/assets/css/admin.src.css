@@ -121,6 +121,15 @@
   pointer-events: none;
 }
 
+.contact-form p.error {
+  font-weight: bold;
+  padding: 5px 10px;
+  background-image: url("data:image/svg+xml,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='10' cy='10' r='9' stroke='%23ee5c4a' stroke-width='2'/%3e%3cpath fill='%23ee5c4a' d='M9 5h2v7H9zm0 8h2v2H9z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: 5px;
+  text-indent: 20px;
+}
+
 .page-about-us .wp-block-columns .wp-block-column:last-child {
   display: flex;
   justify-content: flex-end;
@@ -277,8 +286,13 @@ main hr {
   border-color: #ee5c4a;
 }
 
+.contact-form p.error,
 .contact-form span.error {
   color: #ee5c4a;
+}
+
+.contact-form p.error {
+  background-color: #fdefed;
 }
 
 .accordion-group .accordion-section-wrapper {
