@@ -268,20 +268,24 @@ class Helpers {
 	}
 
 	/**
-	 * Output class="error" when item is true.
+	 * Output class="error" when flag is true.
+	 *
+	 * @param string $flag   Whether to display an error class.
 	 */
-	public static function error_class( $item ) {
-		if ( $item ) {
+	public static function error_class( $flag ) {
+		if ( $flag ) {
 			echo ' class="error"';
 		}
 	}
 
 	/**
 	 * Format item as error message.
+	 *
+	 * @param string $message   Error message text.
 	 */
-	public static function error_message( $item ) {
-		if ( $item ) {
-			echo '<span class="error">' . esc_html( $item ) . '</span>';
+	public static function error_message( $message ) {
+		if ( $message ) {
+			echo '<span class="error">' . esc_html( $message ) . '</span>';
 		}
 	}
 }
