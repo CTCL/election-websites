@@ -15,10 +15,9 @@ get_header();
 	<?php endif; ?>
 
 	<?php
-		$curr_page = get_post();
-	if ( is_object( $curr_page ) ) {
-		$content = apply_filters( 'the_content', $curr_page->post_content );
-		echo wp_kses_post( $content );
+	if ( have_posts() ) {
+		the_post();
+		the_content();
 	}
 	?>
 </main>
