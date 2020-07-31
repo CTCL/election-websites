@@ -226,7 +226,7 @@ main ul a {
 }
 
 .banner.major img {
-  margin-top: 24px;
+  align-self: end;
 }
 
 @media (max-width: 767px) {
