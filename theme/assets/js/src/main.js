@@ -28,6 +28,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	var mobileMenu = document.querySelector( '.mobile-menu' );
 	var accordionHeaders = document.querySelectorAll( '.accordion-section-header' );
 	var links = document.querySelectorAll( 'a' );
+	var header;
 
 	// Enable the collapsible sections.
 	accordionHeaders.forEach( function( item ) {
@@ -46,4 +47,14 @@ document.addEventListener( 'DOMContentLoaded', function() {
 			link.setAttribute( 'rel', 'noopener noreferrer' );
 		}
 	} );
+
+	// scroll down if errors are present
+	if ( document.querySelector( '.error' ) && document.getElementById( 'contact-form' ) ) {
+		header = document.querySelector( 'header' );
+
+		window.location = '#contact-form';
+		setTimeout( function() {
+			window.scrollBy( { left: 0, top: -2 * ( header ? header.offsetHeight : 100 ), behavior: 'smooth' } );
+		}, 500 );
+	}
 } );
