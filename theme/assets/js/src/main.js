@@ -26,7 +26,7 @@ window.ctcl = {
 
 document.addEventListener( 'DOMContentLoaded', function() {
 	var mobileMenu = document.querySelector( '.mobile-menu' );
-	var accordionHeaders = Array.from( document.querySelectorAll( '.accordion-section-header' ) );
+	var accordionHeaders = document.querySelectorAll( '.accordion-section-header' );
 
 	accordionHeaders.forEach( function( item ) {
 		item.addEventListener( 'click', window.ctcl.handleAccordionClick, { capture: true } );
