@@ -9,7 +9,7 @@ header {
 	position: fixed;
 
 	@include breakpoint(phone) {
-		&.active {
+		.menu & {
 			height: 100%;
 		}
 	}
@@ -101,7 +101,7 @@ header {
 		}
 	}
 
-	&.active {
+	.menu & {
 		.header-wrapper {
 			.icon-bars {
 				.bar-top,

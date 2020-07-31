@@ -17,12 +17,7 @@ window.ctcl = {
 	},
 
 	handleMobileMenuClick: function( e ) {
-		var header = document.querySelector( 'header' );
-		if ( ! header ) {
-			return;
-		}
-
-		header.classList.toggle( 'active' );
+		document.body.classList.toggle( 'menu' );
 
 		// parent element is an <a> tag. Don't want to its click to fire.
 		e.preventDefault();
