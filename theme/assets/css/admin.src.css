@@ -45,11 +45,6 @@
   background-image: url(../images/office/phone.svg);
 }
 
-.office-info a {
-  text-decoration: none;
-  font-weight: normal;
-}
-
 .contact-form {
   width: 90%;
 }
@@ -124,6 +119,11 @@
   float: right;
   bottom: 32px;
   pointer-events: none;
+}
+
+.page-about-us .wp-block-columns .wp-block-column:last-child {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .upload-wrapper .image-thumbnail {
@@ -277,7 +277,7 @@ main hr {
   border-color: #ee5c4a;
 }
 
-.contact-form .error {
+.contact-form span.error {
   color: #ee5c4a;
 }
 

@@ -154,11 +154,6 @@
   background-image: url(../images/office/phone.svg);
 }
 
-.office-info a {
-  text-decoration: none;
-  font-weight: normal;
-}
-
 #editor .wp-block-group {
   border-top-width: 3px;
   border-top-style: solid;
