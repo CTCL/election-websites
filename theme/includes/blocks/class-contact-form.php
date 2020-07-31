@@ -55,11 +55,11 @@ class Contact_Form {
 	}
 
 	/**
-	 * Validate the contact form content as an email.
+	 * Validate the contact form fields.
 	 *
 	 * @return array
 	 */
-	public static function validate() {
+	public static function validate_fields() {
 		$errors = [];
 
 		$fullname = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'fullname', FILTER_SANITIZE_STRING ) ) );
@@ -94,6 +94,39 @@ class Contact_Form {
 	}
 
 	/**
+	 * Validate the contact form fields, nonce and ReCAPTCHA.
+	 *
+	 * @param string $nonce The nonce.
+	 *
+	 * @return array
+	 */
+	public static function validate( $nonce ) {
+		$validation_result = self::validate_fields();
+
+		if ( ! wp_verify_nonce( $nonce, self::NONCE_ACTION ) ) {
+			$validation_result['errors']['form'] = 'The nonce was missing.';
+		}
+
+		// If ReCAPTCHA enabled, validate the token.
+		$recaptcha_enabled = \CTCL\Elections\Google_Recaptcha::is_configured();
+		if ( $recaptcha_enabled ) {
+			$token = filter_input( INPUT_POST, 'token', FILTER_SANITIZE_STRING );
+			if ( $token ) {
+				$ip_address = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_SANITIZE_STRING );
+
+				$recaptcha_result = \CTCL\Elections\Google_Recaptcha::verify( $token, $ip_address );
+				if ( ! $recaptcha_result ) {
+					$validation_result['errors']['form'] = 'ReCAPTCHA could not validate you are a human.';
+				}
+			} else {
+				$validation_result['errors']['form'] = 'The ReCATCHA token was missing.';
+			}
+		}
+
+		return $validation_result;
+	}
+
+	/**
 	 * Send the contact form content as an email.
 	 *
 	 * @param array $atts Form contents (sender, subject, message body).
@@ -115,11 +148,7 @@ class Contact_Form {
 			$result = true;
 		}
 
-		if ( $result ) {
-			return 'Thanks! Your message has been sent.';
-		} else {
-			return 'Your message failed to send. Please try again later.';
-		}
+		return $result;
 	}
 
 	/**
@@ -136,52 +165,9 @@ class Contact_Form {
 			return 'Please specify an email address in <a href="' . esc_url( $permalink ) . '">Settings > Office Details</a>';
 		}
 
-		$nonce = filter_input( INPUT_POST, self::NONCE_KEY, FILTER_SANITIZE_STRING );
+		global $validation_result;
 
-		// Initial load; show the form.
-		if ( ! $nonce ) {
-			return self::render();
-		}
-
-		// Nonce is present; validate the form.
-		$validation_result = self::validate();
-		if ( ! wp_verify_nonce( $nonce, self::NONCE_ACTION ) ) {
-			$validation_result['errors'][] = 'Re-submit the form with the nonce present';
-			return self::render( $validation_result );
-		}
-
-		// If no ReCAPTCHA, process the form.
-		$recaptcha_enabled = Google_Recaptcha::is_configured();
-		if ( ! $recaptcha_enabled ) {
-			if ( $validation_result['errors'] ) {
-				return self::render( $validation_result );
-			} else {
-				return self::send_message( $validation_result );
-			}
-		}
-
-		// If ReCAPTCHA, validate the token, and process the form if the token is valid.
-		$token = filter_input( INPUT_POST, 'token', FILTER_SANITIZE_STRING );
-		if ( ! $token ) {
-			$validation_result['errors'][] = 'Re-submit the form with the token present';
-			return self::render( $validation_result );
-		}
-
-		if ( $validation_result['errors'] ) {
-			return self::render( $validation_result );
-		} else {
-			$ip_address = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_SANITIZE_STRING );
-
-			$recaptcha_result = Google_Recaptcha::verify( $token, $ip_address );
-			if ( $recaptcha_result ) {
-				return self::send_message( $validation_result );
-			} else {
-				$validation_result['errors'][] = 'ReCAPTCHA could not validate you are a human';
-				return self::render( $validation_result );
-			}
-		}
-
-		return self::render();
+		return self::render( $validation_result );
 	}
 
 	/**
