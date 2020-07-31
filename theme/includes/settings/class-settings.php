@@ -58,10 +58,11 @@ class Settings {
 	 */
 	public static function field_callback( $args ) {
 		$placeholder = $args['placeholder'] ?? '';
+		$value       = $args['value'] ?? '';
 
 		switch ( $args['type'] ) {
 			case 'checkbox':
-				echo '<input name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" value="' . esc_attr( $args['value'] ) . '" ' . checked( $args['value'], get_option( $args['uid'] ), false ) . '/>';
+				echo '<input name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" value="' . esc_attr( $value ) . '" ' . checked( $value, get_option( $args['uid'] ), false ) . '/>';
 				if ( isset( $args['title'] ) && $args['title'] ) {
 					echo '<label for="' . esc_attr( $args['uid'] ) . '">' . esc_html( $args['title'] ) . '</label>';
 				}
@@ -79,9 +80,9 @@ class Settings {
 				echo '<input size="50" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( get_option( $args['uid'] ) ) . '" />';
 				break;
 			case 'upload':
-				$image_id = get_option( $args['uid'] ) ? get_option( $args['uid'] ) : $args['value'];
+				$image_id = get_option( $args['uid'], null ) ?? $value;
 
-				if ( isset( $args['value'] ) && $args['value'] ) {
+				if ( $value ) {
 					delete_option( $args['uid'] );
 				}
 
