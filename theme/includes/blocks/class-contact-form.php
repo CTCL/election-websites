@@ -197,6 +197,9 @@ class Contact_Form {
 
 			<?php
 			wp_nonce_field( self::NONCE_ACTION, self::NONCE_KEY );
+			if ( $errors ) {
+				echo "<p class='error intro'>Please fix the errors below:</p>";
+			}
 			?>
 
 			<p>

@@ -80,8 +80,13 @@ main {
 		}
 	}
 
+	p.error,
 	span.error {
 		color: $error;
+	}
+
+	p.error {
+		background-color: $error-bg;
 	}
 }
 
