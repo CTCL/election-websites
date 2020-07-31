@@ -268,12 +268,13 @@ class Helpers {
 	}
 
 	/**
-	 * Output class="error" when flag is true.
+	 * Output class="error" when error array contains index.
 	 *
-	 * @param string $flag   Whether to display an error class.
+	 * @param array  $array   The array of errors.
+	 * @param string $index  An index in the array.
 	 */
-	public static function error_class( $flag ) {
-		if ( $flag ) {
+	public static function error_class( $array, $index ) {
+		if ( isset( $array[ $index ] ) && $array[ $index ] ) {
 			echo ' class="error"';
 		}
 	}
@@ -281,11 +282,12 @@ class Helpers {
 	/**
 	 * Format item as error message.
 	 *
-	 * @param string $message   Error message text.
+	 * @param array  $array   The array of errors.
+	 * @param string $index   The index in the array to retrieve.
 	 */
-	public static function error_message( $message ) {
-		if ( $message ) {
-			echo '<span class="error">' . esc_html( $message ) . '</span>';
+	public static function error_message( $array, $index ) {
+		if ( isset( $array[ $index ] ) && $array[ $index ] ) {
+			echo '<span class="error">' . esc_html( $array[ $index ] ) . '</span>';
 		}
 	}
 }
