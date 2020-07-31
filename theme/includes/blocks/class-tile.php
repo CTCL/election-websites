@@ -39,13 +39,7 @@ class Tile {
 
 			$file = get_template_directory() . '/assets/images/icons/' . $theme . '/' . $icon . '.svg';
 
-			if ( file_exists( $file ) ) {
-				$svg_data = file_get_contents( $file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
-
-				$data_url = \CTCL\Elections\Helpers::inline_svg_url( $svg_data );
-
-				$svg = '<img width="50" height="50" alt="' . esc_attr( $label ) . '" src="' . esc_url( $data_url ) . '" />';
-			}
+			$svg = Helpers::inline_svg_tag( $file, 50, 50, $label );
 		}
 
 		$html = '<a href="' . esc_url( $url ) . '" class="tile"';
