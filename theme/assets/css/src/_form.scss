@@ -60,6 +60,13 @@
 	}
 }
 
+.page-about-us {
+	.wp-block-columns .wp-block-column:last-child {
+		display: flex;
+		justify-content: flex-end;
+	}
+}
+
 .upload-wrapper {
 	.image-thumbnail {
 		display: block;
