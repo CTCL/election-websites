@@ -63,7 +63,7 @@ class Contact_Form {
 		$errors = [];
 
 		$fullname = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'fullname', FILTER_SANITIZE_STRING ) ) );
-		$email    = filter_input( INPUT_POST, 'email', FILTER_SANITIZE_EMAIL );
+		$email    = filter_input( INPUT_POST, 'email', FILTER_VALIDATE_EMAIL );
 		$topic    = filter_input( INPUT_POST, 'topic', FILTER_SANITIZE_STRING );
 		$message  = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'message', FILTER_SANITIZE_STRING ) ) );
 
