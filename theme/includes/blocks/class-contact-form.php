@@ -19,13 +19,11 @@ class Contact_Form {
 	const NONCE_KEY     = 'contact_form_nonce';
 	const NONCE_ACTION  = 'contact_form_submit';
 
-	// TODO: detect presence of form (in case page is renamed); maybe add to block.
-
 	/**
 	 * Set up actions and filters.
 	 */
 	public static function hooks() {
-		if ( is_page( 'about-us' ) ) {
+		if ( is_page_template( 'page-about.php' ) ) {
 			add_action( 'wp_enqueue_scripts', [ '\CTCL\Elections\Google_Recaptcha', 'wp_enqueue_scripts' ] );
 		}
 	}
