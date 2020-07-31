@@ -218,6 +218,28 @@ class Helpers {
 	}
 
 	/**
+	 * Generate an <img> tag for an inline SVG.
+	 *
+	 * @param string  $file    Path to SVG file.
+	 * @param integer $height  Image height.
+	 * @param integer $width   Image width.
+	 * @param string  $alt     Image alt text.
+	 *
+	 * @return string
+	 */
+	public static function inline_svg_tag( $file, $height, $width, $alt = '' ) {
+		if ( ! file_exists( $file ) ) {
+			return;
+		}
+
+		$svg_data = file_get_contents( $file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+
+		$data_url = self::inline_svg_url( $svg_data );
+
+		return '<img width="' . absint( $width ) . '" height="' . absint( $height ) . '" alt="' . esc_attr( $alt ) . '" src="' . esc_url( $data_url ) . '" />';
+	}
+
+	/**
 	 * Output the image with a data URL.
 	 *
 	 * @param integer $image_id   Image ID.
