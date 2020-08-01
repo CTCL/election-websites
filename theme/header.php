@@ -31,7 +31,7 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 	<div class="header-wrapper">
 		<a class="site-title-wrapper" href="<?php echo esc_url( get_home_url() ); ?>">
 			<?php
-			echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false, [ 'alt' => $site_title ] ) );
+			echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false ) );
 			?>
 			<h4 class="site-title"><?php echo esc_html( $site_title ); ?></h4>
 			<span class="mobile-menu icon-bars">
