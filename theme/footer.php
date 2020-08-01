@@ -17,7 +17,7 @@ $instagram      = Office_Details::instagram( true );
 <footer>
 	<div class="footer-content-wrapper">
 		<div>
-			<h4 class="section-title"><?php echo esc_html( Office_Details::title() ); ?></h4>
+			<p class="office-title"><?php echo esc_html( Office_Details::title() ); ?></p>
 			<?php if ( $official_name && $official_title ) : ?>
 			<p class="info-item">
 				<?php echo esc_html( $official_name ); ?>,
