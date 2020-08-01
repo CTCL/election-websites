@@ -33,7 +33,12 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 			<?php
 			echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false ) );
 			?>
+
+			<?php if ( is_front_page() ) : ?>
+			<h1 class="site-title"><?php echo esc_html( $site_title ); ?></h1>
+			<?php else : ?>
 			<h4 class="site-title"><?php echo esc_html( $site_title ); ?></h4>
+			<?php endif; ?>
 			<span class="mobile-menu icon-bars">
 				<span class="icon-bar bar-top"></span>
 				<span class="icon-bar bar-middle"></span>
