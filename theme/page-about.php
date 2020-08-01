@@ -27,6 +27,8 @@ get_header();
 	}
 
 	if ( ! $nonce || $validation_result['errors'] ) {
+		echo '<h1>' . esc_html( get_the_title() ) . '</h1>';
+
 		if ( have_posts() ) {
 			the_post();
 			the_content();
