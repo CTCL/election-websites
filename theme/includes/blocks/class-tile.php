@@ -39,14 +39,15 @@ class Tile {
 
 			$file = get_template_directory() . '/assets/images/icons/' . $theme . '/' . $icon . '.svg';
 
-			$svg = Helpers::inline_svg_tag( $file, 50, 50, $label );
+			// Leave the alt tag empty, as it is redundance with the label.
+			$svg = Helpers::inline_svg_tag( $file, 50, 50 );
 		}
 
 		$html = '<a href="' . esc_url( $url ) . '" class="tile"';
 		if ( 0 !== strpos( $url, home_url() ) ) {
 			$html .= ' target="_blank"';
 		}
-		$html .= '>' . $svg . '<span>' . esc_html( $label ) . '</span></a>';
+		$html .= '>' . $svg . '<label>' . esc_html( $label ) . '</label></a>';
 
 		if ( $svg && $url && $label ) {
 			wp_cache_set( $cache_key, $html, Helpers::INLINE_IMAGE_CACHE_KEY, 600 );
