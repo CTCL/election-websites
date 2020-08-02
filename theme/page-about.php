@@ -19,8 +19,7 @@ get_header();
 			if ( $send_result ) {
 				get_template_part( 'template-parts/mail-success' );
 			} else {
-				$validation_result['errors']['form'] = 'Sending the message failed.';
-				set_query_var( 'error', $validation_result['errors']['form'] );
+				set_query_var( 'error', 'Sending the message failed.' );
 				get_template_part( 'template-parts/mail-error' );
 			}
 		}
