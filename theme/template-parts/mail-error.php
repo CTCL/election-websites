@@ -6,11 +6,15 @@
  * @since   1.0.0
  */
 
+$file = get_template_directory() . '/assets/images/error.svg';
 ?>
-<h1>Uh-oh</h1>
+<h1><?php echo wp_kses_post( \CTCL\Elections\Helpers::inline_svg_tag( $file, 28, 28 ) ); ?>
+	Sorry, something went wrong</h1>
 
-<p>We weren’t able to send your message because of the following error:</p>
+<p>Oops! There was an error when you submitted your message. Try refreshing the page, and then go back to try and re-submit your message.</p>
 
 <?php if ( $error ) : ?>
 <code><?php echo esc_html( $error ); ?></code>
 <?php endif; ?>
+
+<p><a href="javascript:window.history.back();">Go back and try again</a></p>

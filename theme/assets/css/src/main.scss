@@ -88,3 +88,11 @@ a {
 	text-decoration: none;
 	cursor: pointer;
 }
+
+code {
+	font-family: monospace;
+	background: $grey-medium;
+	padding: 10px;
+	display: block;
+	margin: 20px 0;
+}
