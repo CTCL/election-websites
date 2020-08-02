@@ -195,7 +195,18 @@ module.exports = function( grunt ) {
 			files: {
 				src: [ '*.php', 'template-parts/**/*.php', 'includes/**/*.php' ]
 			}
-		}
+		},
+
+		wp_readme_to_markdown: {
+			theme: {
+				files: {
+					'readme.md': 'readme.txt'
+				},
+				options: {
+					screenshot_url: 'screenshot.png'
+				}
+			},
+		},
 
 	} );
 
