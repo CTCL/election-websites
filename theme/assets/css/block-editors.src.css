@@ -36,7 +36,7 @@
 
 .tile-wrapper, .tile-nav-block-editor {
   display: inline-grid;
-  grid-template-columns: repeat(4, 171px);
+  grid-template-columns: repeat(4, 224px);
   grid-column-gap: 16px;
   grid-row-gap: 16px;
 }
@@ -49,12 +49,12 @@
   align-content: center;
   justify-content: center;
   grid-row-gap: 18px;
-  width: 171px;
-  height: 158px;
+  width: 224px;
+  height: 200px;
   box-sizing: border-box;
   border-radius: 2px;
-  padding: 14px;
-  font-size: 16px;
+  padding: 14px 42px;
+  font-size: 20px;
   line-height: 20px;
   font-weight: 600;
   text-align: center;
@@ -92,8 +92,7 @@
 
 @media (max-width: 767px) {
   .tile-wrapper {
-    margin: 0;
-    grid-template-columns: repeat(2, 171px);
+    grid-template-columns: repeat(2, 224px);
   }
 }
 
