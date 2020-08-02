@@ -1270,3 +1270,11 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+code {
+  font-family: monospace;
+  background: #f5f6fa;
+  padding: 10px;
+  display: block;
+  margin: 20px 0;
+}
