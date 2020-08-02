@@ -16,8 +16,8 @@
 		height: $tile-height;
 		box-sizing: border-box;
 		border-radius: 2px;
-		padding: 14px;
-		font-size: 16px;
+		padding: 14px 42px;
+		font-size: 20px;
 		line-height: 20px;
 		font-weight: 600;
 		text-align: center;
@@ -54,7 +54,6 @@
 	}
 
 	@include breakpoint(phone) {
-		margin: 0;
 		grid-template-columns: repeat(2, $tile-width);
 	}
 
