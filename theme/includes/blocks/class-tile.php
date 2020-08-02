@@ -39,7 +39,7 @@ class Tile {
 
 			$file = get_template_directory() . '/assets/images/icons/' . $theme . '/' . $icon . '.svg';
 
-			// Leave the alt tag empty, as it is redundance with the label.
+			// Leave the alt tag empty, as it is redundant with the label.
 			$svg = Helpers::inline_svg_tag( $file, 50, 50 );
 		}
 
