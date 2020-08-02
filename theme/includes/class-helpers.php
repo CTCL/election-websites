@@ -232,11 +232,21 @@ class Helpers {
 			return;
 		}
 
+		$cache_key = 'inline_image_file_' . basename( $file );
+		$html      = wp_cache_get( $cache_key );
+		if ( false !== $html ) {
+			return $html;
+		}
+
 		$svg_data = file_get_contents( $file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
 
 		$data_url = self::inline_svg_url( $svg_data );
 
-		return '<img width="' . absint( $width ) . '" height="' . absint( $height ) . '" alt="' . esc_attr( $alt ) . '" src="' . esc_url( $data_url ) . '" />';
+		$html = '<img width="' . absint( $width ) . '" height="' . absint( $height ) . '" alt="' . esc_attr( $alt ) . '" src="' . esc_url( $data_url ) . '" />';
+
+		wp_cache_set( $cache_key, $html, self::INLINE_IMAGE_CACHE_KEY, 600 );
+
+		return $html;
 	}
 
 	/**
