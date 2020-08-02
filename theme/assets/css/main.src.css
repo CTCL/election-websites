@@ -872,8 +872,14 @@ main {
   flex: 1;
 }
 
-.accordion-group .accordion-section-wrapper .accordion-section-header img + span {
-  margin-left: 18px;
+.accordion-group .accordion-section-wrapper .accordion-section-header img {
+  margin-right: 18px;
+}
+
+@media (max-width: 767px) {
+  .accordion-group .accordion-section-wrapper .accordion-section-header > img {
+    display: none;
+  }
 }
 
 .accordion-group .accordion-section-wrapper .accordion-section-header::after {
@@ -1273,7 +1279,7 @@ a {
 
 code {
   font-family: monospace;
-  background: #f5f6fa;
+  background: #b7bccd;
   padding: 10px;
   display: block;
   margin: 20px 0;
