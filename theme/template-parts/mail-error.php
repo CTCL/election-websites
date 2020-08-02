@@ -11,7 +11,7 @@ $file = get_template_directory() . '/assets/images/error.svg';
 <h1><?php echo wp_kses_post( \CTCL\Elections\Helpers::inline_svg_tag( $file, 28, 28 ) ); ?>
 	Sorry, something went wrong</h1>
 
-<p>Oops! There was an error when you submitted your message. Try refreshing the page, and then go back to try and re-submit your message.</p>
+<p>There was an error sending your message. Please try sending it again.</p>
 
 <?php if ( $error ) : ?>
 <code><?php echo esc_html( $error ); ?></code>
