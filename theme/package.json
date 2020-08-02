@@ -47,6 +47,7 @@
 		"grunt-sass": "^3.1.0",
 		"grunt-stylelint": "^0.15.0",
 		"grunt-svgmin": "^6.0.0",
+		"grunt-wp-readme-to-markdown": "^2.0.1",
 		"matchdep": "^2.0.0",
 		"node-sass": "^4.14.1",
 		"sass-inline-svg": "^1.2.3",
