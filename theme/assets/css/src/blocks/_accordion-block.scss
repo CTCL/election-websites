@@ -38,8 +38,14 @@
 				flex: 1;
 			}
 
-			img + span {
-				margin-left: 18px;
+			img {
+				margin-right: 18px;
+			}
+
+			@include breakpoint(phone) {
+				> img {
+					display: none;
+				}
 			}
 		}
 
