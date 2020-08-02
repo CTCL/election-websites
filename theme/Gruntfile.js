@@ -1,7 +1,7 @@
 module.exports = function( grunt ) {
 
 	var sass = require( 'node-sass' );
-	var inliner = require("sass-inline-svg");
+	var inliner = require( 'sass-inline-svg' );
 
 	// Load all grunt tasks
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
@@ -17,7 +17,14 @@ module.exports = function( grunt ) {
 					'assets/js/blocks.src.js': [ 'assets/js/src/blocks/*.js' ]
 				},
 				options: {
-					transform        : [ [ 'babelify', { presets: [ "@babel/preset-env", "@babel/preset-react" ], compact: false } ] ],
+					transform: [
+						[
+							'babelify', {
+								presets: [ '@babel/preset-env', '@babel/preset-react' ],
+								compact: false
+							}
+						]
+					],
 					browserifyOptions: {
 						debug: false
 					}
@@ -80,7 +87,7 @@ module.exports = function( grunt ) {
 					outputStyle: 'expanded',
 					sourceMap: true,
 					functions: {
-						svg: inliner('./', { encodingFormat:'uri' } )
+						svg: inliner( './', { encodingFormat: 'uri' } )
 					}
 				},
 				files: [ {
@@ -205,8 +212,8 @@ module.exports = function( grunt ) {
 				options: {
 					screenshot_url: 'screenshot.png'
 				}
-			},
-		},
+			}
+		}
 
 	} );
 
