@@ -115,9 +115,15 @@ main {
 }
 
 // button text
+.error404 .button,
 .button.learn-more,
 .contact-form button {
 	color: $white;
+
+	// 404 page home button is an <a> tag, and would otherwise hover with the theme color
+	&:hover {
+		color: $white;
+	}
 }
 
 // Banner

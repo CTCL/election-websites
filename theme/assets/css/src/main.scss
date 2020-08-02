@@ -96,3 +96,19 @@ code {
 	display: block;
 	margin: 20px 0;
 }
+
+.error404 {
+	main > img {
+		float: right;
+		padding-left: 20px;
+	}
+}
+
+.button {
+	@include button;
+
+	.error404 & {
+		display: inline-block;
+		margin-top: 1em;
+	}
+}
