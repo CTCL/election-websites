@@ -307,8 +307,15 @@ main hr {
   border-top-color: #464956;
 }
 
+.error404 .button,
 .button.learn-more,
 .contact-form button {
+  color: #fff;
+}
+
+.error404 .button:hover,
+.button.learn-more:hover,
+.contact-form button:hover {
   color: #fff;
 }
 
@@ -402,10 +409,12 @@ figure.wp-block-table tr:nth-child(2n) {
   border-color: #093f8c;
 }
 
+.theme-blue.error404 .button,
 .theme-blue .button.learn-more {
   background-color: #ec5d4f;
 }
 
+.theme-blue.error404 .button:hover,
 .theme-blue .button.learn-more:hover {
   background-color: #bd4a3f;
 }
@@ -453,10 +462,12 @@ figure.wp-block-table tr:nth-child(2n) {
   border-color: #11766f;
 }
 
+.theme-green.error404 .button,
 .theme-green .button.learn-more {
   background-color: #15948b;
 }
 
+.theme-green.error404 .button:hover,
 .theme-green .button.learn-more:hover {
   background-color: #11766f;
 }
