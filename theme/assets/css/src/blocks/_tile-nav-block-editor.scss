@@ -2,9 +2,42 @@
 @import './tile-nav-block';
 
 .tile-nav-block-editor {
-	@extend %tile-nav-block;
+	.tile {
+		@extend %tile;
+	}
 
 	.placeholder {
 		color: $grey-medium;
 	}
+
+	::before {
+		width: 252px;
+	}
+}
+
+.tile-nav-section-block-editor {
+	.block-editor-block-list__block {
+		margin: 0;
+	}
+
+	.block-editor-block-list__layout {
+		display: grid;
+		grid-template-columns: repeat(4, 224px);
+		grid-column-gap: 16px;
+		grid-row-gap: 18px;
+	}
+
+	.block-list-appender {
+		margin: auto;
+
+		button {
+			width: $tile-width;
+			height: $tile-height;
+			margin: auto;
+		}
+	}
+}
+
+.tile-nav-block-editor-wrapper[data-type="ctcl-election-website/tile-nav-section-block"]::before {
+	width: 972px;
 }
