@@ -9,6 +9,10 @@
 	width: $tile-width;
 	height: $tile-height;
 
+	&:hover {
+		cursor: pointer;
+	}
+
 	@include breakpoint(desktop) {
 		width: $tile-width-desktop;
 		height: $tile-height-desktop;
