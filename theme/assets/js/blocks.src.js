@@ -76,7 +76,7 @@ registerBlockType(CHILD_BLOCK, {
         headerTag: value
       });
     }), hasIconTag(props.attributes) ? /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
-      title: "Specify section settings",
+      title: "Section",
       initialOpen: true
     }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(SelectControl, {
       label: "Icon",
