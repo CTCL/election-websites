@@ -27,6 +27,10 @@
     width: 224px;
     height: 200px;
   }
+  .wp-admin .tile-wrapper .tile, .tile-wrapper .wp-admin .tile {
+    width: 171px;
+    height: 158px;
+  }
 }
 
 @media (min-width: 1025px) {

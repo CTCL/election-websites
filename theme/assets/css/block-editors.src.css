@@ -63,6 +63,10 @@
     width: 224px;
     height: 200px;
   }
+  .wp-admin .tile-wrapper .tile, .tile-wrapper .wp-admin .tile, .wp-admin .tile-nav-block-editor .tile, .tile-nav-block-editor .wp-admin .tile {
+    width: 171px;
+    height: 158px;
+  }
 }
 
 @media (min-width: 1025px) {
@@ -143,6 +147,10 @@
   grid-template-columns: repeat(4, 224px);
   grid-column-gap: 16px;
   grid-row-gap: 18px;
+}
+
+.wp-admin .tile-nav-section-block-editor .block-editor-block-list__layout {
+  grid-template-columns: repeat(4, 171px);
 }
 
 .tile-nav-section-block-editor .block-list-appender {
