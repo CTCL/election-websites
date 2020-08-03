@@ -6,16 +6,30 @@
   align-content: center;
   justify-content: center;
   grid-row-gap: 18px;
-  width: 224px;
-  height: 200px;
+  width: 171px;
+  height: 158px;
   box-sizing: border-box;
   border-radius: 2px;
-  padding: 14px 42px;
-  font-size: 20px;
+  padding: 14px;
+  font-size: 16px;
   line-height: 20px;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
+}
+
+@media (min-width: 1025px) {
+  .tile-wrapper .tile {
+    width: 224px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .tile-wrapper .tile {
+    padding: 14px 42px;
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 350px) {
@@ -41,9 +55,15 @@
 
 .tile-wrapper {
   display: inline-grid;
-  grid-template-columns: repeat(4, 224px);
+  grid-template-columns: repeat(4, 171px);
   grid-column-gap: 16px;
   grid-row-gap: 16px;
+}
+
+@media (min-width: 1025px) {
+  .tile-wrapper {
+    grid-template-columns: repeat(4, 224px);
+  }
 }
 
 .tile-wrapper {
@@ -56,7 +76,7 @@
 
 @media (max-width: 767px) {
   .tile-wrapper {
-    grid-template-columns: repeat(2, 224px);
+    grid-template-columns: repeat(2, 171px);
   }
 }
 
@@ -136,13 +156,25 @@ main ul a {
 }
 
 .banner .banner-wrapper {
-  margin: 0 20px;
+  margin: 0 auto;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .banner .banner-wrapper {
-    margin: 0 auto;
     width: 944px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .banner .banner-wrapper {
+    width: 732px;
+  }
+}
+
+@media (max-width: 767px) {
+  .banner .banner-wrapper {
+    margin: 0 20px;
+    width: calc(100% - 40px);
   }
 }
 
@@ -266,7 +298,7 @@ header {
 }
 
 header .header-wrapper {
-  margin: 0 20px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: -webkit-max-content 1fr;
   grid-template-columns: max-content 1fr;
@@ -274,16 +306,29 @@ header .header-wrapper {
   padding: 16px 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   header .header-wrapper {
-    margin: 0 auto;
     width: 944px;
+  }
+}
+
+@media (max-width: 1024px) {
+  header .header-wrapper {
+    width: 732px;
+  }
+}
+
+@media (max-width: 767px) {
+  header .header-wrapper {
+    margin: 0 20px;
+    width: calc(100% - 40px);
   }
 }
 
 @media (max-width: 767px) {
   header .header-wrapper {
     display: block;
+    width: calc(100% - 40px);
   }
 }
 
@@ -342,7 +387,7 @@ header .site-title-wrapper {
   header .site-title-wrapper {
     max-width: 100%;
     display: grid;
-    grid-template-columns: 80px 3fr 1fr;
+    grid-template-columns: 80px 1fr 60px;
   }
 }
 
@@ -470,15 +515,29 @@ main ul a {
 
 footer .footer-content-wrapper,
 footer .abbreviated-footer {
-  margin: 0 20px;
+  margin: 0 auto;
   padding: 32px 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   footer .footer-content-wrapper,
   footer .abbreviated-footer {
-    margin: 0 auto;
     width: 944px;
+  }
+}
+
+@media (max-width: 1024px) {
+  footer .footer-content-wrapper,
+  footer .abbreviated-footer {
+    width: 732px;
+  }
+}
+
+@media (max-width: 767px) {
+  footer .footer-content-wrapper,
+  footer .abbreviated-footer {
+    margin: 0 20px;
+    width: calc(100% - 40px);
   }
 }
 
@@ -684,7 +743,7 @@ figure.wp-block-table td {
   margin-left: 10px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .ctcl-settings .form-table textarea,
   .ctcl-settings .form-table input[type='text'],
   .ctcl-settings .form-table input[type='email'],
@@ -1229,15 +1288,27 @@ body.menu {
 }
 
 main {
-  margin: 0 20px;
+  margin: 0 auto;
   flex-grow: 1;
   align-items: start;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   main {
-    margin: 0 auto;
     width: 944px;
+  }
+}
+
+@media (max-width: 1024px) {
+  main {
+    width: 732px;
+  }
+}
+
+@media (max-width: 767px) {
+  main {
+    margin: 0 20px;
+    width: calc(100% - 40px);
   }
 }
 

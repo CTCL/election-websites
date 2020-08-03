@@ -42,16 +42,30 @@
   align-content: center;
   justify-content: center;
   grid-row-gap: 18px;
-  width: 224px;
-  height: 200px;
+  width: 171px;
+  height: 158px;
   box-sizing: border-box;
   border-radius: 2px;
-  padding: 14px 42px;
-  font-size: 20px;
+  padding: 14px;
+  font-size: 16px;
   line-height: 20px;
   font-weight: 600;
   text-align: center;
   text-decoration: none;
+}
+
+@media (min-width: 1025px) {
+  .tile-wrapper .tile, .tile-nav-block-editor .tile {
+    width: 224px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .tile-wrapper .tile, .tile-nav-block-editor .tile {
+    padding: 14px 42px;
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 350px) {
@@ -77,9 +91,15 @@
 
 .tile-wrapper {
   display: inline-grid;
-  grid-template-columns: repeat(4, 224px);
+  grid-template-columns: repeat(4, 171px);
   grid-column-gap: 16px;
   grid-row-gap: 16px;
+}
+
+@media (min-width: 1025px) {
+  .tile-wrapper {
+    grid-template-columns: repeat(4, 224px);
+  }
 }
 
 .tile-wrapper {
@@ -92,7 +112,7 @@
 
 @media (max-width: 767px) {
   .tile-wrapper {
-    grid-template-columns: repeat(2, 224px);
+    grid-template-columns: repeat(2, 171px);
   }
 }
 
@@ -126,9 +146,16 @@
 }
 
 .tile-nav-section-block-editor .block-list-appender button {
-  width: 224px;
-  height: 200px;
+  width: 171px;
+  height: 158px;
   margin: auto;
+}
+
+@media (min-width: 1025px) {
+  .tile-nav-section-block-editor .block-list-appender button {
+    width: 224px;
+    height: 200px;
+  }
 }
 
 .tile-nav-block-editor-wrapper[data-type="ctcl-election-website/tile-nav-section-block"]::before {
@@ -238,9 +265,16 @@
 #editor .wp-block-group {
   border-top-width: 3px;
   border-top-style: solid;
+}
+
+#editor .wp-block-group,
+#editor .wp-block {
   width: 944px;
 }
 
-#editor .wp-block {
-  max-width: 944px;
+@media (max-width: 1024px) {
+  #editor .wp-block-group,
+  #editor .wp-block {
+    width: 732px;
+  }
 }

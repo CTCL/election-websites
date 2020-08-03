@@ -152,7 +152,7 @@
   margin-left: 10px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .ctcl-settings .form-table textarea,
   .ctcl-settings .form-table input[type='text'],
   .ctcl-settings .form-table input[type='email'],
