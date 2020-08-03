@@ -3,12 +3,16 @@
 		@media (max-width: 767px) { @content; }
 	}
 
+	@else if $class == tablet {
+		@media (max-width: 1024px) { @content; }
+	}
+
 	@else if $class == desktop {
-		@media (min-width: 1024px) { @content; }
+		@media (min-width: 1025px) { @content; }
 	}
 
 	@else {
-		@warn "Breakpoint mixin supports: phone and desktop";
+		@warn "Breakpoint mixin supports: phone, tablet and desktop";
 	}
 }
 
