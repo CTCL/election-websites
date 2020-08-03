@@ -30,6 +30,13 @@ body {
 	}
 }
 
+html #wpadminbar {
+	// match admin-bar.css width, not our width
+	@media screen and (max-width: 600px) {
+		position: fixed;
+	}
+}
+
 main {
 	@include fit-to-page;
 
