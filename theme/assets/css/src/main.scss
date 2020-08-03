@@ -30,8 +30,8 @@ body {
 	}
 }
 
+// match admin-bar.css width, not our width
 html #wpadminbar {
-	// match admin-bar.css width, not our width
 	@media screen and (max-width: 600px) {
 		position: fixed;
 	}
