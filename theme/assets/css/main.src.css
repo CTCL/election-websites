@@ -1222,6 +1222,12 @@ body.menu {
   overflow: hidden;
 }
 
+@media screen and (max-width: 600px) {
+  html #wpadminbar {
+    position: fixed;
+  }
+}
+
 main {
   margin: 0 20px;
   flex-grow: 1;
