@@ -22,6 +22,7 @@ header {
 
 		@include breakpoint(phone) {
 			display: block;
+			width: calc(100% - 40px);
 		}
 
 		align-items: center;
@@ -78,7 +79,7 @@ header {
 		@include breakpoint(phone) {
 			max-width: 100%;
 			display: grid;
-			grid-template-columns: 80px 3fr 1fr;
+			grid-template-columns: 80px 1fr 60px;
 		}
 	}
 

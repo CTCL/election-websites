@@ -33,6 +33,12 @@
 		button {
 			width: $tile-width;
 			height: $tile-height;
+
+			@include breakpoint(desktop) {
+				width: $tile-width-desktop;
+				height: $tile-height-desktop;
+			}
+
 			margin: auto;
 		}
 	}

@@ -8,10 +8,22 @@
 	grid-row-gap: 18px;
 	width: $tile-width;
 	height: $tile-height;
+
+	@include breakpoint(desktop) {
+		width: $tile-width-desktop;
+		height: $tile-height-desktop;
+	}
+
 	box-sizing: border-box;
 	border-radius: 2px;
-	padding: 14px 42px;
-	font-size: 20px;
+	padding: 14px;
+	font-size: 16px;
+
+	@include breakpoint (desktop) {
+		padding: 14px 42px;
+		font-size: 20px;
+	}
+
 	line-height: 20px;
 	font-weight: 600;
 	text-align: center;
@@ -40,6 +52,11 @@
 %tile-nav-block {
 	display: inline-grid;
 	grid-template-columns: repeat(4, $tile-width);
+
+	@include breakpoint(desktop) {
+		grid-template-columns: repeat(4, $tile-width-desktop);
+	}
+
 	grid-column-gap: 16px;
 	grid-row-gap: 16px;
 
