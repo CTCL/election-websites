@@ -16,6 +16,11 @@
 	@include breakpoint(desktop) {
 		width: $tile-width-desktop;
 		height: $tile-height-desktop;
+
+		.wp-admin & {
+			width: $tile-width;
+			height: $tile-height;
+		}
 	}
 
 	box-sizing: border-box;

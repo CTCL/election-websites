@@ -23,6 +23,11 @@
 	.block-editor-block-list__layout {
 		display: grid;
 		grid-template-columns: repeat(4, 224px);
+
+		.wp-admin & {
+			grid-template-columns: repeat(4, $tile-width);
+		}
+
 		grid-column-gap: 16px;
 		grid-row-gap: 18px;
 	}
