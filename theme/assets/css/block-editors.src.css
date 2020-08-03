@@ -54,6 +54,10 @@
   text-decoration: none;
 }
 
+.tile-wrapper .tile:hover, .tile-nav-block-editor .tile:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 1025px) {
   .tile-wrapper .tile, .tile-nav-block-editor .tile {
     width: 224px;

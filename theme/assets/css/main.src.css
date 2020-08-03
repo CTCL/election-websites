@@ -18,6 +18,10 @@
   text-decoration: none;
 }
 
+.tile-wrapper .tile:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 1025px) {
   .tile-wrapper .tile {
     width: 224px;
