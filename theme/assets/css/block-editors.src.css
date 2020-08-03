@@ -34,13 +34,6 @@
   margin-top: -28px;
 }
 
-.tile-wrapper, .tile-nav-block-editor {
-  display: inline-grid;
-  grid-template-columns: repeat(4, 224px);
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
-}
-
 .tile-wrapper .tile, .tile-nav-block-editor .tile {
   border-width: 1px;
   border-style: solid;
@@ -83,6 +76,13 @@
 }
 
 .tile-wrapper {
+  display: inline-grid;
+  grid-template-columns: repeat(4, 224px);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+.tile-wrapper {
   margin: 24px 0;
 }
 
@@ -104,6 +104,35 @@
 
 .tile-nav-block-editor .placeholder {
   color: #b7bccd;
+}
+
+.tile-nav-block-editor ::before {
+  width: 252px;
+}
+
+.tile-nav-section-block-editor .block-editor-block-list__block {
+  margin: 0;
+}
+
+.tile-nav-section-block-editor .block-editor-block-list__layout {
+  display: grid;
+  grid-template-columns: repeat(4, 224px);
+  grid-column-gap: 16px;
+  grid-row-gap: 18px;
+}
+
+.tile-nav-section-block-editor .block-list-appender {
+  margin: auto;
+}
+
+.tile-nav-section-block-editor .block-list-appender button {
+  width: 224px;
+  height: 200px;
+  margin: auto;
+}
+
+.tile-nav-block-editor-wrapper[data-type="ctcl-election-website/tile-nav-section-block"]::before {
+  width: 972px;
 }
 
 .office-info {
@@ -153,7 +182,16 @@
   background-image: url(../images/office/phone.svg);
 }
 
+#editor {
+  width: 944px;
+  max-width: 944px;
+}
+
 #editor .wp-block-group {
   border-top-width: 3px;
   border-top-style: solid;
+}
+
+.block-editor-writing-flow {
+  width: 1400px;
 }

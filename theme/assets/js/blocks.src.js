@@ -238,6 +238,8 @@ registerBlockType('ctcl-election-website/office-info', {
 },{}],5:[function(require,module,exports){
 "use strict";
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -252,6 +254,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 var registerBlockType = wp.blocks.registerBlockType;
 var createElement = wp.element.createElement;
+var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
 var _wp$blockEditor = wp.blockEditor,
     InspectorControls = _wp$blockEditor.InspectorControls,
     InnerBlocks = _wp$blockEditor.InnerBlocks,
@@ -271,7 +274,6 @@ var getIconEl = function getIconEl(attributes) {
   if (icon) {
     var iconUrl = "".concat(blockEditorVars.baseUrl, "/").concat(icon, ".svg");
     return createElement('img', {
-      width: 50,
       height: 50,
       src: iconUrl
     });
@@ -374,39 +376,7 @@ registerBlockType(CHILD_BLOCK, {
       className: "tile"
     }, isEmpty ? /*#__PURE__*/React.createElement("span", {
       className: "placeholder"
-    }, "Set tile values in control panel to your right.") : [getIconEl(props.attributes), /*#__PURE__*/React.createElement("span", null, label)]))); // return createElement( 'div',
-    // 	{
-    // 		className: 'tile-nav-block-editor'
-    // 	},
-    // 	createElement( wp.blockEditor.URLInput,
-    // 		{
-    // 			onChange: updateLink,
-    // 			value: props.attributes.url,
-    // 			label: 'Link'
-    // 		}
-    // 	),
-    // 	createElement( wp.components.TextControl,
-    // 		{
-    // 			label: 'Label',
-    // 			placeholder: 'Enter label',
-    // 			onChange: updateLabel,
-    // 			value: props.attributes.label
-    // 		}
-    // 	),
-    // 	createElement( wp.components.SelectControl,
-    // 		{
-    // 			onChange: updateIcon,
-    // 			options: [
-    // 				{ value: '', label: 'Select an Icon' },
-    // 				...blockEditorVars.iconOptions.map( option => ( {
-    // 					value: option, label: option
-    // 				} ) )
-    // 			],
-    // 			label: 'Icon',
-    // 			value: props.attributes.icon
-    // 		}
-    // 	)
-    // );
+    }, "Set tile values in control panel to your right.") : [getIconEl(props.attributes), /*#__PURE__*/React.createElement("span", null, label)])));
   },
   save: function save(props) {
     return /*#__PURE__*/React.createElement("a", {
@@ -418,5 +388,13 @@ registerBlockType(CHILD_BLOCK, {
     }), /*#__PURE__*/React.createElement("span", null, props.attributes.label));
   }
 });
+var withClientIdClassName = createHigherOrderComponent(function (BlockListBlock) {
+  return function (props) {
+    return /*#__PURE__*/React.createElement(BlockListBlock, _extends({}, props, {
+      className: 'tile-nav-block-editor-wrapper'
+    }));
+  };
+}, 'withClientIdClassName');
+wp.hooks.addFilter('editor.BlockListBlock', PARENT_BLOCK, withClientIdClassName);
 
 },{}]},{},[1,2,3,4,5]);
