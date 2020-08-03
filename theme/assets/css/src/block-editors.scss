@@ -5,15 +5,13 @@
 @import "blocks/office-info";
 
 #editor {
-	width: 944px;
-	max-width: 944px;
-
 	.wp-block-group {
 		border-top-width: 3px;
 		border-top-style: solid;
+		width: 944px;
 	}
-}
 
-.block-editor-writing-flow {
-	width: 1400px;
+	.wp-block {
+		max-width: 944px;
+	}
 }
