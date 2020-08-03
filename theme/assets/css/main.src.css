@@ -6,12 +6,8 @@
   align-content: center;
   justify-content: center;
   grid-row-gap: 18px;
-  width: 171px;
-  height: 158px;
   box-sizing: border-box;
   border-radius: 2px;
-  padding: 14px;
-  font-size: 16px;
   line-height: 20px;
   font-weight: 600;
   text-align: center;
@@ -20,31 +16,6 @@
 
 .tile-wrapper .tile:hover {
   cursor: pointer;
-}
-
-@media (min-width: 1025px) {
-  .tile-wrapper .tile {
-    width: 224px;
-    height: 200px;
-  }
-  .wp-admin .tile-wrapper .tile, .tile-wrapper .wp-admin .tile {
-    width: 171px;
-    height: 158px;
-  }
-}
-
-@media (min-width: 1025px) {
-  .tile-wrapper .tile {
-    padding: 14px 42px;
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 350px) {
-  .tile-wrapper .tile {
-    width: 40vw;
-    height: 40vw;
-  }
 }
 
 .tile-wrapper .tile img {
@@ -61,6 +32,13 @@
   background-image: url("data:image/svg+xml,%3csvg width='21' height='21' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8.933 4.666a.688.688 0 00-.688.696c.004.381.313.69.694.694l5.205.022-9.2 9.2c-.27.27-.269.71.004.984a.696.696 0 00.983.004l9.104-9.104.02 4.962c0 .384.311.699.695.703a.689.689 0 00.697-.689v-.008l-.028-6.738a.702.702 0 00-.699-.699l-6.787-.027z' fill='%237F88A4' stroke='%237F88A4' stroke-width='.6'/%3e%3c/svg%3e");
 }
 
+.tile-wrapper .tile {
+  width: 171px;
+  height: 158px;
+  padding: 14px 5px;
+  font-size: 16px;
+}
+
 .tile-wrapper {
   display: inline-grid;
   grid-template-columns: repeat(4, 171px);
@@ -71,6 +49,22 @@
 @media (min-width: 1025px) {
   .tile-wrapper {
     grid-template-columns: repeat(4, 224px);
+  }
+}
+
+@media (min-width: 1025px) {
+  .tile-wrapper .tile {
+    width: 224px;
+    height: 200px;
+    padding: 14px 42px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 350px) {
+  .tile-wrapper .tile {
+    width: 40vw;
+    height: 40vw;
   }
 }
 

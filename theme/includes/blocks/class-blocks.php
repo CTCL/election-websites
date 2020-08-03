@@ -32,7 +32,7 @@ class Blocks {
 		wp_register_script(
 			'block-editors',
 			get_template_directory_uri() . "/assets/js/blocks.${type}.js",
-			[ 'wp-block-editor', 'wp-element', 'wp-components', 'wp-data' ],
+			[ 'wp-block-editor', 'wp-element', 'wp-components', 'wp-data', 'lodash' ],
 			THEME_VERSION,
 			true
 		);

@@ -254,6 +254,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+var _lodash = lodash,
+    startCase = _lodash.startCase;
 var registerBlockType = wp.blocks.registerBlockType;
 var createElement = wp.element.createElement;
 var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
@@ -366,11 +368,13 @@ registerBlockType(CHILD_BLOCK, {
       value: props.attributes.icon,
       options: [{
         value: null,
-        label: 'Select an Icon'
+        label: 'Select an Icon',
+        key: '_placeholder'
       }].concat(_toConsumableArray(blockEditorVars.iconOptions.map(function (option) {
         return {
           value: option,
-          label: option
+          label: startCase(option),
+          key: option
         };
       }))),
       onChange: updateIcon
@@ -380,7 +384,7 @@ registerBlockType(CHILD_BLOCK, {
       className: "tile"
     }, isEmpty ? /*#__PURE__*/React.createElement("span", {
       className: "placeholder"
-    }, "Set tile values in control panel to your right.") : [getIconEl(props.attributes), /*#__PURE__*/React.createElement("span", null, label)])));
+    }, "Set tile values in control panel to your right.") : null, !isEmpty ? getIconEl(props.attributes) : null, !isEmpty ? /*#__PURE__*/React.createElement("span", null, label) : null)));
   },
   save: function save(props) {
     return /*#__PURE__*/React.createElement("a", {

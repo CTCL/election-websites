@@ -1,3 +1,4 @@
+const { startCase } = lodash;
 const { registerBlockType } = wp.blocks;
 const { createElement } = wp.element;
 
@@ -108,9 +109,9 @@ registerBlockType( CHILD_BLOCK, {
 								label="Icon"
 								value={props.attributes.icon}
 								options={[
-									{ value: null, label: 'Select an Icon' },
+									{ value: null, label: 'Select an Icon', key: '_placeholder' },
 									...blockEditorVars.iconOptions.map( option => ( {
-										value: option, label: option
+										value: option, label: startCase( option ), key: option
 									} ) )
 								]}
 								onChange={updateIcon}
@@ -118,14 +119,12 @@ registerBlockType( CHILD_BLOCK, {
 						</PanelRow>
 					</PanelBody>
 				</div>
-
 			</InspectorControls>
 			<div className="tile-nav-block-editor">
 				<div className="tile">
-					{isEmpty ? <span className="placeholder">Set tile values in control panel to your right.</span> : [
-						getIconEl( props.attributes ),
-						<span>{label}</span>
-					]}
+					{isEmpty ? <span className="placeholder">Set tile values in control panel to your right.</span> : null }
+					{! isEmpty ? getIconEl( props.attributes ) : null}
+					{! isEmpty ? <span>{label}</span> : null}
 				</div>
 			</div>
 		</div>;

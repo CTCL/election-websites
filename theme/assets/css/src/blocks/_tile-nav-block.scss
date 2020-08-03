@@ -1,4 +1,4 @@
-%tile {
+%tile-default {
 	border-width: 1px;
 	border-style: solid;
 	display: grid;
@@ -6,41 +6,15 @@
 	align-content: center;
 	justify-content: center;
 	grid-row-gap: 18px;
-	width: $tile-width;
-	height: $tile-height;
-
-	&:hover {
-		cursor: pointer;
-	}
-
-	@include breakpoint(desktop) {
-		width: $tile-width-desktop;
-		height: $tile-height-desktop;
-
-		.wp-admin & {
-			width: $tile-width;
-			height: $tile-height;
-		}
-	}
-
 	box-sizing: border-box;
 	border-radius: 2px;
-	padding: 14px;
-	font-size: 16px;
-
-	@include breakpoint (desktop) {
-		padding: 14px 42px;
-		font-size: 20px;
-	}
-
 	line-height: 20px;
 	font-weight: 600;
 	text-align: center;
 	text-decoration: none;
 
-	@media (max-width: 350px) {
-		width: 40vw;
-		height: 40vw;
+	&:hover {
+		cursor: pointer;
 	}
 
 	img {
@@ -58,6 +32,18 @@
 	}
 }
 
+$tile-padding-desktop: 14px 42px;
+$tile-font-size-desktop: 20px;
+$tile-padding-tablet: 14px 5px;
+$tile-font-size-tablet: 16px;
+
+%tile-tablet {
+	width: $tile-width;
+	height: $tile-height;
+	padding: $tile-padding-tablet;
+	font-size: $tile-font-size-tablet;
+}
+
 %tile-nav-block {
 	display: inline-grid;
 	grid-template-columns: repeat(4, $tile-width);
@@ -70,7 +56,20 @@
 	grid-row-gap: 16px;
 
 	.tile {
-		@extend %tile;
+		@extend %tile-default;
+		@extend %tile-tablet;
+
+		@include breakpoint(desktop) {
+			width: $tile-width-desktop;
+			height: $tile-height-desktop;
+			padding: $tile-padding-desktop;
+			font-size: $tile-font-size-desktop;
+		}
+
+		@media (max-width: 350px) {
+			width: 40vw;
+			height: 40vw;
+		}
 	}
 }
 
