@@ -85,6 +85,15 @@
 
 		.accordion-section-content {
 			padding-bottom: 18px;
+
+			ul,
+			ol {
+				padding-left: 20px;
+
+				li {
+					list-style-position: outside;
+				}
+			}
 		}
 
 		.accordion-section-header:not(.open) + .accordion-section-content {
