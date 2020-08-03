@@ -60,7 +60,7 @@ registerBlockType( CHILD_BLOCK, {
 			{ hasIconTag( props.attributes ) ?
 				<InspectorControls>
 					<PanelBody
-						title="Specify section settings"
+						title="Section"
 						initialOpen={true}>
 						<PanelRow>
 							<SelectControl
