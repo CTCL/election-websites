@@ -350,18 +350,18 @@ registerBlockType(CHILD_BLOCK, {
     return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement("div", {
       className: "tile-nav-settings"
     }, /*#__PURE__*/React.createElement(PanelBody, {
-      title: "Specify tile values",
+      title: "Tile",
       initialOpen: true
     }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(TextControl, {
       label: "Label",
       placeholder: "Enter Label",
       onChange: updateLabel,
       value: props.attributes.label
-    }), /*#__PURE__*/React.createElement(URLInput, {
+    })), /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(URLInput, {
       label: "Page",
       value: props.attributes.url,
       onChange: updateLink
-    }), /*#__PURE__*/React.createElement(SelectControl, {
+    })), /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(SelectControl, {
       label: "Icon",
       value: props.attributes.icon,
       options: [{
