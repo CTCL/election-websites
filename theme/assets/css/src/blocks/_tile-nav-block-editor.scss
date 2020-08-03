@@ -41,3 +41,30 @@
 .tile-nav-block-editor-wrapper[data-type="ctcl-election-website/tile-nav-section-block"]::before {
 	width: 972px;
 }
+
+.tile-nav-settings {
+	.components-base-control {
+		display: block;
+		margin-bottom: 16px;
+
+		.components-base-control__field {
+			margin-bottom: 0;
+		}
+	}
+
+	div[class*="__suggestions"] {
+		width: auto;
+	}
+
+	.components-panel__row {
+		display: block;
+
+		input[type="text"] {
+			width: 100%;
+		}
+	}
+
+	.components-popover:not([data-y-axis="middle"])[data-x-axis="left"] .components-popover__content {
+		margin-right: -134px;
+	}
+}

@@ -345,7 +345,9 @@ registerBlockType(CHILD_BLOCK, {
         label = _props$attributes.label,
         icon = _props$attributes.icon;
     var isEmpty = !label && !icon;
-    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement("div", {
+      className: "tile-nav-settings"
+    }, /*#__PURE__*/React.createElement(PanelBody, {
       title: "Specify tile values",
       initialOpen: true
     }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(TextControl, {
@@ -370,7 +372,7 @@ registerBlockType(CHILD_BLOCK, {
         };
       }))),
       onChange: updateIcon
-    })))), /*#__PURE__*/React.createElement("div", {
+    }))))), /*#__PURE__*/React.createElement("div", {
       className: "tile-nav-block-editor"
     }, /*#__PURE__*/React.createElement("div", {
       className: "tile"

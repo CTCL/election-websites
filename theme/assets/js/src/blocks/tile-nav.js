@@ -88,30 +88,33 @@ registerBlockType( CHILD_BLOCK, {
 
 		return <div>
 			<InspectorControls>
-				<PanelBody title="Specify tile values" initialOpen={true}>
-					<PanelRow>
-						<TextControl
-							label="Label"
-							placeholder="Enter Label"
-							onChange={updateLabel}
-							value={props.attributes.label} />
-						<URLInput
-							label="Page"
-							value={props.attributes.url}
-							onChange={updateLink} />
-						<SelectControl
-							label="Icon"
-							value={props.attributes.icon}
-							options={[
-								{ value: null, label: 'Select an Icon' },
-								...blockEditorVars.iconOptions.map( option => ( {
-									value: option, label: option
-								} ) )
-							]}
-							onChange={updateIcon}
-						/>
-					</PanelRow>
-				</PanelBody>
+				<div className="tile-nav-settings">
+					<PanelBody title="Specify tile values" initialOpen={true}>
+						<PanelRow>
+							<TextControl
+								label="Label"
+								placeholder="Enter Label"
+								onChange={updateLabel}
+								value={props.attributes.label} />
+							<URLInput
+								label="Page"
+								value={props.attributes.url}
+								onChange={updateLink} />
+							<SelectControl
+								label="Icon"
+								value={props.attributes.icon}
+								options={[
+									{ value: null, label: 'Select an Icon' },
+									...blockEditorVars.iconOptions.map( option => ( {
+										value: option, label: option
+									} ) )
+								]}
+								onChange={updateIcon}
+							/>
+						</PanelRow>
+					</PanelBody>
+				</div>
+
 			</InspectorControls>
 			<div className="tile-nav-block-editor">
 				<div className="tile">

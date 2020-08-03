@@ -135,6 +135,31 @@
   width: 972px;
 }
 
+.tile-nav-settings .components-base-control {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.tile-nav-settings .components-base-control .components-base-control__field {
+  margin-bottom: 0;
+}
+
+.tile-nav-settings div[class*="__suggestions"] {
+  width: auto;
+}
+
+.tile-nav-settings .components-panel__row {
+  display: block;
+}
+
+.tile-nav-settings .components-panel__row input[type="text"] {
+  width: 100%;
+}
+
+.tile-nav-settings .components-popover:not([data-y-axis="middle"])[data-x-axis="left"] .components-popover__content {
+  margin-right: -134px;
+}
+
 .office-info {
   margin-top: 40px;
   margin-left: 10px;
