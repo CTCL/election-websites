@@ -1,6 +1,8 @@
 const { registerBlockType } = wp.blocks;
 const { createElement } = wp.element;
 
+const { createHigherOrderComponent } = wp.compose;
+
 const { InspectorControls, InnerBlocks, RichText, URLInput } = wp.blockEditor;
 const { PanelBody, PanelRow, SelectControl, TextControl } = wp.components;
 
@@ -12,7 +14,6 @@ const getIconEl = ( attributes ) => {
 	if ( icon ) {
 		const iconUrl = `${blockEditorVars.baseUrl}/${icon}.svg`;
 		return createElement( 'img', {
-			width: 50,
 			height: 50,
 			src: iconUrl
 		} );
@@ -87,30 +88,33 @@ registerBlockType( CHILD_BLOCK, {
 
 		return <div>
 			<InspectorControls>
-				<PanelBody title="Specify tile values" initialOpen={true}>
-					<PanelRow>
-						<TextControl
-							label="Label"
-							placeholder="Enter Label"
-							onChange={updateLabel}
-							value={props.attributes.label} />
-						<URLInput
-							label="Page"
-							value={props.attributes.url}
-							onChange={updateLink} />
-						<SelectControl
-							label="Icon"
-							value={props.attributes.icon}
-							options={[
-								{ value: null, label: 'Select an Icon' },
-								...blockEditorVars.iconOptions.map( option => ( {
-									value: option, label: option
-								} ) )
-							]}
-							onChange={updateIcon}
-						/>
-					</PanelRow>
-				</PanelBody>
+				<div className="tile-nav-settings">
+					<PanelBody title="Specify tile values" initialOpen={true}>
+						<PanelRow>
+							<TextControl
+								label="Label"
+								placeholder="Enter Label"
+								onChange={updateLabel}
+								value={props.attributes.label} />
+							<URLInput
+								label="Page"
+								value={props.attributes.url}
+								onChange={updateLink} />
+							<SelectControl
+								label="Icon"
+								value={props.attributes.icon}
+								options={[
+									{ value: null, label: 'Select an Icon' },
+									...blockEditorVars.iconOptions.map( option => ( {
+										value: option, label: option
+									} ) )
+								]}
+								onChange={updateIcon}
+							/>
+						</PanelRow>
+					</PanelBody>
+				</div>
+
 			</InspectorControls>
 			<div className="tile-nav-block-editor">
 				<div className="tile">
@@ -121,40 +125,6 @@ registerBlockType( CHILD_BLOCK, {
 				</div>
 			</div>
 		</div>;
-
-		// return createElement( 'div',
-		// 	{
-		// 		className: 'tile-nav-block-editor'
-		// 	},
-		// 	createElement( wp.blockEditor.URLInput,
-		// 		{
-		// 			onChange: updateLink,
-		// 			value: props.attributes.url,
-		// 			label: 'Link'
-		// 		}
-		// 	),
-		// 	createElement( wp.components.TextControl,
-		// 		{
-		// 			label: 'Label',
-		// 			placeholder: 'Enter label',
-		// 			onChange: updateLabel,
-		// 			value: props.attributes.label
-		// 		}
-		// 	),
-		// 	createElement( wp.components.SelectControl,
-		// 		{
-		// 			onChange: updateIcon,
-		// 			options: [
-		// 				{ value: '', label: 'Select an Icon' },
-		// 				...blockEditorVars.iconOptions.map( option => ( {
-		// 					value: option, label: option
-		// 				} ) )
-		// 			],
-		// 			label: 'Icon',
-		// 			value: props.attributes.icon
-		// 		}
-		// 	)
-		// );
 	},
 
 	save: function( props ) {
@@ -164,3 +134,12 @@ registerBlockType( CHILD_BLOCK, {
 		</a>;
 	}
 } );
+
+const withClientIdClassName = createHigherOrderComponent( ( BlockListBlock ) => {
+	return ( props ) => {
+		return <BlockListBlock { ...props } className={ 'tile-nav-block-editor-wrapper' } />;
+	};
+}, 'withClientIdClassName' );
+
+wp.hooks.addFilter( 'editor.BlockListBlock', PARENT_BLOCK, withClientIdClassName );
+

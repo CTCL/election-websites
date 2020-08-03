@@ -252,7 +252,7 @@ class Hooks {
 	 */
 	public static function set_image_sizes() {
 		add_image_size( 'header-icon', 56, 56 );
-		add_image_size( 'banner', 228, 228 );
+		add_image_size( 'banner', 244, 244 );
 	}
 
 	/**

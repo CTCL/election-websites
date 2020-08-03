@@ -34,13 +34,6 @@
   margin-top: -28px;
 }
 
-.tile-wrapper, .tile-nav-block-editor {
-  display: inline-grid;
-  grid-template-columns: repeat(4, 171px);
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
-}
-
 .tile-wrapper .tile, .tile-nav-block-editor .tile {
   border-width: 1px;
   border-style: solid;
@@ -49,12 +42,12 @@
   align-content: center;
   justify-content: center;
   grid-row-gap: 18px;
-  width: 171px;
-  height: 158px;
+  width: 224px;
+  height: 200px;
   box-sizing: border-box;
   border-radius: 2px;
-  padding: 14px;
-  font-size: 16px;
+  padding: 14px 42px;
+  font-size: 20px;
   line-height: 20px;
   font-weight: 600;
   text-align: center;
@@ -83,6 +76,13 @@
 }
 
 .tile-wrapper {
+  display: inline-grid;
+  grid-template-columns: repeat(4, 224px);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+.tile-wrapper {
   margin: 24px 0;
 }
 
@@ -92,8 +92,7 @@
 
 @media (max-width: 767px) {
   .tile-wrapper {
-    margin: 0;
-    grid-template-columns: repeat(2, 171px);
+    grid-template-columns: repeat(2, 224px);
   }
 }
 
@@ -105,6 +104,60 @@
 
 .tile-nav-block-editor .placeholder {
   color: #b7bccd;
+}
+
+.tile-nav-block-editor ::before {
+  width: 252px;
+}
+
+.tile-nav-section-block-editor .block-editor-block-list__block {
+  margin: 0;
+}
+
+.tile-nav-section-block-editor .block-editor-block-list__layout {
+  display: grid;
+  grid-template-columns: repeat(4, 224px);
+  grid-column-gap: 16px;
+  grid-row-gap: 18px;
+}
+
+.tile-nav-section-block-editor .block-list-appender {
+  margin: auto;
+}
+
+.tile-nav-section-block-editor .block-list-appender button {
+  width: 224px;
+  height: 200px;
+  margin: auto;
+}
+
+.tile-nav-block-editor-wrapper[data-type="ctcl-election-website/tile-nav-section-block"]::before {
+  width: 972px;
+}
+
+.tile-nav-settings .components-base-control {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.tile-nav-settings .components-base-control .components-base-control__field {
+  margin-bottom: 0;
+}
+
+.tile-nav-settings div[class*="__suggestions"] {
+  width: auto;
+}
+
+.tile-nav-settings .components-panel__row {
+  display: block;
+}
+
+.tile-nav-settings .components-panel__row input[type="text"] {
+  width: 100%;
+}
+
+.tile-nav-settings .components-popover:not([data-y-axis="middle"])[data-x-axis="left"] .components-popover__content {
+  margin-right: -134px;
 }
 
 .office-info {
@@ -154,7 +207,40 @@
   background-image: url(../images/office/phone.svg);
 }
 
+.accordion-section-editor .header-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accordion-section-editor .header-wrapper img {
+  margin-right: 18px;
+}
+
+.accordion-section-editor .header-wrapper h3 {
+  flex: 1;
+}
+
+.accordion-section-editor .header-wrapper::after {
+  border-style: solid;
+  border-width: 0 0 3px 3px;
+  content: '';
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  right: 5px;
+  position: relative;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  transition: all 0.5s;
+  top: 35px;
+}
+
 #editor .wp-block-group {
   border-top-width: 3px;
   border-top-style: solid;
+  width: 944px;
+}
+
+#editor .wp-block {
+  max-width: 944px;
 }

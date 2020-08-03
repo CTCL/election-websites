@@ -3,10 +3,16 @@
 @import "blocks/numbered-section-block-editor";
 @import "blocks/tile-nav-block-editor";
 @import "blocks/office-info";
+@import "blocks/accordion-block-editor";
 
 #editor {
 	.wp-block-group {
 		border-top-width: 3px;
 		border-top-style: solid;
+		width: 944px;
+	}
+
+	.wp-block {
+		max-width: 944px;
 	}
 }
