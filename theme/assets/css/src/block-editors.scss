@@ -9,14 +9,19 @@
 	.wp-block-group {
 		border-top-width: 3px;
 		border-top-style: solid;
+		width: $content-width-desktop;
+
+		@include breakpoint(tablet) {
+			width: $content-width-tablet;
+		}
 	}
 
 	.wp-block-group,
 	.wp-block {
 		@include breakpoint(tablet) {
-			width: $content-width-tablet;
+			max-width: $content-width-tablet;
 		}
 
-		width: $content-width-desktop;
+		max-width: $content-width-desktop;
 	}
 }

@@ -118,7 +118,6 @@ registerBlockType( CHILD_BLOCK, {
 						</PanelRow>
 					</PanelBody>
 				</div>
-
 			</InspectorControls>
 			<div className="tile-nav-block-editor">
 				<div className="tile">

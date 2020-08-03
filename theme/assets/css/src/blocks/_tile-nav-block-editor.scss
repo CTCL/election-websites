@@ -3,7 +3,11 @@
 
 .tile-nav-block-editor {
 	.tile {
-		@extend %tile;
+		@extend %tile-larger;
+
+		@include breakpoint(tablet) {
+			@extend %tile-smaller;
+		}
 	}
 
 	.placeholder {
@@ -12,6 +16,9 @@
 
 	::before {
 		width: 252px;
+		@include breakpoint(tablet) {
+			width: 180px;
+		}
 	}
 }
 
@@ -22,9 +29,9 @@
 
 	.block-editor-block-list__layout {
 		display: grid;
-		grid-template-columns: repeat(4, 224px);
+		grid-template-columns: repeat(4, $tile-width-desktop);
 
-		.wp-admin & {
+		@include breakpoint(tablet) {
 			grid-template-columns: repeat(4, $tile-width);
 		}
 
@@ -36,12 +43,13 @@
 		margin: auto;
 
 		button {
-			width: $tile-width;
-			height: $tile-height;
+			width: $tile-width-desktop;
+			height: $tile-height-desktop;
 
-			@include breakpoint(desktop) {
-				width: $tile-width-desktop;
-				height: $tile-height-desktop;
+			@include breakpoint(tablet) {
+				width: $tile-width;
+				height: $tile-height;
+				font-size: 18px;
 			}
 
 			margin: auto;
