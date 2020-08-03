@@ -95,7 +95,9 @@ registerBlockType(CHILD_BLOCK, {
           icon: val
         });
       }
-    })))) : /*#__PURE__*/React.createElement(React.Fragment, null), getIconEl(props.attributes), /*#__PURE__*/React.createElement(RichText, {
+    })))) : /*#__PURE__*/React.createElement(React.Fragment, null), /*#__PURE__*/React.createElement("div", {
+      class: "header-wrapper"
+    }, getIconEl(props.attributes), /*#__PURE__*/React.createElement(RichText, {
       className: "accordion-section-header",
       tagName: props.attributes.headerTag,
       onChange: function onChange(val) {
@@ -105,7 +107,7 @@ registerBlockType(CHILD_BLOCK, {
       },
       value: props.attributes.heading,
       placeholder: "Enter header here..."
-    }), /*#__PURE__*/React.createElement(InnerBlocks, {
+    })), /*#__PURE__*/React.createElement(InnerBlocks, {
       className: "accordion-section-content-editor"
     }));
   },

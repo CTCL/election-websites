@@ -79,14 +79,16 @@ registerBlockType( CHILD_BLOCK, {
 				</InspectorControls> :
 				<></>
 			}
-			{ getIconEl( props.attributes ) }
-			<RichText
-				className="accordion-section-header"
-				tagName={props.attributes.headerTag}
-				onChange={( val ) => props.setAttributes( { heading: val } ) }
-				value={props.attributes.heading}
-				placeholder="Enter header here...">
-			</RichText>
+			<div class="header-wrapper">
+				{ getIconEl( props.attributes ) }
+				<RichText
+					className="accordion-section-header"
+					tagName={props.attributes.headerTag}
+					onChange={( val ) => props.setAttributes( { heading: val } ) }
+					value={props.attributes.heading}
+					placeholder="Enter header here...">
+				</RichText>
+			</div>
 			<InnerBlocks
 				className="accordion-section-content-editor" />
 		</div>;
