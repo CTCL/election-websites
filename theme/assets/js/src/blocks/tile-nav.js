@@ -122,10 +122,9 @@ registerBlockType( CHILD_BLOCK, {
 			</InspectorControls>
 			<div className="tile-nav-block-editor">
 				<div className="tile">
-					{isEmpty ? <span className="placeholder">Set tile values in control panel to your right.</span> : [
-						getIconEl( props.attributes ),
-						<span>{label}</span>
-					]}
+					{isEmpty ? <span className="placeholder">Set tile values in control panel to your right.</span> : null }
+					{! isEmpty ? getIconEl( props.attributes ) : null}
+					{! isEmpty ? <span>{label}</span> : null}
 				</div>
 			</div>
 		</div>;
