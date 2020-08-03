@@ -25,7 +25,7 @@
 
 	box-sizing: border-box;
 	border-radius: 2px;
-	padding: 14px;
+	padding: 14px 5px;
 	font-size: 16px;
 
 	@include breakpoint (desktop) {
