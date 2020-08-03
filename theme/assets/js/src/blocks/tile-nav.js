@@ -89,17 +89,21 @@ registerBlockType( CHILD_BLOCK, {
 		return <div>
 			<InspectorControls>
 				<div className="tile-nav-settings">
-					<PanelBody title="Specify tile values" initialOpen={true}>
+					<PanelBody title="Tile" initialOpen={true}>
 						<PanelRow>
 							<TextControl
 								label="Label"
 								placeholder="Enter Label"
 								onChange={updateLabel}
 								value={props.attributes.label} />
+						</PanelRow>
+						<PanelRow>
 							<URLInput
 								label="Page"
 								value={props.attributes.url}
 								onChange={updateLink} />
+						</PanelRow>
+						<PanelRow>
 							<SelectControl
 								label="Icon"
 								value={props.attributes.icon}
