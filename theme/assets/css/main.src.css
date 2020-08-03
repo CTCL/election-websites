@@ -986,6 +986,16 @@ main {
   padding-bottom: 18px;
 }
 
+.accordion-group .accordion-section-wrapper .accordion-section-content ul,
+.accordion-group .accordion-section-wrapper .accordion-section-content ol {
+  padding-left: 20px;
+}
+
+.accordion-group .accordion-section-wrapper .accordion-section-content ul li,
+.accordion-group .accordion-section-wrapper .accordion-section-content ol li {
+  list-style-position: outside;
+}
+
 .accordion-group .accordion-section-wrapper .accordion-section-header:not(.open) + .accordion-section-content {
   display: none;
 }
