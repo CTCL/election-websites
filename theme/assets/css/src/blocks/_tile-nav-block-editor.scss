@@ -1,12 +1,23 @@
 @import '../utility/variables';
 @import './tile-nav-block';
 
+%tile-desktop {
+	width: $tile-width-desktop;
+	height: $tile-height-desktop;
+	padding: $tile-padding-desktop;
+	font-size: $tile-font-size-desktop;
+}
+
 .tile-nav-block-editor {
 	.tile {
-		@extend %tile-larger;
+		@extend %tile-default;
+		@extend %tile-desktop;
 
 		@include breakpoint(tablet) {
-			@extend %tile-smaller;
+			width: $tile-width;
+			height: $tile-height;
+			padding: $tile-padding-tablet;
+			font-size: $tile-font-size-tablet;
 		}
 	}
 
@@ -16,6 +27,7 @@
 
 	::before {
 		width: 252px;
+
 		@include breakpoint(tablet) {
 			width: 180px;
 		}
