@@ -19,6 +19,14 @@ $tint-percent: 20;
 
 // Sizes
 $header-height: 90px;
-$tile-width: 224px;
-$tile-height: 200px;
 $border-radius: 4px;
+$content-width-tablet: 732px;
+$content-width-desktop: 944px;
+
+// mobile + tablet tiles
+$tile-width: 171px;
+$tile-height: 158px;
+
+// desktop tiles
+$tile-width-desktop: 224px;
+$tile-height-desktop: 200px;
