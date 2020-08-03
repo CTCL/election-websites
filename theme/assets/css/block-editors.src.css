@@ -207,16 +207,12 @@
   background-image: url(../images/office/phone.svg);
 }
 
-#editor {
-  width: 944px;
-  max-width: 944px;
-}
-
 #editor .wp-block-group {
   border-top-width: 3px;
   border-top-style: solid;
+  width: 944px;
 }
 
-.block-editor-writing-flow {
-  width: 1400px;
+#editor .wp-block {
+  max-width: 944px;
 }
