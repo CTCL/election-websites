@@ -32,7 +32,7 @@ class Blocks {
 		wp_register_script(
 			'block-editors',
 			get_template_directory_uri() . "/assets/js/blocks.${type}.js",
-			[ 'wp-block-editor', 'wp-element', 'wp-components', 'wp-data', 'lodash' ],
+			[ 'wp-block-editor', 'wp-element', 'wp-components', 'wp-data' ],
 			THEME_VERSION,
 			true
 		);
@@ -52,29 +52,98 @@ class Blocks {
 			[
 				'iconOptions' =>
 					[
-						'accessible-voting',
-						'add-to-the-ballot',
-						'become-a-poll-worker',
-						'becoming-a-candidate',
-						'campaign-resources',
-						'check-registration-status',
-						'elected-officials',
-						'election-calendar',
-						'military',
-						'news',
-						'open-offices',
-						'petitions-and-recalls',
-						'polling-locations',
-						'register-by-mail',
-						'register-online',
-						'register-to-vote',
-						'sample-ballot',
-						'view-election-results',
-						'vote-by-mail',
-						'voter-info',
-						'voters-choice',
-						'voting-locations',
-						'whats-on-the-ballot',
+						(object) [
+							'value' => 'accessible-voting',
+							'label' => 'Accessible Voting',
+						],
+						(object) [
+							'value' => 'add-to-the-ballot',
+							'label' => 'Add to the Ballot',
+						],
+						(object) [
+							'value' => 'become-a-poll-worker',
+							'label' => 'Become a Poll Worker',
+						],
+						(object) [
+							'value' => 'becoming-a-candidate',
+							'label' => 'Becoming a Candidate',
+						],
+						(object) [
+							'value' => 'campaign-resources',
+							'label' => 'Campaign Resources',
+						],
+						(object) [
+							'value' => 'check-registration-status',
+							'label' => 'Check Registration Status',
+						],
+						(object) [
+							'value' => 'elected-officials',
+							'label' => 'Elected Officials',
+						],
+						(object) [
+							'value' => 'election-calendar',
+							'label' => 'Calendar',
+						],
+						(object) [
+							'value' => 'military',
+							'label' => 'Military',
+						],
+						(object) [
+							'value' => 'news',
+							'label' => 'News',
+						],
+						(object) [
+							'value' => 'open-offices',
+							'label' => 'Open Offices',
+						],
+						(object) [
+							'value' => 'petitions-and-recalls',
+							'label' => 'Petitions and Recalls',
+						],
+						(object) [
+							'value' => 'polling-locations',
+							'label' => 'Polling Locations',
+						],
+						(object) [
+							'value' => 'register-by-mail',
+							'label' => 'Register by Mail',
+						],
+						(object) [
+							'value' => 'register-online',
+							'label' => 'Register Online',
+						],
+						(object) [
+							'value' => 'register-to-vote',
+							'label' => 'Register to Vote',
+						],
+						(object) [
+							'value' => 'sample-ballot',
+							'label' => 'Sample Ballot',
+						],
+						(object) [
+							'value' => 'view-election-results',
+							'label' => 'View Election Results',
+						],
+						(object) [
+							'value' => 'vote-by-mail',
+							'label' => 'Vote by Mail',
+						],
+						(object) [
+							'value' => 'voter-info',
+							'label' => 'Voter Info',
+						],
+						(object) [
+							'value' => 'voters-choice',
+							'label' => 'Voter\'s Choice',
+						],
+						(object) [
+							'value' => 'voting-locations',
+							'label' => 'Voting Locations',
+						],
+						(object) [
+							'value' => 'whats-on-the-ballot',
+							'label' => 'What\'s on the Ballot',
+						],
 					],
 				'baseUrl'     => $base_url . $theme,
 			]

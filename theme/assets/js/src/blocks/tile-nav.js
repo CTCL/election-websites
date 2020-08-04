@@ -1,4 +1,3 @@
-const { startCase } = lodash;
 const { registerBlockType } = wp.blocks;
 const { createElement } = wp.element;
 
@@ -111,7 +110,7 @@ registerBlockType( CHILD_BLOCK, {
 								options={[
 									{ value: null, label: 'Select an Icon', key: '_placeholder' },
 									...blockEditorVars.iconOptions.map( option => ( {
-										value: option, label: startCase( option ), key: option
+										value: option.value, label: option.label, key: option.value
 									} ) )
 								]}
 								onChange={updateIcon}
