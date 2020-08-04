@@ -239,7 +239,8 @@ main .office-info h3::before {
   content: '';
   background-repeat: no-repeat;
   display: inline-block;
-  height: 35px;
+  background-size: contain;
+  height: 40px;
   width: 50px;
   margin-left: -40px;
   margin-bottom: -14px;
@@ -255,7 +256,7 @@ main .office-info h3.email::before {
 }
 
 main .office-info h3.hours::before {
-  background-image: url(../images/office/email.svg);
+  background-image: url(../images/office/hours.svg);
 }
 
 main .office-info h3.location::before {
