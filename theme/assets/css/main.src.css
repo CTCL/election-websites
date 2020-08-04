@@ -379,10 +379,19 @@ header .header-wrapper .icon-bars .icon-bar.bar-bottom {
   margin-top: 12px;
 }
 
+header img,
+header .site-title {
+  display: inline-block;
+}
+
+header img {
+  margin-right: 16px;
+}
+
 header .site-title-wrapper {
   display: flex;
   align-items: center;
-  max-width: 250px;
+  max-width: 350px;
 }
 
 @media (max-width: 767px) {
@@ -393,13 +402,8 @@ header .site-title-wrapper {
   }
 }
 
-header img,
-header .site-title {
-  display: inline-block;
-}
-
-header img {
-  margin-right: 16px;
+header .site-title-wrapper .site-title {
+  font-weight: bold;
 }
 
 header nav {
@@ -795,7 +799,7 @@ main ul a {
 
 main {
   font-size: 18px;
-  line-height: 24px;
+  line-height: 26px;
   padding: 32px 0;
 }
 
@@ -1392,13 +1396,14 @@ h2 {
   line-height: 38px;
 }
 
+p.office-title,
+header h1,
+header .site-title,
 h3 {
   font-size: 18px;
   line-height: 22px;
 }
 
-p.office-title,
-header h1,
 h4 {
   font-size: 16px;
   line-height: 22px;
