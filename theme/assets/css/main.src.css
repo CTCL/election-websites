@@ -645,6 +645,7 @@ figure.wp-block-table td {
 
 .contact-form {
   width: 90%;
+  margin-top: 32px;
 }
 
 @media (max-width: 767px) {

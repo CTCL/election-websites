@@ -48,6 +48,7 @@ main .office-info h3.phone::before {
 
 .contact-form {
   width: 90%;
+  margin-top: 32px;
 }
 
 @media (max-width: 767px) {
