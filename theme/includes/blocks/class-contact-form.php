@@ -204,18 +204,19 @@ class Contact_Form {
 
 			<p>
 				<label for="contact-fullname">Name</label>
-				<input id="contact-fullname" type="text" name="fullname" value="<?php echo esc_attr( $attr['fullname'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'fullname' ); ?>/>
 				<?php \CTCL\Elections\Helpers::error_message( $errors, 'fullname' ); ?>
+				<input id="contact-fullname" type="text" name="fullname" value="<?php echo esc_attr( $attr['fullname'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'fullname' ); ?>/>
 			</p>
 
 			<p>
 				<label for="contact-name">Email address</label>
-				<input id="contact-email" type="text" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'email' ); ?>/>
 				<?php \CTCL\Elections\Helpers::error_message( $errors, 'email' ); ?>
+				<input id="contact-email" type="text" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'email' ); ?>/>
 			</p>
 
 			<p class="select-wrapper">
 				<label for="contact-topic">Topic</label>
+				<?php \CTCL\Elections\Helpers::error_message( $errors, 'topic' ); ?>
 				<select id="topic" name="topic" <?php \CTCL\Elections\Helpers::error_class( $errors, 'topic' ); ?>>
 					<?php
 					foreach ( self::topic_list() as $current_topic ) {
@@ -223,13 +224,12 @@ class Contact_Form {
 					}
 					?>
 				</select>
-				<?php \CTCL\Elections\Helpers::error_message( $errors, 'topic' ); ?>
 			</p>
 
 			<p>
 				<label for="contact-message">Message</label>
-				<textarea id="contact-message" name="message" rows="10" cols="30" <?php \CTCL\Elections\Helpers::error_class( $errors, 'message' ); ?>><?php echo esc_textarea( $attr['message'] ); ?></textarea>
 				<?php \CTCL\Elections\Helpers::error_message( $errors, 'message' ); ?>
+				<textarea id="contact-message" name="message" rows="10" cols="30" <?php \CTCL\Elections\Helpers::error_class( $errors, 'message' ); ?>><?php echo esc_textarea( $attr['message'] ); ?></textarea>
 			</p>
 
 

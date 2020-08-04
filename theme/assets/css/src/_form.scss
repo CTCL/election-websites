@@ -59,12 +59,22 @@
 		pointer-events: none;
 	}
 
+	span.error,
 	p.error {
 		font-weight: bold;
 		padding: 5px 10px;
 		background-image: svg('assets/images/error.svg');
 		background-repeat: no-repeat;
-		background-position: 5px;
+	}
+
+	p.error {
+		background-position: 8px;
+		text-indent: 30px;
+	}
+
+	span.error {
+		display: block;
+		background-position: 0;
 		text-indent: 20px;
 	}
 }
