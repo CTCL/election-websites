@@ -203,20 +203,26 @@ class Contact_Form {
 			?>
 
 			<p>
-				<label for="contact-fullname">Name</label>
-				<?php \CTCL\Elections\Helpers::error_message( $errors, 'fullname' ); ?>
+				<label for="contact-fullname">
+					Name
+					<?php \CTCL\Elections\Helpers::error_message( $errors, 'fullname' ); ?>
+				</label>
 				<input id="contact-fullname" type="text" name="fullname" value="<?php echo esc_attr( $attr['fullname'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'fullname' ); ?>/>
 			</p>
 
 			<p>
-				<label for="contact-name">Email address</label>
-				<?php \CTCL\Elections\Helpers::error_message( $errors, 'email' ); ?>
+				<label for="contact-name">
+					Email address
+					<?php \CTCL\Elections\Helpers::error_message( $errors, 'email' ); ?>
+				</label>
 				<input id="contact-email" type="text" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'email' ); ?>/>
 			</p>
 
 			<p class="select-wrapper">
-				<label for="contact-topic">Topic</label>
-				<?php \CTCL\Elections\Helpers::error_message( $errors, 'topic' ); ?>
+				<label for="contact-topic">
+					Topic
+					<?php \CTCL\Elections\Helpers::error_message( $errors, 'topic' ); ?>
+				</label>
 				<select id="topic" name="topic" <?php \CTCL\Elections\Helpers::error_class( $errors, 'topic' ); ?>>
 					<?php
 					foreach ( self::topic_list() as $current_topic ) {
@@ -227,8 +233,10 @@ class Contact_Form {
 			</p>
 
 			<p>
-				<label for="contact-message">Message</label>
-				<?php \CTCL\Elections\Helpers::error_message( $errors, 'message' ); ?>
+				<label for="contact-message">
+					Message
+					<?php \CTCL\Elections\Helpers::error_message( $errors, 'message' ); ?>
+				</label>
 				<textarea id="contact-message" name="message" rows="10" cols="30" <?php \CTCL\Elections\Helpers::error_class( $errors, 'message' ); ?>><?php echo esc_textarea( $attr['message'] ); ?></textarea>
 			</p>
 
