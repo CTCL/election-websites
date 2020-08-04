@@ -52,19 +52,33 @@ class Office_Details {
 	/**
 	 * The election office phone number.
 	 *
+	 * @param boolean $link  Whether to render this as a link (instead of plain text).
+	 *
 	 * @return string
 	 */
-	public static function phone() {
-		return get_option( 'ctcl_phone' );
+	public static function phone( $link ) {
+		$phone = get_option( 'ctcl_phone' );
+		if ( ! $phone ) {
+			return;
+		}
+
+		return self::get_link( $phone, 'tel:' . $phone, $link );
 	}
 
 	/**
 	 * The election office fax number.
 	 *
+	 * @param boolean $link  Whether to render this as a link (instead of plain text).
+	 *
 	 * @return string
 	 */
-	public static function fax() {
-		return get_option( 'ctcl_fax' );
+	public static function fax( $link ) {
+		$fax = get_option( 'ctcl_fax' );
+		if ( ! $fax ) {
+			return;
+		}
+
+		return self::get_link( $fax, 'tel:' . $fax, $link );
 	}
 
 	/**
@@ -182,7 +196,7 @@ class Office_Details {
 	 *
 	 * @return string
 	 */
-	public static function get_link( $label, $url, $link, $echo ) {
+	public static function get_link( $label, $url, $link, $echo = false ) {
 		if ( $link ) {
 			$result = sprintf( '<a href="%s">%s</a>', esc_url( $url ), $label );
 		} else {

@@ -13,6 +13,7 @@ $official_title = Office_Details::official_title();
 $twitter        = Office_Details::twitter( true );
 $facebook       = Office_Details::facebook( true );
 $instagram      = Office_Details::instagram( true );
+$phone          = Office_Details::phone( true );
 ?>
 <footer>
 	<div class="footer-content-wrapper">
@@ -27,7 +28,9 @@ $instagram      = Office_Details::instagram( true );
 		</div>
 		<div>
 			<p class="info-item"><?php Office_Details::email_address( true, true ); ?></p>
-			<p class="info-item"><?php echo esc_html( Office_Details::phone() ); ?></p>
+			<?php if ( $phone ) : ?>
+			<p class="info-item"><?php echo wp_kses( $phone, Office_Details::$allowed_link_tags ); ?></p>
+			<?php endif; ?>
 
 			<?php if ( $twitter || $facebook || $instagram ) : ?>
 			<ul class="info-item">

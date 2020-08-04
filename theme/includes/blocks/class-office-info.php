@@ -26,8 +26,8 @@ class Office_Info {
 
 		$contact_info = [
 			'email_address' => \CTCL\Elections\Office_Details::email_address(),
-			'phone'         => \CTCL\Elections\Office_Details::phone(),
-			'fax'           => \CTCL\Elections\Office_Details::fax(),
+			'phone'         => \CTCL\Elections\Office_Details::phone( true ),
+			'fax'           => \CTCL\Elections\Office_Details::fax( true ),
 			'address'       => \CTCL\Elections\Office_Details::address(),
 			'address2'      => \CTCL\Elections\Office_Details::address2(),
 			'city'          => \CTCL\Elections\Office_Details::city(),
@@ -61,13 +61,13 @@ class Office_Info {
 		<p>
 			<?php
 			if ( $contact_info['phone'] ) {
-				echo 'Phone: ' . esc_html( $contact_info['phone'] );
+				echo 'Phone: ' . wp_kses( $contact_info['phone'], Office_Details::$allowed_link_tags );
 			}
 			if ( $contact_info['phone'] && $contact_info['fax'] ) {
 				echo '<br />';
 			}
 			if ( $contact_info['fax'] ) {
-				echo 'Fax: ' . esc_html( $contact_info['fax'] );
+				echo 'Fax: ' . wp_kses( $contact_info['fax'], Office_Details::$allowed_link_tags );
 			}
 			?>
 		</p>
