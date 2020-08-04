@@ -106,7 +106,7 @@
 }
 
 .tile-wrapper {
-  margin: 24px 0;
+  margin: 10px 0 14px;
 }
 
 .home .tile-wrapper {
@@ -292,6 +292,15 @@
   vertical-align: top;
   transition: all 0.5s;
   top: 35px;
+}
+
+.read-more-block-editor .read-more-divider {
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  color: #a0a0a0;
+  text-align: center;
+  margin: 10px 0;
 }
 
 #editor .wp-block-group {

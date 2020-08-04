@@ -69,7 +69,7 @@
 }
 
 .tile-wrapper {
-  margin: 24px 0;
+  margin: 10px 0 14px;
 }
 
 .home .tile-wrapper {
@@ -402,13 +402,13 @@ header img {
   margin-right: 16px;
 }
 
-header [class$="-container"] {
+header nav {
   display: inline-block;
   justify-self: flex-end;
 }
 
 @media (max-width: 767px) {
-  header [class$="-container"] {
+  header nav {
     display: none;
     width: 100%;
   }
@@ -432,7 +432,7 @@ header [class$="-container"] {
 }
 
 @media (max-width: 767px) {
-  .menu header [class$="-container"] {
+  .menu header nav {
     display: inline-block;
   }
 }
@@ -801,8 +801,8 @@ main {
 
 main ul,
 main ol {
-  margin: 8px 0;
   padding-left: 0;
+  margin-top: 0;
 }
 
 main ul li,
@@ -825,7 +825,7 @@ main p {
 }
 
 main .wp-block-group {
-  padding: 20px 0;
+  padding: 24px 0;
   border-top-width: 3px;
   border-top-style: solid;
 }
@@ -840,6 +840,10 @@ main .wp-block-group :first-child {
 
 main .wp-block-group :last-child:not(.tile-wrapper) {
   margin-bottom: 0;
+}
+
+main .wp-block-group h2 {
+  margin-bottom: 12px;
 }
 
 main hr {
@@ -992,6 +996,49 @@ main {
 }
 
 .accordion-group .accordion-section-wrapper .accordion-section-header:not(.open) + .accordion-section-content {
+  display: none;
+}
+
+header .menu, footer .menu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+header .menu .menu-item a, footer .menu .menu-item a {
+  font-weight: normal;
+}
+
+@media (max-width: 767px) {
+  header .menu .menu-item a, footer .menu .menu-item a {
+    font-weight: bold;
+  }
+}
+
+.banner p a, main p a,
+main ul a {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.read-more-block > p {
+  margin: 20px 0;
+}
+
+.read-more-block.less .read-less-link-wrapper {
+  display: none;
+}
+
+.read-more-block.less .read-more-remaining {
+  display: none;
+}
+
+.read-more-block.less .read-more-link::before {
+  content: "\A";
+  white-space: pre;
+}
+
+.read-more-block:not(.less) .read-more-link {
   display: none;
 }
 
@@ -1346,19 +1393,19 @@ h2 {
 }
 
 h3 {
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 p.office-title,
 header h1,
 h4 {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 22px;
 }
 
 h5 {
-  font-size: 18px;
+  font-size: 14px;
   line-height: 22px;
 }
 
