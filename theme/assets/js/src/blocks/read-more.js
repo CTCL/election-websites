@@ -8,14 +8,14 @@ const { InspectorControls, InnerBlocks, RichText, URLInput } = wp.blockEditor;
 const { PanelBody, PanelRow, SelectControl, TextControl } = wp.components;
 
 registerBlockType( 'ctcl-election-website/read-more-block', {
-	title: 'Read More!!!',
-	icon: 'screenoptions',
+	title: 'Read More',
+	icon: 'editor-insertmore',
 	category: 'election-blocks',
 	attributes: {
 		preview: {
 			type: 'array',
 			source: 'children',
-			selector: '.read-more-preview'
+			selector: '.read-more-preview-content'
 		},
 		remaining: {
 			type: 'array',
@@ -25,9 +25,11 @@ registerBlockType( 'ctcl-election-website/read-more-block', {
 	},
 
 	edit: function( props ) {
+		console.log( props.attributes );
+
 		return <div className="read-more-block-editor">
 			<RichText
-				className="read-more-preview"
+				className="read-more-preview-content"
 				onChange={( val ) => props.setAttributes( { preview: val } ) }
 				value={props.attributes.preview}
 				placeholder="Enter preview text here...">
@@ -43,9 +45,11 @@ registerBlockType( 'ctcl-election-website/read-more-block', {
 	},
 
 	save: function( props ) {
+		console.log( props.attributes );
+
 		return <div className="read-more-block less">
 			<p className="read-more-preview">
-				{ props.attributes.preview }
+				<span className="read-more-preview-content">{ props.attributes.preview }</span>
 				<a className="read-more-link">Read More</a>
 			</p>
 			<p className="read-more-remaining">{ props.attributes.remaining }</p>
