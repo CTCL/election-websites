@@ -1,44 +1,46 @@
-.office-info {
-	margin-top: 40px;
-	margin-left: 10px;
+main {
+	.office-info {
+		margin-top: 40px;
+		margin-left: 10px;
 
-	@include breakpoint(phone) {
-		margin-left: 45px;
-	}
-
-	h3 {
-		margin-bottom: 0;
-		margin-top: 32px;
-
-		&::before {
-			content: '';
-			background-repeat: no-repeat;
-			display: inline-block;
-			height: 35px;
-			width: 50px;
-			margin-left: -40px;
-			margin-bottom: -14px;
+		@include breakpoint(phone) {
+			margin-left: 45px;
 		}
 
-		& + p {
-			margin-top: 0;
-			margin-left: 10px;
-		}
+		h3 {
+			margin-bottom: 0;
+			margin-top: 32px;
 
-		&.email::before {
-			background-image: url(../images/office/email.svg);
-		}
+			&::before {
+				content: '';
+				background-repeat: no-repeat;
+				display: inline-block;
+				height: 35px;
+				width: 50px;
+				margin-left: -40px;
+				margin-bottom: -14px;
+			}
 
-		&.hours::before {
-			background-image: url(../images/office/email.svg);
-		}
+			& + p {
+				margin-top: 0;
+				margin-left: 10px;
+			}
 
-		&.location::before {
-			background-image: url(../images/office/location.svg);
-		}
+			&.email::before {
+				background-image: url(../images/office/email.svg);
+			}
 
-		&.phone::before {
-			background-image: url(../images/office/phone.svg);
+			&.hours::before {
+				background-image: url(../images/office/email.svg);
+			}
+
+			&.location::before {
+				background-image: url(../images/office/location.svg);
+			}
+
+			&.phone::before {
+				background-image: url(../images/office/phone.svg);
+			}
 		}
 	}
 }
