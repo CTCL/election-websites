@@ -1,6 +1,14 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -83,11 +91,17 @@ registerBlockType(CHILD_BLOCK, {
       value: props.attributes.icon,
       options: [{
         value: null,
-        label: 'Select an Icon'
-      }].concat(_toConsumableArray(blockEditorVars.iconOptions.map(function (option) {
+        label: 'Select an Icon',
+        key: '_placeholder'
+      }].concat(_toConsumableArray(Object.entries(blockEditorVars.iconOptions).map(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+            value = _ref2[0],
+            label = _ref2[1];
+
         return {
-          value: option,
-          label: option
+          value: value,
+          label: label,
+          key: value
         };
       }))),
       onChange: function onChange(val) {
@@ -240,7 +254,95 @@ registerBlockType('ctcl-election-website/office-info', {
 },{}],5:[function(require,module,exports){
 "use strict";
 
+var _lodash = lodash,
+    startCase = _lodash.startCase;
+var registerBlockType = wp.blocks.registerBlockType;
+var createElement = wp.element.createElement;
+var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
+var _wp$blockEditor = wp.blockEditor,
+    InspectorControls = _wp$blockEditor.InspectorControls,
+    InnerBlocks = _wp$blockEditor.InnerBlocks,
+    RichText = _wp$blockEditor.RichText,
+    URLInput = _wp$blockEditor.URLInput;
+var _wp$components = wp.components,
+    PanelBody = _wp$components.PanelBody,
+    PanelRow = _wp$components.PanelRow,
+    SelectControl = _wp$components.SelectControl,
+    TextControl = _wp$components.TextControl;
+registerBlockType('ctcl-election-website/read-more-block', {
+  title: 'Read More',
+  icon: 'editor-insertmore',
+  category: 'election-blocks',
+  attributes: {
+    preview: {
+      type: 'array',
+      source: 'children',
+      selector: '.read-more-preview-content'
+    },
+    remaining: {
+      type: 'array',
+      source: 'children',
+      selector: '.read-more-remaining'
+    }
+  },
+  edit: function edit(props) {
+    console.log(props.attributes);
+    return /*#__PURE__*/React.createElement("div", {
+      className: "read-more-block-editor"
+    }, /*#__PURE__*/React.createElement(RichText, {
+      className: "read-more-preview-content",
+      onChange: function onChange(val) {
+        return props.setAttributes({
+          preview: val
+        });
+      },
+      value: props.attributes.preview,
+      placeholder: "Enter preview text here..."
+    }), /*#__PURE__*/React.createElement("div", {
+      class: "read-more-divider"
+    }, "Read More"), /*#__PURE__*/React.createElement(RichText, {
+      className: "read-more-remaining",
+      onChange: function onChange(val) {
+        return props.setAttributes({
+          remaining: val
+        });
+      },
+      value: props.attributes.remaining,
+      placeholder: "Enter full text here..."
+    }));
+  },
+  save: function save(props) {
+    console.log(props.attributes);
+    return /*#__PURE__*/React.createElement("div", {
+      className: "read-more-block less"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "read-more-preview"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "read-more-preview-content"
+    }, props.attributes.preview), /*#__PURE__*/React.createElement("a", {
+      className: "read-more-link"
+    }, "Read More")), /*#__PURE__*/React.createElement("p", {
+      className: "read-more-remaining"
+    }, props.attributes.remaining), /*#__PURE__*/React.createElement("p", {
+      className: "read-less-link-wrapper"
+    }, /*#__PURE__*/React.createElement("a", {
+      className: "read-less-link"
+    }, "Read Less")));
+  }
+});
+
+},{}],6:[function(require,module,exports){
+"use strict";
+
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -254,8 +356,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-var _lodash = lodash,
-    startCase = _lodash.startCase;
 var registerBlockType = wp.blocks.registerBlockType;
 var createElement = wp.element.createElement;
 var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
@@ -370,11 +470,15 @@ registerBlockType(CHILD_BLOCK, {
         value: null,
         label: 'Select an Icon',
         key: '_placeholder'
-      }].concat(_toConsumableArray(blockEditorVars.iconOptions.map(function (option) {
+      }].concat(_toConsumableArray(Object.entries(blockEditorVars.iconOptions).map(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+            value = _ref2[0],
+            label = _ref2[1];
+
         return {
-          value: option,
-          label: startCase(option),
-          key: option
+          value: value,
+          label: label,
+          key: value
         };
       }))),
       onChange: updateIcon
@@ -405,4 +509,4 @@ var withClientIdClassName = createHigherOrderComponent(function (BlockListBlock)
 }, 'withClientIdClassName');
 wp.hooks.addFilter('editor.BlockListBlock', PARENT_BLOCK, withClientIdClassName);
 
-},{}]},{},[1,2,3,4,5]);
+},{}]},{},[1,2,3,4,5,6]);
