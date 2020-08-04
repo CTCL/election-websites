@@ -79,7 +79,10 @@ class Hooks {
 	public static function wp_enqueue_scripts() {
 		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
 
-		wp_deregister_script( 'jquery' );
+		// Allow jQuery for Query Monitor
+		if ( ! ( is_admin_bar_showing() && class_exists( 'QM' ) ) ) {
+			wp_deregister_script( 'jquery' );
+		}
 
 		wp_enqueue_script( 'main', get_template_directory_uri() . "/assets/js/main.{$type}.js", [], THEME_VERSION, true );
 		wp_enqueue_style( 'main', get_template_directory_uri() . "/assets/css/main.{$type}.css", [], THEME_VERSION );
