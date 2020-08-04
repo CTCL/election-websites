@@ -33,24 +33,15 @@ var _wp$components = wp.components,
     SelectControl = _wp$components.SelectControl;
 var PARENT_BLOCK = 'ctcl-election-website/accordion-group-block';
 var CHILD_BLOCK = 'ctcl-election-website/accordion-section-block';
-var DEFAULT_HEADER_TAG = 'h3';
-var TEMPLATE = [[CHILD_BLOCK, {
-  headerTag: DEFAULT_HEADER_TAG
-}]];
-var AccordionBlockContext = wp.element.createContext(DEFAULT_HEADER_TAG);
+var NESTED_PARENT_BLOCK = 'ctcl-election-website/accordion-nested-group-block';
+var AccordionBlockContext = wp.element.createContext(false);
 
-var hasIconTag = function hasIconTag(attributes) {
-  var headerTag = attributes.headerTag;
-  return 'h3' === headerTag;
-};
+var getIconEl = function getIconEl(_ref) {
+  var icon = _ref.icon;
 
-var getIconEl = function getIconEl(attributes) {
-  var icon = attributes.icon;
-
-  if (hasIconTag(attributes) && icon) {
+  if (icon) {
     var iconUrl = "".concat(blockEditorVars.baseUrl, "/").concat(icon, ".svg");
     return createElement('img', {
-      width: 50,
       height: 50,
       src: iconUrl
     });
@@ -59,31 +50,52 @@ var getIconEl = function getIconEl(attributes) {
   return null;
 };
 
+var getHeaderTag = function getHeaderTag(_ref2) {
+  var isNestedGroup = _ref2.isNestedGroup;
+  return isNestedGroup ? 'h3' : 'h2';
+};
+
+var getHeaderClasses = function getHeaderClasses(_ref3) {
+  var icon = _ref3.icon;
+  return "accordion-section-header ".concat(icon ? 'with-icon' : '');
+};
+
 registerBlockType(CHILD_BLOCK, {
   title: 'Section',
   icon: 'book',
   category: 'election-blocks',
   parent: [PARENT_BLOCK],
   attributes: {
-    headerTag: {
-      type: 'string',
-      default: DEFAULT_HEADER_TAG
-    },
     heading: {
       type: 'string'
     },
     icon: {
       type: 'string'
+    },
+    isNestedGroup: {
+      type: 'boolean',
+      default: false
     }
   },
   edit: function edit(props) {
+    var DISALLOWED_BLOCKS = [PARENT_BLOCK, CHILD_BLOCK];
+
+    if (props.attributes.isNestedGroup) {
+      DISALLOWED_BLOCKS.push(NESTED_PARENT_BLOCK);
+    }
+
+    var ALLOWED_BLOCKS = wp.blocks.getBlockTypes().map(function (block) {
+      return block.name;
+    }).filter(function (blockName) {
+      return !DISALLOWED_BLOCKS.includes(blockName);
+    });
     return /*#__PURE__*/React.createElement("div", {
       className: "accordion-section-editor"
     }, /*#__PURE__*/React.createElement(AccordionBlockContext.Consumer, null, function (value) {
       props.setAttributes({
-        headerTag: value
+        isNestedGroup: value
       });
-    }), hasIconTag(props.attributes) ? /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
+    }), !props.attributes.isNestedGroup ? /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
       title: "Section",
       initialOpen: true
     }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(SelectControl, {
@@ -93,10 +105,10 @@ registerBlockType(CHILD_BLOCK, {
         value: null,
         label: 'Select an Icon',
         key: '_placeholder'
-      }].concat(_toConsumableArray(Object.entries(blockEditorVars.iconOptions).map(function (_ref) {
-        var _ref2 = _slicedToArray(_ref, 2),
-            value = _ref2[0],
-            label = _ref2[1];
+      }].concat(_toConsumableArray(Object.entries(blockEditorVars.iconOptions).map(function (_ref4) {
+        var _ref5 = _slicedToArray(_ref4, 2),
+            value = _ref5[0],
+            label = _ref5[1];
 
         return {
           value: value,
@@ -110,10 +122,10 @@ registerBlockType(CHILD_BLOCK, {
         });
       }
     })))) : /*#__PURE__*/React.createElement(React.Fragment, null), /*#__PURE__*/React.createElement("div", {
-      class: "header-wrapper"
+      className: "header-wrapper"
     }, getIconEl(props.attributes), /*#__PURE__*/React.createElement(RichText, {
-      className: "accordion-section-header",
-      tagName: props.attributes.headerTag,
+      className: getHeaderClasses(props.attributes),
+      tagName: getHeaderTag(props.attributes),
       onChange: function onChange(val) {
         return props.setAttributes({
           heading: val
@@ -122,65 +134,57 @@ registerBlockType(CHILD_BLOCK, {
       value: props.attributes.heading,
       placeholder: "Enter header here..."
     })), /*#__PURE__*/React.createElement(InnerBlocks, {
-      className: "accordion-section-content-editor"
+      className: "accordion-section-content-editor",
+      allowedBlocks: ALLOWED_BLOCKS
     }));
   },
   save: function save(props) {
     return /*#__PURE__*/React.createElement("div", {
-      className: "accordion-section-wrapper ".concat('h5' === props.attributes.headerTag ? 'subsection' : '')
-    }, createElement(props.attributes.headerTag, {
-      className: 'accordion-section-header'
+      className: "accordion-section-wrapper ".concat(props.attributes.isNestedGroup ? 'subsection' : '')
+    }, createElement(getHeaderTag(props.attributes), {
+      className: getHeaderClasses(props.attributes)
     }, getIconEl(props.attributes), createElement('span', null, props.attributes.heading)), /*#__PURE__*/React.createElement("section", {
       className: "accordion-section-content"
     }, /*#__PURE__*/React.createElement(InnerBlocks.Content, null)));
   }
 });
+
+var getParentEditTemplate = function getParentEditTemplate(isNestedGroup) {
+  return /*#__PURE__*/React.createElement("div", {
+    className: "accordion-group-editor ".concat(isNestedGroup ? 'subsection' : '')
+  }, /*#__PURE__*/React.createElement(AccordionBlockContext.Provider, {
+    value: isNestedGroup
+  }, /*#__PURE__*/React.createElement(InnerBlocks, {
+    className: "accordion-group-wrapper",
+    allowedBlocks: [CHILD_BLOCK],
+    template: [[CHILD_BLOCK]]
+  })));
+};
+
 registerBlockType(PARENT_BLOCK, {
   title: 'Collapsible Group',
   icon: 'book',
   category: 'election-blocks',
-  attributes: {
-    headerTag: {
-      type: 'string',
-      default: DEFAULT_HEADER_TAG
-    }
-  },
-  edit: function edit(props) {
-    var clientId = props.clientId;
-    return /*#__PURE__*/React.createElement("div", {
-      className: "accordion-group-editor"
-    }, /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement(PanelBody, {
-      title: "Collapsible Group Settings",
-      initialOpen: true
-    }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(SelectControl, {
-      label: "Header Style",
-      value: props.attributes.headerTag,
-      options: [{
-        label: 'H2 headers',
-        value: 'h2'
-      }, {
-        label: 'H3 headers with icon',
-        value: 'h3'
-      }, {
-        label: 'H5 headers (subsections)',
-        value: 'h5'
-      }],
-      onChange: function onChange(val) {
-        return props.setAttributes({
-          headerTag: val
-        });
-      }
-    })))), /*#__PURE__*/React.createElement(AccordionBlockContext.Provider, {
-      value: props.attributes.headerTag
-    }, /*#__PURE__*/React.createElement(InnerBlocks, {
-      className: "accordion-group-wrapper",
-      allowedBlocks: [CHILD_BLOCK],
-      template: TEMPLATE
-    })));
+  edit: function edit() {
+    return getParentEditTemplate(false);
   },
   save: function save(props) {
     return /*#__PURE__*/React.createElement("section", {
-      className: "accordion-group ".concat('h5' === props.attributes.headerTag ? 'subsection' : '')
+      className: "accordion-group"
+    }, /*#__PURE__*/React.createElement(InnerBlocks.Content, null));
+  }
+});
+registerBlockType(NESTED_PARENT_BLOCK, {
+  title: 'Inner Collapsible Group',
+  icon: 'book',
+  category: 'election-blocks',
+  parent: [CHILD_BLOCK],
+  edit: function edit() {
+    return getParentEditTemplate(true);
+  },
+  save: function save(props) {
+    return /*#__PURE__*/React.createElement("section", {
+      className: "accordion-group subsection"
     }, /*#__PURE__*/React.createElement(InnerBlocks.Content, null));
   }
 });

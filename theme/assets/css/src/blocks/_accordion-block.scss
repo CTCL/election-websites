@@ -67,20 +67,24 @@
 			top: -3px;
 		}
 
-		h5.accordion-section-header::after {
-			top: -5px;
-		}
-
-		.accordion-section-header.open::after {
-			transform: rotate(-225deg);
-		}
-
 		h2.accordion-section-header.open::after {
 			top: 3px;
 		}
 
-		h5.accordion-section-header.open::after {
+		h2.with-icon {
+			font-size: 24px;
+		}
+
+		h3.accordion-section-header::after {
+			top: -5px;
+		}
+
+		h3.accordion-section-header.open::after {
 			top: 3px;
+		}
+
+		.accordion-section-header.open::after {
+			transform: rotate(-225deg);
 		}
 
 		.accordion-section-content {

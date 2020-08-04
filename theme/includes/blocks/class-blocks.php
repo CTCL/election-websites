@@ -105,6 +105,15 @@ class Blocks {
 			]
 		);
 
+
+		register_block_type(
+			'ctcl-election-website/accordion-group-block',
+			[
+				'editor_script' => 'block-editors',
+				'editor_style'  => 'block-editors',
+			]
+		);
+
 		register_block_type(
 			'ctcl-election-website/accordion-section-block',
 			[
@@ -114,7 +123,7 @@ class Blocks {
 		);
 
 		register_block_type(
-			'ctcl-election-website/accordion-group-block',
+			'ctcl-election-website/accordion-nested-group-block',
 			[
 				'editor_script' => 'block-editors',
 				'editor_style'  => 'block-editors',

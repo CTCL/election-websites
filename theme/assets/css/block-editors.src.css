@@ -269,14 +269,16 @@
 .accordion-section-editor .header-wrapper {
   display: flex;
   justify-content: space-between;
+  margin-top: 18px;
 }
 
 .accordion-section-editor .header-wrapper img {
   margin-right: 18px;
 }
 
-.accordion-section-editor .header-wrapper h3 {
+.accordion-section-editor .header-wrapper h2.with-icon {
   flex: 1;
+  font-size: 24px;
 }
 
 .accordion-section-editor .header-wrapper::after {
@@ -292,6 +294,34 @@
   vertical-align: top;
   transition: all 0.5s;
   top: 35px;
+}
+
+.accordion-group-editor [data-type="ctcl-election-website/accordion-section-block"] {
+  border-bottom: 3px solid #18244b;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.accordion-group-editor [data-type="ctcl-election-website/accordion-section-block"]:first-child {
+  border-top: 3px solid #18244b;
+}
+
+.accordion-group-editor.subsection [data-type="ctcl-election-website/accordion-section-block"] {
+  border-bottom: 1px solid #b7bcce;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.accordion-group-editor.subsection [data-type="ctcl-election-website/accordion-section-block"]:last-child {
+  border-bottom: none;
+}
+
+.accordion-group-editor.subsection .header-wrapper h3 {
+  font-size: 18px;
+}
+
+.accordion-group-editor.subsection .header-wrapper::after {
+  top: 25px;
 }
 
 .read-more-block-editor .read-more-divider {
