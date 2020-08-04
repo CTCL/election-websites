@@ -83,6 +83,13 @@
 	.wp-block-columns .wp-block-column:last-child {
 		display: flex;
 		justify-content: flex-end;
+
+		@include breakpoint(phone) {
+			justify-content: flex-start;
+			border-top-width: 3px;
+			border-top-style: solid;
+			margin-top: 40px;
+		}
 	}
 }
 

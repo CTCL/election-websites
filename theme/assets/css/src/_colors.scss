@@ -61,6 +61,12 @@ main {
 	}
 }
 
+.page-about-us {
+	.wp-block-columns .wp-block-column:last-child {
+		border-color: $midnight;
+	}
+}
+
 .contact-form {
 	label {
 		color: $midnight;
