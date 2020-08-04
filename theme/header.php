@@ -37,7 +37,7 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 			<?php if ( is_front_page() ) : ?>
 			<h1 class="site-title"><?php echo esc_html( $site_title ); ?></h1>
 			<?php else : ?>
-			<h4 class="site-title"><?php echo esc_html( $site_title ); ?></h4>
+			<p class="site-title"><?php echo esc_html( $site_title ); ?></p>
 			<?php endif; ?>
 			<span class="mobile-menu icon-bars">
 				<span class="icon-bar bar-top"></span>
@@ -45,7 +45,14 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 				<span class="icon-bar bar-bottom"></span>
 			</span>
 		</a>
-		<?php wp_nav_menu( [ 'theme_location' => 'header-menu', 'container' => 'nav' ] ); ?>
+		<?php
+		wp_nav_menu(
+			[
+				'theme_location' => 'header-menu',
+				'container'      => 'nav',
+			]
+		);
+		?>
 	</div>
 </header>
 
@@ -57,10 +64,11 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 			<span class="divider">/</span>
 			<?php
 				echo esc_html( \CTCL\Elections\Alert_Banner::description() );
-				$learn_more = \CTCL\Elections\Alert_Banner::link();
+				$alert_link = \CTCL\Elections\Alert_Banner::link();
+				$alert_text = \CTCL\Elections\Alert_Banner::link_text();
 			?>
-			<?php if ( $learn_more ) : ?>
-			<a class="alert learn-more" href="<?php echo esc_url( $learn_more ); ?>">Learn More</a>
+			<?php if ( $alert_link && $alert_text ) : ?>
+			<a class="alert learn-more" href="<?php echo esc_url( $alert_link ); ?>"><?php echo esc_html( $alert_text ); ?></a>
 			<?php endif; ?>
 		</p>
 	</div>
@@ -73,9 +81,12 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 		<div>
 			<h2><?php echo esc_html( $banner_title ); ?></h2>
 			<p><?php echo esc_html( \CTCL\Elections\Banner::description() ); ?></p>
-			<?php $learn_more = \CTCL\Elections\Banner::link(); ?>
-			<?php if ( $learn_more ) : ?>
-			<p class="learn-more"><a class="button learn-more" href="<?php echo esc_url( $learn_more ); ?>">Learn More</a></p>
+			<?php
+				$banner_link   = \CTCL\Elections\Banner::link();
+				$banner_button = \CTCL\Elections\Banner::button();
+			?>
+			<?php if ( $banner_link && $banner_button ) : ?>
+			<p class="learn-more"><a class="button learn-more" href="<?php echo esc_url( $banner_link ); ?>"><?php echo esc_html( $banner_button ); ?></a></p>
 			<?php endif; ?>
 		</div>
 		<?php

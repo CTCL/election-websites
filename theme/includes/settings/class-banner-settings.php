@@ -80,6 +80,15 @@ class Banner_Settings extends Settings {
 				'args'        => [ 'sanitize_callback' => 'esc_url_raw' ],
 			],
 			[
+				'uid'         => 'ctcl_banner_button',
+				'label'       => 'Button',
+				'section'     => 'banner_section',
+				'type'        => 'text',
+				'placeholder' => 'Read Me',
+				'label_for'   => 'ctcl_banner_button',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+			],
+			[
 				'uid'       => 'ctcl_banner_image',
 				'label'     => 'Image',
 				'section'   => 'banner_section',
@@ -120,6 +129,15 @@ class Banner_Settings extends Settings {
 				'placeholder' => 'https://www.example.com/',
 				'label_for'   => 'ctcl_alert_banner_link',
 				'args'        => [ 'sanitize_callback' => 'esc_url_raw' ],
+			],
+			[
+				'uid'         => 'ctcl_alert_banner_link_text',
+				'label'       => 'Link Text',
+				'section'     => 'alert_banner_section',
+				'type'        => 'text',
+				'placeholder' => 'Read Me',
+				'label_for'   => 'ctcl_alert_banner_link_text',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 		];
 

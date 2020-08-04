@@ -52,6 +52,15 @@ class Banner {
 	}
 
 	/**
+	 * The front page banner button text.
+	 *
+	 * @return string
+	 */
+	public static function button() {
+		return get_option( 'ctcl_banner_button' );
+	}
+
+	/**
 	 * The front page image ID.
 	 *
 	 * @return integer

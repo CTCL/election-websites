@@ -43,6 +43,15 @@ class Alert_Banner {
 	}
 
 	/**
+	 * The alert banner link text.
+	 *
+	 * @return string
+	 */
+	public static function link_text() {
+		return get_option( 'ctcl_alert_banner_link_text' );
+	}
+
+	/**
 	 * The alert banner URL.
 	 *
 	 * @return string
