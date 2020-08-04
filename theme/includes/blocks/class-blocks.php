@@ -72,9 +72,9 @@ class Blocks {
 						'view-election-results'     => 'View Election Results',
 						'vote-by-mail'              => 'Vote by Mail',
 						'voter-info'                => 'Voter Info',
-						'voters-choice'             => 'Voter\'s Choice',
+						'voters-choice'             => 'Voter’s Choice',
 						'voting-locations'          => 'Voting Locations',
-						'whats-on-the-ballot'       => 'What\'s on the Ballot',
+						'whats-on-the-ballot'       => 'What’s on the Ballot',
 					],
 				'baseUrl'     => $base_url . $theme,
 			]
