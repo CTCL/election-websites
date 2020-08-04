@@ -204,7 +204,7 @@ class Contact_Form {
 
 			<p>
 				<label for="contact-fullname">
-					Name
+					First and last name
 					<?php \CTCL\Elections\Helpers::error_message( $errors, 'fullname' ); ?>
 				</label>
 				<input id="contact-fullname" type="text" name="fullname" value="<?php echo esc_attr( $attr['fullname'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'fullname' ); ?>/>
