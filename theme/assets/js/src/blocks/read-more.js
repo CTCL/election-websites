@@ -25,8 +25,6 @@ registerBlockType( 'ctcl-election-website/read-more-block', {
 	},
 
 	edit: function( props ) {
-		console.log( props.attributes );
-
 		return <div className="read-more-block-editor">
 			<RichText
 				className="read-more-preview-content"
@@ -45,8 +43,6 @@ registerBlockType( 'ctcl-election-website/read-more-block', {
 	},
 
 	save: function( props ) {
-		console.log( props.attributes );
-
 		return <div className="read-more-block less">
 			<p className="read-more-preview">
 				<span className="read-more-preview-content">{ props.attributes.preview }</span>
