@@ -270,14 +270,14 @@ var _wp$components = wp.components,
     SelectControl = _wp$components.SelectControl,
     TextControl = _wp$components.TextControl;
 registerBlockType('ctcl-election-website/read-more-block', {
-  title: 'Read More!!!',
-  icon: 'screenoptions',
+  title: 'Read More',
+  icon: 'editor-insertmore',
   category: 'election-blocks',
   attributes: {
     preview: {
       type: 'array',
       source: 'children',
-      selector: '.read-more-preview'
+      selector: '.read-more-preview-content'
     },
     remaining: {
       type: 'array',
@@ -286,10 +286,11 @@ registerBlockType('ctcl-election-website/read-more-block', {
     }
   },
   edit: function edit(props) {
+    console.log(props.attributes);
     return /*#__PURE__*/React.createElement("div", {
       className: "read-more-block-editor"
     }, /*#__PURE__*/React.createElement(RichText, {
-      className: "read-more-preview",
+      className: "read-more-preview-content",
       onChange: function onChange(val) {
         return props.setAttributes({
           preview: val
@@ -311,11 +312,14 @@ registerBlockType('ctcl-election-website/read-more-block', {
     }));
   },
   save: function save(props) {
+    console.log(props.attributes);
     return /*#__PURE__*/React.createElement("div", {
       className: "read-more-block less"
     }, /*#__PURE__*/React.createElement("p", {
       className: "read-more-preview"
-    }, props.attributes.preview, /*#__PURE__*/React.createElement("a", {
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "read-more-preview-content"
+    }, props.attributes.preview), /*#__PURE__*/React.createElement("a", {
       className: "read-more-link"
     }, "Read More")), /*#__PURE__*/React.createElement("p", {
       className: "read-more-remaining"
