@@ -52,12 +52,12 @@ class Office_Info {
 		?>
 		<div class="office-info">
 		<?php if ( $contact_info['email_address'] ) : ?>
-		<h5 class="email">Email</h5>
+		<h3 class="email">Email</h3>
 		<p><a href="<?php echo esc_url( 'mailto:' . $contact_info['email_address'] ); ?>"><?php echo esc_html( $contact_info['email_address'] ); ?></a></p>
 		<?php endif; ?>
 
 		<?php if ( $contact_info['phone'] || $contact_info['fax'] ) : ?>
-		<h5 class="phone">Phone numbers</h5>
+		<h3 class="phone">Phone numbers</h3>
 		<p>
 			<?php
 			if ( $contact_info['phone'] ) {
@@ -74,7 +74,7 @@ class Office_Info {
 		<?php endif; ?>
 
 		<?php if ( $contact_info['address'] ) : ?>
-		<h5 class="location">Office address</h5>
+		<h3 class="location">Office address</h3>
 		<p>
 			<?php
 			echo esc_html( $contact_info['address'] );
@@ -89,7 +89,7 @@ class Office_Info {
 		<?php endif; ?>
 
 		<?php if ( $contact_info['hours'] ) : ?>
-		<h5 class="hours">Hours</h5>
+		<h3 class="hours">Hours</h3>
 		<p><?php echo wp_kses( nl2br( $contact_info['hours'] ), [ 'br' => true ] ); ?></p>
 		<?php endif; ?>
 		</div>
