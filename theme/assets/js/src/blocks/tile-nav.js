@@ -39,7 +39,7 @@ registerBlockType( PARENT_BLOCK, {
 	},
 
 	save: function( props ) {
-		return createElement( 'nav',
+		return createElement( 'div',
 			{
 				className: 'tile-wrapper'
 			},
