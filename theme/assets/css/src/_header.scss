@@ -92,7 +92,7 @@ header {
 		margin-right: 16px;
 	}
 
-	[class$="-container"] {
+	nav {
 		display: inline-block;
 		justify-self: flex-end;
 
@@ -124,7 +124,7 @@ header {
 			}
 		}
 
-		[class$="-container"] {
+		nav {
 			@include breakpoint(phone) {
 				display: inline-block;
 			}

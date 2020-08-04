@@ -45,13 +45,7 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 				<span class="icon-bar bar-bottom"></span>
 			</span>
 		</a>
-		<?php
-			wp_nav_menu(
-				[
-					'theme_location' => 'header-menu',
-				]
-			);
-			?>
+		<?php wp_nav_menu( [ 'theme_location' => 'header-menu', 'container' => 'nav' ] ); ?>
 	</div>
 </header>
 
