@@ -76,7 +76,7 @@ $tile-font-size-tablet: 16px;
 .tile-wrapper {
 	@extend %tile-nav-block;
 
-	margin: 24px 0;
+	margin: 10px 0 14px;
 
 	.home & {
 		margin: 16px 0;
