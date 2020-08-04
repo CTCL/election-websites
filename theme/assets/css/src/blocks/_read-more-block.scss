@@ -1,0 +1,28 @@
+@import '../utility/typography';
+
+.read-more-block {
+	> p {
+		margin: 20px 0;
+	}
+
+	&.less {
+		.read-less-link-wrapper {
+			display: none;
+		}
+
+		.read-more-remaining {
+			display: none;
+		}
+
+		.read-more-link::before {
+			content: "\A";
+			white-space: pre;
+		}
+	}
+
+	&:not(.less) {
+		.read-more-link {
+			display: none;
+		}
+	}
+}

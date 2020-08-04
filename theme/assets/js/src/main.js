@@ -19,8 +19,22 @@ window.ctcl = {
 	handleMobileMenuClick: function( e ) {
 		document.body.classList.toggle( 'menu' );
 
-		// parent element is an <a> tag. Don't want to its click to fire.
+		// parent element is an <a> tag. Don't want its click to fire.
 		e.preventDefault();
+	},
+
+	handleReadMoreClick: function( e ) {
+		var parent = e.currentTarget.closest( '.read-more-block' );
+		if ( parent ) {
+			parent.classList.toggle( 'less' );
+		}
+	},
+
+	handleReadLessClick: function( e ) {
+		var parent = e.currentTarget.closest( '.read-more-block' );
+		if ( parent ) {
+			parent.classList.toggle( 'less' );
+		}
 	}
 };
 
@@ -28,11 +42,23 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	var mobileMenu = document.querySelector( '.mobile-menu' );
 	var accordionHeaders = document.querySelectorAll( '.accordion-section-header' );
 	var links = document.querySelectorAll( 'a' );
+	var readMoreLinks = document.querySelectorAll( '.read-more-link' );
+	var readLessLinks = document.querySelectorAll( '.read-less-link' );
 	var header;
 
 	// Enable the collapsible sections.
 	accordionHeaders.forEach( function( item ) {
 		item.addEventListener( 'click', window.ctcl.handleAccordionClick, { capture: true } );
+	} );
+
+	// Enable the read more links
+	readMoreLinks.forEach( function( item ) {
+		item.addEventListener( 'click', window.ctcl.handleReadMoreClick, { capture: true } );
+	} );
+
+	// Enable the read more link
+	readLessLinks.forEach( function( item ) {
+		item.addEventListener( 'click', window.ctcl.handleReadLessClick, { capture: true } );
 	} );
 
 	// Enable the mobile (hamburger) menu.
