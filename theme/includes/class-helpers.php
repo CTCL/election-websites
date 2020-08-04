@@ -149,6 +149,21 @@ class Helpers {
 	}
 
 	/**
+	 * Format a phone number as an aria-label.
+	 *
+	 * @param string $phone  Phone number
+	 *
+	 * @return string
+	 */
+	public static function format_phone_aria_label( $phone ) {
+		$aria_label = preg_replace( '/[^\d]/', '', $phone );
+		$aria_label = preg_replace( '/(\d)/', '${1} ', $aria_label );
+		$aria_label = sprintf( '%s.%s.%s', substr( $aria_label, 0, 5 ), substr( $aria_label, 6, 5 ), trim( substr( $aria_label, 11, 8 ) ) );
+
+		return $aria_label;
+	}
+
+	/**
 	 * Ensure state is from list of valid state abbreviations.
 	 *
 	 * @param string $state  State abbreviation.

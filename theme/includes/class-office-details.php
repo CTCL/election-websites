@@ -20,7 +20,12 @@ class Office_Details {
 	 *
 	 * @var array
 	 */
-	public static $allowed_link_tags = [ 'a' => [ 'href' => true ] ];
+	public static $allowed_link_tags = [
+		'a' => [
+			'href'       => true,
+			'aria-label' => true,
+		],
+	];
 
 	/**
 	 * The election office name.
@@ -62,7 +67,9 @@ class Office_Details {
 			return;
 		}
 
-		return self::get_link( $phone, 'tel:' . $phone, $link );
+		$aria_label = \CTCL\Elections\Helpers::format_phone_aria_label( $phone );
+
+		return self::get_link( $phone, 'tel:' . $phone, $link, false, $aria_label );
 	}
 
 	/**
@@ -78,7 +85,9 @@ class Office_Details {
 			return;
 		}
 
-		return self::get_link( $fax, 'tel:' . $fax, $link );
+		$aria_label = 1;
+
+		return self::get_link( $fax, 'tel:' . $fax, $link, false, $aria_label );
 	}
 
 	/**
@@ -196,8 +205,10 @@ class Office_Details {
 	 *
 	 * @return string
 	 */
-	public static function get_link( $label, $url, $link, $echo = false ) {
-		if ( $link ) {
+	public static function get_link( $label, $url, $link, $echo = false, $aria_label = false ) {
+		if ( $link && $aria_label ) {
+			$result = sprintf( '<a href="%s" aria-label="%s">%s</a>', esc_url( $url ), $aria_label, $label );
+		} elseif ( $link ) {
 			$result = sprintf( '<a href="%s">%s</a>', esc_url( $url ), $label );
 		} else {
 			$result = $label;
