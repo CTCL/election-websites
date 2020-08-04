@@ -979,20 +979,24 @@ main {
   top: -3px;
 }
 
-.accordion-group .accordion-section-wrapper h5.accordion-section-header::after {
-  top: -5px;
-}
-
-.accordion-group .accordion-section-wrapper .accordion-section-header.open::after {
-  transform: rotate(-225deg);
-}
-
 .accordion-group .accordion-section-wrapper h2.accordion-section-header.open::after {
   top: 3px;
 }
 
-.accordion-group .accordion-section-wrapper h5.accordion-section-header.open::after {
+.accordion-group .accordion-section-wrapper h2.with-icon {
+  font-size: 24px;
+}
+
+.accordion-group .accordion-section-wrapper h3.accordion-section-header::after {
+  top: -5px;
+}
+
+.accordion-group .accordion-section-wrapper h3.accordion-section-header.open::after {
   top: 3px;
+}
+
+.accordion-group .accordion-section-wrapper .accordion-section-header.open::after {
+  transform: rotate(-225deg);
 }
 
 .accordion-group .accordion-section-wrapper .accordion-section-content {
@@ -1047,9 +1051,8 @@ main ul a {
   display: none;
 }
 
-.read-more-block.less .read-more-link::before {
-  content: "\A";
-  white-space: pre;
+.read-more-block.less .read-more-link {
+  display: inline-block;
 }
 
 .read-more-block:not(.less) .read-more-link {

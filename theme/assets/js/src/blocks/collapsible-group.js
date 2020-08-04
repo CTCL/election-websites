@@ -6,33 +6,27 @@ const { PanelBody, PanelRow, SelectControl } = wp.components;
 
 const PARENT_BLOCK = 'ctcl-election-website/accordion-group-block';
 const CHILD_BLOCK = 'ctcl-election-website/accordion-section-block';
+const NESTED_PARENT_BLOCK = 'ctcl-election-website/accordion-nested-group-block';
 
-const DEFAULT_HEADER_TAG = 'h3';
-const TEMPLATE = [ [
-	CHILD_BLOCK,
-	{
-		headerTag: DEFAULT_HEADER_TAG
-	}
-] ];
+const AccordionBlockContext = wp.element.createContext( false );
 
-const AccordionBlockContext = wp.element.createContext( DEFAULT_HEADER_TAG );
-
-const hasIconTag = ( attributes ) => {
-	const { headerTag } = attributes;
-	return 'h3' === headerTag;
-};
-
-const getIconEl = ( attributes ) => {
-	const { icon } = attributes;
-	if ( hasIconTag( attributes ) && icon ) {
+const getIconEl = ( { icon } ) => {
+	if ( icon ) {
 		const iconUrl = `${blockEditorVars.baseUrl}/${icon}.svg`;
 		return createElement( 'img', {
-			width: 50,
 			height: 50,
 			src: iconUrl
 		} );
 	}
 	return null;
+};
+
+const getHeaderTag = ( { isNestedGroup } ) => {
+	return isNestedGroup ? 'h3' : 'h2';
+};
+
+const getHeaderClasses = ( { icon } ) => {
+	return `accordion-section-header ${icon ? 'with-icon' : ''}`;
 };
 
 registerBlockType( CHILD_BLOCK, {
@@ -41,23 +35,29 @@ registerBlockType( CHILD_BLOCK, {
 	category: 'election-blocks',
 	parent: [ PARENT_BLOCK ],
 	attributes: {
-		headerTag: {
-			type: 'string',
-			default: DEFAULT_HEADER_TAG
-		},
 		heading: { type: 'string' },
-		icon: { type: 'string' }
+		icon: { type: 'string' },
+		isNestedGroup: {
+			type: 'boolean',
+			default: false
+		}
 	},
 	edit: function( props ) {
+		const DISALLOWED_BLOCKS = [ PARENT_BLOCK, CHILD_BLOCK ];
+		if ( props.attributes.isNestedGroup ) {
+			DISALLOWED_BLOCKS.push( NESTED_PARENT_BLOCK );
+		}
+		const ALLOWED_BLOCKS = wp.blocks.getBlockTypes().map( block => block.name ).filter( blockName => ! DISALLOWED_BLOCKS.includes( blockName ) );
+
 		return <div className="accordion-section-editor">
 			<AccordionBlockContext.Consumer>
 				{
 					( value ) => {
-						props.setAttributes( {headerTag: value} );
+						props.setAttributes( { isNestedGroup: value } );
 					}
 				}
 			</AccordionBlockContext.Consumer>
-			{ hasIconTag( props.attributes ) ?
+			{ ( ! props.attributes.isNestedGroup ) ?
 				<InspectorControls>
 					<PanelBody
 						title="Section"
@@ -79,26 +79,26 @@ registerBlockType( CHILD_BLOCK, {
 				</InspectorControls> :
 				<></>
 			}
-			<div class="header-wrapper">
+			<div className="header-wrapper">
 				{ getIconEl( props.attributes ) }
 				<RichText
-					className="accordion-section-header"
-					tagName={props.attributes.headerTag}
+					className={getHeaderClasses( props.attributes )}
+					tagName={getHeaderTag( props.attributes )}
 					onChange={( val ) => props.setAttributes( { heading: val } ) }
 					value={props.attributes.heading}
 					placeholder="Enter header here...">
 				</RichText>
 			</div>
 			<InnerBlocks
-				className="accordion-section-content-editor" />
+				className="accordion-section-content-editor" allowedBlocks={ALLOWED_BLOCKS}/>
 		</div>;
 	},
 
 	save: function( props ) {
-		return <div className={`accordion-section-wrapper ${( 'h5' === props.attributes.headerTag ) ? 'subsection' : ''}`}>
-			{ createElement( props.attributes.headerTag,
+		return <div className={`accordion-section-wrapper ${props.attributes.isNestedGroup ? 'subsection' : ''}`}>
+			{ createElement( getHeaderTag( props.attributes ),
 				{
-					className: 'accordion-section-header'
+					className: getHeaderClasses( props.attributes )
 				},
 				getIconEl( props.attributes ),
 				createElement( 'span', null, props.attributes.heading )
@@ -110,51 +110,44 @@ registerBlockType( CHILD_BLOCK, {
 	}
 } );
 
+const getParentEditTemplate = ( isNestedGroup ) => {
+	return  <div className={`accordion-group-editor ${isNestedGroup ? 'subsection' : ''}`}>
+		<AccordionBlockContext.Provider value={isNestedGroup}>
+			<InnerBlocks
+				className="accordion-group-wrapper"
+				allowedBlocks={[ CHILD_BLOCK ]}
+				template={[ [ CHILD_BLOCK ] ]} />
+		</AccordionBlockContext.Provider>
+	</div>;
+};
 
 registerBlockType( PARENT_BLOCK, {
 	title: 'Collapsible Group',
 	icon: 'book',
 	category: 'election-blocks',
-	attributes: {
-		headerTag: {
-			type: 'string',
-			default: DEFAULT_HEADER_TAG
-		}
-	},
-	edit: function( props ) {
-		const { clientId } = props;
-
-		return <div className="accordion-group-editor">
-			<InspectorControls>
-				<PanelBody
-					title="Collapsible Group Settings"
-					initialOpen={true}>
-					<PanelRow>
-						<SelectControl
-							label="Header Style"
-							value={props.attributes.headerTag}
-							options={[
-								{ label: 'H2 headers', value: 'h2' },
-								{ label: 'H3 headers with icon', value: 'h3' },
-								{ label: 'H5 headers (subsections)', value: 'h5' }
-							]}
-							onChange={( val ) => props.setAttributes( { headerTag: val } )}
-						></SelectControl>
-					</PanelRow>
-				</PanelBody>
-			</InspectorControls>
-			<AccordionBlockContext.Provider value={props.attributes.headerTag}>
-				<InnerBlocks
-					className="accordion-group-wrapper"
-					allowedBlocks={[ CHILD_BLOCK ]}
-					template={TEMPLATE} />
-			</AccordionBlockContext.Provider>
-		</div>;
+	edit: function() {
+		return getParentEditTemplate( false );
 
 	},
 
 	save: function( props ) {
-		return <section className={`accordion-group ${( 'h5' === props.attributes.headerTag ) ? 'subsection' : ''}`}>
+		return <section className="accordion-group">
+			<InnerBlocks.Content />
+		</section>;
+	}
+} );
+
+registerBlockType( NESTED_PARENT_BLOCK, {
+	title: 'Inner Collapsible Group',
+	icon: 'book',
+	category: 'election-blocks',
+	parent: [ CHILD_BLOCK ],
+	edit: function() {
+		return getParentEditTemplate( true );
+	},
+
+	save: function( props ) {
+		return <section className="accordion-group subsection">
 			<InnerBlocks.Content />
 		</section>;
 	}
