@@ -122,6 +122,14 @@ class Blocks {
 		);
 
 		register_block_type(
+			'ctcl-election-website/read-more-block',
+			[
+				'editor_script' => 'block-editors',
+				'editor_style'  => 'block-editors',
+			]
+		);
+
+		register_block_type(
 			'ctcl-election-website/contact-form',
 			[
 				'render_callback' => [ '\CTCL\Elections\Contact_Form', 'block_render' ],
