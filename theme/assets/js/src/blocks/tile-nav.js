@@ -109,8 +109,8 @@ registerBlockType( CHILD_BLOCK, {
 								value={props.attributes.icon}
 								options={[
 									{ value: null, label: 'Select an Icon', key: '_placeholder' },
-									...blockEditorVars.iconOptions.map( option => ( {
-										value: option.value, label: option.label, key: option.value
+									...Object.entries( blockEditorVars.iconOptions ).map( ( [ value, label ] ) => ( {
+										value: value, label: label, key: value
 									} ) )
 								]}
 								onChange={updateIcon}
