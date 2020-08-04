@@ -71,6 +71,15 @@ header {
 		}
 	}
 
+	img,
+	.site-title {
+		display: inline-block;
+	}
+
+	img {
+		margin-right: 16px;
+	}
+
 	.site-title-wrapper {
 		display: flex;
 		align-items: center;
@@ -81,15 +90,10 @@ header {
 			display: grid;
 			grid-template-columns: 80px 1fr 60px;
 		}
-	}
 
-	img,
-	.site-title {
-		display: inline-block;
-	}
-
-	img {
-		margin-right: 16px;
+		.site-title {
+			font-weight: bold;
+		}
 	}
 
 	nav {
