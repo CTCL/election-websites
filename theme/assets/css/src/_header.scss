@@ -74,7 +74,7 @@ header {
 	.site-title-wrapper {
 		display: flex;
 		align-items: center;
-		max-width: 250px;
+		max-width: 350px;
 
 		@include breakpoint(phone) {
 			max-width: 100%;
