@@ -14,9 +14,8 @@
 			display: none;
 		}
 
-		.read-more-link::before {
-			content: "\A";
-			white-space: pre;
+		.read-more-link {
+			display: inline-block;
 		}
 	}
 

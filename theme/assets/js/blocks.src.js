@@ -286,7 +286,6 @@ registerBlockType('ctcl-election-website/read-more-block', {
     }
   },
   edit: function edit(props) {
-    console.log(props.attributes);
     return /*#__PURE__*/React.createElement("div", {
       className: "read-more-block-editor"
     }, /*#__PURE__*/React.createElement(RichText, {
@@ -312,14 +311,13 @@ registerBlockType('ctcl-election-website/read-more-block', {
     }));
   },
   save: function save(props) {
-    console.log(props.attributes);
     return /*#__PURE__*/React.createElement("div", {
       className: "read-more-block less"
     }, /*#__PURE__*/React.createElement("p", {
       className: "read-more-preview"
     }, /*#__PURE__*/React.createElement("span", {
       className: "read-more-preview-content"
-    }, props.attributes.preview), /*#__PURE__*/React.createElement("a", {
+    }, props.attributes.preview), /*#__PURE__*/React.createElement("span", null, "\xA0\xA0"), /*#__PURE__*/React.createElement("a", {
       className: "read-more-link"
     }, "Read More")), /*#__PURE__*/React.createElement("p", {
       className: "read-more-remaining"

@@ -46,6 +46,7 @@ registerBlockType( 'ctcl-election-website/read-more-block', {
 		return <div className="read-more-block less">
 			<p className="read-more-preview">
 				<span className="read-more-preview-content">{ props.attributes.preview }</span>
+				<span>&nbsp;&nbsp;</span>
 				<a className="read-more-link">Read More</a>
 			</p>
 			<p className="read-more-remaining">{ props.attributes.remaining }</p>

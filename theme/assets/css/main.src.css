@@ -1047,9 +1047,8 @@ main ul a {
   display: none;
 }
 
-.read-more-block.less .read-more-link::before {
-  content: "\A";
-  white-space: pre;
+.read-more-block.less .read-more-link {
+  display: inline-block;
 }
 
 .read-more-block:not(.less) .read-more-link {
