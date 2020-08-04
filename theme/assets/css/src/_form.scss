@@ -1,5 +1,6 @@
 .contact-form {
 	width: 90%;
+	margin-top: 32px;
 
 	@include breakpoint(phone) {
 		width: 100%;
