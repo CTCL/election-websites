@@ -40,6 +40,7 @@ header {
 		&.current-page-ancestor {
 			a {
 				color: $midnight;
+				border-bottom-color: $midnight;
 			}
 		}
 	}
