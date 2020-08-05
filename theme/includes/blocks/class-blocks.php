@@ -58,6 +58,7 @@ class Blocks {
 						'becoming-a-candidate'      => 'Becoming a Candidate',
 						'campaign-resources'        => 'Campaign Resources',
 						'check-registration-status' => 'Check Registration Status',
+						'person-mask'               => 'COVID-19',
 						'elected-officials'         => 'Elected Officials',
 						'election-calendar'         => 'Calendar',
 						'military'                  => 'Military',
