@@ -23,10 +23,19 @@ $border-radius: 4px;
 $content-width-tablet: 732px;
 $content-width-desktop: 944px;
 
-// mobile + tablet tiles
-$tile-width: 171px;
-$tile-height: 158px;
+// mobile tiles
+$tile-width-mobile: 43.5vw;
+$tile-height-mobile: 43.5vw;
+
+// tablet tiles
+$tile-width-tablet: 171px;
+$tile-height-tablet: 158px;
 
 // desktop tiles
 $tile-width-desktop: 224px;
 $tile-height-desktop: 200px;
+
+$tile-padding-desktop: 14px 42px;
+$tile-font-size-desktop: 20px;
+$tile-padding-tablet: 14px 5px;
+$tile-font-size-tablet: 16px;

@@ -14,8 +14,8 @@
 		@extend %tile-desktop;
 
 		@include breakpoint(tablet) {
-			width: $tile-width;
-			height: $tile-height;
+			width: $tile-width-tablet;
+			height: $tile-height-tablet;
 			padding: $tile-padding-tablet;
 			font-size: $tile-font-size-tablet;
 		}
@@ -44,7 +44,7 @@
 		grid-template-columns: repeat(4, $tile-width-desktop);
 
 		@include breakpoint(tablet) {
-			grid-template-columns: repeat(4, $tile-width);
+			grid-template-columns: repeat(4, $tile-width-tablet);
 		}
 
 		grid-column-gap: 16px;
@@ -59,8 +59,8 @@
 			height: $tile-height-desktop;
 
 			@include breakpoint(tablet) {
-				width: $tile-width;
-				height: $tile-height;
+				width: $tile-width-tablet;
+				height: $tile-height-tablet;
 				font-size: 18px;
 			}
 

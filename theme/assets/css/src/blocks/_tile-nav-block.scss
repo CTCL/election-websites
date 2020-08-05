@@ -32,44 +32,40 @@
 	}
 }
 
-$tile-padding-desktop: 14px 42px;
-$tile-font-size-desktop: 20px;
-$tile-padding-tablet: 14px 5px;
-$tile-font-size-tablet: 16px;
-
-%tile-tablet {
-	width: $tile-width;
-	height: $tile-height;
-	padding: $tile-padding-tablet;
-	font-size: $tile-font-size-tablet;
-}
-
 %tile-nav-block {
 	display: inline-grid;
 	grid-template-columns: repeat(4, $tile-width-desktop);
 	grid-column-gap: 16px;
 	grid-row-gap: 16px;
 
+	@include breakpoint(tablet) {
+		grid-template-columns: repeat(4, $tile-width-tablet);
+	}
+
 	@include breakpoint(phone) {
-		grid-template-columns: repeat(4, $tile-width);
+		grid-template-columns: repeat(2, $tile-width-mobile);
 		grid-column-gap: 10px;
 		grid-row-gap: 10px;
 	}
 
 	.tile {
 		@extend %tile-default;
-		@extend %tile-tablet;
 
-		@include breakpoint(desktop) {
-			width: $tile-width-desktop;
-			height: $tile-height-desktop;
-			padding: $tile-padding-desktop;
-			font-size: $tile-font-size-desktop;
+		width: $tile-width-desktop;
+		height: $tile-height-desktop;
+		padding: $tile-padding-desktop;
+		font-size: $tile-font-size-desktop;
+
+		@include breakpoint(tablet) {
+			width: $tile-width-tablet;
+			height: $tile-height-tablet;
+			padding: $tile-padding-tablet;
+			font-size: $tile-font-size-tablet;
 		}
 
 		@include breakpoint(phone) {
-			width: 40vw;
-			height: 40vw;
+			width: $tile-width-mobile;
+			height: $tile-height-mobile;
 		}
 	}
 }
@@ -84,10 +80,6 @@ $tile-font-size-tablet: 16px;
 	}
 
 	@include breakpoint(phone) {
-		grid-template-columns: repeat(2, $tile-width);
-	}
-
-	@include breakpoint(phone) {
-		grid-template-columns: repeat(2, 40vw);
+		grid-template-columns: repeat(2, $tile-width-mobile);
 	}
 }
