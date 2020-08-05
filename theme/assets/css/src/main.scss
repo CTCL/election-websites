@@ -65,9 +65,13 @@ h2 {
 	line-height: 38px;
 }
 
-p.office-title,
 header h1,
-header .site-title,
+header .site-title {
+	font-size: 22px;
+	line-height: 26px;
+}
+
+p.office-title,
 h3 {
 	font-size: 18px;
 	line-height: 22px;
