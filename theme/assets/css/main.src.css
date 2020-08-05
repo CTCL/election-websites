@@ -1292,6 +1292,10 @@ figure.wp-block-table tr:nth-child(2n) {
   color: #093f8c;
 }
 
+.theme-blue *:focus {
+  outline-color: #55d5f1;
+}
+
 .theme-blue .contact-form button {
   background-color: #0b4faf;
 }
@@ -1343,6 +1347,10 @@ figure.wp-block-table tr:nth-child(2n) {
 .theme-green main p a:hover,
 .theme-green main ul a:hover {
   color: #11766f;
+}
+
+.theme-green *:focus {
+  outline-color: #67dacc;
 }
 
 .theme-green .contact-form button {
