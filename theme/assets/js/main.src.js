@@ -10,10 +10,28 @@ window.ctcl = {
 		}
 	},
 
-	handleAccordionClick: function( e ) {
+	handleAccordionKey: function( e ) {
 		var clickedItem = e.currentTarget;
 
-		clickedItem.classList.toggle( 'open' );
+		// space or enter triggers a click
+		if ( -1 !== [ 13, 32 ].indexOf( e.keyCode ) ) {
+			clickedItem.click();
+		}
+	},
+
+	handleAccordionClick: function( e ) {
+		var clickedItem = e.currentTarget;
+		var section = clickedItem.nextSibling;
+
+		console.log( 'accordion click...' );
+
+		if ( clickedItem.classList.contains( 'open' ) ) {
+			clickedItem.classList.remove( 'open' );
+			section.setAttribute( 'aria-hidden', true );
+		} else {
+			clickedItem.classList.add( 'open' );
+			section.setAttribute( 'aria-hidden', false );
+		}
 	},
 
 	handleMobileMenuClick: function( e ) {
@@ -45,11 +63,28 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	var readMoreLinks = document.querySelectorAll( '.read-more-link' );
 	var readLessLinks = document.querySelectorAll( '.read-less-link' );
 	var header;
+	var accordionTopLevelHeaders;
+	var accordionSections;
 
-	// Enable the collapsible sections.
-	accordionHeaders.forEach( function( item ) {
-		item.addEventListener( 'click', window.ctcl.handleAccordionClick, { capture: true } );
-	} );
+	if ( accordionHeaders ) {
+		accordionTopLevelHeaders = document.querySelectorAll( '.accordion-section-wrapper:not(.subsection) > .accordion-section-header' );
+		accordionSections = document.querySelectorAll( '.accordion-section-content' );
+
+		// Enable the collapsible sections.
+		accordionHeaders.forEach( function( item, index ) {
+			item.addEventListener( 'click', window.ctcl.handleAccordionClick, { capture: true } );
+			item.addEventListener( 'keydown', window.ctcl.handleAccordionKey, { capture: true } );
+			item.setAttribute( 'tabindex', index );
+		} );
+
+		accordionTopLevelHeaders.forEach( function( item, index ) {
+			item.setAttribute( 'tabindex', index + 1 );
+		} );
+
+		accordionSections.forEach( function( item ) {
+			item.setAttribute( 'aria-hidden', true );
+		} );
+	}
 
 	// Enable the read more links
 	readMoreLinks.forEach( function( item ) {
