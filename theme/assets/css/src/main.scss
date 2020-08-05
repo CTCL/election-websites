@@ -41,6 +41,13 @@ html #wpadminbar {
 main {
 	@include fit-to-page;
 
+	.home & {
+		@include breakpoint(phone) {
+			width: 100%;
+			margin: inherit;
+		}
+	}
+
 	flex-grow: 1;
 	align-items: start;
 }
@@ -67,8 +74,8 @@ h2 {
 
 header h1,
 header .site-title {
-	font-size: 22px;
-	line-height: 26px;
+	font-size: 20px;
+	line-height: 24px;
 }
 
 p.office-title,

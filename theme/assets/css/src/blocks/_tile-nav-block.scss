@@ -46,14 +46,15 @@ $tile-font-size-tablet: 16px;
 
 %tile-nav-block {
 	display: inline-grid;
-	grid-template-columns: repeat(4, $tile-width);
-
-	@include breakpoint(desktop) {
-		grid-template-columns: repeat(4, $tile-width-desktop);
-	}
-
+	grid-template-columns: repeat(4, $tile-width-desktop);
 	grid-column-gap: 16px;
 	grid-row-gap: 16px;
+
+	@include breakpoint(phone) {
+		grid-template-columns: repeat(4, $tile-width);
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+	}
 
 	.tile {
 		@extend %tile-default;
@@ -66,7 +67,7 @@ $tile-font-size-tablet: 16px;
 			font-size: $tile-font-size-desktop;
 		}
 
-		@media (max-width: 350px) {
+		@include breakpoint(phone) {
 			width: 40vw;
 			height: 40vw;
 		}
@@ -86,7 +87,7 @@ $tile-font-size-tablet: 16px;
 		grid-template-columns: repeat(2, $tile-width);
 	}
 
-	@media (max-width: 350px) {
+	@include breakpoint(phone) {
 		grid-template-columns: repeat(2, 40vw);
 	}
 }
