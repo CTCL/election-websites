@@ -1,4 +1,4 @@
-@mixin theme($button-link, $banner-button, $banner-link) {
+@mixin theme($button-link, $banner-button, $banner-link, $focus) {
 	main {
 		p,
 		ul {
@@ -10,6 +10,10 @@
 				}
 			}
 		}
+	}
+
+	*:focus {
+		outline-color: $focus;
 	}
 
 	// contact form button
@@ -62,23 +66,25 @@
 }
 
 // blue
-$a-button-link: #0b4faf;
-$a-icon-one: #5cd5ee;
-$a-icon-two: #ec5d4f;
-$a-icon-three: #b8493e;
-$a-banner-link: #55d5f1;
+$blue-button-link: #0b4faf;
+$blue-icon-one: #5cd5ee;
+$blue-icon-two: #ec5d4f;
+$blue-icon-three: #b8493e;
+$blue-banner-link: #55d5f1;
+$blue-focus: #55d5f1;
 
 .theme-blue {
-	@include theme($a-button-link, $a-icon-two, $a-banner-link);
+	@include theme($blue-button-link, $blue-icon-two, $blue-banner-link, $blue-focus);
 }
 
 // green
-$b-button-link: #15948b;
-$b-icon-one: #6dd9cc;
-$b-icon-two: #fd6d3a;
-$b-icon-three: #b04b28;
-$b-banner-link: #67dacc;
+$green-button-link: #15948b;
+$green-icon-one: #6dd9cc;
+$green-icon-two: #fd6d3a;
+$green-icon-three: #b04b28;
+$green-banner-link: #67dacc;
+$green-focus: #67dacc;
 
 .theme-green {
-	@include theme($b-button-link, $b-button-link, $b-banner-link);
+	@include theme($green-button-link, $green-button-link, $green-banner-link, $green-focus);
 }
