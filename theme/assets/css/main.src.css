@@ -357,7 +357,7 @@ header .header-wrapper .icon-bars {
 }
 
 header .header-wrapper .icon-bars .icon-bar {
-  height: 4px;
+  height: 3px;
   width: 100%;
   position: absolute;
   top: 50%;
@@ -368,7 +368,7 @@ header .header-wrapper .icon-bars .icon-bar {
 }
 
 header .header-wrapper .icon-bars .icon-bar.bar-top {
-  margin-top: -12px;
+  margin-top: -10px;
   transform: rotate(0);
 }
 
@@ -377,7 +377,7 @@ header .header-wrapper .icon-bars .icon-bar.bar-middle {
 }
 
 header .header-wrapper .icon-bars .icon-bar.bar-bottom {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 header img,
@@ -405,6 +405,12 @@ header .site-title-wrapper {
 
 header .site-title-wrapper .site-title {
   font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  header .site-title-wrapper .site-title {
+    max-width: 210px;
+  }
 }
 
 header nav {
@@ -455,12 +461,6 @@ header .menu .menu-item {
     font-size: 20px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    padding: 20px 0;
-  }
-}
-
-@media (max-width: 767px) {
-  header .menu .menu-item {
     margin-left: 0;
   }
 }
@@ -469,15 +469,28 @@ header .menu .menu-item a {
   position: relative;
 }
 
+@media (max-width: 767px) {
+  header .menu .menu-item a {
+    display: block;
+    padding: 30px 0;
+  }
+}
+
 header .menu .menu-item a::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   display: block;
   width: 0;
   height: 1px;
   transition: width 0.3s ease 0s, width 0.3s ease 0s;
+}
+
+@media (max-width: 767px) {
+  header .menu .menu-item a::after {
+    content: none;
+  }
 }
 
 header .menu .menu-item a:hover::after {
@@ -489,8 +502,15 @@ header .menu .menu-item.current-menu-item {
 }
 
 header .menu .menu-item.current-menu-item a, header .menu .menu-item.current-page-ancestor a {
-  font-weight: bold;
-  color: #18244b;
+  font-weight: 600;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+@media (max-width: 767px) {
+  header .menu .menu-item.current-menu-item a, header .menu .menu-item.current-page-ancestor a {
+    border: none;
+  }
 }
 
 header + section,
@@ -674,6 +694,7 @@ figure.wp-block-table td {
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
+  -webkit-appearance: none;
   width: 100%;
 }
 
@@ -737,6 +758,12 @@ figure.wp-block-table td {
   display: block;
   background-position: 0;
   text-indent: 20px;
+}
+
+@media (max-width: 767px) {
+  .page-about-us main img {
+    display: none;
+  }
 }
 
 .page-about-us .wp-block-columns .wp-block-column:last-child {
@@ -910,6 +937,7 @@ main {
   min-width: 30px;
   text-align: center;
   line-height: 28px;
+  margin-top: 8px;
 }
 
 .numbered-section .numbered-section-content {
@@ -1097,16 +1125,17 @@ header a {
 }
 
 @media (max-width: 767px) {
-  header menu {
+  header nav {
     background-color: #fff;
   }
-  header menu .menu-item {
+  header nav .menu-item {
     border-bottom-color: #b7bccd;
   }
 }
 
-header menu.current-menu-item a, header menu.current-page-ancestor a {
+header nav.current-menu-item a, header nav.current-page-ancestor a {
   color: #18244b;
+  border-bottom-color: #18244b;
 }
 
 main p,
@@ -1172,7 +1201,7 @@ header .menu .menu-item a::after, footer .menu .menu-item a::after {
 }
 
 .accordion-group .accordion-section-wrapper.subsection {
-  border-top-color: #464956;
+  border-top-color: #b7bccd;
 }
 
 .error404 .button,
@@ -1415,8 +1444,8 @@ h6 {
 }
 
 h1 {
-  font-size: 38px;
-  line-height: 38px;
+  font-size: 42px;
+  line-height: 58px;
 }
 
 h2 {
@@ -1424,9 +1453,13 @@ h2 {
   line-height: 38px;
 }
 
-p.office-title,
 header h1,
-header .site-title,
+header .site-title {
+  font-size: 22px;
+  line-height: 26px;
+}
+
+p.office-title,
 h3 {
   font-size: 18px;
   line-height: 22px;
