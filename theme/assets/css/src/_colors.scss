@@ -27,7 +27,7 @@ header {
 		color: $midnight;
 	}
 
-	menu {
+	nav {
 		@include breakpoint(phone) {
 			background-color: $white;
 
