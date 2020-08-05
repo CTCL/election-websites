@@ -47,7 +47,7 @@ header {
 			transition: all 0.3s ease;
 
 			.icon-bar {
-				height: 4px;
+				height: 3px;
 				width: 100%;
 				position: absolute;
 				top: 50%;
@@ -56,7 +56,7 @@ header {
 				transition: all 0.3s ease;
 
 				&.bar-top {
-					margin-top: -12px;
+					margin-top: -10px;
 					transform: rotate(0);
 				}
 
@@ -65,7 +65,7 @@ header {
 				}
 
 				&.bar-bottom {
-					margin-top: 12px;
+					margin-top: 10px;
 				}
 			}
 		}
@@ -164,7 +164,7 @@ header {
 				&::after {
 					content: "";
 					position: absolute;
-					bottom: 0;
+					bottom: -1px;
 					left: 0;
 					display: block;
 					width: 0;
@@ -184,8 +184,9 @@ header {
 			&.current-menu-item,
 			&.current-page-ancestor {
 				a {
-					font-weight: bold;
-					color: $midnight;
+					font-weight: 600;
+					border-bottom-width: 1px;
+					border-bottom-style: solid;
 				}
 			}
 		}
