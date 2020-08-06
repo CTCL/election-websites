@@ -26,6 +26,7 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 </head>
 
 <body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 
 <header>
 	<div class="header-wrapper">
