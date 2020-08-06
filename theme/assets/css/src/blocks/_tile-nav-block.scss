@@ -8,7 +8,7 @@
 	grid-row-gap: 18px;
 	box-sizing: border-box;
 	border-radius: 2px;
-	line-height: 20px;
+	line-height: 25px;
 	font-weight: 600;
 	text-align: center;
 	text-decoration: none;
@@ -61,6 +61,7 @@
 			height: $tile-height-tablet;
 			padding: $tile-padding-tablet;
 			font-size: $tile-font-size-tablet;
+			line-height: 20px;
 		}
 
 		@include breakpoint(phone) {
