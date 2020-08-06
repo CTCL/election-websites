@@ -81,8 +81,9 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		// Enable the collapsible sections.
 		accordionHeaders.forEach( function( item, index ) {
 			item.addEventListener( 'click', window.ctcl.handleAccordionClick, { capture: true } );
-			item.setAttribute( 'tabindex', index );
 			item.addEventListener( 'keydown', window.ctcl.handleSpaceOrEnter, { capture: true } );
+
+			// item.setAttribute( 'tabindex', index );
 		} );
 
 		accordionTopLevelHeaders.forEach( function( item, index ) {
