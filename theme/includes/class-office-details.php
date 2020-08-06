@@ -198,10 +198,11 @@ class Office_Details {
 	/**
 	 * Print or return a link.
 	 *
-	 * @param boolean $label  The link label (social media handle).
-	 * @param boolean $url    The link URL.
-	 * @param boolean $link   Whether to render this as a link (instead of plain text).
-	 * @param boolean $echo   Whether to print this (instead of returning it).
+	 * @param string  $label       The link label (social media handle).
+	 * @param boolean $url         The link URL.
+	 * @param boolean $link        Whether to render this as a link (instead of plain text).
+	 * @param boolean $echo        Whether to print this (instead of returning it).
+	 * @param string  $aria_label  The aria-label attribute for the link (optional).
 	 *
 	 * @return string
 	 */
