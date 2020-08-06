@@ -1,5 +1,6 @@
 === CTCL Election Website Toolkit ===
-Contributors: Paul Schreiber, Legarlin Li, Constance Smith, Zara Fishkin
+Contributors: paulschreiber, legarlin
+Requires at least: 5.5
 Tested up to: 5.5
 Stable tag: 1.0
 License: GPLv2 or later
