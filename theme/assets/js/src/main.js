@@ -26,8 +26,6 @@ window.ctcl = {
 		var clickedItem = e.currentTarget;
 		var section = clickedItem.nextSibling;
 
-		console.log( 'accordion click...' );
-
 		if ( clickedItem.classList.contains( 'open' ) ) {
 			clickedItem.classList.remove( 'open' );
 			section.setAttribute( 'aria-hidden', true );
