@@ -107,6 +107,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	// Enable the mobile (hamburger) menu.
 	if ( mobileMenu ) {
 		mobileMenu.addEventListener( 'click', window.ctcl.handleMobileMenuClick );
+		mobileMenu.addEventListener( 'keydown', window.ctcl.handleSpaceOrEnter );
 	}
 
 	// Open PDFs in new tabs.
