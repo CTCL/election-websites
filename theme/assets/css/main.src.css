@@ -636,6 +636,18 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.page-news h3 a {
+  font-size: 24px;
+}
+
+.page-news p + h3::before {
+  content: '';
+  height: 3px;
+  width: 20px;
+  display: block;
+  margin: 20px 0;
+}
+
 figure.wp-block-table {
   margin: 0;
   padding: 8px 0;
@@ -1166,6 +1178,10 @@ main hr {
   border-color: #18244b;
 }
 
+.page-news p + h3::before {
+  background-color: #18244b;
+}
+
 .contact-form label {
   color: #18244b;
 }
@@ -1291,11 +1307,13 @@ figure.wp-block-table tr:nth-child(2n) {
   background-color: #f5f6fa;
 }
 
+.theme-blue main h3 a,
 .theme-blue main p a,
 .theme-blue main ul a {
   color: #0b4faf;
 }
 
+.theme-blue main h3 a:hover,
 .theme-blue main p a:hover,
 .theme-blue main ul a:hover {
   color: #093f8c;
@@ -1348,11 +1366,13 @@ figure.wp-block-table tr:nth-child(2n) {
   background-color: #0b4faf;
 }
 
+.theme-green main h3 a,
 .theme-green main p a,
 .theme-green main ul a {
   color: #15948b;
 }
 
+.theme-green main h3 a:hover,
 .theme-green main p a:hover,
 .theme-green main ul a:hover {
   color: #11766f;
