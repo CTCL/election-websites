@@ -1003,6 +1003,14 @@ main {
   }
 }
 
+.accordion-group .accordion-section-wrapper .accordion-section-header.disabled {
+  cursor: default;
+}
+
+.accordion-group .accordion-section-wrapper .accordion-section-header.disabled::after {
+  content: none;
+}
+
 .accordion-group .accordion-section-wrapper .accordion-section-header::after {
   border-style: solid;
   border-width: 0 0 3px 3px;
