@@ -18,6 +18,10 @@ if ( substr( $host, -strlen( '.test' ) ) === '.test' ) {
 	define( 'WP_ENVIRONMENT', 'production' );
 }
 
+if ( ! isset( $content_width ) ) {
+	$content_width = 944;
+}
+
 // Helpers.
 require_once __DIR__ . '/includes/class-activation.php';
 require_once __DIR__ . '/includes/class-helpers.php';
