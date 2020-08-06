@@ -29,7 +29,7 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 
 <header>
 	<div class="header-wrapper">
-		<a class="site-title-wrapper" href="<?php echo esc_url( get_home_url() ); ?>">
+		<a class="site-title-wrapper" href="<?php echo esc_url( get_home_url() ); ?>" tabindex="-1">
 			<?php
 			echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false ) );
 			?>
@@ -39,7 +39,7 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 			<?php else : ?>
 			<p class="site-title"><?php echo esc_html( $site_title ); ?></p>
 			<?php endif; ?>
-			<span class="mobile-menu icon-bars">
+			<span class="mobile-menu icon-bars" aria-expanded="false" tabindex="0">
 				<span class="icon-bar bar-top"></span>
 				<span class="icon-bar bar-middle"></span>
 				<span class="icon-bar bar-bottom"></span>
