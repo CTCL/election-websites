@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<main>
+<main <?php post_class(); ?>>
 	<?php if ( ! is_front_page() ) : ?>
 	<h1><?php echo esc_html( get_the_title() ); ?></h1>
 	<?php endif; ?>

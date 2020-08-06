@@ -8,7 +8,7 @@
 
 get_header();
 ?>
-<main>
+<main <?php post_class(); ?>>
 	<?php
 	$nonce = filter_input( INPUT_POST, \CTCL\Elections\Contact_Form::NONCE_KEY, FILTER_SANITIZE_STRING );
 	if ( $nonce ) {
