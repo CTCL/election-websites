@@ -4,12 +4,11 @@
  * Author:            United States Digital Reponse
  * Author URI:        https://usdigitalresponse.org/
  * Description:       This theme is for local election officials in the United States. Built using research from the Center for Civic Design, it's fast, mobile-friendly and accessible. It includes pre-written pages on voting, voter registration, campaign and candidate resources, poll workers and more and a set of election-related icons.
- * Tags:              election, election, registrar, voter, voters, city, town, county, borough, parish, accessible
  * Version:           1.0.0
  * Requires at least: 5.4
  * Tested up to:      5.5
  * Requires PHP:      7.3
- *
+ * Text Domain:       ctcl-election
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  */
