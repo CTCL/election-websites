@@ -68,6 +68,13 @@ main {
 	}
 }
 
+// news and press releases
+.page-news {
+	p + h3::before {
+		background-color: $midnight;
+	}
+}
+
 .contact-form {
 	label {
 		color: $midnight;
