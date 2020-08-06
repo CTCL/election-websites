@@ -10,20 +10,21 @@ window.ctcl = {
 		}
 	},
 
-	handleAccordionKey: function( e ) {
+	handleSpaceOrEnter: function( e ) {
 		var clickedItem = e.currentTarget;
 
 		// space or enter triggers a click
 		if ( -1 !== [ 13, 32 ].indexOf( e.keyCode ) ) {
 			clickedItem.click();
+
+			// prevent spacebar from paginating
+			e.preventDefault();
 		}
 	},
 
 	handleAccordionClick: function( e ) {
 		var clickedItem = e.currentTarget;
 		var section = clickedItem.nextSibling;
-
-		console.log( 'accordion click...' );
 
 		if ( clickedItem.classList.contains( 'open' ) ) {
 			clickedItem.classList.remove( 'open' );
@@ -35,7 +36,14 @@ window.ctcl = {
 	},
 
 	handleMobileMenuClick: function( e ) {
-		document.body.classList.toggle( 'menu' );
+		var mobileMenu = document.querySelector( '.mobile-menu' );
+		if ( document.body.classList.contains( 'menu' ) ) {
+			document.body.classList.remove( 'menu' );
+			mobileMenu.setAttribute( 'aria-expanded', false );
+		} else {
+			document.body.classList.add( 'menu' );
+			mobileMenu.setAttribute( 'aria-expanded', true );
+		}
 
 		// parent element is an <a> tag. Don't want its click to fire.
 		e.preventDefault();
@@ -73,8 +81,9 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		// Enable the collapsible sections.
 		accordionHeaders.forEach( function( item, index ) {
 			item.addEventListener( 'click', window.ctcl.handleAccordionClick, { capture: true } );
-			item.addEventListener( 'keydown', window.ctcl.handleAccordionKey, { capture: true } );
-			item.setAttribute( 'tabindex', index );
+			item.addEventListener( 'keydown', window.ctcl.handleSpaceOrEnter, { capture: true } );
+
+			// item.setAttribute( 'tabindex', index );
 		} );
 
 		accordionTopLevelHeaders.forEach( function( item, index ) {
@@ -99,6 +108,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	// Enable the mobile (hamburger) menu.
 	if ( mobileMenu ) {
 		mobileMenu.addEventListener( 'click', window.ctcl.handleMobileMenuClick );
+		mobileMenu.addEventListener( 'keydown', window.ctcl.handleSpaceOrEnter );
 	}
 
 	// Open PDFs in new tabs.
