@@ -36,7 +36,14 @@ window.ctcl = {
 	},
 
 	handleMobileMenuClick: function( e ) {
-		document.body.classList.toggle( 'menu' );
+		var mobileMenu = document.querySelector( '.mobile-menu' );
+		if ( document.body.classList.contains( 'menu' ) ) {
+			document.body.classList.remove( 'menu' );
+			mobileMenu.setAttribute( 'aria-expanded', false );
+		} else {
+			document.body.classList.add( 'menu' );
+			mobileMenu.setAttribute( 'aria-expanded', true );
+		}
 
 		// parent element is an <a> tag. Don't want its click to fire.
 		e.preventDefault();
