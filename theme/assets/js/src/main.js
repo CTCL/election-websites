@@ -10,12 +10,15 @@ window.ctcl = {
 		}
 	},
 
-	handleAccordionKey: function( e ) {
+	handleSpaceOrEnter: function( e ) {
 		var clickedItem = e.currentTarget;
 
 		// space or enter triggers a click
 		if ( -1 !== [ 13, 32 ].indexOf( e.keyCode ) ) {
 			clickedItem.click();
+
+			// prevent spacebar from paginating
+			e.preventDefault();
 		}
 	},
 
@@ -73,8 +76,8 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		// Enable the collapsible sections.
 		accordionHeaders.forEach( function( item, index ) {
 			item.addEventListener( 'click', window.ctcl.handleAccordionClick, { capture: true } );
-			item.addEventListener( 'keydown', window.ctcl.handleAccordionKey, { capture: true } );
 			item.setAttribute( 'tabindex', index );
+			item.addEventListener( 'keydown', window.ctcl.handleSpaceOrEnter, { capture: true } );
 		} );
 
 		accordionTopLevelHeaders.forEach( function( item, index ) {
