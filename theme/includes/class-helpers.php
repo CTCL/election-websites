@@ -151,7 +151,7 @@ class Helpers {
 	/**
 	 * Format a phone number as an aria-label.
 	 *
-	 * @param string $phone  Phone number
+	 * @param string $phone  Phone number.
 	 *
 	 * @return string
 	 */

@@ -79,7 +79,7 @@ class Hooks {
 	public static function wp_enqueue_scripts() {
 		$type = ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) ? 'src' : 'min';
 
-		// Allow jQuery for Query Monitor
+		// Allow jQuery for Query Monitor.
 		if ( ! ( is_admin_bar_showing() && class_exists( 'QM' ) ) ) {
 			wp_deregister_script( 'jquery' );
 		}
