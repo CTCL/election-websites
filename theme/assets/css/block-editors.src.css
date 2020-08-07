@@ -144,6 +144,13 @@
   }
 }
 
+.wp-admin .tile-nav-block-editor .tile {
+  width: 171px;
+  height: 158px;
+  padding: 14px 5px;
+  font-size: 16px;
+}
+
 .tile-nav-block-editor .placeholder {
   color: #b7bccd;
 }
@@ -173,6 +180,10 @@
   .tile-nav-section-block-editor .block-editor-block-list__layout {
     grid-template-columns: repeat(4, 171px);
   }
+}
+
+.wp-admin .tile-nav-section-block-editor .block-editor-block-list__layout {
+  grid-template-columns: repeat(4, 171px);
 }
 
 .tile-nav-section-block-editor .block-list-appender {
