@@ -17,6 +17,14 @@ namespace CTCL\Elections;
 class Activation {
 
 	/**
+	 * Set up actions.
+	 */
+	public static function actions() {
+		self::enable_optimization();
+		self::upload_included_images();
+	}
+
+	/**
 	 * Enable CSS, JS and JS defer for the Page Optimize plugin.
 	 */
 	public static function enable_optimization() {
@@ -59,7 +67,7 @@ class Activation {
 	 */
 	public static function upload_included_images() {
 		$image_list = [
-			'banner' => [
+			'banner'      => [
 				'balllot-box-light-blue.svg' => 'Ballot box (light blue)',
 				'ballot-box-green.svg'       => 'Ballot box (green)',
 				'mailbox-light-blue.svg'     => 'Mailbox (light blue)',
@@ -85,3 +93,6 @@ class Activation {
 		}
 	}
 }
+
+add_action( 'after_switch_theme', [ '\CTCL\Elections\Activation', 'actions' ] );
+
