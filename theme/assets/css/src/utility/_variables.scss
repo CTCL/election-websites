@@ -24,8 +24,13 @@ $content-width-tablet: 732px;
 $content-width-desktop: 944px;
 
 // mobile tiles
-$tile-width-mobile: 43.5vw;
-$tile-height-mobile: 43.5vw;
+$aspect-ratio: 0.9;
+$tile-width-mobile: calc((100vw - 50px) / 2);
+$tile-height-mobile: calc((100vw - 50px) / 2 * #{$aspect-ratio});
+
+// mobile tiles - home
+$tile-width-mobile-home: calc((100vw - 42px) / 2);
+$tile-height-mobile-home: calc((100vw - 42px) / 2 * #{$aspect-ratio});
 
 // tablet tiles
 $tile-width-tablet: 171px;
@@ -37,5 +42,5 @@ $tile-height-desktop: 200px;
 
 $tile-padding-desktop: 14px 42px;
 $tile-font-size-desktop: 20px;
-$tile-padding-tablet: 14px 5px;
+$tile-padding-tablet: 14px 12px;
 $tile-font-size-tablet: 16px;
