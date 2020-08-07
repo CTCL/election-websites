@@ -31,6 +31,15 @@ body {
 	&.menu {
 		overflow: hidden;
 	}
+
+	// make room for admin bar
+	&.admin-bar {
+		min-height: calc(100vh - 32px);
+
+		@media screen and (max-width: 600px) {
+			min-height: calc(100vh - 46px);
+		}
+	}
 }
 
 // match admin-bar.css width, not our width
