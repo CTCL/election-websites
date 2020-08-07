@@ -92,6 +92,13 @@ class Activation {
 			}
 		}
 	}
+
+	/**
+	 * Create pages with prewritten content.
+	 */
+	public static function add_election_content() {
+
+	}
 }
 
 add_action( 'after_switch_theme', [ '\CTCL\Elections\Activation', 'actions' ] );
