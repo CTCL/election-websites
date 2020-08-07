@@ -58,6 +58,7 @@ window.ctcl = {
 
 	setupAccordion: function() {
 		var hasAccordion = document.querySelector( '.accordion-group' );
+		var autoExpandFirstItem = document.querySelector( '.page-results' );
 		var hasSubsection;
 		var accordionHeaders;
 		var accordionTopLevelHeaders;
@@ -95,6 +96,10 @@ window.ctcl = {
 		accordionSections.forEach( function( item ) {
 			item.setAttribute( 'aria-hidden', true );
 		} );
+
+		if ( autoExpandFirstItem && accordionHeaders[0] ) {
+			accordionHeaders[0].classList.add( 'open', 'disabled' );
+		}
 	}
 };
 
