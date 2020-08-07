@@ -7,6 +7,9 @@
 	<rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
 		<severity>0</severity>
 	</rule>
+	<rule ref="WordPressVIPMinimum.Classes.RestrictedExtendClasses.wp_cli">
+		<severity>0</severity>
+	</rule>
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
 	<config name="testVersion" value="7.4-"/>
