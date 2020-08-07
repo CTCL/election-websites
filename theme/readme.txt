@@ -10,11 +10,12 @@ Local election official website template and toolkit.
 
 == Description ==
 
-This theme is for local election officials in the United States. Built using
-research from the Center for Civic Design, it's fast, mobile-friendly and
-accessible. It includes pre-written pages on voting, voter registration,
-campaign and candidate resources, poll workers and more and a set of
-election-related icons.
+If you’re a local election official in the United States, you can use this
+template to get a head-start on building your election website. The template
+will provide you with (1) a pre-built home page with election-related links
+and icons, (2) pre-loaded web pages on voting, voter registration, election
+resources, and more. The template follows guidelines from the Center for
+Civic Design and is fast, mobile-friendly and accessible.
 
 == Changelog ==
 
