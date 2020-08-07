@@ -84,9 +84,12 @@
 
 @media (max-width: 767px) {
   .tile-wrapper {
-    grid-template-columns: repeat(2, 43.5vw);
+    grid-template-columns: repeat(2, calc((100vw - 50px) / 2));
     grid-column-gap: 10px;
     grid-row-gap: 10px;
+  }
+  .home .tile-wrapper {
+    grid-template-columns: repeat(2, calc((100vw - 42px) / 2));
   }
 }
 
@@ -109,8 +112,12 @@
 
 @media (max-width: 767px) {
   .tile-wrapper .tile {
-    width: 43.5vw;
-    height: 43.5vw;
+    width: calc((100vw - 50px) / 2);
+    height: calc((100vw - 50px) / 2);
+  }
+  .home .tile-wrapper .tile {
+    width: calc((100vw - 42px) / 2);
+    height: calc((100vw - 42px) / 2);
   }
 }
 
@@ -124,7 +131,7 @@
 
 @media (max-width: 767px) {
   .tile-wrapper {
-    grid-template-columns: repeat(2, 43.5vw);
+    grid-template-columns: repeat(2, calc((100vw - 50px) / 2));
   }
 }
 
