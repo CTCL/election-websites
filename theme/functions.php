@@ -61,3 +61,7 @@ require_once __DIR__ . '/includes/settings/class-google-settings.php';
 // Google integration.
 require_once __DIR__ . '/includes/class-google-analytics.php';
 require_once __DIR__ . '/includes/class-google-recaptcha.php'; // Must be after settings page.
+
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	require_once __DIR__ . '/includes/class-ctcl-cli.php';
+}
