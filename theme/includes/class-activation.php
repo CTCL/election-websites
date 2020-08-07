@@ -55,25 +55,33 @@ class Activation {
 	}
 
 	/**
-	 * Upload banner images to the media library.
+	 * Upload banner and placeholder images to the media library.
 	 */
-	public static function upload_banner_images() {
+	public static function upload_included_images() {
 		$image_list = [
-			'balllot-box-light-blue.svg' => 'Ballot box (light blue)',
-			'ballot-box-greeb.svg'       => 'Ballot box (green)',
-			'mailbox-light-blue.svg'     => 'Mailbox (light blue)',
-			'mailbox-green.svg'          => 'Mailbox (green)',
-			'mailbox-dark-blue.svg'      => 'Mailbox (dark blue)',
+			'banner' => [
+				'balllot-box-light-blue.svg' => 'Ballot box (light blue)',
+				'ballot-box-green.svg'       => 'Ballot box (green)',
+				'mailbox-light-blue.svg'     => 'Mailbox (light blue)',
+				'mailbox-green.svg'          => 'Mailbox (green)',
+				'mailbox-dark-blue.svg'      => 'Mailbox (dark blue)',
+			],
+			'placeholder' => [
+				'county-logo.png'     => 'Sample county logo',
+				'registrar-photo.png' => 'Sample registrar photo',
+			],
 		];
 
-		foreach ( $image_list as $filename => $description ) {
+		foreach ( $image_list as $category => $image_data ) {
+			foreach ( $image_data as $filename => $description ) {
 
-			if ( self::image_exists( $filename ) ) {
-				continue;
+				if ( self::image_exists( $filename ) ) {
+					continue;
+				}
+
+				$file = get_theme_file_uri( 'assets/images/' . $category . '/' . $filename );
+				Helpers::upload_image( $file, $description );
 			}
-
-			$file = get_theme_file_uri( 'assets/images/banner/' . $filename );
-			Helpers::upload_image( $file, $description );
 		}
 	}
 }
