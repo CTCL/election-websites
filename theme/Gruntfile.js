@@ -238,6 +238,9 @@ module.exports = function( grunt ) {
 		}
 	} );
 
+	// Readme
+	grunt.registerTask( 'readme', [ 'wp_readme_to_markdown' ] );
+
 	// PHP Only
 	grunt.registerTask( 'php', [ 'phplint', 'phpcs' ] );
 
