@@ -14,12 +14,11 @@ main {
 
 	ul,
 	ol {
-		padding-left: 0;
+		padding-left: 20px;
 		margin-top: 0;
 
 		li {
-			line-height: 28px;
-			list-style-position: inside;
+			line-height: 36px;
 		}
 	}
 
@@ -35,7 +34,7 @@ main {
 	}
 
 	p {
-		margin: 8px 0;
+		margin: 16px 0;
 	}
 
 	.wp-block-group {
