@@ -198,6 +198,10 @@ class Helpers {
 	 * @return boolean|WP_Error
 	 */
 	public static function upload_image( $file, $description ) {
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+
 		$file_array = [
 			'name'     => wp_basename( $file ),
 			'tmp_name' => download_url( $file ),
