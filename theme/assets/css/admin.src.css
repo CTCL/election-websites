@@ -65,6 +65,7 @@ main .office-info h3.phone::before {
   font-size: 18px;
   text-decoration: none;
   cursor: pointer;
+  line-height: normal;
 }
 
 .contact-form textarea,

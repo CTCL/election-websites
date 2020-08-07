@@ -203,6 +203,7 @@ main ul a {
   font-size: 18px;
   text-decoration: none;
   cursor: pointer;
+  line-height: normal;
   line-height: 60px;
 }
 
@@ -704,6 +705,7 @@ figure.wp-block-table td {
   font-size: 18px;
   text-decoration: none;
   cursor: pointer;
+  line-height: normal;
 }
 
 .contact-form textarea,
@@ -1627,6 +1629,7 @@ code {
   font-size: 18px;
   text-decoration: none;
   cursor: pointer;
+  line-height: normal;
 }
 
 .error404 .button {
