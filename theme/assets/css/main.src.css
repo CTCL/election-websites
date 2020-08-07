@@ -1502,6 +1502,16 @@ body.menu {
   overflow: hidden;
 }
 
+body.admin-bar {
+  min-height: calc(100vh - 32px);
+}
+
+@media screen and (max-width: 600px) {
+  body.admin-bar {
+    min-height: calc(100vh - 46px);
+  }
+}
+
 @media screen and (max-width: 600px) {
   html #wpadminbar {
     position: fixed;
