@@ -19,7 +19,7 @@ $file  = get_template_directory() . '/assets/images/icons/' . $theme . '/not-fou
 
 	<p>The page has moved or does not exist. Try visiting our <a href="/faq/">FAQs</a> for help or going back to the homepage.</p>
 
-	<p><a class="button" href="/">Back to home</a></p>
+	<p><a class="button" href="/">Back to Home</a></p>
 </main>
 
 <?php
