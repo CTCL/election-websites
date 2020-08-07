@@ -46,6 +46,10 @@
 		grid-template-columns: repeat(2, $tile-width-mobile);
 		grid-column-gap: 10px;
 		grid-row-gap: 10px;
+
+		.home & {
+			grid-template-columns: repeat(2, $tile-width-mobile-home);
+		}
 	}
 
 	.tile {
@@ -67,6 +71,11 @@
 		@include breakpoint(phone) {
 			width: $tile-width-mobile;
 			height: $tile-height-mobile;
+
+			.home & {
+				width: $tile-width-mobile-home;
+				height: $tile-height-mobile-home;
+			}
 		}
 	}
 }
