@@ -11,12 +11,22 @@ define( 'THEME_VERSION', '0.9' );
 
 $host = filter_input( INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING );
 if ( substr( $host, -strlen( '.test' ) ) === '.test' ) {
-	define( 'WP_ENVIRONMENT', 'development' );
+	define( 'WP_ENVIRONMENT_TYPE', 'development' );
 } elseif ( substr( $host, -strlen( '.dev' ) ) === '.dev' ) {
-	define( 'WP_ENVIRONMENT', 'staging' );
-} else {
-	define( 'WP_ENVIRONMENT', 'production' );
+	define( 'WP_ENVIRONMENT_TYPE', 'staging' );
 }
+
+// Remove this once WP 5.5 ships
+if ( ! function_exists( 'wp_get_environment_type' ) ) {
+	function wp_get_environment_type() {
+		if ( defined( 'WP_ENVIRONMENT_TYPE' ) ) {
+			return WP_ENVIRONMENT_TYPE;
+		}
+
+		return 'production';
+	}
+}
+
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 944;
