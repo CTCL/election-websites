@@ -113,11 +113,11 @@
 @media (max-width: 767px) {
   .tile-wrapper .tile {
     width: calc((100vw - 50px) / 2);
-    height: calc((100vw - 50px) / 2);
+    height: calc((100vw - 50px) / 2 * 0.9);
   }
   .home .tile-wrapper .tile {
     width: calc((100vw - 42px) / 2);
-    height: calc((100vw - 42px) / 2);
+    height: calc((100vw - 42px) / 2 * 0.9);
   }
 }
 

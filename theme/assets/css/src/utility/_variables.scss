@@ -24,12 +24,13 @@ $content-width-tablet: 732px;
 $content-width-desktop: 944px;
 
 // mobile tiles
+$aspect-ratio: 0.9;
 $tile-width-mobile: calc((100vw - 50px) / 2);
-$tile-height-mobile: calc((100vw - 50px) / 2);
+$tile-height-mobile: calc((100vw - 50px) / 2 * #{$aspect-ratio});
 
 // mobile tiles - home
 $tile-width-mobile-home: calc((100vw - 42px) / 2);
-$tile-height-mobile-home: calc((100vw - 42px) / 2);
+$tile-height-mobile-home: calc((100vw - 42px) / 2 * #{$aspect-ratio});
 
 // tablet tiles
 $tile-width-tablet: 171px;
