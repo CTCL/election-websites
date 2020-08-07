@@ -877,14 +877,13 @@ main {
 
 main ul,
 main ol {
-  padding-left: 0;
+  padding-left: 20px;
   margin-top: 0;
 }
 
 main ul li,
 main ol li {
-  line-height: 28px;
-  list-style-position: inside;
+  line-height: 36px;
 }
 
 main h1:first-child,
@@ -897,7 +896,7 @@ main h6:first-child {
 }
 
 main p {
-  margin: 8px 0;
+  margin: 16px 0;
 }
 
 main .wp-block-group {
@@ -1135,16 +1134,6 @@ main {
 
 .accordion-group .accordion-section-wrapper .accordion-section-content {
   padding-bottom: 18px;
-}
-
-.accordion-group .accordion-section-wrapper .accordion-section-content ul,
-.accordion-group .accordion-section-wrapper .accordion-section-content ol {
-  padding-left: 20px;
-}
-
-.accordion-group .accordion-section-wrapper .accordion-section-content ul li,
-.accordion-group .accordion-section-wrapper .accordion-section-content ol li {
-  list-style-position: outside;
 }
 
 .accordion-group .accordion-section-wrapper .accordion-section-header:not(.open) + .accordion-section-content {
