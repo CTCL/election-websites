@@ -26,7 +26,7 @@ class Tile {
 		$svg   = '';
 		$icon  = $block_attributes['icon'] ?? false;
 		$url   = $block_attributes['url'] ?? '#';
-		$label = $block_attributes['label'] ?? '';
+		$label = apply_filters( 'the_title', $block_attributes['label'] ) ?? '';
 
 		if ( isset( $icon ) ) {
 			$theme     = \CTCL\Elections\Elections_Settings::get_theme_slug();
