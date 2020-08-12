@@ -1490,6 +1490,11 @@ figure.wp-block-table tr:nth-child(2n) {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+*:focus {
+  outline-width: 1px;
+  outline-style: solid;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
