@@ -16,19 +16,6 @@ if ( substr( $host, -strlen( '.test' ) ) === '.test' ) {
 	define( 'WP_ENVIRONMENT_TYPE', 'staging' );
 }
 
-// Remove this once WP 5.5 ships.
-if ( ! function_exists( 'wp_get_environment_type' ) ) {
-
-	// phpcs:ignore Squiz.Commenting.FunctionComment.Missing
-	function wp_get_environment_type() {
-		if ( defined( 'WP_ENVIRONMENT_TYPE' ) ) {
-			return WP_ENVIRONMENT_TYPE;
-		}
-
-		return 'production';
-	}
-}
-
 if ( ! isset( $content_width ) ) {
 	$content_width = 944;
 }
