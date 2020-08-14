@@ -23,6 +23,16 @@ class Settings {
 	public static function hooks() {
 		add_action( 'admin_menu', [ get_called_class(), 'register_menu' ] );
 		add_action( 'admin_init', [ get_called_class(), 'register_settings' ] );
+		add_filter( 'option_page_capability_' . static::FIELD_GROUP, [ get_called_class(), 'edit_pages_cap' ] );
+	}
+
+	/**
+	 * Allow editors to manage elections-related options.
+	 *
+	 * @return string
+	 */
+	public static function edit_pages_cap() {
+		return 'edit_pages';
 	}
 
 	/**
