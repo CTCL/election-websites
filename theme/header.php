@@ -65,11 +65,11 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 			<span class="divider">/</span>
 			<?php
 				echo esc_html( \CTCL\Elections\Alert_Banner::description() );
-				$alert_link = \CTCL\Elections\Alert_Banner::link();
-				$alert_text = \CTCL\Elections\Alert_Banner::link_text();
+				$alert_link      = \CTCL\Elections\Alert_Banner::link();
+				$alert_link_text = \CTCL\Elections\Alert_Banner::link_text();
 			?>
-			<?php if ( $alert_link && $alert_text ) : ?>
-			<a class="alert learn-more" href="<?php echo esc_url( $alert_link ); ?>"><?php echo esc_html( $alert_text ); ?></a>
+			<?php if ( $alert_link && $alert_link_text ) : ?>
+			<a class="alert learn-more" href="<?php echo esc_url( $alert_link ); ?>"><?php echo esc_html( $alert_link_text ); ?></a>
 			<?php endif; ?>
 		</p>
 	</div>
