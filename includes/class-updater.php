@@ -38,7 +38,14 @@ class Updater {
 			return $value;
 		}
 
-		$response = wp_remote_get( self::UPDATE_URL ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get
+		$cache_key = 'ctcl_election_website_update_data';
+		$response  = wp_cache_get( $cache_key );
+
+		if ( false === $response ) {
+			$response = wp_remote_get( self::UPDATE_URL ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get
+			wp_cache_set( $cache_key, $response, false, 300 );
+		}
+
 		if ( is_wp_error( $response ) ) {
 			return $value;
 		}
