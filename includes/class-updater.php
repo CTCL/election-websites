@@ -66,7 +66,7 @@ class Updater {
 			'package'     => $result_json['zipball_url'],
 		];
 
-		$theme_response  = [ wp_get_theme()->theme_name => $theme_data ];
+		$theme_response  = [ get_option( 'template' ) => $theme_data ];
 		$value->response = array_merge( ! empty( $value->response ) ? $value->response : [], $theme_response );
 
 		return $value;
