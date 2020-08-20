@@ -27,6 +27,9 @@ require_once __DIR__ . '/includes/class-hooks.php';
 require_once __DIR__ . '/includes/class-office-details.php';
 require_once __DIR__ . '/includes/class-topics.php';
 
+// Theme updater.
+require_once __DIR__ . '/includes/class-updater.php';
+
 // Banners.
 require_once __DIR__ . '/includes/class-banner.php';
 require_once __DIR__ . '/includes/class-alert-banner.php';
