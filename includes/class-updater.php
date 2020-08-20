@@ -55,7 +55,7 @@ class Updater {
 
 		$theme_data = [
 			'new_version' => $result_json['tag_name'],
-			'url'         => '$changelog_url',
+			'url'         => $result_json['html_url'],
 			'package'     => $result_json['zipball_url'],
 		];
 
