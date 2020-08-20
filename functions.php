@@ -7,7 +7,7 @@
  */
 
 // Global constants.
-define( 'THEME_VERSION', '0.9' );
+define( 'THEME_VERSION', '0.8' );
 
 $host = filter_input( INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING );
 if ( substr( $host, -strlen( '.test' ) ) === '.test' ) {
