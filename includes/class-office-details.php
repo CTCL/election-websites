@@ -208,9 +208,9 @@ class Office_Details {
 	 */
 	public static function get_link( $label, $url, $link, $echo = false, $aria_label = false ) {
 		if ( $link && $aria_label ) {
-			$result = sprintf( '<a href="%s" aria-label="%s">%s</a>', esc_url( $url ), $aria_label, $label );
+			$result = sprintf( '<a href="%s" aria-label="%s">%s</a>', esc_url( $url ), esc_attr( $aria_label ), esc_html( $label ) );
 		} elseif ( $link ) {
-			$result = sprintf( '<a href="%s">%s</a>', esc_url( $url ), $label );
+			$result = sprintf( '<a href="%s">%s</a>', esc_url( $url ), esc_html( $label ) );
 		} else {
 			$result = $label;
 		}
