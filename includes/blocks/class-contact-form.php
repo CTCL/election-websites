@@ -215,7 +215,7 @@ class Contact_Form {
 					Email address
 					<?php \CTCL\Elections\Helpers::error_message( $errors, 'email' ); ?>
 				</label>
-				<input id="contact-email" type="text" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'email' ); ?>/>
+				<input id="contact-email" type="email" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'email' ); ?>/>
 			</p>
 
 			<p class="select-wrapper">
