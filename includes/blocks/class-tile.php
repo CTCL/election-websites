@@ -37,7 +37,7 @@ class Tile {
 				return $html;
 			}
 
-			$file = get_template_directory() . '/assets/images/icons/' . $theme . '/' . $icon . '.svg';
+			$file = get_template_directory() . '/assets/images/icons/' . sanitize_file_name( $theme ) . '/' . sanitize_file_name( $icon ) . '.svg';
 
 			// Leave the alt tag empty, as it is redundant with the label.
 			$svg = Helpers::inline_svg_tag( $file, 50, 50 );

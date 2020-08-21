@@ -9,7 +9,7 @@
 get_header();
 
 $theme = \CTCL\Elections\Elections_Settings::get_theme_slug();
-$file  = get_template_directory() . '/assets/images/icons/' . $theme . '/not-found.svg';
+$file  = get_template_directory() . '/assets/images/icons/' . sanitize_file_name( $theme ) . '/not-found.svg';
 ?>
 
 <main>
