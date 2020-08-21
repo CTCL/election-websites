@@ -9,11 +9,13 @@
 // Global constants.
 define( 'THEME_VERSION', '0.8' );
 
-$host = filter_input( INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING );
-if ( substr( $host, -strlen( '.test' ) ) === '.test' ) {
-	define( 'WP_ENVIRONMENT_TYPE', 'development' );
-} elseif ( substr( $host, -strlen( '.dev' ) ) === '.dev' ) {
-	define( 'WP_ENVIRONMENT_TYPE', 'staging' );
+if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) ) {
+	$host = filter_input( INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING );
+	if ( substr( $host, -strlen( '.test' ) ) === '.test' ) {
+		define( 'WP_ENVIRONMENT_TYPE', 'development' );
+	} elseif ( substr( $host, -strlen( '.dev' ) ) === '.dev' ) {
+		define( 'WP_ENVIRONMENT_TYPE', 'staging' );
+	}
 }
 
 if ( ! isset( $content_width ) ) {
