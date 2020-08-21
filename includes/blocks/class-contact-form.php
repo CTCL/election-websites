@@ -112,7 +112,7 @@ class Contact_Form {
 		if ( $recaptcha_enabled ) {
 			$token = filter_input( INPUT_POST, 'token', FILTER_SANITIZE_STRING );
 			if ( $token ) {
-				$ip_address = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_SANITIZE_STRING );
+				$ip_address = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP );
 
 				$recaptcha_result = \CTCL\Elections\Google_Recaptcha::verify( $token, $ip_address );
 				if ( ! $recaptcha_result ) {
