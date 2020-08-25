@@ -232,6 +232,7 @@
   display: block;
 }
 
+.tile-nav-settings .components-panel__row input[type="email"],
 .tile-nav-settings .components-panel__row input[type="text"] {
   width: 100%;
 }

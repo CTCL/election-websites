@@ -70,6 +70,7 @@ main .wp-block-column .office-info h3.phone::before {
 
 .contact-form textarea,
 .contact-form select,
+.contact-form input[type='email'],
 .contact-form input[type='text'] {
   font-size: 16px;
   display: block;
@@ -85,6 +86,7 @@ main .wp-block-column .office-info h3.phone::before {
 @media (max-width: 767px) {
   .contact-form textarea,
   .contact-form select,
+  .contact-form input[type='email'],
   .contact-form input[type='text'] {
     width: 100%;
   }
@@ -314,12 +316,14 @@ main hr {
 
 .contact-form textarea,
 .contact-form select,
+.contact-form input[type='email'],
 .contact-form input[type='text'] {
   border-color: #b7bccd;
 }
 
 .contact-form textarea.error,
 .contact-form select.error,
+.contact-form input[type='email'].error,
 .contact-form input[type='text'].error {
   border-color: #ee5c4a;
 }
