@@ -86,6 +86,7 @@ main {
 
 	textarea,
 	select,
+	input[type='email'],
 	input[type='text'] {
 		border-color: $grey-medium;
 

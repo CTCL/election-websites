@@ -101,6 +101,7 @@
 	.components-panel__row {
 		display: block;
 
+		input[type="email"],
 		input[type="text"] {
 			width: 100%;
 		}
