@@ -161,7 +161,7 @@ class Contact_Form {
 	 */
 	public static function block_render( $block_attributes, $content ) {
 		if ( ! self::is_enabled() ) {
-			$permalink = admin_url( 'admin.php?page=' . Settings::MENU_SLUG );
+			$permalink = admin_url( 'admin.php?page=office_details' );
 			return 'Please specify an email address in <a href="' . esc_url( $permalink ) . '">Settings > Office Details</a>';
 		}
 
