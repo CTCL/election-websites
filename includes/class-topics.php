@@ -23,6 +23,6 @@ class Topics {
 	 * @return string
 	 */
 	public static function get_list() {
-		return get_option( self::TOPIC_LIST_SLUG );
+		return array_unique( get_option( self::TOPIC_LIST_SLUG ) );
 	}
 }
