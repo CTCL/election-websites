@@ -30,8 +30,10 @@ class Hooks {
 
 		// Defer CSS and JS.
 		add_filter( 'script_loader_tag', [ __CLASS__, 'defer_js' ], 10, 3 );
-		add_filter( 'style_loader_tag', [ __CLASS__, 'defer_css' ], 10, 4 );
 		add_filter( 'page_optimize_style_loader_tag', [ __CLASS__, 'defer_css' ], 10, 4 );
+
+		// Disable defering main CSS to prevent FOUC.
+		// add_filter( 'style_loader_tag', [ __CLASS__, 'defer_css' ], 10, 4 );
 
 		// Set body class.
 		add_filter( 'admin_body_class', [ __CLASS__, 'filter_admin_body_class' ] );
