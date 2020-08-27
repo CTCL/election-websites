@@ -58,6 +58,10 @@ class Hooks {
 		// Two Factor plugin: disable SMS and email.
 		add_filter( 'two_factor_providers', [ __CLASS__, 'two_factor_providers' ] );
 
+		// Enable HSTS.
+		add_action( 'send_headers', [ __CLASS__, 'send_headers' ] );
+
+
 		/*
 		 * Change default WordPress behaviours.
 		 */
@@ -350,6 +354,13 @@ class Hooks {
 		unset( $providers['Two_Factor_Email'] );
 
 		return $providers;
+	}
+
+	/**
+	 * Send HSTS header with preload enabled.
+	 */
+	public static function send_headers() {
+		header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
 	}
 }
 
