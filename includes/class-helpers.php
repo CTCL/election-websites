@@ -101,6 +101,11 @@ class Helpers {
 			return '';
 		}
 
+		// strip leading 1s.
+		if ( '1' === $phone[0] ) {
+			$phone = substr( $phone, 1 );
+		}
+
 		return sprintf( '(%s) %s-%s', substr( $phone, 0, 3 ), substr( $phone, 3, 3 ), substr( $phone, 6, 4 ) );
 	}
 
