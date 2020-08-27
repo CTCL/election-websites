@@ -131,7 +131,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	} );
 
 	// scroll down if errors are present
-	if ( document.getElementById( 'contact-form' )  && document.querySelector( '.error' ) ) {
+	if ( document.getElementById( 'contact-form' )  && document.querySelector( '.contact-form .error' ) ) {
 		header = document.querySelector( 'header' );
 
 		window.location = '#contact-form';
