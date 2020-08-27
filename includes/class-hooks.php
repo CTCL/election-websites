@@ -50,6 +50,12 @@ class Hooks {
 		add_action( 'init', [ __CLASS__, 'kses_allow_additional_tags' ] );
 		add_filter( 'kses_allowed_protocols', [ __CLASS__, 'kses_allow_data_urls' ] );
 
+		// Jetpack: require 2FA for SSO.
+		add_filter( 'jetpack_sso_require_two_step', '__return_true' );
+
+		// Two Factor plugin: disable SMS and email.
+		add_filter( 'two_factor_providers', [ __CLASS__, 'two_factor_providers' ] );
+
 		/*
 		 * Change default WordPress behaviours.
 		 */
@@ -327,6 +333,21 @@ class Hooks {
 		$protocols[] = 'data';
 
 		return $protocols;
+	}
+
+	/**
+	 * Disable SMS and email for Two Factor plugin.
+	 *
+	 * @param array $providers A key-value array where the key is the class name, and
+	 *                         the value is the path to the file containing the class.
+	 *
+	 * @return array
+	 */
+	public static function two_factor_providers( $providers ) {
+		unset( $providers['Two_Factor_SMS'] );
+		unset( $providers['Two_Factor_Email'] );
+
+		return $providers;
 	}
 }
 
