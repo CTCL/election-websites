@@ -60,8 +60,15 @@ class Updater {
 			return $value;
 		}
 
+		$new_version     = $result_json['tag_name'];
+		$current_version = wp_get_theme()->Version;
+
+		if ( $new_version <= $current_version ) {
+			return $value;
+		}
+
 		$theme_data = [
-			'new_version' => $result_json['tag_name'],
+			'new_version' => $new_version,
 			'url'         => $result_json['html_url'],
 			'package'     => $result_json['zipball_url'],
 		];
