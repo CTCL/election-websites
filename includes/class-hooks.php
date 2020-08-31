@@ -31,9 +31,7 @@ class Hooks {
 		// Defer CSS and JS.
 		add_filter( 'script_loader_tag', [ __CLASS__, 'defer_js' ], 10, 3 );
 		add_filter( 'page_optimize_style_loader_tag', [ __CLASS__, 'defer_css' ], 10, 4 );
-
-		// Disable defering main CSS to prevent FOUC.
-		// add_filter( 'style_loader_tag', [ __CLASS__, 'defer_css' ], 10, 4 );
+		add_filter( 'style_loader_tag', [ __CLASS__, 'defer_css' ], 10, 4 );
 
 		// Set body class.
 		add_filter( 'admin_body_class', [ __CLASS__, 'filter_admin_body_class' ] );
@@ -135,7 +133,7 @@ class Hooks {
 	}
 
 	/**
-	 * Defer CSS.
+	 * Defer Google Fonts CSS. Don't defer main CSS to prevent FOUC.
 	 *
 	 * @param string $html   The link tag for the enqueued style.
 	 * @param string $handle The style's registered handle.
@@ -145,14 +143,10 @@ class Hooks {
 	 * @return string Script HTML string.
 	 */
 	public static function defer_css( $html, $handle, $href, $media ) {
-		if ( is_array( $handle ) ) {
-			$is_main_page_optimize = in_array( 'main', $handle, true );
-		} else {
-			$is_main_page_optimize = false;
-		}
-		$is_main_standard = in_array( $handle, [ 'main', 'source-sans' ], true );
+		$defer_page_optimize = is_array( $handle ) && in_array( 'main-disabled', $handle, true );
+		$defer_standard      = in_array( $handle, [ 'source-sans' ], true );
 
-		if ( $is_main_page_optimize || $is_main_standard ) {
+		if ( $defer_page_optimize || $defer_standard ) {
 			$html  = '<link rel="stylesheet" href="' . esc_url( $href ) . '" media="print" onload="this.onload=null;this.media=\'all\'">' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
 			$html .= '<noscript><link rel="stylesheet" href="' . esc_url( $href ) . '"></noscript>' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
 		}
