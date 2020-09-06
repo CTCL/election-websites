@@ -65,7 +65,8 @@ class Updater {
 		}
 
 		$new_version     = $result_json['tag_name'];
-		$current_version = wp_get_theme()->Version;
+		$current_theme   = wp_get_theme();
+		$current_version = is_object( $current_theme ) ? $current_theme->Version : false; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 
 		if ( $new_version <= $current_version ) {
 			delete_site_transient( self::TRANSIENT_NAME );
@@ -82,7 +83,7 @@ class Updater {
 		$value->response = array_merge( ! empty( $value->response ) ? $value->response : [], $theme_response );
 
 		$last_update               = new \StdClass();
-		$last_update->checked      = $transient->checked;
+		$last_update->checked      = is_object( $transient ) ? $transient->checked : false;
 		$last_update->response     = $theme_response;
 		$last_update->last_checked = time();
 
