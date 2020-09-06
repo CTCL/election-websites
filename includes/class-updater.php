@@ -79,7 +79,7 @@ class Updater {
 		$theme_response  = [ get_option( 'template' ) => $theme_data ];
 		$value->response = array_merge( ! empty( $value->response ) ? $value->response : [], $theme_response );
 
-		$last_update               = new stdClass();
+		$last_update               = new \StdClass();
 		$last_update->checked      = $transient->checked;
 		$last_update->response     = $theme_response;
 		$last_update->last_checked = time();
