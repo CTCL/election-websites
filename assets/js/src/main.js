@@ -108,6 +108,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	var links = document.querySelectorAll( 'a' );
 	var readMoreLinks = document.querySelectorAll( '.read-more-link,.read-less-link' );
 	var header;
+	var hasContactForm = document.getElementById( 'contact-form' );
 
 	// Enable the read more links
 	readMoreLinks.forEach( function( item ) {
@@ -131,12 +132,16 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	} );
 
 	// scroll down if errors are present
-	if ( document.getElementById( 'contact-form' )  && document.querySelector( '.contact-form .error' ) ) {
-		header = document.querySelector( 'header' );
+	if ( hasContactForm ) {
+		window.ctclSubmitContactForm = window.ctcl.submitContactForm; // ReCAPTCHA callback needs to be in the global namespace
 
-		window.location = '#contact-form';
-		setTimeout( function() {
-			window.scrollBy( { left: 0, top: -2 * ( header ? header.offsetHeight : 100 ), behavior: 'smooth' } );
-		}, 500 );
+		if ( document.querySelector( '.contact-form .error' ) ) {
+			header = document.querySelector( 'header' );
+
+			window.location = '#contact-form';
+			setTimeout( function() {
+				window.scrollBy( { left: 0, top: -2 * ( header ? header.offsetHeight : 100 ), behavior: 'smooth' } );
+			}, 500 );
+		}
 	}
 } );
