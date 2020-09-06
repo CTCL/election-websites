@@ -17,6 +17,7 @@ namespace CTCL\Elections;
 class Updater {
 
 	const UPDATE_URL     = 'https://api.github.com/repos/usdigitalresponse/election-websites/releases/latest';
+	const RELEASES_URL   = 'https://github.com/usdigitalresponse/election-websites/releases';
 	const TRANSIENT_NAME = 'election-websites-update-theme';
 	const CACHE_KEY      = 'ctcl_election_website_update_data';
 
@@ -27,6 +28,7 @@ class Updater {
 		add_filter( 'pre_set_site_transient_update_themes', [ __CLASS__, 'check' ], 10, 2 );
 		add_filter( 'site_transient_update_themes', [ __CLASS__, 'site_transient_update_themes' ] );
 		add_filter( 'upgrader_source_selection', [ __CLASS__, 'upgrader_source_selection' ], 10, 4 );
+		add_action( 'admin_post_changelog', [ __CLASS__, 'changelog' ] );
 	}
 
 	/**
@@ -72,7 +74,7 @@ class Updater {
 
 		$theme_data = [
 			'new_version' => $new_version,
-			'url'         => $result_json['html_url'],
+			'url'         => admin_url( 'admin-post.php?action=changelog' ),
 			'package'     => $result_json['zipball_url'],
 		];
 
@@ -135,6 +137,13 @@ class Updater {
 		$new_source     = trailingslashit( $directory_name . '/' . $theme_folder );
 		rename( $source, $new_source ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_rename
 		return $new_source;
+	}
+
+	/**
+	 * Show the changelog.
+	 */
+	public static function changelog() {
+		echo wp_kses_post( sprintf( 'Please see the <a target="_blank" href="%s">releases page</a> on GitHub.', self::RELEASES_URL ) );
 	}
 }
 
