@@ -159,7 +159,7 @@ class Contact_Form {
 	 *
 	 * @return string
 	 */
-	public static function block_render( $block_attributes, $content ) {
+	public static function block_render( $block_attributes, $content ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		if ( ! self::is_enabled() ) {
 			$permalink = admin_url( 'admin.php?page=office_details' );
 			return 'Please specify an email address in <a href="' . esc_url( $permalink ) . '">Settings > Office Details</a>';

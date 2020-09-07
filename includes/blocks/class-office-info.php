@@ -22,7 +22,7 @@ class Office_Info {
 	 *
 	 * @return string
 	 */
-	public static function block_render( $block_attributes, $content ) {
+	public static function block_render( $block_attributes, $content ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 
 		$contact_info = [
 			'email_address' => \CTCL\Elections\Office_Details::email_address(),

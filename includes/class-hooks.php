@@ -124,7 +124,7 @@ class Hooks {
 	 *
 	 * @return string Script HTML string.
 	 */
-	public static function defer_js( $tag, $handle, $src ) {
+	public static function defer_js( $tag, $handle, $src ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		if ( in_array( $handle, [ 'main' ], true ) ) {
 			return str_replace( ' src', ' defer="defer" src', $tag );
 		}
@@ -142,7 +142,7 @@ class Hooks {
 	 *
 	 * @return string Script HTML string.
 	 */
-	public static function defer_css( $html, $handle, $href, $media ) {
+	public static function defer_css( $html, $handle, $href, $media ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
 		$defer_page_optimize = is_array( $handle ) && in_array( 'main-disabled', $handle, true );
 		$defer_standard      = in_array( $handle, [ 'source-sans' ], true );
 
