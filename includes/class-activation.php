@@ -21,6 +21,7 @@ class Activation {
 	 */
 	public static function actions() {
 		self::standardize_directory_name();
+		self::enable_auto_updates();
 		self::enable_optimization();
 		self::upload_included_images();
 	}
@@ -48,6 +49,18 @@ class Activation {
 		update_option( 'page_optimize-js', 1 );
 		update_option( 'page_optimize-load-mode', 'defer' );
 		update_option( 'page_optimize-css', 1 );
+	}
+
+	/**
+	 * Enable automatic updates for this theme.
+	 */
+	public static function enable_auto_updates() {
+		$theme_list = get_option( 'auto_update_themes' );
+
+		if ( ! in_array( Updater::THEME_SLUG, $theme_list, true ) ) {
+			$theme_list[] = Updater::THEME_SLUG;
+			update_option( 'auto_update_themes', $theme_list );
+		}
 	}
 
 	/**
