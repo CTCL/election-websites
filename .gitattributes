@@ -9,6 +9,7 @@ composer.lock       export-ignore
 package.json        export-ignore
 package-lock.json   export-ignore
 readme.md           export-ignore
+contributing.md     export-ignore
 phpcs.xml           export-ignore
 
 *.css           text diff=css
