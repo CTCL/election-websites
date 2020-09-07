@@ -20,8 +20,25 @@ class Activation {
 	 * Set up actions.
 	 */
 	public static function actions() {
+		self::standardize_directory_name();
 		self::enable_optimization();
 		self::upload_included_images();
+	}
+
+	/**
+	 * If theme directory name ends with a version number, remove it.
+	 * GitHub releases end with version
+	 */
+	public static function standardize_directory_name() {
+		$current_theme = wp_get_theme();
+
+		$name = $current_theme->get_stylesheet();
+		$path = $current_theme->get_stylesheet_directory();
+
+		if ( 0 === strpos( $name, Updater::THEME_SLUG ) && Updater::THEME_SLUG !== $name ) {
+			rename( $path, get_theme_root() . '/' . Updater::THEME_SLUG );  // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_rename
+			switch_theme( Updater::THEME_SLUG );
+		}
 	}
 
 	/**
