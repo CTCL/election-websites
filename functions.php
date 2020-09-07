@@ -12,7 +12,7 @@ define( 'THEME_VERSION', '0.8.6' );
 if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) ) {
 	$host = filter_input( INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING );
 	if ( substr( $host, -strlen( '.test' ) ) === '.test' ) {
-		define( 'WP_ENVIRONMENT_TYPE', 'development' );
+		define( 'WP_ENVIRONMENT_TYPE', 'local' );
 	} elseif ( substr( $host, -strlen( '.dev' ) ) === '.dev' ) {
 		define( 'WP_ENVIRONMENT_TYPE', 'staging' );
 	}
