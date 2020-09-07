@@ -109,7 +109,7 @@ class Updater {
 
 		/* Fix for warning messages on Dashboard / Updates page */
 		if ( ! is_object( $update_transient ) ) {
-			$update_transient = new stdClass();
+			$update_transient = new \StdClass();
 		}
 
 		$update_transient->response = array_merge( ! empty( $update_transient->response ) ? $update_transient->response : [], $update_themes->response );
