@@ -22,7 +22,7 @@ class CTCL_CLI extends WP_CLI_Command {
 	 * @param array $args        Array of command-line arguments.
 	 * @param array $assoc_args  Associative array of arguments.
 	 */
-	public function configure_settings( $args, $assoc_args ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+	public function configure_settings( $args, $assoc_args ) {
 		Activation::enable_optimization();
 	}
 
@@ -37,7 +37,7 @@ class CTCL_CLI extends WP_CLI_Command {
 	 * @param array $args        Array of command-line arguments.
 	 * @param array $assoc_args  Associative array of arguments.
 	 */
-	public function add_images( $args, $assoc_args ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+	public function add_images( $args, $assoc_args ) {
 		Activation::upload_included_images();
 	}
 
@@ -52,7 +52,7 @@ class CTCL_CLI extends WP_CLI_Command {
 	 * @param array $args        Array of command-line arguments.
 	 * @param array $assoc_args  Associative array of arguments.
 	 */
-	public function add_content( $args, $assoc_args ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+	public function add_content( $args, $assoc_args ) {
 		Activation::add_election_content();
 	}
 }

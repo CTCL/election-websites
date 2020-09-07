@@ -162,7 +162,7 @@ class Blocks {
 	 *
 	 * @return array
 	 */
-	public static function block_categories( $categories, $post ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+	public static function block_categories( $categories, $post ) {
 		array_unshift(
 			$categories,
 			[

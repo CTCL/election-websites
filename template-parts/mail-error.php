@@ -13,10 +13,8 @@ $file = get_template_directory() . '/assets/images/error.svg';
 
 <p>There was an error sending your message. Please try sending it again.</p>
 
-<?php // phpcs:disable VariableAnalysis.CodeAnalysis.VariableAnalysis.UndefinedVariable ?>
 <?php if ( $error ) : ?>
 <code><?php echo esc_html( $error ); ?></code>
 <?php endif; ?>
-<?php // phpcs:enable VariableAnalysis.CodeAnalysis.VariableAnalysis.UndefinedVariable ?>
 
 <p><a href="javascript:window.history.back();">Go back and try again</a></p>

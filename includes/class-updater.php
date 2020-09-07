@@ -128,7 +128,7 @@ class Updater {
 	 *
 	 * @return string
 	 */
-	public function upgrader_source_selection( $source, $remote_souce, $upgrader, $hook_extra ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+	public function upgrader_source_selection( $source, $remote_souce, $upgrader, $hook_extra ) {
 		$theme_folder = get_option( 'template' );
 
 		if ( false === strpos( $source, $theme_folder ) ) {

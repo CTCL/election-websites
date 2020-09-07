@@ -22,7 +22,7 @@ class Tile {
 	 *
 	 * @return string
 	 */
-	public static function block_render( $block_attributes, $content ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+	public static function block_render( $block_attributes, $content ) {
 		$svg   = '';
 		$icon  = $block_attributes['icon'] ?? false;
 		$url   = $block_attributes['url'] ?? '#';

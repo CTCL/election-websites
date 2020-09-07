@@ -50,7 +50,7 @@ class Google_Analytics {
 	 *
 	 * @return string
 	 */
-	public static function async_js( $tag, $handle, $src ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+	public static function async_js( $tag, $handle, $src ) {
 		if ( in_array( $handle, [ 'gtm' ], true ) ) {
 			return str_replace( ' src', ' async="async" src', $tag );
 		}
