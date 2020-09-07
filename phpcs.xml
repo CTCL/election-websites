@@ -12,6 +12,13 @@
 	</rule>
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
+	<!-- see https://github.com/sirbrillig/phpcs-variable-analysis/issues/175 -->
+	<rule ref="VariableAnalysis.CodeAnalysis.VariableAnalysis">
+		<properties>
+			<property name="allowUnusedFunctionParameters" value="true"/>
+		</properties>
+	</rule>
+
 	<config name="testVersion" value="7.4-"/>
 
 	<arg name="colors" />

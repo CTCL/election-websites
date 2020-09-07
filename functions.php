@@ -18,7 +18,7 @@ if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) ) {
 	}
 }
 
-if ( ! isset( $content_width ) ) {
+if ( ! isset( $content_width ) ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UndefinedVariable
 	$content_width = 944;
 }
 
