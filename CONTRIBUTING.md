@@ -29,6 +29,8 @@ This project uses Grunt, SASS, ESLint, stylelint and PHPCS. PHP modules are inst
 
 We use [VVV](https://varyingvagrantvagrants.org/) for local development. This is not a requirement, but you may find it helpful.
 
+The [Query Monitor](https://wordpress.org/plugins/query-monitor/) plugin is recommended in development and staging environments.
+
 Ensure your hostname ends with `.test`, such as `elections.test`.
 
 ## Branching
