@@ -57,6 +57,10 @@ class Activation {
 	public static function enable_auto_updates() {
 		$theme_list = get_option( 'auto_update_themes' );
 
+		if ( ! is_array( $theme_list ) ) {
+			$theme_list = [];
+		}
+
 		if ( ! in_array( Updater::THEME_SLUG, $theme_list, true ) ) {
 			$theme_list[] = Updater::THEME_SLUG;
 			update_option( 'auto_update_themes', $theme_list );
