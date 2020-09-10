@@ -24,6 +24,9 @@ class Activation {
 		self::enable_auto_updates();
 		self::enable_optimization();
 		self::upload_included_images();
+		self::configure_menu();
+		self::configure_home_page();
+		self::configure_permalink_structure();
 	}
 
 	/**
@@ -128,10 +131,42 @@ class Activation {
 	}
 
 	/**
+	 * Configure the home page.
+	 */
+	public static function configure_home_page() {
+		update_option( 'show_on_front', 'page' );
+
+		$home_page = get_page_by_path( 'home' ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_path_get_page_by_path
+		if ( ! $home_page ) {
+			return;
+		}
+		update_option( 'page_on_front', $home_page->ID );
+	}
+
+	/**
+	 * Configure permalink structure.
+	 */
+	public static function configure_permalink_structure() {
+		update_option( 'permalink_structure', '/%postname%/' );
+	}
+
+	/**
+	 * Configure the top nav menu.
+	 */
+	public static function configure_menu() {
+		$nav_menu = wp_get_nav_menu_object( 'top-nav-menu' );
+		if ( ! $nav_menu ) {
+			return false;
+		}
+
+		$locations = [ 'header-menu' => $nav_menu->term_id ];
+		set_theme_mod( 'nav_menu_locations', $locations );
+	}
+
+	/**
 	 * Create pages with prewritten content.
 	 */
 	public static function add_election_content() {
-
 	}
 }
 
