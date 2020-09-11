@@ -16,6 +16,16 @@ namespace CTCL\Elections;
  */
 class Activation {
 
+	const DEFAULT_TOPIC_LIST = [
+		'Voter registration',
+		'Voting by mail',
+		'Voting in person',
+		'Election results',
+		'Data request',
+		'Election staff opportunities',
+		'COVID-19',
+	];
+
 	/**
 	 * Set up actions.
 	 */
@@ -27,6 +37,7 @@ class Activation {
 		self::configure_menu();
 		self::configure_home_page();
 		self::configure_permalink_structure();
+		self::configure_default_topics();
 	}
 
 	/**
@@ -161,6 +172,20 @@ class Activation {
 
 		$locations = [ 'header-menu' => $nav_menu->term_id ];
 		set_theme_mod( 'nav_menu_locations', $locations );
+	}
+
+	/**
+	 * Configure the default topic list.
+	 */
+	public static function configure_default_topics() {
+		$topic_list = get_option( 'ctcl_topic_list' );
+
+		// Topics already exist. Do nothing.
+		if ( is_array( $topic_list ) && $topic_list ) {
+			return;
+		}
+
+		update_option( 'ctcl_topic_list', self::DEFAULT_TOPIC_LIST );
 	}
 
 	/**
