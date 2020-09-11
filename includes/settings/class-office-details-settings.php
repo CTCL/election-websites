@@ -57,7 +57,7 @@ class Office_Details_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'Washington County',
 				'label_for'   => 'ctcl_county_name',
-				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+				'args'        => [ 'sanitize_callback' => [ __CLASS__, 'validate_and_save_jurisdiction' ] ],
 			],
 			[
 				'uid'         => 'ctcl_email_address',
@@ -207,6 +207,25 @@ class Office_Details_Settings extends Settings {
 
 		self::configure_fields( $fields, static::FIELD_GROUP );
 	}
+
+	/**
+	 * Update site title when jurisdiction is changed.
+	 *
+	 * @param string $jurisdiction  County or town name.
+	 *
+	 * @return string
+	 */
+	public static function validate_and_save_jurisdiction( $jurisdiction ) {
+		$jurisdiction = sanitize_text_field( $jurisdiction );
+		if ( ! $jurisdiction ) {
+			return false;
+		}
+
+		update_option( 'blogname', sprintf( '%s Elections', $jurisdiction ) );
+
+		return $jurisdiction;
+	}
+
 }
 
 add_action( 'after_setup_theme', [ '\CTCL\Elections\Office_Details_Settings', 'hooks' ] );
