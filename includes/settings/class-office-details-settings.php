@@ -51,6 +51,15 @@ class Office_Details_Settings extends Settings {
 				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 			[
+				'uid'         => 'ctcl_county_name',
+				'label'       => 'Jurisdiction name',
+				'section'     => 'contact_section',
+				'type'        => 'text',
+				'placeholder' => 'Washington County',
+				'label_for'   => 'ctcl_county_name',
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
+			],
+			[
 				'uid'         => 'ctcl_email_address',
 				'label'       => 'Email Address',
 				'section'     => 'contact_section',
