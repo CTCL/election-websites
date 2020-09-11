@@ -78,6 +78,15 @@ class Office_Details_Settings extends Settings {
 				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_phone_number' ] ],
 			],
 			[
+				'uid'         => 'ctcl_phone_extension',
+				'label'       => 'Phone extension',
+				'section'     => 'contact_section',
+				'type'        => 'tel',
+				'placeholder' => '54321',
+				'label_for'   => 'ctcl_phone_extension',
+				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_phone_extension' ] ],
+			],
+			[
 				'uid'         => 'ctcl_fax',
 				'label'       => 'Fax number',
 				'section'     => 'contact_section',

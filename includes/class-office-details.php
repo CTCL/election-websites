@@ -67,9 +67,17 @@ class Office_Details {
 			return;
 		}
 
-		$aria_label = \CTCL\Elections\Helpers::format_phone_aria_label( $phone );
+		$phone_digits = preg_replace( '/[^\d]/', '', $phone );
 
-		return self::get_link( $phone, 'tel:' . $phone, $link, false, $aria_label );
+		$extension = get_option( 'ctcl_phone_extension' );
+		if ( $extension ) {
+			$phone        = sprintf( '%s x%s', $phone, $extension );
+			$phone_digits = sprintf( '%s;%s', $phone_digits, $extension );
+		}
+
+		$aria_label = \CTCL\Elections\Helpers::format_phone_aria_label( $phone, $extension );
+
+		return self::get_link( $phone, 'tel:' . $phone_digits, $link, false, $aria_label );
 	}
 
 	/**

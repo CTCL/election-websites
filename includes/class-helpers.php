@@ -110,6 +110,17 @@ class Helpers {
 	}
 
 	/**
+	 * Format phone extensions.
+	 *
+	 * @param string $extension  Extension.
+	 *
+	 * @return string
+	 */
+	public static function format_phone_extension( $extension ) {
+		return filter_var( $extension, FILTER_SANITIZE_NUMBER_INT );
+	}
+
+	/**
 	 * Format 5-digit zip codes.
 	 *
 	 * @param string $zip  Zip code.
@@ -156,14 +167,20 @@ class Helpers {
 	/**
 	 * Format a phone number as an aria-label.
 	 *
-	 * @param string $phone  Phone number.
+	 * @param string $phone      Phone number.
+	 * @param string $extension  Phone extension.
 	 *
 	 * @return string
 	 */
-	public static function format_phone_aria_label( $phone ) {
+	public static function format_phone_aria_label( $phone, $extension = false ) {
 		$aria_label = preg_replace( '/[^\d]/', '', $phone );
 		$aria_label = preg_replace( '/(\d)/', '${1} ', $aria_label );
 		$aria_label = sprintf( '%s.%s.%s', substr( $aria_label, 0, 5 ), substr( $aria_label, 6, 5 ), trim( substr( $aria_label, 11, 8 ) ) );
+
+		if ( $extension ) {
+			$extension   = preg_replace( '/(\d)/', ' ${1}', $extension );
+			$aria_label .= ' x' . $extension;
+		}
 
 		return $aria_label;
 	}
