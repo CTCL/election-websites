@@ -69,6 +69,12 @@ class Hooks {
 		remove_role( 'contributor' );
 		remove_role( 'subscriber' );
 
+		// Allow editors to export from staging and development.
+		if ( 'production' !== wp_get_environment_type() ) {
+			$editor = get_role( 'editor' );
+			$editor->add_cap( 'export' );
+		}
+
 		// Disable comments.
 		add_filter( 'comments_open', '__return_false' );
 		add_filter( 'pings_open', '__return_false' );
