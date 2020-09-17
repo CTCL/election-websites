@@ -72,7 +72,9 @@ class Hooks {
 		// Allow editors to export from staging and development.
 		if ( 'production' !== wp_get_environment_type() ) {
 			$editor = get_role( 'editor' );
-			$editor->add_cap( 'export' );
+			if ( is_object( $editor ) ) {
+				$editor->add_cap( 'export' );
+			}
 		}
 
 		// Disable comments.
