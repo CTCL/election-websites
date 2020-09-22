@@ -49,6 +49,7 @@
   font-weight: 600;
   text-align: center;
   text-decoration: none;
+  overflow: hidden;
 }
 
 .tile-wrapper .tile:hover, .tile-nav-block-editor .tile:hover {
