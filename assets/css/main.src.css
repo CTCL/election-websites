@@ -552,6 +552,20 @@ main ul a {
   text-decoration: underline;
 }
 
+footer .post-edit-link {
+  background: black;
+  color: white;
+  padding: 5px 15px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+footer .post-edit-link:hover {
+  text-decoration: none;
+  color: #00b9eb;
+}
+
 footer .footer-content-wrapper,
 footer .abbreviated-footer {
   margin: 0 auto;

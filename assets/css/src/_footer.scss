@@ -2,6 +2,10 @@
 @import "utility/typography";
 
 footer {
+	.post-edit-link {
+		display: none;
+	}
+
 	.footer-content-wrapper,
 	.abbreviated-footer {
 		@include fit-to-page;

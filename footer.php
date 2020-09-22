@@ -50,6 +50,7 @@ $phone          = Office_Details::phone( true );
 
 		</div>
 	</div>
+	<?php edit_post_link( 'Edit Page' ); ?>
 </footer>
 
 	<?php wp_footer(); ?>
