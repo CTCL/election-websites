@@ -4,7 +4,7 @@ const { createElement } = wp.element;
 const { createHigherOrderComponent } = wp.compose;
 
 const { InspectorControls, InnerBlocks, RichText, URLInput } = wp.blockEditor;
-const { PanelBody, PanelRow, SelectControl, TextControl } = wp.components;
+const { PanelBody, PanelRow, SelectControl, TextControl, ExternalLink } = wp.components;
 
 const PARENT_BLOCK = 'ctcl-election-website/tile-nav-section-block';
 const CHILD_BLOCK = 'ctcl-election-website/tile-nav-block';
@@ -115,6 +115,11 @@ registerBlockType( CHILD_BLOCK, {
 								]}
 								onChange={updateIcon}
 							/>
+						</PanelRow>
+					</PanelBody>
+					<PanelBody title="View Page" initialOpen={false}>
+						<PanelRow>
+							<ExternalLink href="{props.attributes.url}s">{props.attributes.url}</ExternalLink>
 						</PanelRow>
 					</PanelBody>
 				</div>
