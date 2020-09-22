@@ -85,6 +85,18 @@
 }
 
 .tile-nav-settings {
+	// Wordaround for https://github.com/WordPress/gutenberg/issues/25524
+	.components-base-control__field {
+		.block-editor-url-input__input {
+			border: 1px solid #757575;
+			border-radius: 2px;
+
+			&:focus {
+				border-color: #007cba;
+			}
+		}
+	}
+
 	.components-base-control {
 		display: block;
 		margin-bottom: 16px;
