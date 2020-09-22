@@ -99,7 +99,7 @@ registerBlockType( CHILD_BLOCK, {
 						</PanelRow>
 						<PanelRow>
 							<URLInput
-								label="Page"
+								label="Link"
 								value={props.attributes.url}
 								onChange={updateLink} />
 						</PanelRow>
