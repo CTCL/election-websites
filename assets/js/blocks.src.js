@@ -489,7 +489,7 @@ registerBlockType(CHILD_BLOCK, {
       title: "View Page",
       initialOpen: false
     }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(ExternalLink, {
-      href: "{props.attributes.url}s"
+      href: props.attributes.url
     }, props.attributes.url))))), /*#__PURE__*/React.createElement("div", {
       className: "tile-nav-block-editor"
     }, /*#__PURE__*/React.createElement("div", {
