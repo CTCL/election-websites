@@ -119,7 +119,7 @@ registerBlockType( CHILD_BLOCK, {
 					</PanelBody>
 					<PanelBody title="View Page" initialOpen={false}>
 						<PanelRow>
-							<ExternalLink href="{props.attributes.url}s">{props.attributes.url}</ExternalLink>
+							<ExternalLink href={props.attributes.url}>{props.attributes.url}</ExternalLink>
 						</PanelRow>
 					</PanelBody>
 				</div>
