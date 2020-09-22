@@ -100,6 +100,36 @@ window.ctcl = {
 		if ( autoExpandFirstItem && accordionHeaders[0] ) {
 			accordionHeaders[0].classList.add( 'open', 'disabled' );
 		}
+	},
+
+	setupAdminBar: function() {
+		var postEditLink, adminBarRoot, a, ul;
+		var editButton = document.getElementById( 'wp-admin-bar-edit' );
+		if ( editButton ) {
+			return;
+		}
+
+		postEditLink = document.querySelector( '.post-edit-link' );
+		if ( ! postEditLink ) {
+			return;
+		}
+
+		adminBarRoot = document.getElementById( 'wp-admin-bar-root-default' );
+		if ( ! adminBarRoot ) {
+			return;
+		}
+
+		a             = document.createElement( 'a' );
+		a.className   = 'ab-item';
+		a.href        = postEditLink.href;
+		a.textContent = 'Edit Page';
+
+		ul            = document.createElement( 'ul' );
+		ul.id         = 'wp-admin-bar-edit';
+
+		postEditLink.remove();
+		ul.appendChild( a );
+		adminBarRoot.appendChild( ul );
 	}
 };
 
@@ -144,4 +174,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 			}, 500 );
 		}
 	}
+
+	// enable Edit Page in admin bar on WPCOM
+	window.ctcl.setupAdminBar();
 } );
