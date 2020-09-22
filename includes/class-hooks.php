@@ -89,6 +89,9 @@ class Hooks {
 		// Remove wlmanifest and EditURI links.
 		remove_action( 'wp_head', 'wlwmanifest_link' );
 		remove_action( 'wp_head', 'rsd_link' );
+
+		// Disable Jetpack Masterbar, which hides the edit button.
+		add_filter( 'jetpack_get_available_modules', [ __CLASS__, 'disable_masterbar' ], 10, 3 );
 	}
 
 	/**
@@ -363,6 +366,21 @@ class Hooks {
 	 */
 	public static function send_headers() {
 		header( 'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload' );
+	}
+
+	/**
+	 * Disable Jetpack Masterbar, which hides the edit button.
+	 *
+	 * @param array  $modules Array of available modules.
+	 * @param string $min_version Minimum version number required to use modules.
+	 * @param string $max_version Maximum version number required to use modules.
+	 *
+	 * @return array
+	 */
+	public static function disable_masterbar( $modules, $min_version, $max_version ) {
+		unset( $modules['masterbar'] );
+
+		return $modules;
 	}
 }
 
