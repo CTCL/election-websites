@@ -462,7 +462,7 @@ registerBlockType(CHILD_BLOCK, {
       onChange: updateLabel,
       value: props.attributes.label
     })), /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(URLInput, {
-      label: "Page",
+      label: "Link",
       value: props.attributes.url,
       onChange: updateLink
     })), /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(SelectControl, {
