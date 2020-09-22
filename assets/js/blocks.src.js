@@ -370,7 +370,8 @@ var _wp$components = wp.components,
     PanelBody = _wp$components.PanelBody,
     PanelRow = _wp$components.PanelRow,
     SelectControl = _wp$components.SelectControl,
-    TextControl = _wp$components.TextControl;
+    TextControl = _wp$components.TextControl,
+    ExternalLink = _wp$components.ExternalLink;
 var PARENT_BLOCK = 'ctcl-election-website/tile-nav-section-block';
 var CHILD_BLOCK = 'ctcl-election-website/tile-nav-block';
 
@@ -484,7 +485,12 @@ registerBlockType(CHILD_BLOCK, {
         };
       }))),
       onChange: updateIcon
-    }))))), /*#__PURE__*/React.createElement("div", {
+    }))), /*#__PURE__*/React.createElement(PanelBody, {
+      title: "View Page",
+      initialOpen: false
+    }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(ExternalLink, {
+      href: "{props.attributes.url}s"
+    }, props.attributes.url))))), /*#__PURE__*/React.createElement("div", {
       className: "tile-nav-block-editor"
     }, /*#__PURE__*/React.createElement("div", {
       className: "tile"
