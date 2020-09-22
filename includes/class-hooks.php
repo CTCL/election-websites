@@ -90,7 +90,7 @@ class Hooks {
 		remove_action( 'wp_head', 'wlwmanifest_link' );
 		remove_action( 'wp_head', 'rsd_link' );
 
-		// Disable Jetpack Masterbar, which hides the edit button.
+		// Hide Jetpack Masterbar from the modules list.
 		add_filter( 'jetpack_get_available_modules', [ __CLASS__, 'disable_masterbar' ], 10, 3 );
 	}
 
@@ -369,7 +369,7 @@ class Hooks {
 	}
 
 	/**
-	 * Disable Jetpack Masterbar, which hides the edit button.
+	 * Hide Jetpack Masterbar from the modules list.
 	 *
 	 * @param array  $modules Array of available modules.
 	 * @param string $min_version Minimum version number required to use modules.
