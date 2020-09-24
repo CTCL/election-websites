@@ -103,7 +103,7 @@ window.ctcl = {
 	},
 
 	setupAdminBar: function() {
-		var postEditLink, adminBarRoot, a, ul;
+		var postEditLink, adminBarRoot, a, li;
 		var editButton = document.getElementById( 'wp-admin-bar-edit' );
 		if ( editButton ) {
 			return;
@@ -124,12 +124,12 @@ window.ctcl = {
 		a.href        = postEditLink.href;
 		a.textContent = 'Edit Page';
 
-		ul            = document.createElement( 'ul' );
-		ul.id         = 'wp-admin-bar-edit';
+		li            = document.createElement( 'li' );
+		li.id         = 'wp-admin-bar-edit';
 
 		postEditLink.remove();
-		ul.appendChild( a );
-		adminBarRoot.appendChild( ul );
+		li.appendChild( a );
+		adminBarRoot.appendChild( li );
 	}
 };
 

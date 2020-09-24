@@ -148,3 +148,8 @@ code {
 		margin-top: 1em;
 	}
 }
+
+// overrride WPCOM Masterbar and restore pencil icon.
+#wpadminbar ul#wp-admin-bar-root-default li#wp-admin-bar-edit > a.ab-item::before {
+	content: '\f464';
+}
