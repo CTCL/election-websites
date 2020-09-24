@@ -1649,3 +1649,7 @@ code {
   display: inline-block;
   margin-top: 1em;
 }
+
+#wpadminbar ul#wp-admin-bar-root-default li#wp-admin-bar-edit > a.ab-item::before {
+  content: '\f464';
+}
