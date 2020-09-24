@@ -553,17 +553,7 @@ main ul a {
 }
 
 footer .post-edit-link {
-  background: black;
-  color: white;
-  padding: 5px 15px;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
-
-footer .post-edit-link:hover {
-  text-decoration: none;
-  color: #00b9eb;
+  display: none;
 }
 
 footer .footer-content-wrapper,
