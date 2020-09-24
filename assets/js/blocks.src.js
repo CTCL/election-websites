@@ -496,7 +496,7 @@ registerBlockType(CHILD_BLOCK, {
       className: "tile"
     }, isEmpty ? /*#__PURE__*/React.createElement("span", {
       className: "placeholder"
-    }, "Set tile values in control panel to your right.") : null, !isEmpty ? getIconEl(props.attributes) : null, !isEmpty ? /*#__PURE__*/React.createElement("span", null, label) : null)));
+    }, "Set tile values in control panel to your right.") : null, !isEmpty ? getIconEl(props.attributes) : null, !isEmpty ? /*#__PURE__*/React.createElement("label", null, label) : null)));
   },
   save: function save(props) {
     return /*#__PURE__*/React.createElement("a", {
