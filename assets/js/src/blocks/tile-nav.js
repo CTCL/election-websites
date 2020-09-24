@@ -128,7 +128,7 @@ registerBlockType( CHILD_BLOCK, {
 				<div className="tile">
 					{isEmpty ? <span className="placeholder">Set tile values in control panel to your right.</span> : null }
 					{! isEmpty ? getIconEl( props.attributes ) : null}
-					{! isEmpty ? <span>{label}</span> : null}
+					{! isEmpty ? <label>{label}</label> : null}
 				</div>
 			</div>
 		</div>;
