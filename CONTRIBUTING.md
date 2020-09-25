@@ -20,6 +20,7 @@ When relevant, include configuration information (such as "Chrome 85 on macOS"),
 1. Install [Node and NPM](https://nodejs.org/en/)
 1. Run `composer install`
 1. Run `npm install`
+1. Run `npm install -g grunt` (you may need to use `sudo`)
 
 ## Tools
 
@@ -55,7 +56,7 @@ Use descriptive commit messages.
 
 Run `grunt watch` before starting development. It will check your source files for errors, automatically fix many of them, and compile assets for you.
 
-A precommit task will lint your PHP files
+A precommit task will lint your PHP files.
 
 ### Assets (CSS, JavaScript and images)
 
