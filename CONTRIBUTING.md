@@ -34,18 +34,38 @@ The [Query Monitor](https://wordpress.org/plugins/query-monitor/) plugin is reco
 
 Ensure your hostname ends with `.test`, such as `elections.test`.
 
-## Branching
+
+### VVV configuration
+
+Put something like this in your `config.yml` file:
+
+```
+elections:
+  repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
+  allow_customfile: true
+  nginx_upstream: php74
+  hosts:
+    - elections.test
+```
+
+## Branches
 
 * Create feature and bugfix branches off of `master`.
 * Name branches `fix/xyz` or `feature/abc`, depending on the type of work being done.
 * Test branches locally, and then merge into `develop` to test on staging.
 * Open a pull request to merge your branch in to `master`.
 
-Be sure to run `phpcs` and fix any warnings before committing.
+Be sure to run `phpcs` and fix all warnings before committing.
 
 ## Commits
 
-Use descriptive commit messages.
+* Use descriptive commit messages.
+* Commit compiled CSS and JS files separately from source files.
+
+## Releases
+
+* Ensure version numbers have major, minor and patch versions.
+* Update `style.css`, `functions.php`, `package.json` and `package-lock.json`.
 
 ## Pull requests
 
