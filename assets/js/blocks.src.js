@@ -487,7 +487,7 @@ registerBlockType(CHILD_BLOCK, {
       onChange: updateIcon
     }))), /*#__PURE__*/React.createElement(PanelBody, {
       title: "View Page",
-      initialOpen: false
+      initialOpen: true
     }, /*#__PURE__*/React.createElement(PanelRow, null, /*#__PURE__*/React.createElement(ExternalLink, {
       href: props.attributes.url
     }, props.attributes.url))))), /*#__PURE__*/React.createElement("div", {
