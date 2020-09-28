@@ -37,7 +37,10 @@ Ensure your hostname ends with `.test`, such as `elections.test`.
 
 ### VVV configuration
 
-Put something like this in your `config.yml` file:
+In your `config.yml` file;
+
+* Under `Utilities`, uncomment the `- php74` line
+* Place a block like this:
 
 ```
 elections:
