@@ -117,7 +117,7 @@ registerBlockType( CHILD_BLOCK, {
 							/>
 						</PanelRow>
 					</PanelBody>
-					<PanelBody title="View Page" initialOpen={true}>
+					<PanelBody title="View Link" initialOpen={true}>
 						<PanelRow>
 							<ExternalLink href={props.attributes.url}>{props.attributes.url}</ExternalLink>
 						</PanelRow>
