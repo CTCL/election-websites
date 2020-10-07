@@ -211,7 +211,7 @@ class Contact_Form {
 			</p>
 
 			<p>
-				<label for="contact-name">
+				<label for="contact-email">
 					Email address
 					<?php \CTCL\Elections\Helpers::error_message( $errors, 'email' ); ?>
 				</label>
