@@ -304,6 +304,7 @@ header {
   height: 90px;
   z-index: 1;
   position: fixed;
+  display: grid;
 }
 
 @media (max-width: 767px) {
