@@ -318,23 +318,21 @@ class Helpers {
 			return;
 		}
 
-		// Get a list of all image sizes.
-		$imagedata = wp_get_attachment_metadata( $image_id );
-		if ( ! is_array( $imagedata ) ) {
+
+		// Get image path.
+		$imagedata = image_get_intermediate_size( $image_id, $size );
+		if ( ! is_array( $imagedata ) || ! isset( $imagedata['path'] ) || ! $imagedata['path'] ) {
 			return;
 		}
 
-		// Get the path to the full-sized image.
-		$file_path = get_attached_file( $image_id );
-		if ( ! $file_path ) {
+		// Get upload directory.
+		$upload_directory = wp_get_upload_dir();
+		if ( ! isset( $upload_directory['basedir'] ) ) {
 			return;
 		}
 
-		// Contruct the path to the image of size $size.
-		if ( ! isset( $imagedata['sizes'], $imagedata['sizes'][ $size ], $imagedata['sizes'][ $size ]['file'] ) ) {
-			return;
-		}
-		$thumbnail_file = str_replace( wp_basename( $file_path ), $imagedata['sizes'][ $size ]['file'], $file_path );
+		// Construct path to thumnail.
+		$thumbnail_file = $upload_directory['basedir'] . '/' . $imagedata['path'];
 
 		$image_data = file_get_contents( $thumbnail_file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
 		if ( ! $image_data ) {
