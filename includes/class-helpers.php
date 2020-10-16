@@ -167,7 +167,7 @@ class Helpers {
 	/**
 	 * Format a phone number as an aria-label.
 	 *
-	 * @param string $phone      Phone number.
+	 * @param string $phone   Phone number.
 	 * @param string $extension  Phone extension.
 	 *
 	 * @return string
@@ -214,7 +214,7 @@ class Helpers {
 	/**
 	 * Upload an image to the media library.
 	 *
-	 * @param string $file         Image URL.
+	 * @param string $file       Image URL.
 	 * @param string $description  Image description.
 	 *
 	 * @return boolean|WP_Error
@@ -261,10 +261,10 @@ class Helpers {
 	/**
 	 * Generate an <img> tag for an inline SVG.
 	 *
-	 * @param string  $file    Path to SVG file.
+	 * @param string  $file Path to SVG file.
 	 * @param integer $height  Image height.
 	 * @param integer $width   Image width.
-	 * @param string  $alt     Image alt text.
+	 * @param string  $alt   Image alt text.
 	 *
 	 * @return string
 	 */
@@ -294,8 +294,8 @@ class Helpers {
 	 * Output the image with a data URL.
 	 *
 	 * @param integer $image_id   Image ID.
-	 * @param string  $size        Image size.
-	 * @param string  $alt         Image description.
+	 * @param string  $size     Image size.
+	 * @param string  $alt       Image description.
 	 *
 	 * @return string
 	 */
