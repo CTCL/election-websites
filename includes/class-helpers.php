@@ -318,13 +318,30 @@ class Helpers {
 			return;
 		}
 
-		$file_path  = get_attached_file( $image_id );
-		$image_data = file_get_contents( $file_path ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+		// Get a list of all image sizes.
+		$imagedata = wp_get_attachment_metadata( $image_id );
+		if ( ! is_array( $imagedata ) ) {
+			return;
+		}
+
+		// Get the path to the full-sized image.
+		$file_path = get_attached_file( $image_id );
+		if ( ! $file_path ) {
+			return;
+		}
+
+		// Contruct the path to the image of size $size.
+		if ( ! isset( $imagedata['sizes'], $imagedata['sizes'][ $size ], $imagedata['sizes'][ $size ]['file'] ) ) {
+			return;
+		}
+		$thumbnail_file = str_replace( wp_basename( $file_path ), $imagedata['sizes'][ $size ]['file'], $file_path );
+
+		$image_data = file_get_contents( $thumbnail_file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
 		if ( ! $image_data ) {
 			return;
 		}
 
-		$mime_type = mime_content_type( $file_path );
+		$mime_type = mime_content_type( $thumbnail_file );
 
 		if ( 'image/svg' === $mime_type ) {
 			$data_url = self::inline_svg_url( $image_data );
