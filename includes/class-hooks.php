@@ -397,13 +397,12 @@ class Hooks {
 	public static function wp_import_post_data_raw( $post ) {
 		$search_terms = [
 			'https://elections.usdr.dev',
-			// Blocks have escaped versions of the URL; Use wp_json_encode() to escape it; then remove leading and trailing quotes.
-			substr( wp_json_encode( 'https://elections.usdr.dev' ), 1, -1 ),
+			'https:\/\/elections.usdr.dev', // Blocks use escaped versions of the URL.
 		];
 
 		$replace_terms = [
 			home_url(),
-			substr( wp_json_encode( home_url() ), 1, -1 ),
+			str_replace( '/', '\/', home_url() ),
 		];
 
 		$county_name = get_option( 'ctcl_county_name' );
