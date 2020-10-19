@@ -12,7 +12,18 @@
 		.button.learn-more {
 			@include button;
 
-			line-height: 60px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			display: inline-block;
+			padding-top: 1.5px;
+			padding-bottom: 1.5px;
+			line-height: 40px;
+			max-width: 100%;
+
+			@include breakpoint(phone) {
+				max-width: calc(100% - 90px);
+			}
 		}
 	}
 
