@@ -32,7 +32,11 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 	<div class="header-wrapper">
 		<a class="site-title-wrapper" href="<?php echo esc_url( get_home_url() ); ?>" tabindex="-1">
 			<?php
-			echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false ) );
+			if ( $logo_id ) {
+				echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false ) );
+			} else {
+				echo '<span></span>'; // Include an empty element to maintain three CSS grid columns.
+			}
 			?>
 
 			<?php if ( is_front_page() ) : ?>
