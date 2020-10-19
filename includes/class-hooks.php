@@ -62,6 +62,9 @@ class Hooks {
 		// Search/replace template content on import.
 		add_filter( 'wp_import_post_data_raw', [ __CLASS__, 'wp_import_post_data_raw' ] );
 
+		// Reconfigure menu and homepage after import.
+		add_action( 'import_end', [ __CLASS__, 'import_end' ] );
+
 
 		/*
 		 * Change default WordPress behaviours.
@@ -409,11 +412,21 @@ class Hooks {
 		if ( $county_name ) {
 			$search_terms[]  = '[Insert: County]';
 			$replace_terms[] = $county_name;
+			$search_terms[]  = '[Insert: County Name]';
+			$replace_terms[] = $county_name;
 		}
 
 		$post['post_content'] = str_replace( $search_terms, $replace_terms, $post['post_content'] );
 
 		return $post;
+	}
+
+	/**
+	 * Reconfigure menu and homepage after import.
+	 */
+	public static function import_end() {
+		Activation::configure_menu();
+		Activation::configure_home_page();
 	}
 }
 
