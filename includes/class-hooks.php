@@ -59,6 +59,9 @@ class Hooks {
 		// Enable HSTS.
 		add_action( 'send_headers', [ __CLASS__, 'send_headers' ] );
 
+		// Search/replace template content on import.
+		add_filter( 'wp_import_post_data_raw', [ __CLASS__, 'wp_import_post_data_raw' ] );
+
 
 		/*
 		 * Change default WordPress behaviours.
@@ -381,6 +384,37 @@ class Hooks {
 		unset( $modules['masterbar'] );
 
 		return $modules;
+	}
+
+	/**
+	 * Replace default URL with current site URL.
+	 * Replace placeholder content with data from settings.
+	 *
+	 * @param WP_Post $post Post to import.
+	 *
+	 * @return WP_Post
+	 */
+	public static function wp_import_post_data_raw( $post ) {
+		$search_terms = [
+			'https://elections.usdr.dev',
+			// Blocks have escaped versions of the URL; Use wp_json_encode() to escape it; then remove leading and trailing quotes.
+			substr( wp_json_encode( 'https://elections.usdr.dev' ), 1, -1 ),
+		];
+
+		$replace_terms = [
+			home_url(),
+			substr( wp_json_encode( home_url() ), 1, -1 ),
+		];
+
+		$county_name = get_option( 'ctcl_county_name' );
+		if ( $county_name ) {
+			$search_terms[]  = '[Insert: County]';
+			$replace_terms[] = $county_name;
+		}
+
+		$post['post_content'] = str_replace( $search_terms, $replace_terms, $post['post_content'] );
+
+		return $post;
 	}
 }
 
