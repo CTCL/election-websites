@@ -167,7 +167,7 @@ class Helpers {
 	/**
 	 * Format a phone number as an aria-label.
 	 *
-	 * @param string $phone      Phone number.
+	 * @param string $phone   Phone number.
 	 * @param string $extension  Phone extension.
 	 *
 	 * @return string
@@ -214,7 +214,7 @@ class Helpers {
 	/**
 	 * Upload an image to the media library.
 	 *
-	 * @param string $file         Image URL.
+	 * @param string $file       Image URL.
 	 * @param string $description  Image description.
 	 *
 	 * @return boolean|WP_Error
@@ -261,10 +261,10 @@ class Helpers {
 	/**
 	 * Generate an <img> tag for an inline SVG.
 	 *
-	 * @param string  $file    Path to SVG file.
+	 * @param string  $file Path to SVG file.
 	 * @param integer $height  Image height.
 	 * @param integer $width   Image width.
-	 * @param string  $alt     Image alt text.
+	 * @param string  $alt   Image alt text.
 	 *
 	 * @return string
 	 */
@@ -294,8 +294,8 @@ class Helpers {
 	 * Output the image with a data URL.
 	 *
 	 * @param integer $image_id   Image ID.
-	 * @param string  $size        Image size.
-	 * @param string  $alt         Image description.
+	 * @param string  $size     Image size.
+	 * @param string  $alt       Image description.
 	 *
 	 * @return string
 	 */
@@ -318,13 +318,28 @@ class Helpers {
 			return;
 		}
 
-		$file_path  = get_attached_file( $image_id );
-		$image_data = file_get_contents( $file_path ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+
+		// Get image path.
+		$imagedata = image_get_intermediate_size( $image_id, $size );
+		if ( ! is_array( $imagedata ) || ! isset( $imagedata['path'] ) || ! $imagedata['path'] ) {
+			return;
+		}
+
+		// Get upload directory.
+		$upload_directory = wp_get_upload_dir();
+		if ( ! isset( $upload_directory['basedir'] ) ) {
+			return;
+		}
+
+		// Construct path to thumnail.
+		$thumbnail_file = $upload_directory['basedir'] . '/' . $imagedata['path'];
+
+		$image_data = file_get_contents( $thumbnail_file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
 		if ( ! $image_data ) {
 			return;
 		}
 
-		$mime_type = mime_content_type( $file_path );
+		$mime_type = mime_content_type( $thumbnail_file );
 
 		if ( 'image/svg' === $mime_type ) {
 			$data_url = self::inline_svg_url( $image_data );
