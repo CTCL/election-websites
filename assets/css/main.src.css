@@ -936,7 +936,7 @@ main hr {
 }
 
 .home main {
-  display: flex;
+  display: grid;
   justify-content: center;
   padding: 0;
 }
