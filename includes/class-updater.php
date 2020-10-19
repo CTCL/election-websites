@@ -69,7 +69,7 @@ class Updater {
 		$current_theme   = wp_get_theme();
 		$current_version = is_object( $current_theme ) ? $current_theme->Version : false; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 
-		if ( $new_version <= $current_version ) {
+		if ( version_compare( $new_version, $current_version, '<=' ) ) {
 			delete_site_transient( self::TRANSIENT_NAME );
 			return $value;
 		}
