@@ -16,6 +16,12 @@ if ( $is_front_page ) {
 
 $alert_banner_enabled = \CTCL\Elections\Alert_Banner::is_enabled();
 $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
+
+$css_classes = [ 'site-title-wrapper' ];
+if ( ! $logo_id ) {
+	$css_classes[] = 'no-logo';
+}
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -30,9 +36,11 @@ $alert_banner_title   = \CTCL\Elections\Alert_Banner::title();
 
 <header>
 	<div class="header-wrapper">
-		<a class="site-title-wrapper" href="<?php echo esc_url( get_home_url() ); ?>" tabindex="-1">
+		<a class="<?php echo esc_attr( join( ' ', $css_classes ) ); ?>" href="<?php echo esc_url( get_home_url() ); ?>" tabindex="-1">
 			<?php
-			echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false ) );
+			if ( $logo_id ) {
+				echo wp_kses_post( wp_get_attachment_image( $logo_id, 'header-icon', false ) );
+			}
 			?>
 
 			<?php if ( is_front_page() ) : ?>
