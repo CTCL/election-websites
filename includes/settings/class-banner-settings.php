@@ -86,6 +86,7 @@ class Banner_Settings extends Settings {
 				'type'        => 'text',
 				'placeholder' => 'Read Me',
 				'label_for'   => 'ctcl_banner_button',
+				'maxlength'   => 30,
 				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 			[
