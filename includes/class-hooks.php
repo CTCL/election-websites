@@ -408,12 +408,36 @@ class Hooks {
 			str_replace( '/', '\/', home_url() ),
 		];
 
-		$county_name = get_option( 'ctcl_county_name' );
-		if ( $county_name ) {
-			$search_terms[]  = '[Insert: County]';
-			$replace_terms[] = $county_name;
-			$search_terms[]  = '[Insert: County Name]';
-			$replace_terms[] = $county_name;
+		$county_name            = get_option( 'ctcl_county_name' );
+		$state_name             = get_option( 'ctcl_state' );
+		$city_name              = get_option( 'ctcl_city' );
+		$elected_official_name  = get_option( 'ctcl_official_name' );
+		$elected_official_title = get_option( 'ctcl_official_title' );
+
+		$search_to_replace_map = [
+			'[Insert: Address]'                => get_option( 'ctcl_address' ),
+			'[Insert: Address line 2]'         => get_option( 'ctcl_address2' ),
+			'City Name'                        => $city_name,
+			'[Insert: City]'                   => $city_name,
+			'[Insert: City Name]'              => $city_name,
+			'[Insert: Contact info]'           => get_option( 'ctcl_email_address' ),
+			'[Insert: County]'                 => $county_name,
+			'[Insert: County Name]'            => $county_name,
+			'[Insert: Name]'                   => $elected_official_name,
+			'[Insert: Elected Official Name]'  => $elected_official_name,
+			'[Insert: Elected Official Title]' => $elected_official_title,
+			'[Insert: Office Name]'            => $county_name . 'Elections',
+			'[Insert: State]'                  => $state_name,
+			'State Name'                       => $state_name,
+			'[Insert: Zip]'                    => get_option( 'ctcl_zip' ),
+
+		];
+
+		foreach ( $search_to_replace_map as $search_statement => $replace_statement ) {
+			if ( $replace_statement ) {
+				$search_terms[]  = $search_statement;
+				$replace_terms[] = $replace_statement;
+			}
 		}
 
 		$post['post_content'] = str_replace( $search_terms, $replace_terms, $post['post_content'] );
