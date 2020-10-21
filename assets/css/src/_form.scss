@@ -12,6 +12,7 @@
 
 	textarea,
 	select,
+	input[type='tel'],
 	input[type='email'],
 	input[type='text'] {
 		font-size: 16px;
@@ -21,7 +22,7 @@
 		border-width: 1px;
 		border-style: solid;
 		border-radius: $border-radius;
-		-webkit-appearance: none;
+		appearance: none;
 		width: 100%;
 
 		@include breakpoint(phone) {
@@ -32,6 +33,10 @@
 	label {
 		margin-bottom: 5px;
 		display: inline-block;
+	}
+
+	p {
+		margin-bottom: 32px;
 	}
 
 	p + p {

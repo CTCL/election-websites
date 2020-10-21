@@ -87,7 +87,11 @@ class Settings {
 				if ( $prefix ) {
 					echo '<span class="prefix">' . esc_html( $prefix ) . '</span>';
 				}
-				echo '<input size="50" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( get_option( $args['uid'] ) ) . '" />';
+				echo '<input size="50" name="' . esc_attr( $args['uid'] ) . '" id="' . esc_attr( $args['uid'] ) . '" type="' . esc_attr( $args['type'] ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( get_option( $args['uid'] ) ) . '"';
+				if ( isset( $args['maxlength'] ) && $args['maxlength'] ) {
+					echo ' maxlength="' . absint( $args['maxlength'] ) . '"';
+				}
+				echo ' />';
 				break;
 			case 'upload':
 				$image_id = get_option( $args['uid'], null ) ?? $value;

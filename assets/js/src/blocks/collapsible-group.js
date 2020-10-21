@@ -86,7 +86,7 @@ registerBlockType( CHILD_BLOCK, {
 					tagName={getHeaderTag( props.attributes )}
 					onChange={( val ) => props.setAttributes( { heading: val } ) }
 					value={props.attributes.heading}
-					placeholder="Enter header here...">
+					placeholder="Enter header here…">
 				</RichText>
 			</div>
 			<InnerBlocks

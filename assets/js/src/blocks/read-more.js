@@ -30,14 +30,14 @@ registerBlockType( 'ctcl-election-website/read-more-block', {
 				className="read-more-preview-content"
 				onChange={( val ) => props.setAttributes( { preview: val } ) }
 				value={props.attributes.preview}
-				placeholder="Enter preview text here...">
+				placeholder="Enter preview text here…">
 			</RichText>
 			<div class="read-more-divider">Read More</div>
 			<RichText
 				className="read-more-remaining"
 				onChange={( val ) => props.setAttributes( { remaining: val } ) }
 				value={props.attributes.remaining}
-				placeholder="Enter full text here...">
+				placeholder="Enter full text here…">
 			</RichText>
 		</div>;
 	},

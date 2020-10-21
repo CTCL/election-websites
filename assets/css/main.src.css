@@ -205,7 +205,20 @@ main ul a {
   text-decoration: none;
   cursor: pointer;
   line-height: normal;
-  line-height: 60px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  padding-top: 1.5px;
+  padding-bottom: 1.5px;
+  line-height: 40px;
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  .banner .banner-wrapper .button.learn-more {
+    max-width: calc(100% - 90px);
+  }
 }
 
 .banner p {
@@ -237,7 +250,8 @@ main ul a {
 
 .banner.major .banner-wrapper {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(100px, 1fr) 244px;
+  /* banner images are 244px */
   grid-column-gap: 100px;
 }
 
@@ -249,17 +263,12 @@ main ul a {
 
 .banner.major .banner-wrapper > :nth-child(1) {
   padding: 30px 0;
-  justify-content: center;
 }
 
 @media (max-width: 767px) {
   .banner.major .banner-wrapper > :nth-child(1) {
     padding: 20px 0;
   }
-}
-
-.banner.major .banner-wrapper > :nth-child(2) {
-  justify-self: baseline;
 }
 
 .banner.major h2 {
@@ -414,6 +423,10 @@ header .site-title-wrapper {
     display: grid;
     grid-template-columns: 80px 1fr 60px;
   }
+}
+
+header .site-title-wrapper.no-logo {
+  grid-template-columns: 1fr 60px;
 }
 
 header .site-title-wrapper .site-title {
@@ -716,6 +729,7 @@ figure.wp-block-table td {
 
 .contact-form textarea,
 .contact-form select,
+.contact-form input[type='tel'],
 .contact-form input[type='email'],
 .contact-form input[type='text'] {
   font-size: 16px;
@@ -726,12 +740,15 @@ figure.wp-block-table td {
   border-style: solid;
   border-radius: 4px;
   -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   width: 100%;
 }
 
 @media (max-width: 767px) {
   .contact-form textarea,
   .contact-form select,
+  .contact-form input[type='tel'],
   .contact-form input[type='email'],
   .contact-form input[type='text'] {
     width: 100%;
@@ -741,6 +758,10 @@ figure.wp-block-table td {
 .contact-form label {
   margin-bottom: 5px;
   display: inline-block;
+}
+
+.contact-form p {
+  margin-bottom: 32px;
 }
 
 .contact-form p + p {
@@ -1253,10 +1274,6 @@ main hr {
 
 .contact-form label {
   color: #18244b;
-}
-
-.contact-form p {
-  margin-bottom: 32px;
 }
 
 .contact-form textarea,
