@@ -417,8 +417,8 @@ class Hooks {
 		$search_to_replace_map = [
 			'[Insert: Address]'                => get_option( 'ctcl_address' ),
 			'[Insert: Address line 2]'         => get_option( 'ctcl_address2' ),
-			'City Name'                        => $city_name,
 			'[Insert: City]'                   => $city_name,
+			'City Name'                        => $city_name,
 			'[Insert: City Name]'              => $city_name,
 			'[Insert: Contact info]'           => get_option( 'ctcl_email_address' ),
 			'[Insert: County]'                 => $county_name,
