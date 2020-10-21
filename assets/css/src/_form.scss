@@ -22,7 +22,7 @@
 		border-width: 1px;
 		border-style: solid;
 		border-radius: $border-radius;
-		-webkit-appearance: none;
+		appearance: none;
 		width: 100%;
 
 		@include breakpoint(phone) {
