@@ -729,6 +729,7 @@ figure.wp-block-table td {
 
 .contact-form textarea,
 .contact-form select,
+.contact-form input[type='tel'],
 .contact-form input[type='email'],
 .contact-form input[type='text'] {
   font-size: 16px;
@@ -739,12 +740,15 @@ figure.wp-block-table td {
   border-style: solid;
   border-radius: 4px;
   -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   width: 100%;
 }
 
 @media (max-width: 767px) {
   .contact-form textarea,
   .contact-form select,
+  .contact-form input[type='tel'],
   .contact-form input[type='email'],
   .contact-form input[type='text'] {
     width: 100%;
@@ -754,6 +758,10 @@ figure.wp-block-table td {
 .contact-form label {
   margin-bottom: 5px;
   display: inline-block;
+}
+
+.contact-form p {
+  margin-bottom: 32px;
 }
 
 .contact-form p + p {
@@ -1266,10 +1274,6 @@ main hr {
 
 .contact-form label {
   color: #18244b;
-}
-
-.contact-form p {
-  margin-bottom: 32px;
 }
 
 .contact-form textarea,
