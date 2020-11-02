@@ -132,6 +132,7 @@ registerBlockType(CHILD_BLOCK, {
         });
       },
       value: props.attributes.heading,
+      formattingControls: [],
       placeholder: "Enter header here\u2026"
     })), /*#__PURE__*/React.createElement(InnerBlocks, {
       className: "accordion-section-content-editor",
