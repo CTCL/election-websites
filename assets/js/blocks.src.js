@@ -132,7 +132,7 @@ registerBlockType(CHILD_BLOCK, {
         });
       },
       value: props.attributes.heading,
-      placeholder: "Enter header here..."
+      placeholder: "Enter header here\u2026"
     })), /*#__PURE__*/React.createElement(InnerBlocks, {
       className: "accordion-section-content-editor",
       allowedBlocks: ALLOWED_BLOCKS
@@ -300,7 +300,7 @@ registerBlockType('ctcl-election-website/read-more-block', {
         });
       },
       value: props.attributes.preview,
-      placeholder: "Enter preview text here..."
+      placeholder: "Enter preview text here\u2026"
     }), /*#__PURE__*/React.createElement("div", {
       class: "read-more-divider"
     }, "Read More"), /*#__PURE__*/React.createElement(RichText, {
@@ -311,7 +311,7 @@ registerBlockType('ctcl-election-website/read-more-block', {
         });
       },
       value: props.attributes.remaining,
-      placeholder: "Enter full text here..."
+      placeholder: "Enter full text here\u2026"
     }));
   },
   save: function save(props) {

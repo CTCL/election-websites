@@ -12,7 +12,18 @@
 		.button.learn-more {
 			@include button;
 
-			line-height: 60px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			display: inline-block;
+			padding-top: 1.5px;
+			padding-bottom: 1.5px;
+			line-height: 40px;
+			max-width: 100%;
+
+			@include breakpoint(phone) {
+				max-width: calc(100% - 90px);
+			}
 		}
 	}
 
@@ -46,7 +57,7 @@
 
 		.banner-wrapper {
 			display: grid;
-			grid-template-columns: 1fr auto;
+			grid-template-columns: minmax(100px, 1fr) 244px; /* banner images are 244px */
 			grid-column-gap: 100px;
 
 			@include breakpoint(phone) {
@@ -55,15 +66,10 @@
 
 			> :nth-child(1) {
 				padding: 30px 0;
-				justify-content: center;
 
 				@include breakpoint(phone) {
 					padding: 20px 0;
 				}
-			}
-
-			> :nth-child(2) {
-				justify-self: baseline;
 			}
 		}
 
