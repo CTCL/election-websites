@@ -86,6 +86,7 @@ registerBlockType( CHILD_BLOCK, {
 					tagName={getHeaderTag( props.attributes )}
 					onChange={( val ) => props.setAttributes( { heading: val } ) }
 					value={props.attributes.heading}
+					formattingControls={ [] }
 					placeholder="Enter header here…">
 				</RichText>
 			</div>
