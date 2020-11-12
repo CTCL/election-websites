@@ -7,7 +7,7 @@
  */
 
 // Global constants.
-define( 'THEME_VERSION', '0.9.2' );
+define( 'THEME_VERSION', '0.9.3' );
 
 if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) ) {
 	$host = filter_input( INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING );
