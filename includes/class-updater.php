@@ -16,8 +16,8 @@ namespace CTCL\Elections;
  */
 class Updater {
 
-	const UPDATE_URL     = 'https://api.github.com/repos/usdigitalresponse/election-websites/releases/latest';
-	const RELEASES_URL   = 'https://github.com/usdigitalresponse/election-websites/releases';
+	const UPDATE_URL     = 'https://api.github.com/repos/ctcl/election-websites/releases/latest';
+	const RELEASES_URL   = 'https://github.com/ctcl/election-websites/releases';
 	const TRANSIENT_NAME = 'election-websites-update-theme';
 	const CACHE_KEY      = 'ctcl_election_website_update_data';
 	const THEME_SLUG     = 'election-websites';
