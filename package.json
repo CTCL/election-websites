@@ -19,8 +19,8 @@
 		"lint": "grunt precommit"
 	},
 	"devDependencies": {
-		"@babel/preset-env": "^7.12.1",
-		"@babel/preset-react": "^7.12.1",
+		"@babel/preset-env": "^7.12.10",
+		"@babel/preset-react": "^7.12.10",
 		"@lodder/grunt-postcss": "^2.0.4",
 		"autoprefixer": "^9.8.6",
 		"babel-eslint": "^10.1.0",
@@ -48,11 +48,11 @@
 		"grunt-stylelint": "^0.15.0",
 		"grunt-svgmin": "^6.0.1",
 		"grunt-wp-readme-to-markdown": "^2.0.1",
-		"husky": "^4.3.0",
+		"husky": "^4.3.6",
 		"matchdep": "^2.0.0",
 		"node-sass": "^4.14.1",
 		"sass-inline-svg": "^1.2.3",
-		"stylelint": "^13.7.2",
+		"stylelint": "^13.8.0",
 		"stylelint-config-standard": "^20.0.0"
 	},
 	"husky": {
