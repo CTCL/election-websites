@@ -65,6 +65,10 @@ class Hooks {
 		// Reconfigure menu and homepage after import.
 		add_action( 'import_end', [ __CLASS__, 'import_end' ] );
 
+		// Require automatic updates.
+		add_filter( 'allow_major_auto_core_updates', '__return_true' );
+		add_filter( 'auto_update_plugin', '__return_true' );
+		add_filter( 'auto_update_theme', '__return_true' );
 
 		/*
 		 * Change default WordPress behaviours.
