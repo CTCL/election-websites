@@ -5,13 +5,13 @@
 	"main": "Gruntfile.js",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/usdigitalresponse/election-websites.git"
+		"url": "git+https://github.com/CTCL/election-websites.git"
 	},
 	"license": "GPL-2.0",
 	"bugs": {
-		"url": "https://github.com/usdigitalresponse/election-websites/issues"
+		"url": "https://github.com/CTCL/election-websites/issues"
 	},
-	"homepage": "https://github.com/usdigitalresponse/election-websites#readme",
+	"homepage": "https://github.com/CTCL/election-websites#readme",
 	"browserslist": [
 		"> .1% and last 2 versions"
 	],
