@@ -11,7 +11,7 @@ A bug report should consist of:
 * What happened ("actual results")
 * How this differed from what you expected to happen ("expected results")
 
-When relevant, include configuration information (such as "Chrome 85 on macOS"), URLs and screenshots.
+When relevant, include configuration information (such as "Chrome 87 on macOS"), URLs and screenshots.
 
 ## Getting started
 
