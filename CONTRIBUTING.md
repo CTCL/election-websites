@@ -51,6 +51,14 @@ elections:
     - elections.test
 ```
 
+#### Using election-websites theme in VVV
+
+Clone the repository inside your site’s themes folder, i.e.
+
+```
+git clone https://github.com/CTCL/election-websites ~/vagrant-local/www/ctcl/public_html/wp-content/themes/election-websites
+```
+
 ## Branches
 
 * Create feature and bugfix branches off of `master`.
