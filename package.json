@@ -19,7 +19,7 @@
 		"lint": "grunt precommit"
 	},
 	"devDependencies": {
-		"@babel/preset-env": "^7.12.10",
+		"@babel/preset-env": "^7.12.11",
 		"@babel/preset-react": "^7.12.10",
 		"@lodder/grunt-postcss": "^2.0.4",
 		"autoprefixer": "^9.8.6",
