@@ -318,31 +318,59 @@ class Helpers {
 			return;
 		}
 
+		/*
+		 * We have to do a bunch of work here to be compatible with WordPress.com.
+		 *
+		 * On WordPress.com, the thumbnail sizes don't exist in the filesystem, so
+		 * /srv/htdocs/wp-content/uploads/2021/01/foo-244x205.png does not exist
+		 * but
+		 * /srv/htdocs/wp-content/uploads/2021/01/foo.png exists
+		 *
+		 * We call file_get_contents() on the URL, which exists for both
+		 * WPCOM and non-WPCOM sites.
+		 *
+		 * Separately, construct the filesystem path to the full-sized image
+		 * so we can call mime_content_type() on it, since you can't get
+		 * MIME types from URLs.
+		*/
+
+		// Array of metadata. Need to get the relative path.
+		$image_metadata = wp_get_attachment_metadata( $image_id );
+		if ( ! isset( $image_metadata['file'] ) ) {
+			return;
+		}
+
+		// Relative path to the image, i.e. 2020/02/blah.png.
+		$file_path = $image_metadata['file'];
+
+		// Upload directory. Needed for URL and path construction.
+		$upload_directory = wp_get_upload_dir();
+		if ( ! isset( $upload_directory['basedir'] ) ) {
+			return;
+		}
+
 		// Get thumbnail image path, if it exists (i.e. image > $size px).
 		$imagedata = image_get_intermediate_size( $image_id, $size );
 
-		// If the image is over $size px wide, get a $size px thumbnail.
+		// If the image is over $size px wide, image_get_intermediate_size() returns an array,
+		// so get a $size px thumbnail. Otherwise, use the full-sized image.
 		if ( is_array( $imagedata ) && isset( $imagedata['path'] ) && $imagedata['path'] ) {
-			// Get upload directory.
-			$upload_directory = wp_get_upload_dir();
-			if ( ! isset( $upload_directory['basedir'] ) ) {
-				return;
-			}
 
-			// Construct path to thumnail.
-			$image_path = $upload_directory['basedir'] . '/' . $imagedata['path'];
+			// URL for thumnail.
+			$image_url = $upload_directory['baseurl'] . '/' . $file_path;
+
 		} else {
-			// Use the path to the full-sized image.
-			$image_path = $matches[1];
+			// URL for full-sized image.
+			$image_url = $matches[1];
 		}
 
-
-		$image_data = file_get_contents( $image_path ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+		$image_data = file_get_contents( $image_url ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
 		if ( ! $image_data ) {
 			return;
 		}
 
-		$mime_type = mime_content_type( $image_path );
+		// Read the MIME type using a file path, not a URL.
+		$mime_type = mime_content_type( $upload_directory['basedir'] . '/' . $file_path );
 
 		if ( 'image/svg' === $mime_type ) {
 			$data_url = self::inline_svg_url( $image_data );
