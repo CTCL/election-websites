@@ -277,6 +277,7 @@ main ul a {
 
 .banner.major img {
   align-self: end;
+  padding-top: 10px;
 }
 
 @media (max-width: 767px) {
