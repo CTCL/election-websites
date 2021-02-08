@@ -318,28 +318,31 @@ class Helpers {
 			return;
 		}
 
-
-		// Get image path.
+		// Get thumbnail image path, if it exists (i.e. image > $size px).
 		$imagedata = image_get_intermediate_size( $image_id, $size );
-		if ( ! is_array( $imagedata ) || ! isset( $imagedata['path'] ) || ! $imagedata['path'] ) {
-			return;
+
+		// If the image is over $size px wide, get a $size px thumbnail.
+		if ( is_array( $imagedata ) && isset( $imagedata['path'] ) && $imagedata['path'] ) {
+			// Get upload directory.
+			$upload_directory = wp_get_upload_dir();
+			if ( ! isset( $upload_directory['basedir'] ) ) {
+				return;
+			}
+
+			// Construct path to thumnail.
+			$image_path = $upload_directory['basedir'] . '/' . $imagedata['path'];
+		} else {
+			// Use the path to the full-sized image.
+			$image_path = $matches[1];
 		}
 
-		// Get upload directory.
-		$upload_directory = wp_get_upload_dir();
-		if ( ! isset( $upload_directory['basedir'] ) ) {
-			return;
-		}
 
-		// Construct path to thumnail.
-		$thumbnail_file = $upload_directory['basedir'] . '/' . $imagedata['path'];
-
-		$image_data = file_get_contents( $thumbnail_file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+		$image_data = file_get_contents( $image_path ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
 		if ( ! $image_data ) {
 			return;
 		}
 
-		$mime_type = mime_content_type( $thumbnail_file );
+		$mime_type = mime_content_type( $image_path );
 
 		if ( 'image/svg' === $mime_type ) {
 			$data_url = self::inline_svg_url( $image_data );
