@@ -293,14 +293,14 @@ class Helpers {
 	/**
 	 * Output the image with a data URL.
 	 *
-	 * @param integer $image_id   Image ID.
-	 * @param string  $size     Image size.
+	 * @param integer $image_id  Image ID.
+	 * @param string  $size      Image size.
 	 * @param string  $alt       Image description.
 	 *
 	 * @return string
 	 */
 	public static function inline_image( $image_id, $size, $alt = false ) {
-		$cache_key = 'inline_image_' . $image_id;
+		$cache_key = 'inline_image_' . $image_id . '_' . $size;
 		$html      = wp_cache_get( $cache_key );
 		if ( false !== $html ) {
 			return $html;
