@@ -357,7 +357,7 @@ class Helpers {
 		if ( is_array( $imagedata ) && isset( $imagedata['path'] ) && $imagedata['path'] ) {
 
 			// URL for thumnail.
-			$image_url = $upload_directory['baseurl'] . '/' . $file_path;
+			$image_url = $upload_directory['baseurl'] . '/' . $imagedata['path'];
 
 		} else {
 			// URL for full-sized image.
