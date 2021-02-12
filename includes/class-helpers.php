@@ -334,20 +334,23 @@ class Helpers {
 		 * MIME types from URLs.
 		*/
 
+		// Upload directory. Needed for URL and path construction.
+		$upload_directory = wp_get_upload_dir();
+		if ( ! isset( $upload_directory['basedir'] ) ) {
+			return;
+		}
+
 		// Array of metadata. Need to get the relative path.
 		$image_metadata = wp_get_attachment_metadata( $image_id );
 		if ( ! isset( $image_metadata['file'] ) ) {
 			return;
 		}
 
-		// Relative path to the image, i.e. 2020/02/blah.png.
-		$file_path = $image_metadata['file'];
+		// Relative path to the original image, i.e. 2020/02/blah.png.
+		$image_relative_path = $image_metadata['file'];
 
-		// Upload directory. Needed for URL and path construction.
-		$upload_directory = wp_get_upload_dir();
-		if ( ! isset( $upload_directory['basedir'] ) ) {
-			return;
-		}
+		// Full filesystrem path to the original image, i.e.
+		$filesystem_path = $upload_directory['baseurl'] . '/' . $image_relative_path;
 
 		// Get thumbnail image path, if it exists (i.e. image > $size px).
 		$imagedata = image_get_intermediate_size( $image_id, $size );
@@ -356,12 +359,12 @@ class Helpers {
 		// so get a $size px thumbnail. Otherwise, use the full-sized image.
 		if ( is_array( $imagedata ) && isset( $imagedata['path'] ) && $imagedata['path'] ) {
 
-			// URL for thumnail.
-			$image_url = $upload_directory['baseurl'] . '/' . $imagedata['path'];
+			// URL for thumnail (not filesystem path because of WPCOM).
+			$image_url = $upload_directory['baseurl'] . '/' . dirname( $image_relative_path ) . '/' . $imagedata['file'];
 
 		} else {
-			// URL for full-sized image.
-			$image_url = $matches[1];
+			// Filesystem path for full-sized image.
+			$image_url = $filesystem_path;
 		}
 
 		$image_data = file_get_contents( $image_url ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
@@ -370,7 +373,7 @@ class Helpers {
 		}
 
 		// Read the MIME type using a file path, not a URL.
-		$mime_type = mime_content_type( $upload_directory['basedir'] . '/' . $file_path );
+		$mime_type = mime_content_type( $upload_directory['basedir'] . '/' . $image_relative_path );
 
 		if ( 'image/svg' === $mime_type ) {
 			$data_url = self::inline_svg_url( $image_data );
