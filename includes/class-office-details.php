@@ -152,6 +152,26 @@ class Office_Details {
 		return get_option( 'ctcl_hours' );
 	}
 
+
+	/**
+	 * The election office mailing address.
+	 *
+	 * @return string
+	 */
+	public static function mailing_address() {
+		$address_parts = array_filter(
+			[
+				self::address(),
+				self::address2(),
+				self::city(),
+				self::state(),
+				self::zip(),
+			]
+		);
+
+		return join( ', ', $address_parts );
+	}
+
 	/**
 	 * The election office Twitter account.
 	 *
