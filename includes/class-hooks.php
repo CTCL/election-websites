@@ -403,8 +403,8 @@ class Hooks {
 	 */
 	public static function wp_import_post_data_raw( $post ) {
 		$search_terms = [
-			'https://elections.usdr.dev',
-			'https:\/\/elections.usdr.dev', // Blocks use escaped versions of the URL.
+			'https://electionwebsitetemplate.org',
+			'https:\/\/electionwebsitetemplate.org', // Blocks use escaped versions of the URL.
 		];
 
 		$replace_terms = [
