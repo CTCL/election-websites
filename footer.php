@@ -11,6 +11,7 @@ use \CTCL\Elections\Office_Details;
 $official_name  = Office_Details::official();
 $official_title = Office_Details::official_title();
 $address        = Office_Details::mailing_address();
+$hours          = str_replace( "\n", ' • ', Office_Details::hours() );
 $twitter        = Office_Details::twitter( true );
 $facebook       = Office_Details::facebook( true );
 $instagram      = Office_Details::instagram( true );
@@ -25,8 +26,15 @@ $phone          = Office_Details::phone( true );
 				<?php echo esc_html( $official_name ); ?>,
 				<?php echo esc_html( $official_title ); ?>
 			</p>
+			<?php endif; ?>
+			<?php if ( $address ) : ?>
 			<p class="info-item">
 				<?php echo esc_html( $address ); ?>
+			</p>
+			<?php endif; ?>
+			<?php if ( $hours ) : ?>
+			<p class="info-item">
+				<?php echo esc_html( $hours ); ?>
 			</p>
 			<?php endif; ?>
 		</div>
