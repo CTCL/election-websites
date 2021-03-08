@@ -10,6 +10,7 @@ use \CTCL\Elections\Office_Details;
 
 $official_name  = Office_Details::official();
 $official_title = Office_Details::official_title();
+$address        = Office_Details::mailing_address();
 $twitter        = Office_Details::twitter( true );
 $facebook       = Office_Details::facebook( true );
 $instagram      = Office_Details::instagram( true );
@@ -23,6 +24,9 @@ $phone          = Office_Details::phone( true );
 			<p class="info-item">
 				<?php echo esc_html( $official_name ); ?>,
 				<?php echo esc_html( $official_title ); ?>
+			</p>
+			<p class="info-item">
+				<?php echo esc_html( $address ); ?>
 			</p>
 			<?php endif; ?>
 		</div>
