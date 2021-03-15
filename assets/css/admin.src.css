@@ -15,7 +15,7 @@ main .wp-block-column .office-info h3 {
 }
 
 main .wp-block-column .office-info h3::before {
-  content: '';
+  content: "";
   background-repeat: no-repeat;
   display: inline-block;
   background-size: contain;
@@ -61,7 +61,7 @@ main .wp-block-column .office-info h3.phone::before {
   border-radius: 20px;
   border: none;
   padding: 10px 30px;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 18px;
   text-decoration: none;
   cursor: pointer;
@@ -70,9 +70,9 @@ main .wp-block-column .office-info h3.phone::before {
 
 .contact-form textarea,
 .contact-form select,
-.contact-form input[type='tel'],
-.contact-form input[type='email'],
-.contact-form input[type='text'] {
+.contact-form input[type="tel"],
+.contact-form input[type="email"],
+.contact-form input[type="text"] {
   font-size: 16px;
   display: block;
   padding: 14px 10px;
@@ -89,9 +89,9 @@ main .wp-block-column .office-info h3.phone::before {
 @media (max-width: 767px) {
   .contact-form textarea,
   .contact-form select,
-  .contact-form input[type='tel'],
-  .contact-form input[type='email'],
-  .contact-form input[type='text'] {
+  .contact-form input[type="tel"],
+  .contact-form input[type="email"],
+  .contact-form input[type="text"] {
     width: 100%;
   }
 }
@@ -122,7 +122,7 @@ main .wp-block-column .office-info h3.phone::before {
 .contact-form p.select-wrapper::after {
   border-style: solid;
   border-width: 0 0 3px 3px;
-  content: '';
+  content: "";
   display: inline-block;
   height: 8px;
   width: 8px;
@@ -137,7 +137,7 @@ main .wp-block-column .office-info h3.phone::before {
 
 .contact-form span.error,
 .contact-form p.error {
-  font-weight: bold;
+  font-weight: 600;
   padding: 5px 10px;
   background-image: url("data:image/svg+xml,%3csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='10' cy='10' r='9' stroke='%23ee5c4a' stroke-width='2'/%3e%3cpath fill='%23ee5c4a' d='M9 5h2v7H9zm0 8h2v2H9z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -183,6 +183,15 @@ main .wp-block-column .office-info h3.phone::before {
   margin-left: 10px;
 }
 
+/*
+ * Stylelint wants hyphens. Changing TOPIC_LIST_SLUG from ctcl_topic_list to
+ * ctcl-topic-list would erase existing topics. Not worth migrating data to
+ * fix this warning.
+ */
+#ctcl_topic_list_wrapper {
+  /* stylelint-disable-line selector-id-pattern */
+}
+
 #ctcl_topic_list_wrapper > div {
   margin-bottom: 10px;
 }
@@ -193,12 +202,12 @@ main .wp-block-column .office-info h3.phone::before {
 
 @media (min-width: 1025px) {
   .ctcl-settings .form-table textarea,
-  .ctcl-settings .form-table input[type='text'],
-  .ctcl-settings .form-table input[type='email'],
-  .ctcl-settings .form-table input[type='password'],
-  .ctcl-settings .form-table input[type='tel'],
-  .ctcl-settings .form-table input[type='number'],
-  .ctcl-settings .form-table input[type='url'],
+  .ctcl-settings .form-table input[type="text"],
+  .ctcl-settings .form-table input[type="email"],
+  .ctcl-settings .form-table input[type="password"],
+  .ctcl-settings .form-table input[type="tel"],
+  .ctcl-settings .form-table input[type="number"],
+  .ctcl-settings .form-table input[type="url"],
   .ctcl-settings .form-table select {
     width: 350px;
   }
@@ -206,12 +215,12 @@ main .wp-block-column .office-info h3.phone::before {
 
 @media (max-width: 767px) {
   .ctcl-settings .form-table textarea,
-  .ctcl-settings .form-table input[type='text'],
-  .ctcl-settings .form-table input[type='email'],
-  .ctcl-settings .form-table input[type='password'],
-  .ctcl-settings .form-table input[type='tel'],
-  .ctcl-settings .form-table input[type='number'],
-  .ctcl-settings .form-table input[type='url'],
+  .ctcl-settings .form-table input[type="text"],
+  .ctcl-settings .form-table input[type="email"],
+  .ctcl-settings .form-table input[type="password"],
+  .ctcl-settings .form-table input[type="tel"],
+  .ctcl-settings .form-table input[type="number"],
+  .ctcl-settings .form-table input[type="url"],
   .ctcl-settings .form-table select {
     width: 100%;
   }
@@ -320,15 +329,15 @@ main hr {
 
 .contact-form textarea,
 .contact-form select,
-.contact-form input[type='email'],
-.contact-form input[type='text'] {
+.contact-form input[type="email"],
+.contact-form input[type="text"] {
   border-color: #b7bccd;
 }
 
 .contact-form textarea.error,
 .contact-form select.error,
-.contact-form input[type='email'].error,
-.contact-form input[type='text'].error {
+.contact-form input[type="email"].error,
+.contact-form input[type="text"].error {
   border-color: #ee5c4a;
 }
 
