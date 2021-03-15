@@ -6,10 +6,12 @@
  * @since 1.0.0
  */
 
+namespace CTCL\Elections;
+
 /**
  * Configure settings, and load images and prewritten content.
  */
-class CTCL_CLI extends WP_CLI_Command {
+class CTCL_CLI extends \WP_CLI_Command {
 
 	/**
 	 * Set page optimization configuration.
@@ -57,4 +59,4 @@ class CTCL_CLI extends WP_CLI_Command {
 	}
 }
 
-WP_CLI::add_command( 'ctcl', 'CTCL_CLI' );
+\WP_CLI::add_command( 'ctcl', '\CTCL\Elections\CTCL_CLI' );
