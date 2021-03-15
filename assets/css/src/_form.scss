@@ -7,14 +7,15 @@
 	}
 
 	button {
+
 		@include button;
 	}
 
 	textarea,
 	select,
-	input[type='tel'],
-	input[type='email'],
-	input[type='text'] {
+	input[type="tel"],
+	input[type="email"],
+	input[type="text"] {
 		font-size: 16px;
 		display: block;
 		padding: 14px 10px;
@@ -54,7 +55,7 @@
 	p.select-wrapper::after {
 		border-style: solid;
 		border-width: 0 0 3px 3px;
-		content: '';
+		content: "";
 		display: inline-block;
 		height: 8px;
 		width: 8px;
@@ -71,7 +72,7 @@
 	p.error {
 		font-weight: 600;
 		padding: 5px 10px;
-		background-image: svg('assets/images/error.svg');
+		background-image: svg("assets/images/error.svg");
 		background-repeat: no-repeat;
 	}
 
@@ -88,13 +89,16 @@
 }
 
 .page-about-us {
+
 	@include breakpoint(phone) {
+
 		main img {
 			display: none;
 		}
 	}
 
 	.wp-block-columns {
+
 		.wp-block-column:last-child {
 			display: flex;
 			justify-content: flex-end;
@@ -110,6 +114,7 @@
 }
 
 .upload-wrapper {
+
 	.image-thumbnail {
 		display: block;
 		margin-top: 20px;
@@ -120,7 +125,13 @@
 	}
 }
 
-#ctcl_topic_list_wrapper {
+/*
+ * Stylelint wants hyphens. Changing TOPIC_LIST_SLUG from ctcl_topic_list to
+ * ctcl-topic-list would erase existing topics. Not worth migrating data to
+ * fix this warning.
+ */
+#ctcl_topic_list_wrapper { /* stylelint-disable-line selector-id-pattern */
+
 	> div {
 		margin-bottom: 10px;
 	}
@@ -131,15 +142,18 @@
 }
 
 .ctcl-settings {
+
 	.form-table {
+
 		textarea,
-		input[type='text'],
-		input[type='email'],
-		input[type='password'],
-		input[type='tel'],
-		input[type='number'],
-		input[type='url'],
+		input[type="text"],
+		input[type="email"],
+		input[type="password"],
+		input[type="tel"],
+		input[type="number"],
+		input[type="url"],
 		select {
+
 			@include breakpoint(desktop) {
 				width: 350px;
 			}

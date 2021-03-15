@@ -49,15 +49,18 @@ body {
 
 // match admin-bar.css width, not our width
 html #wpadminbar {
+
 	@media screen and (max-width: 600px) {
 		position: fixed;
 	}
 }
 
 main {
+
 	@include fit-to-page;
 
 	.home & {
+
 		@include breakpoint(phone) {
 			width: 100%;
 			margin: inherit;
@@ -134,6 +137,7 @@ code {
 }
 
 .error404 {
+
 	main > img {
 		float: right;
 		padding-left: 20px;
@@ -141,6 +145,7 @@ code {
 }
 
 .button {
+
 	@include button;
 
 	.error404 & {
@@ -151,5 +156,5 @@ code {
 
 // overrride WPCOM Masterbar and restore pencil icon.
 #wpadminbar ul#wp-admin-bar-root-default li#wp-admin-bar-edit > a.ab-item::before {
-	content: '\f464';
+	content: "\f464";
 }

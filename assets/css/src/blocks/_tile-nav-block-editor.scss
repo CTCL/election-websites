@@ -1,5 +1,5 @@
 @import '../utility/variables';
-@import './tile-nav-block';
+@import "./tile-nav-block";
 
 %tile-desktop {
 	width: $tile-width-desktop;
@@ -9,7 +9,9 @@
 }
 
 .tile-nav-block-editor {
+
 	.tile {
+
 		@extend %tile-default;
 		@extend %tile-desktop;
 
@@ -42,12 +44,18 @@
 	}
 }
 
+/*
+ * The block editor adds __layout and __field suffixes.
+ * Stylelint warns about these. Silence these warnings.
+ */
+
 .tile-nav-section-block-editor {
-	.block-editor-block-list__block {
+
+	.block-editor-block-list__block { /* stylelint-disable-line selector-class-pattern */
 		margin: 0;
 	}
 
-	.block-editor-block-list__layout {
+	.block-editor-block-list__layout { /* stylelint-disable-line selector-class-pattern */
 		display: grid;
 		grid-template-columns: repeat(4, $tile-width-desktop);
 
@@ -87,8 +95,9 @@
 
 .tile-nav-settings {
 	// Wordaround for https://github.com/WordPress/gutenberg/issues/25524
-	.components-base-control__field {
-		.block-editor-url-input__input {
+	.components-base-control__field { /* stylelint-disable-line selector-class-pattern */
+
+		.block-editor-url-input__input { /* stylelint-disable-line selector-class-pattern */
 			border: 1px solid #757575;
 			border-radius: 2px;
 
@@ -102,7 +111,7 @@
 		display: block;
 		margin-bottom: 16px;
 
-		.components-base-control__field {
+		.components-base-control__field { /* stylelint-disable-line selector-class-pattern */
 			margin-bottom: 0;
 		}
 	}
@@ -111,7 +120,7 @@
 		width: auto;
 	}
 
-	.components-panel__row {
+	.components-panel__row { /* stylelint-disable-line selector-class-pattern */
 		display: block;
 
 		input[type="email"],
@@ -120,7 +129,7 @@
 		}
 	}
 
-	.components-popover:not([data-y-axis="middle"])[data-x-axis="left"] .components-popover__content {
+	.components-popover:not([data-y-axis="middle"])[data-x-axis="left"] .components-popover__content { /* stylelint-disable-line selector-class-pattern */
 		margin-right: -134px;
 	}
 }

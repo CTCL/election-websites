@@ -26,10 +26,10 @@
 		max-width: 115px;
 	}
 
-	&[target='_blank'] {
+	&[target="_blank"] {
 		background-position: 97% 3%;
 		background-repeat: no-repeat;
-		background-image: svg('assets/images/arrow.svg');
+		background-image: svg("assets/images/arrow.svg");
 	}
 }
 
@@ -54,6 +54,7 @@
 	}
 
 	.tile {
+
 		@extend %tile-default;
 
 		width: $tile-width-desktop;
@@ -82,6 +83,7 @@
 }
 
 .tile-wrapper {
+
 	@extend %tile-nav-block;
 
 	margin: 10px 0 14px;

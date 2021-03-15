@@ -7,7 +7,9 @@ main {
 
 	p,
 	ul {
+
 		a {
+
 			@extend %bold-text-links;
 		}
 	}
@@ -28,6 +30,7 @@ main {
 	h4,
 	h5,
 	h6 {
+
 		&:first-child {
 			margin-top: 0;
 		}

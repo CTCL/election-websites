@@ -1,5 +1,7 @@
 main {
+
 	.wp-block-column {
+
 		.office-info {
 			margin-top: 40px;
 			margin-left: 10px;
@@ -13,7 +15,7 @@ main {
 				margin-top: 32px;
 
 				&::before {
-					content: '';
+					content: "";
 					background-repeat: no-repeat;
 					display: inline-block;
 					background-size: contain;

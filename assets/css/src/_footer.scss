@@ -2,12 +2,14 @@
 @import "utility/typography";
 
 footer {
+
 	.post-edit-link {
 		display: none;
 	}
 
 	.footer-content-wrapper,
 	.abbreviated-footer {
+
 		@include fit-to-page;
 
 		padding: 32px 0;
@@ -77,6 +79,7 @@ footer {
 	}
 
 	.menu {
+
 		@extend %wp-menu;
 		@extend %wp-menu-links;
 	}

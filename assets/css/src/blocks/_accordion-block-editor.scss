@@ -1,4 +1,5 @@
 .accordion-section-editor {
+
 	.header-wrapper {
 		display: flex;
 		justify-content: space-between;
@@ -17,7 +18,7 @@
 	.header-wrapper::after {
 		border-style: solid;
 		border-width: 0 0 3px 3px;
-		content: '';
+		content: "";
 		display: inline-block;
 		height: 10px;
 		width: 10px;
@@ -31,6 +32,7 @@
 }
 
 .accordion-group-editor {
+
 	[data-type="ctcl-election-website/accordion-section-block"] {
 		border-bottom: 3px solid $midnight;
 		margin-top: 0;
@@ -42,6 +44,7 @@
 	}
 
 	&.subsection {
+
 		[data-type="ctcl-election-website/accordion-section-block"] {
 			border-bottom: 1px solid #b7bcce;
 			margin-top: 0;

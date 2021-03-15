@@ -1,8 +1,11 @@
 @mixin theme($button-link, $banner-button, $banner-link, $focus) {
+
 	main {
+
 		h3,
 		p,
 		ul {
+
 			a {
 				color: $button-link;
 
@@ -75,6 +78,7 @@ $blue-banner-link: #55d5f1;
 $blue-focus: #55d5f1;
 
 .theme-blue {
+
 	@include theme($blue-button-link, $blue-icon-two, $blue-banner-link, $blue-focus);
 }
 
@@ -87,5 +91,6 @@ $green-banner-link: #67dacc;
 $green-focus: #67dacc;
 
 .theme-green {
+
 	@include theme($green-button-link, $green-button-link, $green-banner-link, $green-focus);
 }

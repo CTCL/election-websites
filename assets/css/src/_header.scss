@@ -10,12 +10,14 @@ header {
 	display: grid;
 
 	@include breakpoint(phone) {
+
 		.menu & {
 			height: 100%;
 		}
 	}
 
 	.header-wrapper {
+
 		@include fit-to-page;
 
 		display: grid;
@@ -116,8 +118,11 @@ header {
 	}
 
 	.menu & {
+
 		.header-wrapper {
+
 			.icon-bars {
+
 				.bar-top,
 				.bar-bottom {
 					margin-top: 0;
@@ -138,6 +143,7 @@ header {
 		}
 
 		nav {
+
 			@include breakpoint(phone) {
 				display: inline-block;
 			}
@@ -145,6 +151,7 @@ header {
 	}
 
 	.menu {
+
 		@extend %wp-menu;
 		@extend %wp-menu-links;
 
@@ -197,6 +204,7 @@ header {
 
 			&.current-menu-item,
 			&.current-page-ancestor {
+
 				a {
 					font-weight: 600;
 					border-bottom-width: 1px;
