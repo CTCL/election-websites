@@ -1,11 +1,11 @@
 {
-	"extends": "wordpress",
+	"extends": "plugin:@wordpress/eslint-plugin/recommended",
 	"rules": {
 		"camelcase": [ "error", { "properties": "never" } ],
 		"yoda": [ "error", "always", { "onlyEquality": true } ],
 		"space-in-parens": ["error", "always", { "exceptions": ["empty"] } ],
 		"eqeqeq": [ "error" ],
-		"indent": ["error", "tab"]
+		"indent": [ "error", "tab" ]
 	},
 	"parserOptions": {
 		"ecmaVersion": 8,
