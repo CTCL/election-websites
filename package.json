@@ -22,6 +22,7 @@
 		"@babel/preset-env": "^7.12.13",
 		"@babel/preset-react": "^7.12.13",
 		"@lodder/grunt-postcss": "^2.0.4",
+		"@wordpress/stylelint-config": "^19.0.1",
 		"autoprefixer": "^9.8.6",
 		"babel-eslint": "^10.1.0",
 		"babelify": "^10.0.0",
