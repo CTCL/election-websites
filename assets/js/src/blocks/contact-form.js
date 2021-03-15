@@ -7,7 +7,7 @@ registerBlockType( 'ctcl-election-website/contact-form', {
 	icon: 'email',
 	category: 'election-blocks',
 
-	edit: function( props ) {
+	edit( props ) {
 		return (
 			<Disabled>
 				<ServerSideRender
@@ -16,5 +16,5 @@ registerBlockType( 'ctcl-election-website/contact-form', {
 				/>
 			</Disabled>
 		);
-	}
+	},
 } );

@@ -6,12 +6,12 @@ registerBlockType( 'ctcl-election-website/office-info', {
 	icon: 'building',
 	category: 'election-blocks',
 
-	edit: function( props ) {
+	edit( props ) {
 		return (
 			<ServerSideRender
 				block="ctcl-election-website/office-info"
 				attributes={ props.attributes }
 			/>
 		);
-	}
+	},
 } );
