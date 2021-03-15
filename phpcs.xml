@@ -4,12 +4,15 @@
 	<rule ref="WordPress" />
 	<rule ref="WordPress-VIP-Go" />
 	<rule ref="PHPCompatibilityWP" />
-	<rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
-		<severity>0</severity>
+
+	<rule ref="WordPress">
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
 	</rule>
-	<rule ref="WordPressVIPMinimum.Classes.RestrictedExtendClasses.wp_cli">
-		<severity>0</severity>
+
+	<rule ref="WordPressVIPMinimum">
+		<exclude name="WordPressVIPMinimum.Classes.RestrictedExtendClasses.wp_cli" />
 	</rule>
+
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax" />
 
 	<!-- see https://github.com/sirbrillig/phpcs-variable-analysis/issues/175 -->
