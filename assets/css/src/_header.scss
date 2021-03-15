@@ -97,7 +97,7 @@ header {
 		}
 
 		.site-title {
-			font-weight: bold;
+			font-weight: 600;
 
 			@include breakpoint(phone) {
 				max-width: 210px;

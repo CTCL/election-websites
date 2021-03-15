@@ -5,16 +5,17 @@
 }
 
 %wp-menu-links {
+
 	.menu-item a {
-		font-weight: normal;
+		font-weight: 400;
 
 		@include breakpoint(phone) {
-			font-weight: bold;
+			font-weight: 600;
 		}
 	}
 }
 
 %bold-text-links {
-	font-weight: bold;
+	font-weight: 600;
 	text-decoration: underline;
 }

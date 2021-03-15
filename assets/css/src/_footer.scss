@@ -43,7 +43,7 @@ footer {
 	}
 
 	.office-title {
-		font-weight: bold;
+		font-weight: 600;
 		margin-bottom: 10px;
 		line-height: 22px;
 	}
@@ -63,7 +63,7 @@ footer {
 
 		li {
 			display: inline;
-			font-weight: bold;
+			font-weight: 600;
 
 			+ li::before {
 				content: " | ";
