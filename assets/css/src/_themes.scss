@@ -10,7 +10,7 @@
 				color: $button-link;
 
 				&:hover {
-					color: mix(black, $button-link, $tint-percent);
+					color: mix($black, $button-link, $tint-percent);
 				}
 			}
 		}
@@ -25,7 +25,7 @@
 		background-color: $button-link;
 
 		&:hover {
-			background-color: mix(black, $button-link, $tint-percent);
+			background-color: mix($black, $button-link, $tint-percent);
 		}
 	}
 
@@ -34,7 +34,7 @@
 		border-color: $button-link;
 
 		&:hover {
-			border-color: mix(black, $button-link, $tint-percent);
+			border-color: mix($black, $button-link, $tint-percent);
 		}
 	}
 
@@ -44,7 +44,7 @@
 		background-color: $banner-button;
 
 		&:hover {
-			background-color: mix(black, $banner-button, $tint-percent);
+			background-color: mix($black, $banner-button, $tint-percent);
 		}
 	}
 
@@ -53,7 +53,7 @@
 		color: $banner-link;
 
 		&:hover {
-			color: mix(black, #55d5f1, $tint-percent);
+			color: mix($black, #55d5f1, $tint-percent);
 		}
 	}
 
