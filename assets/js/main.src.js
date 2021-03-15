@@ -1,7 +1,7 @@
 window.ctcl = {
-	submitContactForm: function( token ) {
-		var tokenField = document.getElementById( 'recaptcha-token' );
-		var contactForm = document.getElementById( 'contact-form' );
+	submitContactForm( token ) {
+		const tokenField = document.getElementById( 'recaptcha-token' );
+		const contactForm = document.getElementById( 'contact-form' );
 		if ( tokenField ) {
 			tokenField.value = token;
 		}
@@ -10,8 +10,8 @@ window.ctcl = {
 		}
 	},
 
-	handleSpaceOrEnter: function( e ) {
-		var clickedItem = e.currentTarget;
+	handleSpaceOrEnter( e ) {
+		const clickedItem = e.currentTarget;
 
 		// space or enter triggers a click
 		if ( -1 !== [ 13, 32 ].indexOf( e.keyCode ) ) {
@@ -22,9 +22,9 @@ window.ctcl = {
 		}
 	},
 
-	handleAccordionClick: function( e ) {
-		var clickedItem = e.currentTarget;
-		var section = clickedItem.nextSibling;
+	handleAccordionClick( e ) {
+		const clickedItem = e.currentTarget;
+		const section = clickedItem.nextSibling;
 
 		if ( clickedItem.classList.contains( 'open' ) ) {
 			clickedItem.classList.remove( 'open' );
@@ -35,8 +35,8 @@ window.ctcl = {
 		}
 	},
 
-	handleMobileMenuClick: function( e ) {
-		var mobileMenu = document.querySelector( '.mobile-menu' );
+	handleMobileMenuClick( e ) {
+		const mobileMenu = document.querySelector( '.mobile-menu' );
 		if ( document.body.classList.contains( 'menu' ) ) {
 			document.body.classList.remove( 'menu' );
 			mobileMenu.setAttribute( 'aria-expanded', false );
@@ -49,112 +49,140 @@ window.ctcl = {
 		e.preventDefault();
 	},
 
-	handleReadMoreClick: function( e ) {
-		var parent = e.currentTarget.closest( '.read-more-block' );
+	handleReadMoreClick( e ) {
+		const parent = e.currentTarget.closest( '.read-more-block' );
 		if ( parent ) {
 			parent.classList.toggle( 'less' );
 		}
 	},
 
-	setupAccordion: function() {
-		var hasAccordion = document.querySelector( '.accordion-group' );
-		var autoExpandFirstItem = document.querySelector( '.page-results' );
-		var hasSubsection;
-		var accordionHeaders;
-		var accordionTopLevelHeaders;
-		var accordionSections;
+	setupAccordion() {
+		const hasAccordion = document.querySelector( '.accordion-group' );
 
 		if ( ! hasAccordion ) {
 			return;
 		}
 
-		hasSubsection = document.querySelector( '.accordion-group.subsection' );;
+		const autoExpandFirstItem = document.querySelector( '.page-results' );
+		const hasSubsection = document.querySelector(
+			'.accordion-group.subsection'
+		);
+		let accordionHeaders;
+		let accordionTopLevelHeaders;
+		let accordionSections;
 
 		// expand all of the top level headers by default
 		// add tabindex to subsection headers
 		if ( hasSubsection ) {
-			accordionHeaders  = document.querySelectorAll( '.accordion-section-wrapper.subsection .accordion-section-header' );
-			accordionSections = document.querySelectorAll( '.accordion-section-wrapper.subsection .accordion-section-content' );
+			accordionHeaders = document.querySelectorAll(
+				'.accordion-section-wrapper.subsection .accordion-section-header'
+			);
+			accordionSections = document.querySelectorAll(
+				'.accordion-section-wrapper.subsection .accordion-section-content'
+			);
 
-			accordionTopLevelHeaders = document.querySelectorAll( '.accordion-section-wrapper:not(.subsection) > .accordion-section-header' );
-			accordionTopLevelHeaders.forEach( function( item, index ) {
+			accordionTopLevelHeaders = document.querySelectorAll(
+				'.accordion-section-wrapper:not(.subsection) > .accordion-section-header'
+			);
+
+			accordionTopLevelHeaders.forEach( function ( item ) {
 				item.classList.add( 'open', 'disabled' );
 			} );
 
-		// add tabindex to top level headers
+			// add tabindex to top level headers
 		} else {
-			accordionHeaders  = document.querySelectorAll( '.accordion-section-header' );
-			accordionSections = document.querySelectorAll( '.accordion-section-content' );
+			accordionHeaders = document.querySelectorAll(
+				'.accordion-section-header'
+			);
+			accordionSections = document.querySelectorAll(
+				'.accordion-section-content'
+			);
 		}
 
-		accordionHeaders.forEach( function( item, index ) {
-			item.addEventListener( 'click', window.ctcl.handleAccordionClick, { capture: true } );
-			item.addEventListener( 'keydown', window.ctcl.handleSpaceOrEnter, { capture: true } );
+		accordionHeaders.forEach( function ( item, index ) {
+			item.addEventListener( 'click', window.ctcl.handleAccordionClick, {
+				capture: true,
+			} );
+			item.addEventListener( 'keydown', window.ctcl.handleSpaceOrEnter, {
+				capture: true,
+			} );
 			item.setAttribute( 'tabindex', index + 1 );
 		} );
 
-		accordionSections.forEach( function( item ) {
+		accordionSections.forEach( function ( item ) {
 			item.setAttribute( 'aria-hidden', true );
 		} );
 
-		if ( autoExpandFirstItem && accordionHeaders[0] ) {
-			accordionHeaders[0].classList.add( 'open', 'disabled' );
+		if ( autoExpandFirstItem && accordionHeaders[ 0 ] ) {
+			accordionHeaders[ 0 ].classList.add( 'open', 'disabled' );
 		}
 	},
 
-	setupAdminBar: function() {
-		var postEditLink, adminBarRoot, a, li;
-		var editButton = document.getElementById( 'wp-admin-bar-edit' );
+	setupAdminBar() {
+		const editButton = document.getElementById( 'wp-admin-bar-edit' );
 		if ( editButton ) {
 			return;
 		}
 
-		postEditLink = document.querySelector( '.post-edit-link' );
+		const postEditLink = document.querySelector( '.post-edit-link' );
 		if ( ! postEditLink ) {
 			return;
 		}
 
-		adminBarRoot = document.getElementById( 'wp-admin-bar-root-default' );
+		const adminBarRoot = document.getElementById(
+			'wp-admin-bar-root-default'
+		);
 		if ( ! adminBarRoot ) {
 			return;
 		}
 
-		a             = document.createElement( 'a' );
-		a.className   = 'ab-item';
-		a.href        = postEditLink.href;
+		const a = document.createElement( 'a' );
+		a.className = 'ab-item';
+		a.href = postEditLink.href;
 		a.textContent = 'Edit Page';
 
-		li            = document.createElement( 'li' );
-		li.id         = 'wp-admin-bar-edit';
+		const li = document.createElement( 'li' );
+		li.id = 'wp-admin-bar-edit';
 
 		postEditLink.remove();
 		li.appendChild( a );
 		adminBarRoot.appendChild( li );
-	}
+	},
 };
 
-document.addEventListener( 'DOMContentLoaded', function() {
-	var mobileMenu = document.querySelector( '.mobile-menu' );
-	var links = document.querySelectorAll( 'a' );
-	var readMoreLinks = document.querySelectorAll( '.read-more-link,.read-less-link' );
-	var header;
-	var hasContactForm = document.getElementById( 'contact-form' );
+// eslint-disable-next-line @wordpress/no-global-event-listener
+document.addEventListener( 'DOMContentLoaded', function () {
+	const mobileMenu = document.querySelector( '.mobile-menu' );
+	const links = document.querySelectorAll( 'a' );
+	const readMoreLinks = document.querySelectorAll(
+		'.read-more-link,.read-less-link'
+	);
+	let header;
+	const hasContactForm = document.getElementById( 'contact-form' );
 
 	// Enable the read more links
-	readMoreLinks.forEach( function( item ) {
-		item.addEventListener( 'click', window.ctcl.handleReadMoreClick, { capture: true } );
+	readMoreLinks.forEach( function ( item ) {
+		item.addEventListener( 'click', window.ctcl.handleReadMoreClick, {
+			capture: true,
+		} );
 	} );
 
 	// Enable the mobile (hamburger) menu.
 	if ( mobileMenu ) {
-		mobileMenu.addEventListener( 'click', window.ctcl.handleMobileMenuClick );
-		mobileMenu.addEventListener( 'keydown', window.ctcl.handleSpaceOrEnter );
+		mobileMenu.addEventListener(
+			'click',
+			window.ctcl.handleMobileMenuClick
+		);
+		mobileMenu.addEventListener(
+			'keydown',
+			window.ctcl.handleSpaceOrEnter
+		);
 	}
 
 	window.ctcl.setupAccordion();
 
 	// Open PDFs in new tabs.
-	links.forEach( function( link ) {
+	links.forEach( function ( link ) {
 		if ( link.href.match( /\.pdf$/ ) ) {
 			link.setAttribute( 'target', '_blank' );
 			link.setAttribute( 'rel', 'noopener noreferrer' );
@@ -169,8 +197,12 @@ document.addEventListener( 'DOMContentLoaded', function() {
 			header = document.querySelector( 'header' );
 
 			window.location = '#contact-form';
-			setTimeout( function() {
-				window.scrollBy( { left: 0, top: -2 * ( header ? header.offsetHeight : 100 ), behavior: 'smooth' } );
+			setTimeout( function () {
+				window.scrollBy( {
+					left: 0,
+					top: -2 * ( header ? header.offsetHeight : 100 ),
+					behavior: 'smooth',
+				} );
 			}, 500 );
 		}
 	}

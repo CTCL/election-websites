@@ -40,6 +40,7 @@ var getIconEl = function getIconEl(_ref) {
   var icon = _ref.icon;
 
   if (icon) {
+    // eslint-disable-next-line no-undef
     var iconUrl = "".concat(blockEditorVars.baseUrl, "/").concat(icon, ".svg");
     return createElement('img', {
       height: 50,
@@ -105,7 +106,8 @@ registerBlockType(CHILD_BLOCK, {
         value: null,
         label: 'Select an Icon',
         key: '_placeholder'
-      }].concat(_toConsumableArray(Object.entries(blockEditorVars.iconOptions).map(function (_ref4) {
+      }].concat(_toConsumableArray(Object.entries( // eslint-disable-next-line no-undef
+      blockEditorVars.iconOptions).map(function (_ref4) {
         var _ref5 = _slicedToArray(_ref4, 2),
             value = _ref5[0],
             label = _ref5[1];
@@ -169,7 +171,7 @@ registerBlockType(PARENT_BLOCK, {
   edit: function edit() {
     return getParentEditTemplate(false);
   },
-  save: function save(props) {
+  save: function save() {
     return /*#__PURE__*/React.createElement("section", {
       className: "accordion-group"
     }, /*#__PURE__*/React.createElement(InnerBlocks.Content, null));
@@ -183,7 +185,7 @@ registerBlockType(NESTED_PARENT_BLOCK, {
   edit: function edit() {
     return getParentEditTemplate(true);
   },
-  save: function save(props) {
+  save: function save() {
     return /*#__PURE__*/React.createElement("section", {
       className: "accordion-group subsection"
     }, /*#__PURE__*/React.createElement(InnerBlocks.Content, null));
@@ -212,15 +214,12 @@ registerBlockType('ctcl-election-website/contact-form', {
 },{}],3:[function(require,module,exports){
 "use strict";
 
-var registerBlockType = wp.blocks.registerBlockType;
-var _wp = wp,
-    ServerSideRender = _wp.serverSideRender;
 var createElement = wp.element.createElement;
 wp.blocks.registerBlockType('ctcl-election-website/numbered-section-block', {
   title: 'Numbered Section',
   icon: 'editor-ol',
   category: 'election-blocks',
-  edit: function edit(props) {
+  edit: function edit() {
     return createElement('section', {
       className: 'numbered-section-block-editor'
     }, createElement('div', {
@@ -229,7 +228,7 @@ wp.blocks.registerBlockType('ctcl-election-website/numbered-section-block', {
       className: 'numbered-section-block-editor-content'
     }, createElement(wp.blockEditor.InnerBlocks)));
   },
-  save: function save(props) {
+  save: function save() {
     return createElement('section', {
       className: 'numbered-section'
     }, createElement('div', {
@@ -259,21 +258,8 @@ registerBlockType('ctcl-election-website/office-info', {
 },{}],5:[function(require,module,exports){
 "use strict";
 
-var _lodash = lodash,
-    startCase = _lodash.startCase;
 var registerBlockType = wp.blocks.registerBlockType;
-var createElement = wp.element.createElement;
-var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
-var _wp$blockEditor = wp.blockEditor,
-    InspectorControls = _wp$blockEditor.InspectorControls,
-    InnerBlocks = _wp$blockEditor.InnerBlocks,
-    RichText = _wp$blockEditor.RichText,
-    URLInput = _wp$blockEditor.URLInput;
-var _wp$components = wp.components,
-    PanelBody = _wp$components.PanelBody,
-    PanelRow = _wp$components.PanelRow,
-    SelectControl = _wp$components.SelectControl,
-    TextControl = _wp$components.TextControl;
+var RichText = wp.blockEditor.RichText;
 registerBlockType('ctcl-election-website/read-more-block', {
   title: 'Read More',
   icon: 'editor-insertmore',
@@ -303,7 +289,7 @@ registerBlockType('ctcl-election-website/read-more-block', {
       value: props.attributes.preview,
       placeholder: "Enter preview text here\u2026"
     }), /*#__PURE__*/React.createElement("div", {
-      class: "read-more-divider"
+      className: "read-more-divider"
     }, "Read More"), /*#__PURE__*/React.createElement(RichText, {
       className: "read-more-remaining",
       onChange: function onChange(val) {
@@ -322,13 +308,13 @@ registerBlockType('ctcl-election-website/read-more-block', {
       className: "read-more-preview"
     }, /*#__PURE__*/React.createElement("span", {
       className: "read-more-preview-content"
-    }, props.attributes.preview), /*#__PURE__*/React.createElement("span", null, "\xA0\xA0"), /*#__PURE__*/React.createElement("a", {
+    }, props.attributes.preview), /*#__PURE__*/React.createElement("span", null, "\xA0\xA0"), /*#__PURE__*/React.createElement("span", {
       className: "read-more-link"
     }, "Read More")), /*#__PURE__*/React.createElement("p", {
       className: "read-more-remaining"
     }, props.attributes.remaining), /*#__PURE__*/React.createElement("p", {
       className: "read-less-link-wrapper"
-    }, /*#__PURE__*/React.createElement("a", {
+    }, /*#__PURE__*/React.createElement("span", {
       className: "read-less-link"
     }, "Read Less")));
   }
@@ -364,8 +350,6 @@ var createElement = wp.element.createElement;
 var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
 var _wp$blockEditor = wp.blockEditor,
     InspectorControls = _wp$blockEditor.InspectorControls,
-    InnerBlocks = _wp$blockEditor.InnerBlocks,
-    RichText = _wp$blockEditor.RichText,
     URLInput = _wp$blockEditor.URLInput;
 var _wp$components = wp.components,
     PanelBody = _wp$components.PanelBody,
@@ -380,6 +364,7 @@ var getIconEl = function getIconEl(attributes) {
   var icon = attributes.icon;
 
   if (icon) {
+    // eslint-disable-next-line no-undef
     var iconUrl = "".concat(blockEditorVars.baseUrl, "/").concat(icon, ".svg");
     return createElement('img', {
       height: 50,
@@ -394,14 +379,14 @@ registerBlockType(PARENT_BLOCK, {
   title: 'Tile Navigation',
   icon: 'screenoptions',
   category: 'election-blocks',
-  edit: function edit(props) {
+  edit: function edit() {
     return createElement('div', {
       className: 'tile-nav-section-block-editor'
     }, createElement(wp.blockEditor.InnerBlocks, {
       allowedBlocks: [CHILD_BLOCK]
     }));
   },
-  save: function save(props) {
+  save: function save() {
     return createElement('div', {
       className: 'tile-wrapper'
     }, createElement(wp.blockEditor.InnerBlocks.Content));
@@ -474,14 +459,15 @@ registerBlockType(CHILD_BLOCK, {
         value: null,
         label: 'Select an Icon',
         key: '_placeholder'
-      }].concat(_toConsumableArray(Object.entries(blockEditorVars.iconOptions).map(function (_ref) {
+      }].concat(_toConsumableArray(Object.entries( // eslint-disable-next-line no-undef
+      blockEditorVars.iconOptions).map(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2),
             value = _ref2[0],
-            label = _ref2[1];
+            itemLabel = _ref2[1];
 
         return {
           value: value,
-          label: label,
+          itemLabel: itemLabel,
           key: value
         };
       }))),
