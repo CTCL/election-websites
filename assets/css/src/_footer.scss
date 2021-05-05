@@ -17,8 +17,8 @@ footer {
 
 	.footer-content-wrapper {
 		display: grid;
-		grid-template-columns: 1fr 1fr 170px;
-		grid-column-gap: 16px;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-column-gap: 5em;
 
 		@include breakpoint(phone) {
 			grid-template-columns: 1fr;
@@ -38,6 +38,24 @@ footer {
 		}
 	}
 
+	h3 {
+		font-size: 21px;
+		font-weight: 600;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+	}
+
+	@include breakpoint(phone) {
+
+		h3 {
+			border-bottom: 4px solid $midnight;
+		}
+
+		div + div h3 {
+			margin-top: 2em;
+		}
+	}
+
 	p,
 	.info-item,
 	.menu-item {
@@ -45,32 +63,29 @@ footer {
 	}
 
 	.office-title {
+		font-size: 17px;
 		font-weight: 600;
-		margin-bottom: 10px;
-		line-height: 22px;
 	}
 
 	.info-item,
 	.menu-item {
 		line-height: 18px;
-
-		&:not(:last-child) {
-			margin-bottom: 12px;
-		}
+		margin-top: 0;
 	}
 
 	ul.info-item {
 		list-style: none;
 		padding-left: 0;
+	}
 
-		li {
-			display: inline;
+	.hours {
+		margin-top: 1em;
+	}
+
+	.social {
+
+		a {
 			font-weight: 600;
-
-			+ li::before {
-				content: " | ";
-				padding: 0 5px;
-			}
 		}
 	}
 
