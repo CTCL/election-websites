@@ -81,7 +81,6 @@ main .wp-block-column .office-info h3.phone::before {
   border-style: solid;
   border-radius: 4px;
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
   width: 100%;
 }
@@ -111,7 +110,6 @@ main .wp-block-column .office-info h3.phone::before {
 
 .contact-form select {
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
 }
 

@@ -601,8 +601,8 @@ footer .abbreviated-footer {
 
 footer .footer-content-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 170px;
-  grid-column-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5em;
 }
 
 @media (max-width: 767px) {
@@ -623,6 +623,22 @@ footer .abbreviated-footer * {
   line-height: 22px;
 }
 
+footer h3 {
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  footer h3 {
+    border-bottom: 4px solid #18244b;
+  }
+  footer div + div h3 {
+    margin-top: 2em;
+  }
+}
+
 footer p,
 footer .info-item,
 footer .menu-item {
@@ -630,19 +646,14 @@ footer .menu-item {
 }
 
 footer .office-title {
+  font-size: 17px;
   font-weight: 600;
-  margin-bottom: 10px;
-  line-height: 22px;
 }
 
 footer .info-item,
 footer .menu-item {
   line-height: 18px;
-}
-
-footer .info-item:not(:last-child),
-footer .menu-item:not(:last-child) {
-  margin-bottom: 12px;
+  margin-top: 0;
 }
 
 footer ul.info-item {
@@ -650,14 +661,12 @@ footer ul.info-item {
   padding-left: 0;
 }
 
-footer ul.info-item li {
-  display: inline;
-  font-weight: 600;
+footer .hours {
+  margin-top: 1em;
 }
 
-footer ul.info-item li + li::before {
-  content: " | ";
-  padding: 0 5px;
+footer .social a {
+  font-weight: 600;
 }
 
 footer a:hover {
@@ -741,7 +750,6 @@ figure.wp-block-table td {
   border-style: solid;
   border-radius: 4px;
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
   width: 100%;
 }
@@ -771,7 +779,6 @@ figure.wp-block-table td {
 
 .contact-form select {
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
 }
 
@@ -1618,7 +1625,6 @@ header .site-title {
   line-height: 24px;
 }
 
-p.office-title,
 h3 {
   font-size: 18px;
   line-height: 22px;
