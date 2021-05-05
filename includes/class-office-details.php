@@ -28,6 +28,15 @@ class Office_Details {
 	];
 
 	/**
+	 * Allowed HTML in postal address and hours.
+	 *
+	 * @var array
+	 */
+	public static $allowed_br_tag = [
+		'br' => [],
+	];
+
+	/**
 	 * The election office name.
 	 *
 	 * @return string
@@ -61,7 +70,7 @@ class Office_Details {
 	 *
 	 * @return string
 	 */
-	public static function phone( $link ) {
+	public static function phone( $link = false ) {
 		$phone = get_option( 'ctcl_phone' );
 		if ( ! $phone ) {
 			return;
@@ -87,7 +96,7 @@ class Office_Details {
 	 *
 	 * @return string
 	 */
-	public static function fax( $link ) {
+	public static function fax( $link = false ) {
 		$fax = get_option( 'ctcl_fax' );
 		if ( ! $fax ) {
 			return;
@@ -163,13 +172,13 @@ class Office_Details {
 			[
 				self::address(),
 				self::address2(),
-				self::city(),
-				self::state(),
-				self::zip(),
 			]
 		);
 
-		return join( ', ', $address_parts );
+		$street         = join( "\n", $address_parts );
+		$city_state_zip = sprintf( '%s, %s %s', self::city(), self::state(), self::zip() );
+
+		return nl2br( $street . "\n" . $city_state_zip );
 	}
 
 	/**
