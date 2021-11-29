@@ -64,7 +64,7 @@ class Contact_Form {
 
 		$fullname = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'fullname', FILTER_SANITIZE_STRING ) ) );
 		$email    = filter_input( INPUT_POST, 'email', FILTER_VALIDATE_EMAIL );
-		$topic    = filter_input( INPUT_POST, 'topic', FILTER_SANITIZE_STRING );
+	    $topic    = filter_input( INPUT_POST, 'topic', FILTER_SANITIZE_STRING );
 		$message  = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'message', FILTER_SANITIZE_STRING ) ) );
 
 		if ( ! $fullname ) {
@@ -75,7 +75,7 @@ class Contact_Form {
 			$errors['email'] = 'Enter your email address.';
 		}
 
-		if ( ! $topic || ! in_array( $topic, self::topic_list(), true ) ) {
+		if (get_option('audience') == 'voters' && (! $topic || ! in_array( $topic, self::topic_list(), true ) )) {
 			$topic           = '';
 			$errors['topic'] = 'Select a topic.';
 		}
@@ -135,8 +135,9 @@ class Contact_Form {
 	 */
 	public static function send_message( $atts ) {
 		$recipient = \CTCL\Elections\Office_Details::email_address();
-		$subject   = $atts['topic'];
-		$sender    = sprintf( '"%s" <%s>', $atts['fullname'], $atts['email'] );
+		$subject   =  "Contact Form";
+		$sender    = sprintf( "%s <%s>", $atts['fullname'], $atts['email'] );
+		
 		$headers   = [
 			'Reply-To' => $sender,
 		];
@@ -147,7 +148,7 @@ class Contact_Form {
 		} else {
 			$result = true;
 		}
-
+//         var_dump ([$recipient, $subject, $message, $headers, $sender, $atts, $result]); exit();
 		return $result;
 	}
 
@@ -182,7 +183,7 @@ class Contact_Form {
 			[
 				'fullname' => '',
 				'email'    => '',
-				'topic'    => '',
+		        'topic'    => '',
 				'message'  => '',
 				'errors'   => [],
 			],
@@ -217,21 +218,21 @@ class Contact_Form {
 				</label>
 				<input id="contact-email" type="email" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'email' ); ?>/>
 			</p>
-
-			<p class="select-wrapper">
-				<label for="contact-topic">
-					Topic
-					<?php \CTCL\Elections\Helpers::error_message( $errors, 'topic' ); ?>
-				</label>
-				<select id="topic" name="topic" <?php \CTCL\Elections\Helpers::error_class( $errors, 'topic' ); ?>>
-					<?php
-					foreach ( self::topic_list() as $current_topic ) {
-						echo '<option' . selected( $current_topic, $attr['topic'], false ) . '>' . esc_html( $current_topic ) . '</option>';
-					}
-					?>
-				</select>
-			</p>
-
+	
+			<?php if(get_option('audience') == 'voters'): ?>
+				<p>
+					<label for="content-topic">
+						Topic
+						<?php \CTCL\Elections\Helpers::error_message( $errors, 'topic' ); ?>
+					</label>
+					<select id="content-topic" name="topic">
+						<?php foreach(\CTCL\Elections\Contact_Form::topic_list() as $topic): ?>
+							<option><?= $topic ?></option>
+						<?php endforeach ?>
+					</select>
+				</p>
+			<?php endif ?>
+			
 			<p>
 				<label for="contact-message">
 					Message
