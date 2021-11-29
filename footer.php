@@ -29,20 +29,22 @@ $fax       = Office_Details::fax();
 			<p class="info-item"><?php echo wp_kses( $fax, Office_Details::$allowed_link_tags ); ?> fax</p>
 			<?php endif; ?>
 		</div>
-		<div class="address">
-			<?php if ( $address ) : ?>
-			<h3>Visit</h3>
-			<p class="info-item">
-				<?php echo wp_kses( $address, Office_Details::$allowed_br_tag ); ?>
-			</p>
-			<?php endif; ?>
-			<?php if ( $hours ) : ?>
-			<p class="info-item hours">
-				Open:<br>
-				<?php echo wp_kses( nl2br( $hours ), Office_Details::$allowed_br_tag ); ?>
-			</p>
-			<?php endif; ?>
-		</div>
+		<?php if($address || $hours): ?>
+			<div class="address">
+				<?php if ($address) : ?>
+				<h3>Visit</h3>
+				<p class="info-item">
+					<?php echo wp_kses( $address, Office_Details::$allowed_br_tag ); ?>
+				</p>
+				<?php endif; ?>
+				<?php if ( $hours ) : ?>
+				<p class="info-item hours">
+					Open:<br>
+					<?php echo wp_kses( nl2br( $hours ), Office_Details::$allowed_br_tag ); ?>
+				</p>
+				<?php endif; ?>
+			</div>
+		<?php endif ?>
 		<div class="social">
 			<?php if ( $twitter || $facebook || $instagram ) : ?>
 			<h3>Social</h3>
