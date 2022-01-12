@@ -17,7 +17,7 @@ $file  = get_template_directory() . '/assets/images/icons/' . sanitize_file_name
 
 	<h1>Oops! We can’t find the page you’re looking for.</h1>
 
-	<p>The page has moved or does not exist. Try visiting our <a href="/faq/">FAQs</a> for help or going back to the homepage.</p>
+	<p>The page has moved or does not exist. Try going back to the home page.</p>
 
 	<p><a class="button" href="/">Back to Home</a></p>
 </main>
