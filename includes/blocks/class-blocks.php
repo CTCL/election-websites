@@ -107,8 +107,8 @@ class Blocks {
 			'register-online'           => 'Website',
 		];
 		
-		$icon_list = get_option( 'audience' ) == 'officials' ? $election_icons : $voter_icons;
 		
+		$icon_list = get_option( 'audience' ) === 'officials' ? $election_icons : $voter_icons;
 		wp_localize_script(
 			'block-editors',
 			'blockEditorVars',

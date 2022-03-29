@@ -75,7 +75,7 @@ class Contact_Form {
 			$errors['email'] = 'Enter your email address.';
 		}
 
-		if ( get_option( 'audience' ) == 'voters' && ( ! $topic || ! in_array( $topic, self::topic_list(), true ) ) ) {
+		if ( get_option( 'audience' ) === 'voters' && ( ! $topic || ! in_array( $topic, self::topic_list(), true ) ) ) {
 			$topic           = '';
 			$errors['topic'] = 'Select a topic.';
 		}
@@ -219,7 +219,7 @@ class Contact_Form {
 				<input id="contact-email" type="email" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'email' ); ?>/>
 			</p>
 	
-			<?php if ( get_option( 'audience' ) == 'voters' ) : ?>
+			<?php if ( get_option( 'audience' ) === 'voters' ) : ?>
 				<p>
 					<label for="content-topic">
 						Topic

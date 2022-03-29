@@ -382,7 +382,7 @@ class Office_Details_Settings extends Settings {
 			return false;
 		}
 
-		if ( get_option( 'audience' ) == 'officials' ) {
+		if ( get_option( 'audience' ) === 'officials' ) {
 			update_option( 'blogname', $jurisdiction );
 		} else {
 			update_option( 'blogname', sprintf( '%s Elections', $jurisdiction ) );
