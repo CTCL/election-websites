@@ -226,7 +226,7 @@ class Contact_Form {
 					</label>
 					<select id="content-topic" name="topic">
 						<?php foreach ( self::topic_list() as $topic ) : ?>
-							<option><?= $topic ?></option>
+							<option><?php echo esc_html( $topic ); ?></option>
 						<?php endforeach ?>
 					</select>
 				</p>
