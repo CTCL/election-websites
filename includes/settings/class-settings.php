@@ -158,8 +158,8 @@ class Settings {
 				break;
 		}
 		
-		if(!empty($args['description'])){
-			echo '<p>'.$args['description'].'</p>';
+		if ( ! empty( $args['description'] ) ) {
+			echo '<p>' . $args['description'] . '</p>';
 		}
 	}
 

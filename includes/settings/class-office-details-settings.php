@@ -147,7 +147,7 @@ class Office_Details_Settings extends Settings {
 				'label'       => 'Hours',
 				'section'     => 'contact_section',
 				'type'        => 'textarea',
-				'placeholder' => "",
+				'placeholder' => '',
 				'label_for'   => 'ctcl_hours',
 				'args'        => [ 'sanitize_callback' => 'sanitize_textarea_field' ],
 			],
@@ -295,7 +295,8 @@ class Office_Details_Settings extends Settings {
 				'label_for'   => 'ctcl_zip',
 				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_zip' ] ],
 			],
-			/*remove 10-8-2021 as requested
+			/*
+			remove 10-8-2021 as requested
 			[
 				'uid'         => 'ctcl_hours',
 				'label'       => 'Hours',
@@ -339,7 +340,7 @@ class Office_Details_Settings extends Settings {
 			],
 		];
 		
-		$fields = get_option('audience') == 'officials' ? $electon_fields : $voter_fields;
+		$fields = get_option( 'audience' ) == 'officials' ? $electon_fields : $voter_fields;
 		
 		return $fields;
 
@@ -381,8 +382,8 @@ class Office_Details_Settings extends Settings {
 			return false;
 		}
 
-		if(get_option('audience') == 'officials'){
-			update_option( 'blogname', $jurisdiction);
+		if ( get_option( 'audience' ) == 'officials' ) {
+			update_option( 'blogname', $jurisdiction );
 		} else {
 			update_option( 'blogname', sprintf( '%s Elections', $jurisdiction ) );
 		}

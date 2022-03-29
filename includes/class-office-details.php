@@ -178,21 +178,21 @@ class Office_Details {
 		$street         = join( "\n", $address_parts );
 		$city_state_zip = sprintf( '%s, %s %s', self::city(), self::state(), self::zip() );
 
-		$address = "";
+		$address = '';
 		
-		if(!empty($street)){
+		if ( ! empty( $street ) ) {
 			$address .= $street;
 		}
 		
-		if(trim($city_state_zip) != ","){
-			if(!empty($street)){
+		if ( trim( $city_state_zip ) != ',' ) {
+			if ( ! empty( $street ) ) {
 				$address .= "\n";
 			}
 			
 			$address .= $city_state_zip;
 		}
 		
-		return nl2br($address);
+		return nl2br( $address );
 	}
 
 	/**

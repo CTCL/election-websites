@@ -39,10 +39,10 @@ class Audience_Settings extends Settings {
 				'section'     => 'audience_section',
 				'type'        => 'select',
 				'options'     => [
-          "voters" => "Voters",
-          "officials" => "Election Officials"
-        ],
-        'default' => 'voters',
+					'voters'    => 'Voters',
+					'officials' => 'Election Officials',
+				],
+				'default'     => 'voters',
 				'placeholder' => '',
 				'description' => "If you're an election official making a site to inform voters, select Voters. If you're a state association leader making a site to inform election officials, select Election Officials.",
 				'label_for'   => 'audience',
