@@ -295,17 +295,6 @@ class Office_Details_Settings extends Settings {
 				'label_for'   => 'ctcl_zip',
 				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_zip' ] ],
 			],
-			/*
-			remove 10-8-2021 as requested
-			[
-				'uid'         => 'ctcl_hours',
-				'label'       => 'Hours',
-				'section'     => 'contact_section',
-				'type'        => 'textarea',
-				'placeholder' => "",
-				'label_for'   => 'ctcl_hours',
-				'args'        => [ 'sanitize_callback' => 'sanitize_textarea_field' ],
-			],*/
 			[
 				'uid'         => 'ctcl_facebook',
 				'label'       => 'Facebook',

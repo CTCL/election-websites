@@ -148,7 +148,6 @@ class Contact_Form {
 		} else {
 			$result = true;
 		}
-		// var_dump ([$recipient, $subject, $message, $headers, $sender, $atts, $result]); exit();
 		return $result;
 	}
 
