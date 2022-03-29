@@ -45,8 +45,8 @@ class Blocks {
 		);
 
 		$base_url = get_template_directory_uri() . '/assets/images/icons/';
-		$theme    = \CTCL\Elections\Elections_Settings::get_theme_slug();       
-		
+		$theme    = \CTCL\Elections\Elections_Settings::get_theme_slug();
+
 		$voter_icons = [
 			'accessible-voting'         => 'Accessible Voting',
 			'add-to-the-ballot'         => 'Add to the Ballot',
@@ -76,7 +76,7 @@ class Blocks {
 			'voting-locations'          => 'Voting Locations',
 			'whats-on-the-ballot'       => 'What’s on the Ballot',
 		];
-		
+
 		$election_icons = [
 			'accessible-voting'         => 'Accessible Voting',
 			'add-to-the-ballot'         => 'Add to the List',
@@ -106,9 +106,9 @@ class Blocks {
 			'register-to-vote'          => 'Sign Up',
 			'register-online'           => 'Website',
 		];
-		
-		
+
 		$icon_list = get_option( 'audience' ) === 'officials' ? $election_icons : $voter_icons;
+
 		wp_localize_script(
 			'block-editors',
 			'blockEditorVars',

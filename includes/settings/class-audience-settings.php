@@ -31,7 +31,7 @@ class Audience_Settings extends Settings {
 	 * @return array
 	 */
 	public static function get_fields() {
-		
+
 		$voter_fields = [
 			[
 				'uid'         => 'audience',
@@ -49,9 +49,9 @@ class Audience_Settings extends Settings {
 				'args'        => [ 'sanitize_callback' => [ __CLASS__, 'validate_audience' ] ],
 			],
 		];
-		
+
 		$fields = $voter_fields;
-		
+
 		return $fields;
 
 	}

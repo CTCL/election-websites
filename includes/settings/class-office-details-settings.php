@@ -31,7 +31,7 @@ class Office_Details_Settings extends Settings {
 	 * @return array
 	 */
 	public static function get_fields() {
-		
+
 		$voter_fields = [
 			[
 				'uid'         => 'ctcl_official_name',
@@ -184,7 +184,7 @@ class Office_Details_Settings extends Settings {
 				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_instagram' ] ],
 			],
 		];
-		
+
 		$electon_fields = [
 			[
 				'uid'         => 'ctcl_official_name',
@@ -339,11 +339,10 @@ class Office_Details_Settings extends Settings {
 				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_instagram' ] ],
 			],
 		];
-		
-		$fields = get_option( 'audience' ) == 'officials' ? $electon_fields : $voter_fields;
-		
-		return $fields;
 
+		$fields = get_option( 'audience' ) === 'officials' ? $electon_fields : $voter_fields;
+
+		return $fields;
 	}
 
 	/**

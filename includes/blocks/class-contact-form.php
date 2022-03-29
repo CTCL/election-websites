@@ -137,7 +137,7 @@ class Contact_Form {
 		$recipient = \CTCL\Elections\Office_Details::email_address();
 		$subject   = 'Contact Form';
 		$sender    = sprintf( '%s <%s>', $atts['fullname'], $atts['email'] );
-		
+
 		$headers = [
 			'Reply-To' => $sender,
 		];
@@ -218,7 +218,7 @@ class Contact_Form {
 				</label>
 				<input id="contact-email" type="email" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'email' ); ?>/>
 			</p>
-	
+
 			<?php if ( get_option( 'audience' ) === 'voters' ) : ?>
 				<p>
 					<label for="content-topic">
@@ -232,7 +232,7 @@ class Contact_Form {
 					</select>
 				</p>
 			<?php endif ?>
-			
+
 			<p>
 				<label for="contact-message">
 					Message

@@ -157,7 +157,7 @@ class Settings {
 				echo '</select>';
 				break;
 		}
-		
+
 		if ( ! empty( $args['description'] ) ) {
 			echo '<p>' . $args['description'] . '</p>';
 		}
