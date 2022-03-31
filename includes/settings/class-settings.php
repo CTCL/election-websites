@@ -157,9 +157,9 @@ class Settings {
 				echo '</select>';
 				break;
 		}
-		
-		if(!empty($args['description'])){
-			echo '<p>'.$args['description'].'</p>';
+
+		if ( ! empty( $args['description'] ) ) {
+			echo '<p>' . esc_html( $args['description'] ) . '</p>';
 		}
 	}
 

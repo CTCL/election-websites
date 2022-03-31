@@ -64,7 +64,7 @@ class Contact_Form {
 
 		$fullname = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'fullname', FILTER_SANITIZE_STRING ) ) );
 		$email    = filter_input( INPUT_POST, 'email', FILTER_VALIDATE_EMAIL );
-	    $topic    = filter_input( INPUT_POST, 'topic', FILTER_SANITIZE_STRING );
+		$topic    = filter_input( INPUT_POST, 'topic', FILTER_SANITIZE_STRING );
 		$message  = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'message', FILTER_SANITIZE_STRING ) ) );
 
 		if ( ! $fullname ) {
@@ -75,7 +75,7 @@ class Contact_Form {
 			$errors['email'] = 'Enter your email address.';
 		}
 
-		if (get_option('audience') == 'voters' && (! $topic || ! in_array( $topic, self::topic_list(), true ) )) {
+		if ( get_option( 'audience' ) === 'voters' && ( ! $topic || ! in_array( $topic, self::topic_list(), true ) ) ) {
 			$topic           = '';
 			$errors['topic'] = 'Select a topic.';
 		}
@@ -135,20 +135,19 @@ class Contact_Form {
 	 */
 	public static function send_message( $atts ) {
 		$recipient = \CTCL\Elections\Office_Details::email_address();
-		$subject   =  "Contact Form";
-		$sender    = sprintf( "%s <%s>", $atts['fullname'], $atts['email'] );
-		
-		$headers   = [
+		$subject   = 'Contact Form';
+		$sender    = sprintf( '%s <%s>', $atts['fullname'], $atts['email'] );
+
+		$headers = [
 			'Reply-To' => $sender,
 		];
-		$message   = sprintf( "From: %s\n\n%s", $sender, $atts['message'] );
+		$message = sprintf( "From: %s\n\n%s", $sender, $atts['message'] );
 
 		if ( 'production' === wp_get_environment_type() ) {
 			$result = wp_mail( $recipient, $subject, $message, $headers ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_mail_wp_mail
 		} else {
 			$result = true;
 		}
-//         var_dump ([$recipient, $subject, $message, $headers, $sender, $atts, $result]); exit();
 		return $result;
 	}
 
@@ -183,7 +182,7 @@ class Contact_Form {
 			[
 				'fullname' => '',
 				'email'    => '',
-		        'topic'    => '',
+				'topic'    => '',
 				'message'  => '',
 				'errors'   => [],
 			],
@@ -218,21 +217,21 @@ class Contact_Form {
 				</label>
 				<input id="contact-email" type="email" name="email" value="<?php echo esc_attr( $attr['email'] ); ?>"<?php \CTCL\Elections\Helpers::error_class( $errors, 'email' ); ?>/>
 			</p>
-	
-			<?php if(get_option('audience') == 'voters'): ?>
+
+			<?php if ( get_option( 'audience' ) === 'voters' ) : ?>
 				<p>
 					<label for="content-topic">
 						Topic
 						<?php \CTCL\Elections\Helpers::error_message( $errors, 'topic' ); ?>
 					</label>
 					<select id="content-topic" name="topic">
-						<?php foreach(\CTCL\Elections\Contact_Form::topic_list() as $topic): ?>
-							<option><?= $topic ?></option>
+						<?php foreach ( self::topic_list() as $topic ) : ?>
+							<option><?php echo esc_html( $topic ); ?></option>
 						<?php endforeach ?>
 					</select>
 				</p>
 			<?php endif ?>
-			
+
 			<p>
 				<label for="contact-message">
 					Message

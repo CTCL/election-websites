@@ -31,7 +31,7 @@ class Audience_Settings extends Settings {
 	 * @return array
 	 */
 	public static function get_fields() {
-		
+
 		$voter_fields = [
 			[
 				'uid'         => 'audience',
@@ -39,19 +39,19 @@ class Audience_Settings extends Settings {
 				'section'     => 'audience_section',
 				'type'        => 'select',
 				'options'     => [
-          "voters" => "Voters",
-          "officials" => "Election Officials"
-        ],
-        'default' => 'voters',
+					'voters'    => 'Voters',
+					'officials' => 'Election Officials',
+				],
+				'default'     => 'voters',
 				'placeholder' => '',
 				'description' => "If you're an election official making a site to inform voters, select Voters. If you're a state association leader making a site to inform election officials, select Election Officials.",
 				'label_for'   => 'audience',
-				'args'        => [ 'sanitize_callback' => [ __CLASS__, 'validate_audience' ] ],
+				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 			],
 		];
-		
+
 		$fields = $voter_fields;
-		
+
 		return $fields;
 
 	}
@@ -71,23 +71,6 @@ class Audience_Settings extends Settings {
 
 		self::configure_fields( $fields, static::FIELD_GROUP );
 	}
-
-	/**
-	 * Update site title when jurisdiction is changed.
-	 *
-	 * @param string $jurisdiction  County or town name.
-	 *
-	 * @return string
-	 */
-	public static function validate_audience( $value ) {
-		$value = sanitize_text_field( $value );
-		if ( ! $value ) {
-			return false;
-		}
-
-		return $value;
-	}
-
 }
 
 add_action( 'after_setup_theme', [ '\CTCL\Elections\Audience_Settings', 'hooks' ] );
