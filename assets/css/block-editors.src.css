@@ -1,4 +1,6 @@
 /** Only import styles necessary for block editing **/
+/* stylelint-disable */
+/* stylelint-enable */
 #editor {
   counter-reset: numbered-section-editor;
 }
@@ -73,8 +75,7 @@
 .tile-wrapper {
   display: inline-grid;
   grid-template-columns: repeat(4, 224px);
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
+  grid-gap: 16px;
 }
 
 @media (max-width: 1024px) {
@@ -86,8 +87,7 @@
 @media (max-width: 767px) {
   .tile-wrapper {
     grid-template-columns: repeat(2, calc((100vw - 50px) / 2));
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-gap: 10px;
   }
   .home .tile-wrapper {
     grid-template-columns: repeat(2, calc((100vw - 42px) / 2));
@@ -187,8 +187,7 @@
   /* stylelint-disable-line selector-class-pattern */
   display: grid;
   grid-template-columns: repeat(4, 224px);
-  grid-column-gap: 16px;
-  grid-row-gap: 18px;
+  grid-gap: 18px 16px;
 }
 
 @media (max-width: 1024px) {
@@ -299,19 +298,19 @@ main .wp-block-column .office-info h3 + p {
 }
 
 main .wp-block-column .office-info h3.email::before {
-  background-image: url(../images/office/email.svg);
+  background-image: url("../images/office/email.svg");
 }
 
 main .wp-block-column .office-info h3.hours::before {
-  background-image: url(../images/office/hours.svg);
+  background-image: url("../images/office/hours.svg");
 }
 
 main .wp-block-column .office-info h3.location::before {
-  background-image: url(../images/office/location.svg);
+  background-image: url("../images/office/location.svg");
 }
 
 main .wp-block-column .office-info h3.phone::before {
-  background-image: url(../images/office/phone.svg);
+  background-image: url("../images/office/phone.svg");
 }
 
 .accordion-section-editor .header-wrapper {

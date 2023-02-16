@@ -1,3 +1,5 @@
+/* stylelint-disable */
+/* stylelint-enable */
 .tile-wrapper .tile {
   border-width: 1px;
   border-style: solid;
@@ -36,8 +38,7 @@
 .tile-wrapper {
   display: inline-grid;
   grid-template-columns: repeat(4, 224px);
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
+  grid-gap: 16px;
 }
 
 @media (max-width: 1024px) {
@@ -49,8 +50,7 @@
 @media (max-width: 767px) {
   .tile-wrapper {
     grid-template-columns: repeat(2, calc((100vw - 50px) / 2));
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-gap: 10px;
   }
   .home .tile-wrapper {
     grid-template-columns: repeat(2, calc((100vw - 42px) / 2));
@@ -132,19 +132,19 @@ main .wp-block-column .office-info h3 + p {
 }
 
 main .wp-block-column .office-info h3.email::before {
-  background-image: url(../images/office/email.svg);
+  background-image: url("../images/office/email.svg");
 }
 
 main .wp-block-column .office-info h3.hours::before {
-  background-image: url(../images/office/hours.svg);
+  background-image: url("../images/office/hours.svg");
 }
 
 main .wp-block-column .office-info h3.location::before {
-  background-image: url(../images/office/location.svg);
+  background-image: url("../images/office/location.svg");
 }
 
 main .wp-block-column .office-info h3.phone::before {
-  background-image: url(../images/office/phone.svg);
+  background-image: url("../images/office/phone.svg");
 }
 
 header .menu, footer .menu {
@@ -309,7 +309,9 @@ main ul a {
 }
 
 header {
+  /* stylelint-disable */
   box-shadow: 0 1px 4px -1px rgba(28, 48, 74, 0.25);
+  /* stylelint-enable */
   width: 100%;
   height: 90px;
   z-index: 1;
@@ -326,7 +328,6 @@ header {
 header .header-wrapper {
   margin: 0 auto;
   display: grid;
-  grid-template-columns: -webkit-max-content 1fr;
   grid-template-columns: max-content 1fr;
   align-items: center;
   padding: 16px 0;
@@ -385,8 +386,7 @@ header .header-wrapper .icon-bars .icon-bar {
   position: absolute;
   top: 50%;
   left: 0;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   transition: all 0.3s ease;
 }
 
@@ -997,7 +997,9 @@ main hr {
 .screen-reader-text:focus {
   background-color: #f1f1f1;
   border-radius: 3px;
+  /* stylelint-disable */
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  /* stylelint-enable */
   clip: auto !important;
   -webkit-clip-path: none;
           clip-path: none;

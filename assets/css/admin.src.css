@@ -1,3 +1,5 @@
+/* stylelint-disable */
+/* stylelint-enable */
 main .wp-block-column .office-info {
   margin-top: 40px;
   margin-left: 10px;
@@ -31,19 +33,19 @@ main .wp-block-column .office-info h3 + p {
 }
 
 main .wp-block-column .office-info h3.email::before {
-  background-image: url(../images/office/email.svg);
+  background-image: url("../images/office/email.svg");
 }
 
 main .wp-block-column .office-info h3.hours::before {
-  background-image: url(../images/office/hours.svg);
+  background-image: url("../images/office/hours.svg");
 }
 
 main .wp-block-column .office-info h3.location::before {
-  background-image: url(../images/office/location.svg);
+  background-image: url("../images/office/location.svg");
 }
 
 main .wp-block-column .office-info h3.phone::before {
-  background-image: url(../images/office/phone.svg);
+  background-image: url("../images/office/phone.svg");
 }
 
 .contact-form {
