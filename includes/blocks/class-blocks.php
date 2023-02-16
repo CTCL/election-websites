@@ -31,7 +31,7 @@ class Blocks {
 
 		wp_register_script(
 			'block-editors',
-			get_template_directory_uri() . "/assets/js/blocks.${type}.js",
+			get_template_directory_uri() . "/assets/js/blocks.{$type}.js",
 			[ 'wp-block-editor', 'wp-element', 'wp-components', 'wp-data' ],
 			THEME_VERSION,
 			true
@@ -39,7 +39,7 @@ class Blocks {
 
 		wp_register_style(
 			'block-editors',
-			get_template_directory_uri() . "/assets/css/block-editors.${type}.css",
+			get_template_directory_uri() . "/assets/css/block-editors.{$type}.css",
 			[],
 			THEME_VERSION
 		);
