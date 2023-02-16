@@ -1,7 +1,20 @@
 {
-	"extends": "@wordpress/stylelint-config",
+	"extends": ["stylelint-config-standard-scss"],
 	"rules": {
-		"indentation": "tab",
-		"at-rule-no-unknown": null
+		"at-rule-empty-line-before": [
+			"always",
+			{
+				"except": [ "blockless-after-blockless" ],
+				"ignore": [ "after-comment" ],
+				"ignoreAtRules": [ "else" ]
+			}
+		],
+		"scss/at-else-closing-brace-newline-after": "always-last-in-chain",
+		"scss/at-else-closing-brace-space-after": "always-intermediate",
+		"scss/at-else-empty-line-before": "never",
+		"scss/at-if-closing-brace-newline-after": "always-last-in-chain",
+		"scss/at-if-closing-brace-space-after": "always-intermediate",
+		"scss/selector-no-redundant-nesting-selector": true,
+		"scss/no-global-function-names": null
 	}
 }
