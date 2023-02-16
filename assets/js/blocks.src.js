@@ -2,43 +2,31 @@
 "use strict";
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 var registerBlockType = wp.blocks.registerBlockType;
 var createElement = wp.element.createElement;
 var _wp$blockEditor = wp.blockEditor,
-    InspectorControls = _wp$blockEditor.InspectorControls,
-    InnerBlocks = _wp$blockEditor.InnerBlocks,
-    RichText = _wp$blockEditor.RichText;
+  InspectorControls = _wp$blockEditor.InspectorControls,
+  InnerBlocks = _wp$blockEditor.InnerBlocks,
+  RichText = _wp$blockEditor.RichText;
 var _wp$components = wp.components,
-    PanelBody = _wp$components.PanelBody,
-    PanelRow = _wp$components.PanelRow,
-    SelectControl = _wp$components.SelectControl;
+  PanelBody = _wp$components.PanelBody,
+  PanelRow = _wp$components.PanelRow,
+  SelectControl = _wp$components.SelectControl;
 var PARENT_BLOCK = 'ctcl-election-website/accordion-group-block';
 var CHILD_BLOCK = 'ctcl-election-website/accordion-section-block';
 var NESTED_PARENT_BLOCK = 'ctcl-election-website/accordion-nested-group-block';
 var AccordionBlockContext = wp.element.createContext(false);
-
 var getIconEl = function getIconEl(_ref) {
   var icon = _ref.icon;
-
   if (icon) {
     var iconUrl = "".concat(blockEditorVars.baseUrl, "/").concat(icon, ".svg");
     return createElement('img', {
@@ -46,20 +34,16 @@ var getIconEl = function getIconEl(_ref) {
       src: iconUrl
     });
   }
-
   return null;
 };
-
 var getHeaderTag = function getHeaderTag(_ref2) {
   var isNestedGroup = _ref2.isNestedGroup;
   return isNestedGroup ? 'h3' : 'h2';
 };
-
 var getHeaderClasses = function getHeaderClasses(_ref3) {
   var icon = _ref3.icon;
   return "accordion-section-header ".concat(icon ? 'with-icon' : '');
 };
-
 registerBlockType(CHILD_BLOCK, {
   title: 'Section',
   icon: 'book',
@@ -79,11 +63,9 @@ registerBlockType(CHILD_BLOCK, {
   },
   edit: function edit(props) {
     var DISALLOWED_BLOCKS = [PARENT_BLOCK, CHILD_BLOCK];
-
     if (props.attributes.isNestedGroup) {
       DISALLOWED_BLOCKS.push(NESTED_PARENT_BLOCK);
     }
-
     var ALLOWED_BLOCKS = wp.blocks.getBlockTypes().map(function (block) {
       return block.name;
     }).filter(function (blockName) {
@@ -107,9 +89,8 @@ registerBlockType(CHILD_BLOCK, {
         key: '_placeholder'
       }].concat(_toConsumableArray(Object.entries(blockEditorVars.iconOptions).map(function (_ref4) {
         var _ref5 = _slicedToArray(_ref4, 2),
-            value = _ref5[0],
-            label = _ref5[1];
-
+          value = _ref5[0],
+          label = _ref5[1];
         return {
           value: value,
           label: label,
@@ -149,7 +130,6 @@ registerBlockType(CHILD_BLOCK, {
     }, /*#__PURE__*/React.createElement(InnerBlocks.Content, null)));
   }
 });
-
 var getParentEditTemplate = function getParentEditTemplate(isNestedGroup) {
   return /*#__PURE__*/React.createElement("div", {
     className: "accordion-group-editor ".concat(isNestedGroup ? 'subsection' : '')
@@ -161,7 +141,6 @@ var getParentEditTemplate = function getParentEditTemplate(isNestedGroup) {
     template: [[CHILD_BLOCK]]
   })));
 };
-
 registerBlockType(PARENT_BLOCK, {
   title: 'Collapsible Group',
   icon: 'book',
@@ -195,7 +174,7 @@ registerBlockType(NESTED_PARENT_BLOCK, {
 
 var registerBlockType = wp.blocks.registerBlockType;
 var _wp = wp,
-    ServerSideRender = _wp.serverSideRender;
+  ServerSideRender = _wp.serverSideRender;
 var Disabled = wp.components.Disabled;
 registerBlockType('ctcl-election-website/contact-form', {
   title: 'Contact Form',
@@ -214,7 +193,7 @@ registerBlockType('ctcl-election-website/contact-form', {
 
 var registerBlockType = wp.blocks.registerBlockType;
 var _wp = wp,
-    ServerSideRender = _wp.serverSideRender;
+  ServerSideRender = _wp.serverSideRender;
 var createElement = wp.element.createElement;
 wp.blocks.registerBlockType('ctcl-election-website/numbered-section-block', {
   title: 'Numbered Section',
@@ -243,7 +222,7 @@ wp.blocks.registerBlockType('ctcl-election-website/numbered-section-block', {
 
 var registerBlockType = wp.blocks.registerBlockType;
 var _wp = wp,
-    ServerSideRender = _wp.serverSideRender;
+  ServerSideRender = _wp.serverSideRender;
 registerBlockType('ctcl-election-website/office-info', {
   title: 'Office Info',
   icon: 'building',
@@ -260,20 +239,20 @@ registerBlockType('ctcl-election-website/office-info', {
 "use strict";
 
 var _lodash = lodash,
-    startCase = _lodash.startCase;
+  startCase = _lodash.startCase;
 var registerBlockType = wp.blocks.registerBlockType;
 var createElement = wp.element.createElement;
 var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
 var _wp$blockEditor = wp.blockEditor,
-    InspectorControls = _wp$blockEditor.InspectorControls,
-    InnerBlocks = _wp$blockEditor.InnerBlocks,
-    RichText = _wp$blockEditor.RichText,
-    URLInput = _wp$blockEditor.URLInput;
+  InspectorControls = _wp$blockEditor.InspectorControls,
+  InnerBlocks = _wp$blockEditor.InnerBlocks,
+  RichText = _wp$blockEditor.RichText,
+  URLInput = _wp$blockEditor.URLInput;
 var _wp$components = wp.components,
-    PanelBody = _wp$components.PanelBody,
-    PanelRow = _wp$components.PanelRow,
-    SelectControl = _wp$components.SelectControl,
-    TextControl = _wp$components.TextControl;
+  PanelBody = _wp$components.PanelBody,
+  PanelRow = _wp$components.PanelRow,
+  SelectControl = _wp$components.SelectControl,
+  TextControl = _wp$components.TextControl;
 registerBlockType('ctcl-election-website/read-more-block', {
   title: 'Read More',
   icon: 'editor-insertmore',
@@ -338,47 +317,34 @@ registerBlockType('ctcl-election-website/read-more-block', {
 "use strict";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 var registerBlockType = wp.blocks.registerBlockType;
 var createElement = wp.element.createElement;
 var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
 var _wp$blockEditor = wp.blockEditor,
-    InspectorControls = _wp$blockEditor.InspectorControls,
-    InnerBlocks = _wp$blockEditor.InnerBlocks,
-    RichText = _wp$blockEditor.RichText,
-    URLInput = _wp$blockEditor.URLInput;
+  InspectorControls = _wp$blockEditor.InspectorControls,
+  InnerBlocks = _wp$blockEditor.InnerBlocks,
+  RichText = _wp$blockEditor.RichText,
+  URLInput = _wp$blockEditor.URLInput;
 var _wp$components = wp.components,
-    PanelBody = _wp$components.PanelBody,
-    PanelRow = _wp$components.PanelRow,
-    SelectControl = _wp$components.SelectControl,
-    TextControl = _wp$components.TextControl,
-    ExternalLink = _wp$components.ExternalLink;
+  PanelBody = _wp$components.PanelBody,
+  PanelRow = _wp$components.PanelRow,
+  SelectControl = _wp$components.SelectControl,
+  TextControl = _wp$components.TextControl,
+  ExternalLink = _wp$components.ExternalLink;
 var PARENT_BLOCK = 'ctcl-election-website/tile-nav-section-block';
 var CHILD_BLOCK = 'ctcl-election-website/tile-nav-block';
-
 var getIconEl = function getIconEl(attributes) {
   var icon = attributes.icon;
-
   if (icon) {
     var iconUrl = "".concat(blockEditorVars.baseUrl, "/").concat(icon, ".svg");
     return createElement('img', {
@@ -386,10 +352,8 @@ var getIconEl = function getIconEl(attributes) {
       src: iconUrl
     });
   }
-
   return null;
 };
-
 registerBlockType(PARENT_BLOCK, {
   title: 'Tile Navigation',
   icon: 'screenoptions',
@@ -430,28 +394,24 @@ registerBlockType(CHILD_BLOCK, {
         label: value
       });
     }
-
     function updateLink(url, post) {
       props.setAttributes({
         url: url
       });
-
       if (post) {
         props.setAttributes({
           label: post.title
         });
       }
     }
-
     function updateIcon(value) {
       props.setAttributes({
         icon: value
       });
     }
-
     var _props$attributes = props.attributes,
-        label = _props$attributes.label,
-        icon = _props$attributes.icon;
+      label = _props$attributes.label,
+      icon = _props$attributes.icon;
     var isEmpty = !label && !icon;
     return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(InspectorControls, null, /*#__PURE__*/React.createElement("div", {
       className: "tile-nav-settings"
@@ -476,9 +436,8 @@ registerBlockType(CHILD_BLOCK, {
         key: '_placeholder'
       }].concat(_toConsumableArray(Object.entries(blockEditorVars.iconOptions).map(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2),
-            value = _ref2[0],
-            label = _ref2[1];
-
+          value = _ref2[0],
+          label = _ref2[1];
         return {
           value: value,
           label: label,
