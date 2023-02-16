@@ -12,7 +12,11 @@ $banner-bg-dark: #18488f;
 $banner-bg-light: #c7e5f8;
 
 // tiles
+// don't wan't stylelint to rewrite as $box-shadow: rgb(16 41 46 / 17%) which conflicts with SASS
+// https://stackoverflow.com/questions/71805735/error-function-rgb-is-missing-argument-green-in-sass
+/* stylelint-disable */
 $box-shadow: rgba(16, 41, 46, 0.17);
+/* stylelint-enable */
 
 // hover states
 $tint-percent: 20;

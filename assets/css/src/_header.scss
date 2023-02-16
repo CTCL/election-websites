@@ -2,7 +2,9 @@
 @import "utility/typography";
 
 header {
-	box-shadow: 0 1px 4px -1px hsla(214, 45%, 20%, 0.25);
+	/* stylelint-disable */
+	box-shadow: 0 1px 4px -1px hsla(214deg, 45%, 20%, 0.25);
+	/* stylelint-enable */
 	width: 100%;
 	height: $header-height;
 	z-index: 1;
