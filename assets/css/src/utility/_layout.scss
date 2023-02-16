@@ -1,0 +1,17 @@
+@mixin fit-to-page {
+	margin: 0 auto;
+
+	// place narrowest item last
+	@include breakpoint(desktop) {
+		width: $content-width-desktop;
+	}
+
+	@include breakpoint(tablet) {
+		width: $content-width-tablet;
+	}
+
+	@include breakpoint(phone) {
+		margin: 0 20px;
+		width: calc(100% - 40px);
+	}
+}

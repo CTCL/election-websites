@@ -1,0 +1,225 @@
+@import "utility/layout";
+@import "utility/typography";
+
+header {
+	box-shadow: 0 1px 4px -1px hsla(214, 45%, 20%, 0.25);
+	width: 100%;
+	height: $header-height;
+	z-index: 1;
+	position: fixed;
+	display: grid;
+
+	@include breakpoint(phone) {
+
+		.menu & {
+			height: 100%;
+		}
+	}
+
+	.header-wrapper {
+
+		@include fit-to-page;
+
+		display: grid;
+		grid-template-columns: max-content 1fr;
+
+		@include breakpoint(phone) {
+			display: block;
+			width: calc(100% - 40px);
+		}
+
+		align-items: center;
+		padding: 16px 0;
+
+		.mobile-menu {
+			justify-self: flex-end;
+			margin-left: 10px;
+			display: none;
+
+			@include breakpoint(phone) {
+				display: inline-block;
+			}
+		}
+
+		.icon-bars {
+			margin-left: auto;
+			width: 30px;
+			height: 30px;
+			position: relative;
+			cursor: pointer;
+			transition: all 0.3s ease;
+
+			.icon-bar {
+				height: 3px;
+				width: 100%;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				backface-visibility: hidden;
+				transition: all 0.3s ease;
+
+				&.bar-top {
+					margin-top: -10px;
+					transform: rotate(0);
+				}
+
+				&.bar-middle {
+					opacity: 1;
+				}
+
+				&.bar-bottom {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+
+	img,
+	.site-title {
+		display: inline-block;
+	}
+
+	img {
+		margin-right: 16px;
+	}
+
+	.site-title-wrapper {
+		display: flex;
+		align-items: center;
+		max-width: 350px;
+
+		@include breakpoint(phone) {
+			max-width: 100%;
+			display: grid;
+			grid-template-columns: 80px 1fr 60px;
+		}
+
+		&.no-logo {
+			grid-template-columns: 1fr 60px;
+		}
+
+		.site-title {
+			font-weight: 600;
+
+			@include breakpoint(phone) {
+				max-width: 210px;
+			}
+		}
+	}
+
+	nav {
+		display: inline-block;
+		justify-self: flex-end;
+
+		@include breakpoint(phone) {
+			display: none;
+			width: 100%;
+		}
+	}
+
+	.menu & {
+
+		.header-wrapper {
+
+			.icon-bars {
+
+				.bar-top,
+				.bar-bottom {
+					margin-top: 0;
+				}
+
+				.bar-top {
+					transform: rotate(45deg);
+				}
+
+				.bar-middle {
+					opacity: 0;
+				}
+
+				.bar-bottom {
+					transform: rotate(-45deg);
+				}
+			}
+		}
+
+		nav {
+
+			@include breakpoint(phone) {
+				display: inline-block;
+			}
+		}
+	}
+
+	.menu {
+
+		@extend %wp-menu;
+		@extend %wp-menu-links;
+
+		.menu-item {
+			font-size: 15px;
+			line-height: 19px;
+			display: inline-block;
+			margin-left: 24px;
+
+			@include breakpoint(phone) {
+				display: block;
+				font-size: 20px;
+				border-bottom-width: 1px;
+				border-bottom-style: solid;
+				margin-left: 0;
+			}
+
+			a {
+				position: relative;
+
+				@include breakpoint(phone) {
+					display: block;
+					padding: 30px 0;
+				}
+
+				&::after {
+					content: "";
+					position: absolute;
+					bottom: -1px;
+					left: 0;
+					display: block;
+					width: 0;
+					height: 1px;
+					transition: width 0.3s ease 0s, width 0.3s ease 0s;
+
+					// no hover state on mobile
+					@include breakpoint(phone) {
+						content: none;
+					}
+				}
+
+				&:hover::after {
+					width: 100%;
+				}
+			}
+
+			&.current-menu-item {
+				pointer-events: none;
+			}
+
+			&.current-menu-item,
+			&.current-page-ancestor {
+
+				a {
+					font-weight: 600;
+					border-bottom-width: 1px;
+					border-bottom-style: solid;
+					// no hover state on mobile
+					@include breakpoint(phone) {
+						border: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+header + section,
+header + main {
+	margin-top: $header-height;
+}

@@ -1,0 +1,17 @@
+.page-news {
+
+	h3 {
+
+		a {
+			font-size: 24px;
+		}
+	}
+
+	p + h3::before {
+		content: "";
+		height: 3px;
+		width: 20px;
+		display: block;
+		margin: 20px 0;
+	}
+}

@@ -1,0 +1,166 @@
+.contact-form {
+	width: 90%;
+	margin-top: 32px;
+
+	@include breakpoint(phone) {
+		width: 100%;
+	}
+
+	button {
+
+		@include button;
+	}
+
+	textarea,
+	select,
+	input[type="tel"],
+	input[type="email"],
+	input[type="text"] {
+		font-size: 16px;
+		display: block;
+		padding: 14px 10px;
+		box-sizing: border-box;
+		border-width: 1px;
+		border-style: solid;
+		border-radius: $border-radius;
+		appearance: none;
+		width: 100%;
+
+		@include breakpoint(phone) {
+			width: 100%;
+		}
+	}
+
+	label {
+		margin-bottom: 5px;
+		display: inline-block;
+	}
+
+	p {
+		margin-bottom: 32px;
+	}
+
+	p + p {
+		margin-top: 25px;
+	}
+
+	select {
+		appearance: none;
+	}
+
+	select::-ms-expand {
+		display: none;
+	}
+
+	p.select-wrapper::after {
+		border-style: solid;
+		border-width: 0 0 3px 3px;
+		content: "";
+		display: inline-block;
+		height: 8px;
+		width: 8px;
+		right: 14px;
+		position: relative;
+		transform: rotate(-45deg);
+		vertical-align: top;
+		float: right;
+		bottom: 32px;
+		pointer-events: none;
+	}
+
+	span.error,
+	p.error {
+		font-weight: 600;
+		padding: 5px 10px;
+		background-image: svg("assets/images/error.svg");
+		background-repeat: no-repeat;
+	}
+
+	p.error {
+		background-position: 8px;
+		text-indent: 30px;
+	}
+
+	span.error {
+		display: block;
+		background-position: 0;
+		text-indent: 20px;
+	}
+}
+
+.page-about-us {
+
+	@include breakpoint(phone) {
+
+		main img {
+			display: none;
+		}
+	}
+
+	.wp-block-columns {
+
+		.wp-block-column:last-child {
+			display: flex;
+			justify-content: flex-end;
+
+			@include breakpoint(phone) {
+				justify-content: flex-start;
+				border-top-width: 3px;
+				border-top-style: solid;
+				margin-top: 40px;
+			}
+		}
+	}
+}
+
+.upload-wrapper {
+
+	.image-thumbnail {
+		display: block;
+		margin-top: 20px;
+	}
+
+	.button + .button {
+		margin-left: 10px;
+	}
+}
+
+/*
+ * Stylelint wants hyphens. Changing TOPIC_LIST_SLUG from ctcl_topic_list to
+ * ctcl-topic-list would erase existing topics. Not worth migrating data to
+ * fix this warning.
+ */
+#ctcl_topic_list_wrapper { /* stylelint-disable-line selector-id-pattern */
+
+	> div {
+		margin-bottom: 10px;
+	}
+
+	.button {
+		margin-left: 10px;
+	}
+}
+
+.ctcl-settings {
+
+	.form-table {
+
+		textarea,
+		input[type="text"],
+		input[type="email"],
+		input[type="password"],
+		input[type="tel"],
+		input[type="number"],
+		input[type="url"],
+		select {
+
+			@include breakpoint(desktop) {
+				width: 350px;
+			}
+
+			@include breakpoint(phone) {
+				width: 100%;
+			}
+		}
+	}
+}

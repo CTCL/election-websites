@@ -1,0 +1,31 @@
+/** Only import styles necessary for block editing **/
+@import "utility/variables";
+@import "utility/mixins";
+@import "blocks/numbered-section-block-editor";
+@import "blocks/tile-nav-block-editor";
+@import "blocks/office-info";
+@import "blocks/accordion-block-editor";
+@import "blocks/read-more-block-editor";
+
+#editor {
+
+	.wp-block-group {
+		border-top-width: 3px;
+		border-top-style: solid;
+		width: $content-width-desktop;
+
+		@include breakpoint(tablet) {
+			width: $content-width-tablet;
+		}
+	}
+
+	.wp-block-group,
+	.wp-block {
+
+		@include breakpoint(tablet) {
+			max-width: $content-width-tablet;
+		}
+
+		max-width: $content-width-desktop;
+	}
+}

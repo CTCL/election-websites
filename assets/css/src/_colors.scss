@@ -1,0 +1,226 @@
+// headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $midnight;
+}
+
+// Footer
+footer {
+	background-color: $grey-light;
+	color: $midnight;
+
+	a {
+		color: $midnight;
+	}
+}
+
+// Header
+header {
+	background-color: $white;
+
+	// top nav menu
+	a {
+		color: $midnight;
+	}
+
+	nav {
+
+		@include breakpoint(phone) {
+			background-color: $white;
+
+			.menu-item {
+				border-bottom-color: $grey-medium;
+			}
+		}
+
+		&.current-menu-item,
+		&.current-page-ancestor {
+
+			a {
+				color: $midnight;
+				border-bottom-color: $midnight;
+			}
+		}
+	}
+}
+
+// Page
+main {
+
+	p,
+	ul {
+		color: $grey-dark;
+	}
+
+	.wp-block-group {
+		border-top-color: $midnight;
+	}
+
+	hr {
+		border-color: $midnight;
+	}
+}
+
+.page-about-us {
+
+	.wp-block-columns .wp-block-column:last-child {
+		border-color: $midnight;
+	}
+}
+
+// news and press releases
+.page-news {
+
+	p + h3::before {
+		background-color: $midnight;
+	}
+}
+
+.contact-form {
+
+	label {
+		color: $midnight;
+	}
+
+	textarea,
+	select,
+	input[type="email"],
+	input[type="text"] {
+		border-color: $grey-medium;
+
+		&.error {
+			border-color: $error;
+		}
+	}
+
+	p.error,
+	span.error {
+		color: $error;
+	}
+
+	p.error {
+		background-color: $error-bg;
+	}
+}
+
+// top nav menu
+%wp-menu-links .menu-item a {
+	color: $grey-dark;
+
+	&::after {
+		background: $grey-dark;
+	}
+}
+
+// Blocks
+.accordion-group {
+
+	.accordion-section-wrapper {
+		border-top-color: $midnight;
+
+		&:last-child {
+			border-bottom-color: $midnight;
+		}
+
+		&.subsection {
+			border-top-color: $grey-medium;
+		}
+	}
+}
+
+// button text
+.error404 .button,
+.button.learn-more,
+.contact-form button {
+	color: $white;
+
+	// 404 page home button is an <a> tag,
+	// and would otherwise hover with the theme color
+	&:hover {
+		color: $white;
+	}
+}
+
+// Banner
+.banner {
+
+	&.alert {
+		background-color: $midnight;
+
+		.banner-wrapper {
+			color: $white; // need additional specificity to override scheme text color for homepage banner
+		}
+
+		a {
+			color: $white;
+		}
+	}
+
+	// banner -- dark
+	&.banner-dark {
+		color: $white;
+
+		h2 {
+			color: $white;
+		}
+
+		&.major {
+			background-color: $banner-bg-dark;
+		}
+	}
+
+	// banner -- light
+	&.banner-light {
+		color: $midnight;
+
+		h2 {
+			color: $midnight;
+		}
+
+		&.major {
+			background-color: $banner-bg-light;
+		}
+	}
+}
+
+// Tiles
+.tile-wrapper .tile {
+	border-color: $grey-medium;
+	color: $midnight;
+}
+
+// Block editor
+#editor .wp-block-group {
+	border-top-color: $black;
+}
+
+// numbered list
+.numbered-section {
+
+	&::before {
+		border-color: $midnight;
+		color: $midnight;
+	}
+}
+
+// Table
+figure.wp-block-table {
+
+	table {
+		border-color: $grey-light;
+		color: $midnight;
+	}
+
+	thead {
+		background-color: $banner-bg-dark;
+		color: $white;
+	}
+
+	tr:nth-child(2n) {
+		background-color: $grey-light;
+	}
+}
