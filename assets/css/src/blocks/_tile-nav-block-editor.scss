@@ -8,7 +8,6 @@
 }
 
 .tile-nav-block-editor {
-
 	.tile {
 
 		@extend %tile-default;
@@ -49,7 +48,6 @@
  */
 
 .tile-nav-section-block-editor {
-
 	.block-editor-block-list__block { /* stylelint-disable-line selector-class-pattern */
 		margin: 0;
 	}
@@ -66,8 +64,7 @@
 			grid-template-columns: repeat(4, $tile-width-tablet);
 		}
 
-		grid-column-gap: 16px;
-		grid-row-gap: 18px;
+		grid-gap: 18px 16px;
 	}
 
 	.block-list-appender {

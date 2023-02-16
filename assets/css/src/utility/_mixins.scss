@@ -5,23 +5,17 @@
 		@media (max-width: 767px) {
 			@content;
 		}
-	}
-
-	@else if $class == tablet {
+	} @else if $class == tablet {
 
 		@media (max-width: 1024px) {
 			@content;
 		}
-	}
-
-	@else if $class == desktop {
+	} @else if $class == desktop {
 
 		@media (min-width: 1025px) {
 			@content;
 		}
-	}
-
-	@else {
+	} @else {
 
 		@warn "Breakpoint mixin supports: phone, tablet and desktop";
 	}

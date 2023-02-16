@@ -39,7 +39,6 @@ header {
 
 		&.current-menu-item,
 		&.current-page-ancestor {
-
 			a {
 				color: $midnight;
 				border-bottom-color: $midnight;
@@ -50,7 +49,6 @@ header {
 
 // Page
 main {
-
 	p,
 	ul {
 		color: $grey-dark;
@@ -66,7 +64,6 @@ main {
 }
 
 .page-about-us {
-
 	.wp-block-columns .wp-block-column:last-child {
 		border-color: $midnight;
 	}
@@ -74,14 +71,12 @@ main {
 
 // news and press releases
 .page-news {
-
 	p + h3::before {
 		background-color: $midnight;
 	}
 }
 
 .contact-form {
-
 	label {
 		color: $midnight;
 	}
@@ -118,7 +113,6 @@ main {
 
 // Blocks
 .accordion-group {
-
 	.accordion-section-wrapper {
 		border-top-color: $midnight;
 
@@ -147,7 +141,6 @@ main {
 
 // Banner
 .banner {
-
 	&.alert {
 		background-color: $midnight;
 
@@ -200,7 +193,6 @@ main {
 
 // numbered list
 .numbered-section {
-
 	&::before {
 		border-color: $midnight;
 		color: $midnight;
@@ -209,7 +201,6 @@ main {
 
 // Table
 figure.wp-block-table {
-
 	table {
 		border-color: $grey-light;
 		color: $midnight;

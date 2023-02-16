@@ -1,13 +1,11 @@
 @import "../utility/typography";
 
 .read-more-block {
-
 	> p {
 		margin: 20px 0;
 	}
 
 	&.less {
-
 		.read-less-link-wrapper {
 			display: none;
 		}
@@ -22,7 +20,6 @@
 	}
 
 	&:not(.less) {
-
 		.read-more-link {
 			display: none;
 		}

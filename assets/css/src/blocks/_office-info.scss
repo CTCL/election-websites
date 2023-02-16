@@ -1,7 +1,5 @@
 main {
-
 	.wp-block-column {
-
 		.office-info {
 			margin-top: 40px;
 			margin-left: 10px;
@@ -25,25 +23,25 @@ main {
 					margin-bottom: -14px;
 				}
 
-				& + p {
+				+ p {
 					margin-top: 0;
 					margin-left: 10px;
 				}
 
 				&.email::before {
-					background-image: url(../images/office/email.svg);
+					background-image: url("../images/office/email.svg");
 				}
 
 				&.hours::before {
-					background-image: url(../images/office/hours.svg);
+					background-image: url("../images/office/hours.svg");
 				}
 
 				&.location::before {
-					background-image: url(../images/office/location.svg);
+					background-image: url("../images/office/location.svg");
 				}
 
 				&.phone::before {
-					background-image: url(../images/office/phone.svg);
+					background-image: url("../images/office/phone.svg");
 				}
 			}
 		}

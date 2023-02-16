@@ -91,14 +91,12 @@
 .page-about-us {
 
 	@include breakpoint(phone) {
-
 		main img {
 			display: none;
 		}
 	}
 
 	.wp-block-columns {
-
 		.wp-block-column:last-child {
 			display: flex;
 			justify-content: flex-end;
@@ -114,7 +112,6 @@
 }
 
 .upload-wrapper {
-
 	.image-thumbnail {
 		display: block;
 		margin-top: 20px;
@@ -142,9 +139,7 @@
 }
 
 .ctcl-settings {
-
 	.form-table {
-
 		textarea,
 		input[type="text"],
 		input[type="email"],

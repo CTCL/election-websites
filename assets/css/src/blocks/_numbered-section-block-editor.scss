@@ -4,7 +4,6 @@
 }
 
 .numbered-section-block-editor-counter::before {
-
 	/* counter-increment: none; */
 	counter-increment: numbered-section-editor;
 	content: counter(numbered-section-editor);

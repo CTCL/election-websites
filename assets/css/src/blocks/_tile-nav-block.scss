@@ -36,8 +36,7 @@
 %tile-nav-block {
 	display: inline-grid;
 	grid-template-columns: repeat(4, $tile-width-desktop);
-	grid-column-gap: 16px;
-	grid-row-gap: 16px;
+	grid-gap: 16px;
 
 	@include breakpoint(tablet) {
 		grid-template-columns: repeat(4, $tile-width-tablet);
@@ -45,8 +44,7 @@
 
 	@include breakpoint(phone) {
 		grid-template-columns: repeat(2, $tile-width-mobile);
-		grid-column-gap: 10px;
-		grid-row-gap: 10px;
+		grid-gap: 10px;
 
 		.home & {
 			grid-template-columns: repeat(2, $tile-width-mobile-home);

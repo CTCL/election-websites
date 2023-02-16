@@ -12,7 +12,6 @@ header {
 	display: grid;
 
 	@include breakpoint(phone) {
-
 		.menu & {
 			height: 100%;
 		}
@@ -120,11 +119,8 @@ header {
 	}
 
 	.menu & {
-
 		.header-wrapper {
-
 			.icon-bars {
-
 				.bar-top,
 				.bar-bottom {
 					margin-top: 0;
@@ -206,11 +202,11 @@ header {
 
 			&.current-menu-item,
 			&.current-page-ancestor {
-
 				a {
 					font-weight: 600;
 					border-bottom-width: 1px;
 					border-bottom-style: solid;
+
 					// no hover state on mobile
 					@include breakpoint(phone) {
 						border: none;

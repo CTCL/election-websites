@@ -2,7 +2,6 @@
 @import "utility/typography";
 
 footer {
-
 	.post-edit-link {
 		display: none;
 	}
@@ -46,7 +45,6 @@ footer {
 	}
 
 	@include breakpoint(phone) {
-
 		h3 {
 			border-bottom: 4px solid $midnight;
 		}
@@ -83,7 +81,6 @@ footer {
 	}
 
 	.social {
-
 		a {
 			font-weight: 600;
 		}

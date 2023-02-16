@@ -1,5 +1,4 @@
 .accordion-group {
-
 	&:not(.subsection) {
 		margin: 24px 0;
 	}
@@ -43,7 +42,6 @@
 			}
 
 			@include breakpoint(phone) {
-
 				> img {
 					display: none;
 				}
