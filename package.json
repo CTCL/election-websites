@@ -31,7 +31,7 @@
 		"grunt-chmod": "^1.1.1",
 		"grunt-contrib-concat": "^2.1.0",
 		"grunt-contrib-cssmin": "^4.0.0",
-		"grunt-contrib-nodeunit": "^4.0.0",
+		"grunt-contrib-nodeunit": "^5.0.0",
 		"grunt-contrib-uglify": "^5.2.2",
 		"grunt-contrib-watch": "^1.1.0",
 		"grunt-eslint": "^24.0.1",
