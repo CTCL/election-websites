@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 16
       - name: NPM install
-        run: npm ci
+        run: npm ci --legacy-peer-deps
       - name: ESLint
         uses: sibiraj-s/action-eslint@v2
         with:
