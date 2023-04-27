@@ -3,7 +3,6 @@
 	<description>WordPress VIP + Short Arrays.</description>
 	<rule ref="WordPress" />
 	<rule ref="WordPress-VIP-Go" />
-	<rule ref="PHPCompatibilityWP" />
 
 	<rule ref="WordPress">
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
@@ -21,8 +20,6 @@
 			<property name="allowUnusedFunctionParameters" value="true"/>
 		</properties>
 	</rule>
-
-	<config name="testVersion" value="7.4-"/>
 
 	<arg name="colors" />
 
