@@ -46,10 +46,10 @@ class Google_Settings extends Settings {
 		$fields = [
 			[
 				'uid'         => Google_Analytics::TRACKING_ID,
-				'label'       => 'Tracking ID',
+				'label'       => 'Measurement ID',
 				'section'     => 'analytics_section',
 				'type'        => 'text',
-				'placeholder' => 'UA-123456789-0',
+				'placeholder' => 'G-1A2B3C4D5E',
 				'label_for'   => Google_Analytics::TRACKING_ID,
 				'args'        => [ 'sanitize_callback' => [ get_called_class(), 'validate_tracking_id' ] ],
 			],
@@ -78,13 +78,14 @@ class Google_Settings extends Settings {
 
 	/**
 	 * Ensure Google tracking ID is of the correct format.
+	 * Allow Measurement ID and legacy Univeral Analytics Tracking ID formats.
 	 *
 	 * @param array $tracking_id Google tracking ID.
 	 *
 	 * @return string
 	 */
 	public static function validate_tracking_id( $tracking_id ) {
-		if ( preg_match( '/^UA-\d{4,9}-\d{1,4}$/', $tracking_id ) ) {
+		if ( preg_match( '/^G-[A-Z0-9]+$/', $tracking_id ) || preg_match( '/^UA-\d{4,9}-\d{1,4}$/', $tracking_id ) ) {
 			return $tracking_id;
 		}
 
