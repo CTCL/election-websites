@@ -1,0 +1,22 @@
+name: ESLinter
+on: pull_request
+
+jobs:
+  eslint:
+    name: ESLinter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: NPM install
+        run: npm ci --legacy-peer-deps
+      - name: ESLint
+        uses: sibiraj-s/action-eslint@v2
+        with:
+          eslint-args: '--ignore-path=.gitignore --quiet'
+          extensions: 'js,jsx,ts,tsx'
+          annotations: true
