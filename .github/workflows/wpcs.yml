@@ -14,3 +14,4 @@ jobs:
             enable_warnings: true
             standard: 'WordPress,WordPress-Core'
             repo_branch: 'master'
+            use_local_config: true
