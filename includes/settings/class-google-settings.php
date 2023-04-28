@@ -85,7 +85,7 @@ class Google_Settings extends Settings {
 	 * @return string
 	 */
 	public static function validate_tracking_id( $tracking_id ) {
-		if ( preg_match( '/^G-[A-Z0-9]+$/', $tracking_id ) || preg_match( '/^UA-\d{4,9}-\d{1,4}$/', $tracking_id ) ) {
+		if ( preg_match( '/^(G-[A-Z0-9]{10})|(UA-\d{4,9}-\d{1,4})$/', $tracking_id ) ) {
 			return $tracking_id;
 		}
 
