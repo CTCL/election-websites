@@ -232,7 +232,7 @@ class Hooks {
 			'gallery',
 			'caption',
 			'style',
-			'script'
+			'script',
 		];
 
 		add_theme_support( 'html5', $html5_features );
