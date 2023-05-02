@@ -137,8 +137,15 @@ module.exports = function( grunt ) {
 		svgmin: {
 			options: {
 				plugins: [
-					{ removeViewBox: false },
-					{ removeUnknownsAndDefaults: false } // otherwise mask-type is removed; see https://github.com/svg/svgo/issues/1120
+					{
+						name: 'preset-default',
+						params: {
+							overrides: {
+								removeViewBox: false,
+								removeUnknownsAndDefaults: false // otherwise mask-type is removed; see https://github.com/svg/svgo/issues/1120
+							}
+						}
+					}
 				]
 			},
 			dist: {
