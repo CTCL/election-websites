@@ -225,7 +225,7 @@ class Hooks {
 
 		register_nav_menus( $menus );
 
-		add_theme_support( 'html5', [
+		$html5_features = [
 			'comment-list',
 			'comment-form',
 			'search-form',
@@ -233,7 +233,9 @@ class Hooks {
 			'caption',
 			'style',
 			'script',
-		] );
+		];
+
+		add_theme_support( 'html5', $html5_features );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'custom-logo' );
