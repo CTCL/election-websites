@@ -141,7 +141,7 @@ module.exports = function( grunt ) {
 						name: 'preset-default',
 						params: {
 							overrides: {
-								removeViewBox: false,
+								removeViewBox: false
 							}
 						}
 					}
