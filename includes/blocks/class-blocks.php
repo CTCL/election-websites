@@ -20,7 +20,7 @@ class Blocks {
 	 */
 	public static function hooks() {
 		add_action( 'init', [ __CLASS__, 'init_block_editors' ] );
-		add_filter( 'block_categories', [ __CLASS__, 'block_categories' ], 10, 2 );
+		add_filter( 'block_categories_all', [ __CLASS__, 'block_categories' ], 10, 2 );
 	}
 
 	/**
