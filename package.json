@@ -52,7 +52,7 @@
 		"matchdep": "^2.0.0",
 		"node-sass": "^9.0.0",
 		"sass-inline-svg": "^1.2.3",
-		"stylelint": "^15.6.2",
+		"stylelint": "^15.6.3",
 		"stylelint-config-standard-scss": "^9.0.0"
 	},
 	"husky": {
