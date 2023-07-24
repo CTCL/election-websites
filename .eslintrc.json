@@ -7,7 +7,7 @@
 		"eqeqeq": [ "error" ],
 		"indent": ["error", "tab"]
 	},
-	"ignorePatterns": [ "assets/js/**.min.js" ],
+	"ignorePatterns": [ "assets/js/**.min.js", "assets/js/**.src.js" ],
 	"parserOptions": {
 		"ecmaVersion": 8,
 		"sourceType": "module",
