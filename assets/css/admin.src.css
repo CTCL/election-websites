@@ -398,6 +398,15 @@ main hr {
   background-color: #18488f;
 }
 
+.banner.banner-dark .button.learn-more {
+  color: #18244b;
+  background-color: #ee5c4f;
+}
+
+.banner.banner-dark .button.learn-more:hover {
+  background-color: #be4a3f;
+}
+
 .banner.banner-light {
   color: #18244b;
 }
@@ -408,6 +417,78 @@ main hr {
 
 .banner.banner-light.major {
   background-color: #c7e5f8;
+}
+
+.banner.banner-light .button.learn-more {
+  color: #18244b;
+  background-color: #ee5c4f;
+}
+
+.banner.banner-light .button.learn-more:hover {
+  background-color: #be4a3f;
+}
+
+.banner.banner-dark-red {
+  color: #fff;
+}
+
+.banner.banner-dark-red h2 {
+  color: #fff;
+}
+
+.banner.banner-dark-red.major {
+  background-color: #972633;
+}
+
+.banner.banner-dark-red .button.learn-more {
+  color: #18244b;
+  background-color: #f5f6fa;
+}
+
+.banner.banner-dark-red .button.learn-more:hover {
+  background-color: #c4c5c8;
+}
+
+.banner.banner-light-red {
+  color: #18244b;
+}
+
+.banner.banner-light-red h2 {
+  color: #18244b;
+}
+
+.banner.banner-light-red.major {
+  background-color: #ee5c4f;
+}
+
+.banner.banner-light-red .button.learn-more {
+  color: #fff;
+  background-color: #18244b;
+}
+
+.banner.banner-light-red .button.learn-more:hover {
+  background-color: #131d3c;
+}
+
+.banner.banner-teal {
+  color: #fff;
+}
+
+.banner.banner-teal h2 {
+  color: #fff;
+}
+
+.banner.banner-teal.major {
+  background-color: #15948B;
+}
+
+.banner.banner-teal .button.learn-more {
+  color: #18244b;
+  background-color: #f5f6fa;
+}
+
+.banner.banner-teal .button.learn-more:hover {
+  background-color: #c4c5c8;
 }
 
 .tile-wrapper .tile {
@@ -470,16 +551,6 @@ figure.wp-block-table tr:nth-child(2n) {
   border-color: #093f8c;
 }
 
-.theme-blue.error404 .button,
-.theme-blue .button.learn-more {
-  background-color: #ec5d4f;
-}
-
-.theme-blue.error404 .button:hover,
-.theme-blue .button.learn-more:hover {
-  background-color: #bd4a3f;
-}
-
 .theme-blue .alert .learn-more {
   color: #55d5f1;
 }
@@ -527,16 +598,6 @@ figure.wp-block-table tr:nth-child(2n) {
 
 .theme-green .accordion-group .accordion-section-header::after:hover {
   border-color: #11766f;
-}
-
-.theme-green.error404 .button,
-.theme-green .button.learn-more {
-  background-color: #15948b;
-}
-
-.theme-green.error404 .button:hover,
-.theme-green .button.learn-more:hover {
-  background-color: #11766f;
 }
 
 .theme-green .alert .learn-more {
