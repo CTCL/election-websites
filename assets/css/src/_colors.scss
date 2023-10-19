@@ -153,30 +153,29 @@ main {
 		}
 	}
 
-	// banner -- dark
+	// banner -- dark blue
 	&.banner-dark {
-		color: $white;
-
-		h2 {
-			color: $white;
-		}
-
-		&.major {
-			background-color: $banner-bg-dark;
-		}
+		@include banner($white, $banner-bg-dark, $blue-icon-two, $midnight);
 	}
 
-	// banner -- light
+	// banner -- light blue
 	&.banner-light {
-		color: $midnight;
+		@include banner($midnight, $banner-bg-light, $blue-icon-two, $midnight);
+	}
 
-		h2 {
-			color: $midnight;
-		}
+	// banner -- dark red
+	&.banner-dark-red {
+		@include banner($white, $banner-bg-dark-red, $grey-light, $midnight);
+	}
 
-		&.major {
-			background-color: $banner-bg-light;
-		}
+	// banner -- light red
+	&.banner-light-red {
+		@include banner($midnight, $banner-bg-light-red, $midnight, $white);
+	}
+
+	// banner -- teal
+	&.banner-teal {
+		@include banner($white, $banner-bg-teal, $grey-light, $midnight);
 	}
 }
 

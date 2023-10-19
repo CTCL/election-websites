@@ -31,3 +31,24 @@
 	cursor: pointer;
 	line-height: normal;
 }
+
+@mixin banner($text-color, $background-color, $button-color, $button-text-color) {
+	color: $text-color;
+
+		h2 {
+			color: $text-color;
+		}
+
+		&.major {
+			background-color: $background-color;
+		}
+
+		.button.learn-more {
+			color: $button-text-color;
+			background-color: $button-color;
+
+			&:hover {
+				background-color: mix($black, $button-color, $tint-percent);
+			}
+		}
+}
