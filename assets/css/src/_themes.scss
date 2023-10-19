@@ -1,4 +1,4 @@
-@mixin theme($button-link, $banner-button, $banner-link, $focus) {
+@mixin theme($button-link, $banner-link, $focus) {
 	main {
 		h3,
 		p,
@@ -35,16 +35,6 @@
 		}
 	}
 
-	// main banner
-	&.error404 .button,
-	.button.learn-more {
-		background-color: $banner-button;
-
-		&:hover {
-			background-color: mix($black, $banner-button, $tint-percent);
-		}
-	}
-
 	// alert banner
 	.alert .learn-more {
 		color: $banner-link;
@@ -66,26 +56,10 @@
 	}
 }
 
-// blue
-$blue-button-link: #0b4faf;
-$blue-icon-one: #5cd5ee;
-$blue-icon-two: #ec5d4f;
-$blue-icon-three: #b8493e;
-$blue-banner-link: #55d5f1;
-$blue-focus: #55d5f1;
-
 .theme-blue {
 
 	@include theme($blue-button-link, $blue-icon-two, $blue-banner-link, $blue-focus);
 }
-
-// green
-$green-button-link: #15948b;
-$green-icon-one: #6dd9cc;
-$green-icon-two: #fd6d3a;
-$green-icon-three: #b04b28;
-$green-banner-link: #67dacc;
-$green-focus: #67dacc;
 
 .theme-green {
 
