@@ -101,11 +101,11 @@ class Elections_Settings extends Settings {
 	 */
 	public static function banner_style_list() {
 		return [
-			'dark'  => 'Dark Blue',
-			'light' => 'Light Blue',
-			'dark-red' => 'Dark Red',
+			'dark'      => 'Dark Blue',
+			'light'     => 'Light Blue',
+			'dark-red'  => 'Dark Red',
 			'light-red' => 'Light Red',
-			'teal' => 'Teal'
+			'teal'      => 'Teal',
 		];
 	}
 
