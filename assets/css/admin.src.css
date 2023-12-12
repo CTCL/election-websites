@@ -82,7 +82,8 @@ main .wp-block-column .office-info h3.phone::before {
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
   width: 100%;
 }
 
@@ -110,7 +111,8 @@ main .wp-block-column .office-info h3.phone::before {
 }
 
 .contact-form select {
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
 }
 
 .contact-form select::-ms-expand {
@@ -614,5 +616,3 @@ figure.wp-block-table tr:nth-child(2n) {
 .theme-green .icon-bar {
   background-color: #15948b;
 }
-
-/*# sourceMappingURL=admin.src.css.map */
