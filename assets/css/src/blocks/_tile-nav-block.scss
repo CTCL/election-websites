@@ -3,8 +3,7 @@
 	border-style: solid;
 	display: grid;
 	grid-template-rows: 50px 40px;
-	align-content: center;
-	justify-content: center;
+	place-content: center center;
 	grid-row-gap: 18px;
 	box-sizing: border-box;
 	border-radius: 2px;
