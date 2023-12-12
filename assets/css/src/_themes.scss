@@ -58,10 +58,10 @@
 
 .theme-blue {
 
-	@include theme($blue-button-link, $blue-icon-two, $blue-banner-link, $blue-focus);
+	@include theme($blue-button-link, $blue-banner-link, $blue-focus);
 }
 
 .theme-green {
 
-	@include theme($green-button-link, $green-button-link, $green-banner-link, $green-focus);
+	@include theme($green-button-link, $green-banner-link, $green-focus);
 }
