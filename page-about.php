@@ -10,7 +10,7 @@ get_header();
 ?>
 <main <?php post_class(); ?>>
 	<?php
-	$nonce = filter_input( INPUT_POST, \CTCL\Elections\Contact_Form::NONCE_KEY, FILTER_SANITIZE_STRING );
+	$nonce = filter_input( INPUT_POST, \CTCL\Elections\Contact_Form::NONCE_KEY, FILTER_SANITIZE_FULL_SPECIAL_CHARS ) ?? '';
 	if ( $nonce ) {
 		$validation_result = \CTCL\Elections\Contact_Form::validate( $nonce );
 

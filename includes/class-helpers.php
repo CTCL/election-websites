@@ -208,7 +208,7 @@ class Helpers {
 	 * @return boolean
 	 */
 	public static function is_block_backend() {
-		return defined( 'REST_REQUEST' ) && true === REST_REQUEST && 'edit' === filter_input( INPUT_GET, 'context', FILTER_SANITIZE_STRING );
+		return defined( 'REST_REQUEST' ) && true === REST_REQUEST && 'edit' === filter_input( INPUT_GET, 'context' );
 	}
 
 	/**
