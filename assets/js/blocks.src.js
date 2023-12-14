@@ -238,8 +238,6 @@ registerBlockType('ctcl-election-website/office-info', {
 },{}],5:[function(require,module,exports){
 "use strict";
 
-var _lodash = lodash,
-  startCase = _lodash.startCase;
 var registerBlockType = wp.blocks.registerBlockType;
 var createElement = wp.element.createElement;
 var createHigherOrderComponent = wp.compose.createHigherOrderComponent;
