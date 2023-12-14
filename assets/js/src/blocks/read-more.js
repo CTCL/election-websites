@@ -1,4 +1,3 @@
-const { startCase } = lodash;
 const { registerBlockType } = wp.blocks;
 const { createElement } = wp.element;
 
