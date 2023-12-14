@@ -4,18 +4,15 @@ main .wp-block-column .office-info {
   margin-top: 40px;
   margin-left: 10px;
 }
-
-@media (max-width: 767px) {
+@media (width <= 767px) {
   main .wp-block-column .office-info {
     margin-left: 45px;
   }
 }
-
 main .wp-block-column .office-info h3 {
   margin-bottom: 0;
   margin-top: 32px;
 }
-
 main .wp-block-column .office-info h3::before {
   content: "";
   background-repeat: no-repeat;
@@ -26,24 +23,19 @@ main .wp-block-column .office-info h3::before {
   margin-left: -40px;
   margin-bottom: -14px;
 }
-
 main .wp-block-column .office-info h3 + p {
   margin-top: 0;
   margin-left: 10px;
 }
-
 main .wp-block-column .office-info h3.email::before {
   background-image: url("../images/office/email.svg");
 }
-
 main .wp-block-column .office-info h3.hours::before {
   background-image: url("../images/office/hours.svg");
 }
-
 main .wp-block-column .office-info h3.location::before {
   background-image: url("../images/office/location.svg");
 }
-
 main .wp-block-column .office-info h3.phone::before {
   background-image: url("../images/office/phone.svg");
 }
@@ -52,13 +44,11 @@ main .wp-block-column .office-info h3.phone::before {
   width: 90%;
   margin-top: 32px;
 }
-
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .contact-form {
     width: 100%;
   }
 }
-
 .contact-form button {
   border-radius: 20px;
   border: none;
@@ -69,12 +59,11 @@ main .wp-block-column .office-info h3.phone::before {
   cursor: pointer;
   line-height: normal;
 }
-
 .contact-form textarea,
 .contact-form select,
-.contact-form input[type="tel"],
-.contact-form input[type="email"],
-.contact-form input[type="text"] {
+.contact-form input[type=tel],
+.contact-form input[type=email],
+.contact-form input[type=text] {
   font-size: 16px;
   display: block;
   padding: 14px 10px;
@@ -86,39 +75,32 @@ main .wp-block-column .office-info h3.phone::before {
           appearance: none;
   width: 100%;
 }
-
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .contact-form textarea,
   .contact-form select,
-  .contact-form input[type="tel"],
-  .contact-form input[type="email"],
-  .contact-form input[type="text"] {
+  .contact-form input[type=tel],
+  .contact-form input[type=email],
+  .contact-form input[type=text] {
     width: 100%;
   }
 }
-
 .contact-form label {
   margin-bottom: 5px;
   display: inline-block;
 }
-
 .contact-form p {
   margin-bottom: 32px;
 }
-
 .contact-form p + p {
   margin-top: 25px;
 }
-
 .contact-form select {
   -webkit-appearance: none;
           appearance: none;
 }
-
 .contact-form select::-ms-expand {
   display: none;
 }
-
 .contact-form p.select-wrapper::after {
   border-style: solid;
   border-width: 0 0 3px 3px;
@@ -134,38 +116,33 @@ main .wp-block-column .office-info h3.phone::before {
   bottom: 32px;
   pointer-events: none;
 }
-
 .contact-form span.error,
 .contact-form p.error {
   font-weight: 600;
   padding: 5px 10px;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='none' viewBox='0 0 20 20'%3e%3ccircle cx='10' cy='10' r='9' stroke='%23ee5c4a' stroke-width='2'/%3e%3cpath fill='%23ee5c4a' d='M9 5h2v7H9zm0 8h2v2H9z'/%3e%3c/svg%3e");
+  background-image: svg("assets/images/error.svg");
   background-repeat: no-repeat;
 }
-
 .contact-form p.error {
   background-position: 8px;
   text-indent: 30px;
 }
-
 .contact-form span.error {
   display: block;
   background-position: 0;
   text-indent: 20px;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .page-about-us main img {
     display: none;
   }
 }
-
 .page-about-us .wp-block-columns .wp-block-column:last-child {
   display: flex;
   justify-content: flex-end;
 }
-
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .page-about-us .wp-block-columns .wp-block-column:last-child {
     justify-content: flex-start;
     border-top-width: 3px;
@@ -178,7 +155,6 @@ main .wp-block-column .office-info h3.phone::before {
   display: block;
   margin-top: 20px;
 }
-
 .upload-wrapper .button + .button {
   margin-left: 10px;
 }
@@ -188,39 +164,34 @@ main .wp-block-column .office-info h3.phone::before {
  * ctcl-topic-list would erase existing topics. Not worth migrating data to
  * fix this warning.
  */
-#ctcl_topic_list_wrapper {
-  /* stylelint-disable-line selector-id-pattern */
-}
-
+#ctcl_topic_list_wrapper { /* stylelint-disable-line selector-id-pattern */ }
 #ctcl_topic_list_wrapper > div {
   margin-bottom: 10px;
 }
-
 #ctcl_topic_list_wrapper .button {
   margin-left: 10px;
 }
 
-@media (min-width: 1025px) {
+@media (width >= 1025px) {
   .ctcl-settings .form-table textarea,
-  .ctcl-settings .form-table input[type="text"],
-  .ctcl-settings .form-table input[type="email"],
-  .ctcl-settings .form-table input[type="password"],
-  .ctcl-settings .form-table input[type="tel"],
-  .ctcl-settings .form-table input[type="number"],
-  .ctcl-settings .form-table input[type="url"],
+  .ctcl-settings .form-table input[type=text],
+  .ctcl-settings .form-table input[type=email],
+  .ctcl-settings .form-table input[type=password],
+  .ctcl-settings .form-table input[type=tel],
+  .ctcl-settings .form-table input[type=number],
+  .ctcl-settings .form-table input[type=url],
   .ctcl-settings .form-table select {
     width: 350px;
   }
 }
-
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .ctcl-settings .form-table textarea,
-  .ctcl-settings .form-table input[type="text"],
-  .ctcl-settings .form-table input[type="email"],
-  .ctcl-settings .form-table input[type="password"],
-  .ctcl-settings .form-table input[type="tel"],
-  .ctcl-settings .form-table input[type="number"],
-  .ctcl-settings .form-table input[type="url"],
+  .ctcl-settings .form-table input[type=text],
+  .ctcl-settings .form-table input[type=email],
+  .ctcl-settings .form-table input[type=password],
+  .ctcl-settings .form-table input[type=tel],
+  .ctcl-settings .form-table input[type=number],
+  .ctcl-settings .form-table input[type=url],
   .ctcl-settings .form-table select {
     width: 100%;
   }
@@ -236,27 +207,22 @@ figure.wp-block-table {
   margin: 0;
   padding: 8px 0;
 }
-
 figure.wp-block-table table {
   border-width: 1px;
   border-style: solid;
   border-spacing: 0;
 }
-
 figure.wp-block-table thead {
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 1px;
 }
-
 figure.wp-block-table th {
   padding: 4px 16px;
 }
-
 figure.wp-block-table td {
   padding: 16px;
 }
-
 figure.wp-block-table th,
 figure.wp-block-table td {
   vertical-align: top;
@@ -275,7 +241,6 @@ footer {
   background-color: #f5f6fa;
   color: #18244b;
 }
-
 footer a {
   color: #18244b;
 }
@@ -283,12 +248,10 @@ footer a {
 header {
   background-color: #fff;
 }
-
 header a {
   color: #18244b;
 }
-
-@media (max-width: 767px) {
+@media (width <= 767px) {
   header nav {
     background-color: #fff;
   }
@@ -296,7 +259,6 @@ header a {
     border-bottom-color: #b7bccd;
   }
 }
-
 header nav.current-menu-item a, header nav.current-page-ancestor a {
   color: #18244b;
   border-bottom-color: #18244b;
@@ -306,11 +268,9 @@ main p,
 main ul {
   color: #464956;
 }
-
 main .wp-block-group {
   border-top-color: #18244b;
 }
-
 main hr {
   border-color: #18244b;
 }
@@ -326,26 +286,22 @@ main hr {
 .contact-form label {
   color: #18244b;
 }
-
 .contact-form textarea,
 .contact-form select,
-.contact-form input[type="email"],
-.contact-form input[type="text"] {
+.contact-form input[type=email],
+.contact-form input[type=text] {
   border-color: #b7bccd;
 }
-
 .contact-form textarea.error,
 .contact-form select.error,
-.contact-form input[type="email"].error,
-.contact-form input[type="text"].error {
+.contact-form input[type=email].error,
+.contact-form input[type=text].error {
   border-color: #ee5c4a;
 }
-
 .contact-form p.error,
 .contact-form span.error {
   color: #ee5c4a;
 }
-
 .contact-form p.error {
   background-color: #fdefed;
 }
@@ -353,11 +309,9 @@ main hr {
 .accordion-group .accordion-section-wrapper {
   border-top-color: #18244b;
 }
-
 .accordion-group .accordion-section-wrapper:last-child {
   border-bottom-color: #18244b;
 }
-
 .accordion-group .accordion-section-wrapper.subsection {
   border-top-color: #b7bccd;
 }
@@ -367,7 +321,6 @@ main hr {
 .contact-form button {
   color: #fff;
 }
-
 .error404 .button:hover,
 .button.learn-more:hover,
 .contact-form button:hover {
@@ -377,116 +330,89 @@ main hr {
 .banner.alert {
   background-color: #18244b;
 }
-
 .banner.alert .banner-wrapper {
   color: #fff;
 }
-
 .banner.alert a {
   color: #fff;
 }
-
 .banner.banner-dark {
   color: #fff;
 }
-
 .banner.banner-dark h2 {
   color: #fff;
 }
-
 .banner.banner-dark.major {
   background-color: #18488f;
 }
-
 .banner.banner-dark .button.learn-more {
   color: #18244b;
   background-color: #ee5c4f;
 }
-
 .banner.banner-dark .button.learn-more:hover {
   background-color: #be4a3f;
 }
-
 .banner.banner-light {
   color: #18244b;
 }
-
 .banner.banner-light h2 {
   color: #18244b;
 }
-
 .banner.banner-light.major {
   background-color: #c7e5f8;
 }
-
 .banner.banner-light .button.learn-more {
   color: #18244b;
   background-color: #ee5c4f;
 }
-
 .banner.banner-light .button.learn-more:hover {
   background-color: #be4a3f;
 }
-
 .banner.banner-dark-red {
   color: #fff;
 }
-
 .banner.banner-dark-red h2 {
   color: #fff;
 }
-
 .banner.banner-dark-red.major {
   background-color: #972633;
 }
-
 .banner.banner-dark-red .button.learn-more {
   color: #18244b;
   background-color: #f5f6fa;
 }
-
 .banner.banner-dark-red .button.learn-more:hover {
   background-color: #c4c5c8;
 }
-
 .banner.banner-light-red {
   color: #18244b;
 }
-
 .banner.banner-light-red h2 {
   color: #18244b;
 }
-
 .banner.banner-light-red.major {
   background-color: #ee5c4f;
 }
-
 .banner.banner-light-red .button.learn-more {
   color: #fff;
   background-color: #18244b;
 }
-
 .banner.banner-light-red .button.learn-more:hover {
   background-color: #131d3c;
 }
-
 .banner.banner-teal {
   color: #fff;
 }
-
 .banner.banner-teal h2 {
   color: #fff;
 }
-
 .banner.banner-teal.major {
   background-color: #15948B;
 }
-
 .banner.banner-teal .button.learn-more {
   color: #18244b;
   background-color: #f5f6fa;
 }
-
 .banner.banner-teal .button.learn-more:hover {
   background-color: #c4c5c8;
 }
@@ -509,12 +435,10 @@ figure.wp-block-table table {
   border-color: #f5f6fa;
   color: #18244b;
 }
-
 figure.wp-block-table thead {
   background-color: #18488f;
   color: #fff;
 }
-
 figure.wp-block-table tr:nth-child(2n) {
   background-color: #f5f6fa;
 }
@@ -524,46 +448,36 @@ figure.wp-block-table tr:nth-child(2n) {
 .theme-blue main ul a {
   color: #0b4faf;
 }
-
 .theme-blue main h3 a:hover,
 .theme-blue main p a:hover,
 .theme-blue main ul a:hover {
   color: #093f8c;
 }
-
 .theme-blue *:focus {
   outline-color: #55d5f1;
 }
-
 .theme-blue .contact-form button {
   background-color: #0b4faf;
 }
-
 .theme-blue .contact-form button:hover {
   background-color: #093f8c;
 }
-
 .theme-blue .accordion-group .accordion-section-header::after {
   border-color: #0b4faf;
 }
-
 .theme-blue .accordion-group .accordion-section-header::after:hover {
   border-color: #093f8c;
 }
-
 .theme-blue .alert .learn-more {
   color: #55d5f1;
 }
-
 .theme-blue .alert .learn-more:hover {
   color: #44aac1;
 }
-
 .theme-blue .tile-wrapper .tile:hover {
   color: #0b4faf;
   box-shadow: 0 0 7px rgba(16, 41, 46, 0.17);
 }
-
 .theme-blue .icon-bar {
   background-color: #0b4faf;
 }
@@ -573,46 +487,36 @@ figure.wp-block-table tr:nth-child(2n) {
 .theme-green main ul a {
   color: #15948b;
 }
-
 .theme-green main h3 a:hover,
 .theme-green main p a:hover,
 .theme-green main ul a:hover {
   color: #11766f;
 }
-
 .theme-green *:focus {
   outline-color: #67dacc;
 }
-
 .theme-green .contact-form button {
   background-color: #15948b;
 }
-
 .theme-green .contact-form button:hover {
   background-color: #11766f;
 }
-
 .theme-green .accordion-group .accordion-section-header::after {
   border-color: #15948b;
 }
-
 .theme-green .accordion-group .accordion-section-header::after:hover {
   border-color: #11766f;
 }
-
 .theme-green .alert .learn-more {
   color: #67dacc;
 }
-
 .theme-green .alert .learn-more:hover {
   color: #44aac1;
 }
-
 .theme-green .tile-wrapper .tile:hover {
   color: #15948b;
   box-shadow: 0 0 7px rgba(16, 41, 46, 0.17);
 }
-
 .theme-green .icon-bar {
   background-color: #15948b;
 }

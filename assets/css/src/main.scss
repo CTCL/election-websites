@@ -41,7 +41,7 @@ body {
 	&.admin-bar {
 		min-height: calc(100vh - 32px);
 
-		@media screen and (max-width: 600px) {
+		@media screen and (width <= 600px) {
 			min-height: calc(100vh - 46px);
 		}
 	}
@@ -50,7 +50,7 @@ body {
 // match admin-bar.css width, not our width
 html #wpadminbar {
 
-	@media screen and (max-width: 600px) {
+	@media screen and (width <= 600px) {
 		position: fixed;
 	}
 }

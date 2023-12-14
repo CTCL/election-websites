@@ -155,26 +155,31 @@ main {
 
 	// banner -- dark blue
 	&.banner-dark {
+
 		@include banner($white, $banner-bg-dark, $blue-icon-two, $midnight);
 	}
 
 	// banner -- light blue
 	&.banner-light {
+
 		@include banner($midnight, $banner-bg-light, $blue-icon-two, $midnight);
 	}
 
 	// banner -- dark red
 	&.banner-dark-red {
+
 		@include banner($white, $banner-bg-dark-red, $grey-light, $midnight);
 	}
 
 	// banner -- light red
 	&.banner-light-red {
+
 		@include banner($midnight, $banner-bg-light-red, $midnight, $white);
 	}
 
 	// banner -- teal
 	&.banner-teal {
+
 		@include banner($white, $banner-bg-teal, $grey-light, $midnight);
 	}
 }
