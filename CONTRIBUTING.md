@@ -39,14 +39,14 @@ Ensure your hostname ends with `.test`, such as `elections.test`.
 
 In your `config.yml` file;
 
-* Under `Utilities`, uncomment the `- php74` line
+* Under `extensions`, uncomment the `- php82` line
 * Place a block like this:
 
 ```
 elections:
   repo: https://github.com/Varying-Vagrant-Vagrants/custom-site-template.git
   allow_customfile: true
-  nginx_upstream: php74
+  php: 8.2
   hosts:
     - elections.test
 ```

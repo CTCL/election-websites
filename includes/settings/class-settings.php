@@ -173,7 +173,7 @@ class Settings {
 			<?php
 			do_action( 'before_settings_fields', static::FIELD_GROUP );
 			settings_fields( static::FIELD_GROUP );
-			if ( filter_input( INPUT_GET, 'settings-updated', FILTER_SANITIZE_STRING ) ) {
+			if ( filter_input( INPUT_GET, 'settings-updated', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) ) {
 				self::admin_notice();
 			}
 			do_settings_sections( static::FIELD_GROUP );

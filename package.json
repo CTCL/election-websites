@@ -1,6 +1,6 @@
 {
 	"name": "ctcl-election-website-toolkit",
-	"version": "0.11.0",
+	"version": "0.12.0",
 	"description": "Election websites toolkit, by CTCL and USDR",
 	"main": "Gruntfile.js",
 	"repository": {
@@ -50,10 +50,14 @@
 		"grunt-wp-readme-to-markdown": "^2.1.0",
 		"husky": "^8.0.3",
 		"matchdep": "^2.0.0",
-		"node-sass": "^9.0.0",
-		"sass-inline-svg": "^1.2.3",
+		"sass": "^1.69.5",
 		"stylelint": "^16.1.0",
 		"stylelint-config-standard-scss": "^12.0.0"
+	},
+	"overrides": {
+		"grunt-stylelint": {
+			"stylelint": "15.x || 16.x"
+		}
 	},
 	"husky": {
 		"hooks": {

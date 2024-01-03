@@ -62,10 +62,10 @@ class Contact_Form {
 	public static function validate_fields() {
 		$errors = [];
 
-		$fullname = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'fullname', FILTER_SANITIZE_STRING ) ) );
+		$fullname = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'fullname', FILTER_SANITIZE_SPECIAL_CHARS ) ?? '' ) );
 		$email    = filter_input( INPUT_POST, 'email', FILTER_VALIDATE_EMAIL );
-		$topic    = filter_input( INPUT_POST, 'topic', FILTER_SANITIZE_STRING );
-		$message  = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'message', FILTER_SANITIZE_STRING ) ) );
+		$topic    = filter_input( INPUT_POST, 'topic', FILTER_SANITIZE_SPECIAL_CHARS ) ?? '';
+		$message  = trim( wp_strip_all_tags( filter_input( INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS ) ?? '' ) );
 
 		if ( ! $fullname ) {
 			$errors['fullname'] = 'Enter your name.';
@@ -110,7 +110,7 @@ class Contact_Form {
 		// If ReCAPTCHA enabled, validate the token.
 		$recaptcha_enabled = \CTCL\Elections\Google_Recaptcha::is_configured();
 		if ( $recaptcha_enabled ) {
-			$token = filter_input( INPUT_POST, 'token', FILTER_SANITIZE_STRING );
+			$token = wp_strip_all_tags( filter_input( INPUT_POST, 'token', FILTER_SANITIZE_SPECIAL_CHARS ) );
 			if ( $token ) {
 				$ip_address = filter_input( INPUT_SERVER, 'REMOTE_ADDR', FILTER_VALIDATE_IP );
 

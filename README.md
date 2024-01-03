@@ -1,10 +1,10 @@
 # CTCL Election Website Toolkit #
-**Contributors:** [paulschreiber](https://profiles.wordpress.org/paulschreiber), [legarlin](https://profiles.wordpress.org/legarlin)
-**Requires at least:** 5.5
-**Tested up to:** 6.1.1
-**Stable tag:** 1.0
-**License:** GPLv2 or later
-**License URI:** https://www.gnu.org/licenses/gpl-2.0.html
+**Contributors:** [paulschreiber](https://profiles.wordpress.org/paulschreiber/), [legarlin](https://profiles.wordpress.org/legarlin/)  
+**Requires at least:** 5.5  
+**Tested up to:** 6.4.2  
+**Stable tag:** 1.0  
+**License:** GPLv2 or later  
+**License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
 Local election official website template and toolkit.
 
