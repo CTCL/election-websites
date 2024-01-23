@@ -22,7 +22,7 @@
 		"@babel/preset-env": "^7.23.8",
 		"@babel/preset-react": "^7.23.3",
 		"@lodder/grunt-postcss": "^3.1.1",
-		"autoprefixer": "^10.4.16",
+		"autoprefixer": "^10.4.17",
 		"babel-eslint": "^10.1.0",
 		"babelify": "^10.0.0",
 		"eslint-config-wordpress": "^2.0.0",
@@ -50,8 +50,9 @@
 		"grunt-wp-readme-to-markdown": "^2.1.0",
 		"husky": "^8.0.3",
 		"matchdep": "^2.0.0",
-		"sass": "^1.70.0",
 		"stylelint": "^16.1.0",
+		"sass": "^1.70.0",
+		"stylelint": "^16.2.0",
 		"stylelint-config-standard-scss": "^13.0.0"
 	},
 	"overrides": {
