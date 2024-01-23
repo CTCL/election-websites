@@ -13,4 +13,4 @@ $file = get_template_directory() . '/assets/images/checkmark.svg';
 
 <p>We’ve received your message and will respond as soon as possible. In the meantime, you may find helpful information in our <a href="/faq/">Frequently Asked Questions</a>.</p>
 
-<p><a href="/about-us/">Go back</a></p>
+<p><a href="javascript:window.history.back();">Go back</a></p>
