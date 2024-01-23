@@ -120,7 +120,7 @@ main .wp-block-column .office-info h3.phone::before {
 .contact-form p.error {
   font-weight: 600;
   padding: 5px 10px;
-  background-image: svg("assets/images/error.svg");
+  background-image: url("../images/error.svg");
   background-repeat: no-repeat;
 }
 .contact-form p.error {
