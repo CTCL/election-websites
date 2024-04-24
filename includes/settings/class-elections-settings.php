@@ -161,12 +161,12 @@ class Elections_Settings extends Settings {
 	 * When item is in a supplied list, return it. Otherwise return empty string.
 	 *
 	 * @param string $item  Item.
-	 * @param array  $list  List.
+	 * @param array  $list_to_check  List.
 	 *
 	 * @return string
 	 */
-	public static function validate_list_item( $item, $list ) {
-		if ( in_array( $item, array_keys( $list ), true ) ) {
+	public static function validate_list_item( $item, $list_to_check ) {
+		if ( in_array( $item, array_keys( $list_to_check ), true ) ) {
 			return $item;
 		}
 

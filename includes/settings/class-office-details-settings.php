@@ -159,7 +159,6 @@ class Office_Details_Settings extends Settings {
 				'placeholder' => 'MyCountyVotes',
 				'prefix'      => '/',
 				'label_for'   => 'ctcl_facebook',
-				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_facebook' ] ],
 			],
 			[
@@ -180,7 +179,6 @@ class Office_Details_Settings extends Settings {
 				'placeholder' => 'MyCountyVotes',
 				'prefix'      => '@',
 				'label_for'   => 'ctcl_instagram',
-				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_instagram' ] ],
 			],
 		];
@@ -303,7 +301,6 @@ class Office_Details_Settings extends Settings {
 				'placeholder' => 'MyCountyVotes',
 				'prefix'      => '/',
 				'label_for'   => 'ctcl_facebook',
-				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_facebook' ] ],
 			],
 			[
@@ -324,7 +321,6 @@ class Office_Details_Settings extends Settings {
 				'placeholder' => 'MyCountyVotes',
 				'prefix'      => '@',
 				'label_for'   => 'ctcl_instagram',
-				'args'        => [ 'sanitize_callback' => 'sanitize_text_field' ],
 				'args'        => [ 'sanitize_callback' => [ '\CTCL\Elections\Helpers', 'format_instagram' ] ],
 			],
 		];
@@ -379,7 +375,6 @@ class Office_Details_Settings extends Settings {
 
 		return $jurisdiction;
 	}
-
 }
 
 add_action( 'after_setup_theme', [ '\CTCL\Elections\Office_Details_Settings', 'hooks' ] );

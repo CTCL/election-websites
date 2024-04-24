@@ -12,6 +12,7 @@
 
 	<rule ref="WordPress">
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax.Found" />
 	</rule>
 
 	<rule ref="WordPressVIPMinimum">

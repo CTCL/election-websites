@@ -6,7 +6,7 @@
  * @since 1.0.0
  */
 
-use \CTCL\Elections\Office_Details;
+use CTCL\Elections\Office_Details;
 
 $address   = Office_Details::mailing_address();
 $hours     = Office_Details::hours();

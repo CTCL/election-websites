@@ -53,7 +53,6 @@ class Audience_Settings extends Settings {
 		$fields = $voter_fields;
 
 		return $fields;
-
 	}
 
 	/**

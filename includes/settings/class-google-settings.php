@@ -91,7 +91,6 @@ class Google_Settings extends Settings {
 
 		return '';
 	}
-
 }
 
 add_action( 'after_setup_theme', [ '\CTCL\Elections\Google_Settings', 'hooks' ] );

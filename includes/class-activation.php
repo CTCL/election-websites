@@ -196,4 +196,3 @@ class Activation {
 }
 
 add_action( 'after_switch_theme', [ '\CTCL\Elections\Activation', 'actions' ] );
-
