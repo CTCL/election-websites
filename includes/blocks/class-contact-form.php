@@ -154,12 +154,9 @@ class Contact_Form {
 	/**
 	 * Validate and render the Contact Form block.
 	 *
-	 * @param array  $block_attributes  Array of block attributes.
-	 * @param string $content           Post content.
-	 *
 	 * @return string
 	 */
-	public static function block_render( $block_attributes, $content ) {
+	public static function block_render() {
 		if ( ! self::is_enabled() ) {
 			$permalink = admin_url( 'admin.php?page=office_details' );
 			return 'Please specify an email address in <a href="' . esc_url( $permalink ) . '">Settings > Office Details</a>';

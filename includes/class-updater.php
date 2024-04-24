@@ -121,14 +121,11 @@ class Updater {
 	 * Adjust the source file location for the upgrade package.
 	 * Remove the tag information appended by GitHub.
 	 *
-	 * @param  string      $source        File source location.
-	 * @param  string      $remote_souce  Remote file source location.
-	 * @param  WP_Upgrader $upgrader      WP_Upgrader instance.
-	 * @param  array       $hook_extra    Extra arguments passed to hooked filters.
+	 * @param string $source File source location.
 	 *
 	 * @return string
 	 */
-	public static function upgrader_source_selection( $source, $remote_souce, $upgrader, $hook_extra ) {
+	public static function upgrader_source_selection( $source ) {
 		$theme_folder = get_option( 'template' );
 
 		if ( false === strpos( $source, $theme_folder ) ) {

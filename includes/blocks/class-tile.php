@@ -17,12 +17,11 @@ class Tile {
 	/**
 	 * Render the Tile block.
 	 *
-	 * @param array  $block_attributes  Array of block attributes.
-	 * @param string $content           Post content.
+	 * @param array $block_attributes  Array of block attributes.
 	 *
 	 * @return string
 	 */
-	public static function block_render( $block_attributes, $content ) {
+	public static function block_render( $block_attributes ) {
 		$svg   = '';
 		$icon  = $block_attributes['icon'] ?? false;
 		$url   = $block_attributes['url'] ?? '#';

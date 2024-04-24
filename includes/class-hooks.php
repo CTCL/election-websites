@@ -141,11 +141,10 @@ class Hooks {
 	 *
 	 * @param string $tag    The `<script>` tag for the enqueued script.
 	 * @param string $handle The script's registered handle.
-	 * @param string $src    The script's source URL.
 	 *
 	 * @return string Script HTML string.
 	 */
-	public static function defer_js( $tag, $handle, $src ) {
+	public static function defer_js( $tag, $handle ) {
 		if ( in_array( $handle, [ 'main' ], true ) ) {
 			return str_replace( ' src', ' defer="defer" src', $tag );
 		}
@@ -159,11 +158,10 @@ class Hooks {
 	 * @param string $html   The link tag for the enqueued style.
 	 * @param string $handle The style's registered handle.
 	 * @param string $href   The stylesheet's source URL.
-	 * @param string $media  The stylesheet's media attribute.
 	 *
 	 * @return string Script HTML string.
 	 */
-	public static function defer_css( $html, $handle, $href, $media ) {
+	public static function defer_css( $html, $handle, $href ) {
 		$defer_page_optimize = is_array( $handle ) && in_array( 'main-disabled', $handle, true );
 		$defer_standard      = in_array( $handle, [ 'source-sans' ], true );
 
@@ -391,13 +389,11 @@ class Hooks {
 	/**
 	 * Hide Jetpack Masterbar from the modules list.
 	 *
-	 * @param array  $modules Array of available modules.
-	 * @param string $min_version Minimum version number required to use modules.
-	 * @param string $max_version Maximum version number required to use modules.
+	 * @param array $modules Array of available modules.
 	 *
 	 * @return array
 	 */
-	public static function disable_masterbar( $modules, $min_version, $max_version ) {
+	public static function disable_masterbar( $modules ) {
 		unset( $modules['masterbar'] );
 
 		return $modules;

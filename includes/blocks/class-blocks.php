@@ -210,12 +210,11 @@ class Blocks {
 	/**
 	 * Add Election Blocks to the list of block categories.
 	 *
-	 * @param array   $categories  Array of block categories.
-	 * @param WP_Post $post         Post being loaded.
+	 * @param array $categories  Array of block categories.
 	 *
 	 * @return array
 	 */
-	public static function block_categories( $categories, $post ) {
+	public static function block_categories( $categories ) {
 		array_unshift(
 			$categories,
 			[

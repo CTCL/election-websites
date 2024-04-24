@@ -199,51 +199,51 @@ class Office_Details {
 	 * The election office Twitter account.
 	 *
 	 * @param boolean $link  Whether to render this as a link (instead of plain text).
-	 * @param boolean $echo  Whether to print this (instead of returning it).
+	 * @param boolean $should_echo  Whether to print this (instead of returning it).
 	 *
 	 * @return string
 	 */
-	public static function twitter( $link = false, $echo = false ) {
+	public static function twitter( $link = false, $should_echo = false ) {
 		$handle = get_option( 'ctcl_twitter' );
 		if ( ! $handle ) {
 			return;
 		}
 
-		return self::get_link( 'Twitter', 'https://www.twitter.com/' . $handle, $link, $echo );
+		return self::get_link( 'Twitter', 'https://www.twitter.com/' . $handle, $link, $should_echo );
 	}
 
 	/**
 	 * The election office Facebook page.
 	 *
 	 * @param boolean $link  Whether to render this as a link (instead of plain text).
-	 * @param boolean $echo  Whether to print this (instead of returning it).
+	 * @param boolean $should_echo  Whether to print this (instead of returning it).
 	 *
 	 * @return string
 	 */
-	public static function facebook( $link = false, $echo = false ) {
+	public static function facebook( $link = false, $should_echo = false ) {
 		$handle = get_option( 'ctcl_facebook' );
 		if ( ! $handle ) {
 			return;
 		}
 
-		return self::get_link( 'Facebook', 'https://www.facebook.com/' . $handle, $link, $echo );
+		return self::get_link( 'Facebook', 'https://www.facebook.com/' . $handle, $link, $should_echo );
 	}
 
 	/**
 	 * The election office Instagram account.
 	 *
 	 * @param boolean $link  Whether to render this as a link (instead of plain text).
-	 * @param boolean $echo  Whether to print this (instead of returning it).
+	 * @param boolean $should_echo  Whether to print this (instead of returning it).
 	 *
 	 * @return string
 	 */
-	public static function instagram( $link = false, $echo = false ) {
+	public static function instagram( $link = false, $should_echo = false ) {
 		$handle = get_option( 'ctcl_instagram' );
 		if ( ! $handle ) {
 			return;
 		}
 
-		return self::get_link( 'Instagram', 'https://www.instagram.com/' . $handle, $link, $echo );
+		return self::get_link( 'Instagram', 'https://www.instagram.com/' . $handle, $link, $should_echo );
 	}
 
 	/**
@@ -252,12 +252,12 @@ class Office_Details {
 	 * @param string  $label       The link label (social media handle).
 	 * @param boolean $url         The link URL.
 	 * @param boolean $link        Whether to render this as a link (instead of plain text).
-	 * @param boolean $echo        Whether to print this (instead of returning it).
+	 * @param boolean $should_echo        Whether to print this (instead of returning it).
 	 * @param string  $aria_label  The aria-label attribute for the link (optional).
 	 *
 	 * @return string
 	 */
-	public static function get_link( $label, $url, $link, $echo = false, $aria_label = false ) {
+	public static function get_link( $label, $url, $link, $should_echo = false, $aria_label = false ) {
 		if ( $link && $aria_label ) {
 			$result = sprintf( '<a href="%s" aria-label="%s">%s</a>', esc_url( $url ), esc_attr( $aria_label ), esc_html( $label ) );
 		} elseif ( $link ) {
@@ -266,7 +266,7 @@ class Office_Details {
 			$result = $label;
 		}
 
-		if ( $echo ) {
+		if ( $should_echo ) {
 			echo wp_kses( $result, self::$allowed_link_tags );
 		} else {
 			return $result;
@@ -277,13 +277,13 @@ class Office_Details {
 	 * The election office email address.
 	 *
 	 * @param boolean $link  Whether to render this as a link (instead of plain text).
-	 * @param boolean $echo  Whether to print this (instead of returning it).
+	 * @param boolean $should_echo  Whether to print this (instead of returning it).
 	 *
 	 * @return string
 	 */
-	public static function email_address( $link = false, $echo = false ) {
+	public static function email_address( $link = false, $should_echo = false ) {
 		$email = get_option( 'ctcl_email_address' );
 
-		return self::get_link( $email, 'mailto:' . $email, $link, $echo );
+		return self::get_link( $email, 'mailto:' . $email, $link, $should_echo );
 	}
 }

@@ -17,12 +17,9 @@ class Office_Info {
 	/**
 	 * Render the Office Info block.
 	 *
-	 * @param array  $block_attributes  Array of block attributes.
-	 * @param string $content           Post content.
-	 *
 	 * @return string
 	 */
-	public static function block_render( $block_attributes, $content ) {
+	public static function block_render() {
 
 		$contact_info = [
 			'email_address' => \CTCL\Elections\Office_Details::email_address(),

@@ -255,7 +255,6 @@ class Helpers {
 	 */
 	public static function inline_svg_url( $svg_data ) {
 		return 'data:image/svg+xml,' . str_replace( [ '%20', '%3D', '%3A', '%2F' ], [ ' ', '=', ':', '/' ], rawurlencode( $svg_data ) );
-
 	}
 
 	/**
@@ -392,11 +391,11 @@ class Helpers {
 	/**
 	 * Output class="error" when error array contains index.
 	 *
-	 * @param array  $array   The array of errors.
+	 * @param array  $error_array   The array of errors.
 	 * @param string $index  An index in the array.
 	 */
-	public static function error_class( $array, $index ) {
-		if ( isset( $array[ $index ] ) && $array[ $index ] ) {
+	public static function error_class( $error_array, $index ) {
+		if ( isset( $error_array[ $index ] ) && $error_array[ $index ] ) {
 			echo ' class="error"';
 		}
 	}
@@ -404,12 +403,12 @@ class Helpers {
 	/**
 	 * Format item as error message.
 	 *
-	 * @param array  $array   The array of errors.
+	 * @param array  $error_array   The array of errors.
 	 * @param string $index   The index in the array to retrieve.
 	 */
-	public static function error_message( $array, $index ) {
-		if ( isset( $array[ $index ] ) && $array[ $index ] ) {
-			echo '<span class="error">' . esc_html( $array[ $index ] ) . '</span>';
+	public static function error_message( $error_array, $index ) {
+		if ( isset( $error_array[ $index ] ) && $error_array[ $index ] ) {
+			echo '<span class="error">' . esc_html( $error_array[ $index ] ) . '</span>';
 		}
 	}
 }
