@@ -19,7 +19,7 @@
 		"lint": "grunt precommit"
 	},
 	"devDependencies": {
-		"@babel/preset-env": "^7.24.5",
+		"@babel/preset-env": "^7.25.4",
 		"@babel/preset-react": "^7.24.7",
 		"@lodder/grunt-postcss": "^3.1.1",
 		"autoprefixer": "^10.4.20",
@@ -48,7 +48,7 @@
 		"grunt-stylelint": "^0.20.1",
 		"grunt-svgmin": "^7.0.0",
 		"grunt-wp-readme-to-markdown": "^2.1.0",
-		"husky": "^9.1.1",
+		"husky": "^9.1.6",
 		"matchdep": "^2.0.0",
 		"sass": "^1.79.3",
 		"stylelint": "^16.9.0",
