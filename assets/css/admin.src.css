@@ -1,11 +1,5 @@
 /* stylelint-disable */
 /* stylelint-enable */
-/* stylelint-disable */
-/* stylelint-enable */
-/* stylelint-disable */
-/* stylelint-enable */
-/* stylelint-disable */
-/* stylelint-enable */
 main .wp-block-column .office-info {
   margin-top: 40px;
   margin-left: 10px;
@@ -46,8 +40,6 @@ main .wp-block-column .office-info h3.phone::before {
   background-image: url("../images/office/phone.svg");
 }
 
-/* stylelint-disable */
-/* stylelint-enable */
 .contact-form {
   width: 90%;
   margin-top: 32px;
@@ -236,8 +228,6 @@ figure.wp-block-table td {
   vertical-align: top;
 }
 
-/* stylelint-disable */
-/* stylelint-enable */
 h1,
 h2,
 h3,
@@ -453,8 +443,6 @@ figure.wp-block-table tr:nth-child(2n) {
   background-color: #f5f6fa;
 }
 
-/* stylelint-disable */
-/* stylelint-enable */
 .theme-blue main h3 a,
 .theme-blue main p a,
 .theme-blue main ul a {
