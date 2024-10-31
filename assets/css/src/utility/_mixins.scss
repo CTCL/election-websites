@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "variables";
+
 @mixin breakpoint($class) {
 
 	@if $class == phone {
@@ -48,7 +51,7 @@
 			background-color: $button-color;
 
 			&:hover {
-				background-color: mix($black, $button-color, $tint-percent);
+				background-color: color.mix(variables.$black, $button-color, variables.$tint-percent);
 			}
 		}
 }

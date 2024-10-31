@@ -1,10 +1,12 @@
-@import "./tile-nav-block";
+@use "tile-nav-block";
+@use "../utility/mixins";
+@use "../utility/variables";
 
 %tile-desktop {
-	width: $tile-width-desktop;
-	height: $tile-height-desktop;
-	padding: $tile-padding-desktop;
-	font-size: $tile-font-size-desktop;
+	width: variables.$tile-width-desktop;
+	height: variables.$tile-height-desktop;
+	padding: variables.$tile-padding-desktop;
+	font-size: variables.$tile-font-size-desktop;
 }
 
 .tile-nav-block-editor {
@@ -13,30 +15,30 @@
 		@extend %tile-default;
 		@extend %tile-desktop;
 
-		@include breakpoint(tablet) {
-			width: $tile-width-tablet;
-			height: $tile-height-tablet;
-			padding: $tile-padding-tablet;
-			font-size: $tile-font-size-tablet;
+		@include mixins.breakpoint(tablet) {
+			width: variables.$tile-width-tablet;
+			height: variables.$tile-height-tablet;
+			padding: variables.$tile-padding-tablet;
+			font-size: variables.$tile-font-size-tablet;
 		}
 
 		.wp-admin & {
-			width: $tile-width-tablet;
-			height: $tile-height-tablet;
-			padding: $tile-padding-tablet;
-			font-size: $tile-font-size-tablet;
-			font-family: $sans-serif;
+			width: variables.$tile-width-tablet;
+			height: variables.$tile-height-tablet;
+			padding: variables.$tile-padding-tablet;
+			font-size: variables.$tile-font-size-tablet;
+			font-family: variables.$sans-serif;
 		}
 	}
 
 	.placeholder {
-		color: $grey-medium;
+		color: variables.$grey-medium;
 	}
 
 	::before {
 		width: 252px;
 
-		@include breakpoint(tablet) {
+		@include mixins.breakpoint(tablet) {
 			width: 180px;
 		}
 	}
@@ -54,33 +56,31 @@
 
 	.block-editor-block-list__layout { /* stylelint-disable-line selector-class-pattern */
 		display: grid;
-		grid-template-columns: repeat(4, $tile-width-desktop);
+		grid-template-columns: repeat(4, variables.$tile-width-desktop);
+		grid-gap: 18px 16px;
 
-		@include breakpoint(tablet) {
-			grid-template-columns: repeat(4, $tile-width-tablet);
+		@include mixins.breakpoint(tablet) {
+			grid-template-columns: repeat(4, variables.$tile-width-tablet);
 		}
 
 		.wp-admin & {
-			grid-template-columns: repeat(4, $tile-width-tablet);
+			grid-template-columns: repeat(4, variables.$tile-width-tablet);
 		}
-
-		grid-gap: 18px 16px;
 	}
 
 	.block-list-appender {
 		margin: auto;
 
 		button {
-			width: $tile-width-desktop;
-			height: $tile-height-desktop;
+			width: variables.$tile-width-desktop;
+			height: variables.$tile-height-desktop;
+			margin: auto;
 
-			@include breakpoint(tablet) {
-				width: $tile-width-tablet;
-				height: $tile-height-tablet;
+			@include mixins.breakpoint(tablet) {
+				width: variables.$tile-width-tablet;
+				height: variables.$tile-height-tablet;
 				font-size: 18px;
 			}
-
-			margin: auto;
 		}
 	}
 }

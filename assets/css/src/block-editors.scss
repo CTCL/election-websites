@@ -1,30 +1,29 @@
 /** Only import styles necessary for block editing **/
-@import "utility/variables";
-@import "utility/mixins";
-@import "blocks/numbered-section-block-editor";
-@import "blocks/tile-nav-block-editor";
-@import "blocks/office-info";
-@import "blocks/accordion-block-editor";
-@import "blocks/read-more-block-editor";
+@use "utility/variables";
+@use "utility/mixins";
+@use "blocks/numbered-section-block-editor";
+@use "blocks/tile-nav-block-editor";
+@use "blocks/office-info";
+@use "blocks/accordion-block-editor";
+@use "blocks/read-more-block-editor";
 
 #editor {
 	.wp-block-group {
 		border-top-width: 3px;
 		border-top-style: solid;
-		width: $content-width-desktop;
+		width: variables.$content-width-desktop;
 
-		@include breakpoint(tablet) {
-			width: $content-width-tablet;
+		@include mixins.breakpoint(tablet) {
+			width: variables.$content-width-tablet;
 		}
 	}
 
 	.wp-block-group,
 	.wp-block {
+		max-width: variables.$content-width-desktop;
 
-		@include breakpoint(tablet) {
-			max-width: $content-width-tablet;
+		@include mixins.breakpoint(tablet) {
+			max-width: variables.$content-width-tablet;
 		}
-
-		max-width: $content-width-desktop;
 	}
 }

@@ -1,16 +1,19 @@
+@use "mixins";
+@use "variables";
+
 @mixin fit-to-page {
 	margin: 0 auto;
 
 	// place narrowest item last
-	@include breakpoint(desktop) {
-		width: $content-width-desktop;
+	@include mixins.breakpoint(desktop) {
+		width: variables.$content-width-desktop;
 	}
 
-	@include breakpoint(tablet) {
-		width: $content-width-tablet;
+	@include mixins.breakpoint(tablet) {
+		width: variables.$content-width-tablet;
 	}
 
-	@include breakpoint(phone) {
+	@include mixins.breakpoint(phone) {
 		margin: 0 20px;
 		width: calc(100% - 40px);
 	}

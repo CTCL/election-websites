@@ -1,3 +1,6 @@
+@use "../utility/mixins";
+@use "../utility/variables";
+
 %tile-default {
 	border-width: 1px;
 	border-style: solid;
@@ -34,19 +37,19 @@
 
 %tile-nav-block {
 	display: inline-grid;
-	grid-template-columns: repeat(4, $tile-width-desktop);
+	grid-template-columns: repeat(4, variables.$tile-width-desktop);
 	grid-gap: 16px;
 
-	@include breakpoint(tablet) {
-		grid-template-columns: repeat(4, $tile-width-tablet);
+	@include mixins.breakpoint(tablet) {
+		grid-template-columns: repeat(4, variables.$tile-width-tablet);
 	}
 
-	@include breakpoint(phone) {
-		grid-template-columns: repeat(2, $tile-width-mobile);
+	@include mixins.breakpoint(phone) {
+		grid-template-columns: repeat(2, variables.$tile-width-mobile);
 		grid-gap: 10px;
 
 		.home & {
-			grid-template-columns: repeat(2, $tile-width-mobile-home);
+			grid-template-columns: repeat(2, variables.$tile-width-mobile-home);
 		}
 	}
 
@@ -54,26 +57,26 @@
 
 		@extend %tile-default;
 
-		width: $tile-width-desktop;
-		height: $tile-height-desktop;
-		padding: $tile-padding-desktop;
-		font-size: $tile-font-size-desktop;
+		width: variables.$tile-width-desktop;
+		height: variables.$tile-height-desktop;
+		padding: variables.$tile-padding-desktop;
+		font-size: variables.$tile-font-size-desktop;
 
-		@include breakpoint(tablet) {
-			width: $tile-width-tablet;
-			height: $tile-height-tablet;
-			padding: $tile-padding-tablet;
-			font-size: $tile-font-size-tablet;
+		@include mixins.breakpoint(tablet) {
+			width: variables.$tile-width-tablet;
+			height: variables.$tile-height-tablet;
+			padding: variables.$tile-padding-tablet;
+			font-size: variables.$tile-font-size-tablet;
 			line-height: 20px;
 		}
 
-		@include breakpoint(phone) {
-			width: $tile-width-mobile;
-			height: $tile-height-mobile;
+		@include mixins.breakpoint(phone) {
+			width: variables.$tile-width-mobile;
+			height: variables.$tile-height-mobile;
 
 			.home & {
-				width: $tile-width-mobile-home;
-				height: $tile-height-mobile-home;
+				width: variables.$tile-width-mobile-home;
+				height: variables.$tile-height-mobile-home;
 			}
 		}
 	}
@@ -89,7 +92,7 @@
 		margin: 16px 0;
 	}
 
-	@include breakpoint(phone) {
-		grid-template-columns: repeat(2, $tile-width-mobile);
+	@include mixins.breakpoint(phone) {
+		grid-template-columns: repeat(2, variables.$tile-width-mobile);
 	}
 }

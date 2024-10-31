@@ -1,43 +1,43 @@
-@import "utility/layout";
-@import "utility/typography";
+@use "utility/layout";
+@use "utility/typography";
+@use "utility/mixins";
+@use "utility/variables";
 
 header {
 	/* stylelint-disable */
 	box-shadow: 0 1px 4px -1px hsla(214deg, 45%, 20%, 0.25);
 	/* stylelint-enable */
 	width: 100%;
-	height: $header-height;
+	height: variables.$header-height;
 	z-index: 1;
 	position: fixed;
 	display: grid;
 
-	@include breakpoint(phone) {
+	@include mixins.breakpoint(phone) {
 		.menu & {
 			height: 100%;
 		}
 	}
 
 	.header-wrapper {
-
-		@include fit-to-page;
-
 		display: grid;
 		grid-template-columns: max-content 1fr;
+		align-items: center;
+		padding: 16px 0;
 
-		@include breakpoint(phone) {
+		@include layout.fit-to-page;
+
+		@include mixins.breakpoint(phone) {
 			display: block;
 			width: calc(100% - 40px);
 		}
-
-		align-items: center;
-		padding: 16px 0;
 
 		.mobile-menu {
 			justify-self: flex-end;
 			margin-left: 10px;
 			display: none;
 
-			@include breakpoint(phone) {
+			@include mixins.breakpoint(phone) {
 				display: inline-block;
 			}
 		}
@@ -89,7 +89,7 @@ header {
 		align-items: center;
 		max-width: 350px;
 
-		@include breakpoint(phone) {
+		@include mixins.breakpoint(phone) {
 			max-width: 100%;
 			display: grid;
 			grid-template-columns: 80px 1fr 60px;
@@ -102,7 +102,7 @@ header {
 		.site-title {
 			font-weight: 600;
 
-			@include breakpoint(phone) {
+			@include mixins.breakpoint(phone) {
 				max-width: 210px;
 			}
 		}
@@ -112,7 +112,7 @@ header {
 		display: inline-block;
 		justify-self: flex-end;
 
-		@include breakpoint(phone) {
+		@include mixins.breakpoint(phone) {
 			display: none;
 			width: 100%;
 		}
@@ -142,7 +142,7 @@ header {
 
 		nav {
 
-			@include breakpoint(phone) {
+			@include mixins.breakpoint(phone) {
 				display: inline-block;
 			}
 		}
@@ -159,7 +159,7 @@ header {
 			display: inline-block;
 			margin-left: 24px;
 
-			@include breakpoint(phone) {
+			@include mixins.breakpoint(phone) {
 				display: block;
 				font-size: 20px;
 				border-bottom-width: 1px;
@@ -170,7 +170,7 @@ header {
 			a {
 				position: relative;
 
-				@include breakpoint(phone) {
+				@include mixins.breakpoint(phone) {
 					display: block;
 					padding: 30px 0;
 				}
@@ -186,7 +186,7 @@ header {
 					transition: width 0.3s ease 0s, width 0.3s ease 0s;
 
 					// no hover state on mobile
-					@include breakpoint(phone) {
+					@include mixins.breakpoint(phone) {
 						content: none;
 					}
 				}
@@ -208,7 +208,7 @@ header {
 					border-bottom-style: solid;
 
 					// no hover state on mobile
-					@include breakpoint(phone) {
+					@include mixins.breakpoint(phone) {
 						border: none;
 					}
 				}
@@ -219,5 +219,5 @@ header {
 
 header + section,
 header + main {
-	margin-top: $header-height;
+	margin-top: variables.$header-height;
 }

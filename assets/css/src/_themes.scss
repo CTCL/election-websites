@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "utility/variables";
+
 @mixin theme($button-link, $banner-link, $focus) {
 	main {
 		h3,
@@ -7,7 +10,7 @@
 				color: $button-link;
 
 				&:hover {
-					color: mix($black, $button-link, $tint-percent);
+					color: color.mix(variables.$black, $button-link, variables.$tint-percent);
 				}
 			}
 		}
@@ -22,7 +25,7 @@
 		background-color: $button-link;
 
 		&:hover {
-			background-color: mix($black, $button-link, $tint-percent);
+			background-color: color.mix(variables.$black, $button-link, variables.$tint-percent);
 		}
 	}
 
@@ -31,7 +34,7 @@
 		border-color: $button-link;
 
 		&:hover {
-			border-color: mix($black, $button-link, $tint-percent);
+			border-color: color.mix(variables.$black, $button-link, variables.$tint-percent);
 		}
 	}
 
@@ -40,14 +43,14 @@
 		color: $banner-link;
 
 		&:hover {
-			color: mix($black, #55d5f1, $tint-percent);
+			color: color.mix(variables.$black, #55d5f1, variables.$tint-percent);
 		}
 	}
 
 	// tiles
 	.tile-wrapper .tile:hover {
 		color: $button-link;
-		box-shadow: 0 0 7px $box-shadow;
+		box-shadow: 0 0 7px variables.$box-shadow;
 	}
 
 	// mobile nav
@@ -58,10 +61,10 @@
 
 .theme-blue {
 
-	@include theme($blue-button-link, $blue-banner-link, $blue-focus);
+	@include theme(variables.$blue-button-link, variables.$blue-banner-link, variables.$blue-focus);
 }
 
 .theme-green {
 
-	@include theme($green-button-link, $green-banner-link, $green-focus);
+	@include theme(variables.$green-button-link, variables.$green-banner-link, variables.$green-focus);
 }

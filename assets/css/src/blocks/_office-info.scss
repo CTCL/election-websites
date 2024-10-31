@@ -1,10 +1,12 @@
+@use "../utility/mixins";
+
 main {
 	.wp-block-column {
 		.office-info {
 			margin-top: 40px;
 			margin-left: 10px;
 
-			@include breakpoint(phone) {
+			@include mixins.breakpoint(phone) {
 				margin-left: 45px;
 			}
 
