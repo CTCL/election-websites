@@ -1,6 +1,8 @@
 /** Only import styles necessary for block editing **/
 /* stylelint-disable */
 /* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
 #editor {
   counter-reset: numbered-section-editor;
 }
@@ -37,6 +39,8 @@
   margin-top: -28px;
 }
 
+/* stylelint-disable */
+/* stylelint-enable */
 .tile-nav-block-editor .tile, .tile-wrapper .tile {
   border-width: 1px;
   border-style: solid;
@@ -227,6 +231,8 @@
   margin-right: -134px;
 }
 
+/* stylelint-disable */
+/* stylelint-enable */
 main .wp-block-column .office-info {
   margin-top: 40px;
   margin-left: 10px;
@@ -346,5 +352,3 @@ main .wp-block-column .office-info h3.phone::before {
     max-width: 732px;
   }
 }
-
-/*# sourceMappingURL=block-editors.src.css.map */

@@ -1,5 +1,11 @@
 /* stylelint-disable */
 /* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
+/* stylelint-disable */
+/* stylelint-enable */
 main .wp-block-column .office-info {
   margin-top: 40px;
   margin-left: 10px;
@@ -40,6 +46,8 @@ main .wp-block-column .office-info h3.phone::before {
   background-image: url("../images/office/phone.svg");
 }
 
+/* stylelint-disable */
+/* stylelint-enable */
 .contact-form {
   width: 90%;
   margin-top: 32px;
@@ -71,7 +79,8 @@ main .wp-block-column .office-info h3.phone::before {
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
   width: 100%;
 }
 @media (width <= 767px) {
@@ -94,7 +103,8 @@ main .wp-block-column .office-info h3.phone::before {
   margin-top: 25px;
 }
 .contact-form select {
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
 }
 .contact-form select::-ms-expand {
   display: none;
@@ -226,6 +236,8 @@ figure.wp-block-table td {
   vertical-align: top;
 }
 
+/* stylelint-disable */
+/* stylelint-enable */
 h1,
 h2,
 h3,
@@ -441,6 +453,8 @@ figure.wp-block-table tr:nth-child(2n) {
   background-color: #f5f6fa;
 }
 
+/* stylelint-disable */
+/* stylelint-enable */
 .theme-blue main h3 a,
 .theme-blue main p a,
 .theme-blue main ul a {
@@ -518,5 +532,3 @@ figure.wp-block-table tr:nth-child(2n) {
 .theme-green .icon-bar {
   background-color: #15948b;
 }
-
-/*# sourceMappingURL=admin.src.css.map */
