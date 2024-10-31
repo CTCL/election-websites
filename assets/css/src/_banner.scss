@@ -81,13 +81,12 @@
 		}
 
 		img {
+			align-self: end;
+			padding-top: 10px;
 
 			@include breakpoint(phone) {
 				display: none;
 			}
-
-			align-self: end;
-			padding-top: 10px;
 		}
 	}
 }

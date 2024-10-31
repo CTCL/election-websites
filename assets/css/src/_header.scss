@@ -18,19 +18,17 @@ header {
 	}
 
 	.header-wrapper {
-
-		@include fit-to-page;
-
 		display: grid;
 		grid-template-columns: max-content 1fr;
+		align-items: center;
+		padding: 16px 0;
+
+		@include fit-to-page;
 
 		@include breakpoint(phone) {
 			display: block;
 			width: calc(100% - 40px);
 		}
-
-		align-items: center;
-		padding: 16px 0;
 
 		.mobile-menu {
 			justify-self: flex-end;

@@ -56,6 +56,8 @@ html #wpadminbar {
 }
 
 main {
+	flex-grow: 1;
+	align-items: start;
 
 	@include fit-to-page;
 
@@ -66,9 +68,6 @@ main {
 			margin: inherit;
 		}
 	}
-
-	flex-grow: 1;
-	align-items: start;
 }
 
 h1,

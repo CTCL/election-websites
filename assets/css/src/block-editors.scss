@@ -20,11 +20,10 @@
 
 	.wp-block-group,
 	.wp-block {
+		max-width: $content-width-desktop;
 
 		@include breakpoint(tablet) {
 			max-width: $content-width-tablet;
 		}
-
-		max-width: $content-width-desktop;
 	}
 }

@@ -282,11 +282,11 @@ header {
   }
 }
 header .header-wrapper {
-  margin: 0 auto;
   display: grid;
   grid-template-columns: max-content 1fr;
   align-items: center;
   padding: 16px 0;
+  margin: 0 auto;
 }
 @media (width >= 1025px) {
   header .header-wrapper {
@@ -492,8 +492,8 @@ footer .post-edit-link {
 }
 footer .footer-content-wrapper,
 footer .abbreviated-footer {
-  margin: 0 auto;
   padding: 32px 0;
+  margin: 0 auto;
 }
 @media (width >= 1025px) {
   footer .footer-content-wrapper,
@@ -845,8 +845,7 @@ main hr {
 .screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -864,8 +863,7 @@ main hr {
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
   /* stylelint-enable */
   clip: auto !important;
-  -webkit-clip-path: none;
-          clip-path: none;
+  clip-path: none;
   color: #21759b;
   display: block;
   font-size: 0.875rem;
@@ -1193,7 +1191,7 @@ header .menu .menu-item a::after, footer .menu .menu-item a::after {
   background-color: #ee5c4f;
 }
 .banner.banner-dark .button.learn-more:hover {
-  background-color: #be4a3f;
+  background-color: rgb(190.4, 73.6, 63.2);
 }
 .banner.banner-light {
   color: #18244b;
@@ -1209,7 +1207,7 @@ header .menu .menu-item a::after, footer .menu .menu-item a::after {
   background-color: #ee5c4f;
 }
 .banner.banner-light .button.learn-more:hover {
-  background-color: #be4a3f;
+  background-color: rgb(190.4, 73.6, 63.2);
 }
 .banner.banner-dark-red {
   color: #fff;
@@ -1225,7 +1223,7 @@ header .menu .menu-item a::after, footer .menu .menu-item a::after {
   background-color: #f5f6fa;
 }
 .banner.banner-dark-red .button.learn-more:hover {
-  background-color: #c4c5c8;
+  background-color: rgb(196, 196.8, 200);
 }
 .banner.banner-light-red {
   color: #18244b;
@@ -1241,7 +1239,7 @@ header .menu .menu-item a::after, footer .menu .menu-item a::after {
   background-color: #18244b;
 }
 .banner.banner-light-red .button.learn-more:hover {
-  background-color: #131d3c;
+  background-color: rgb(19.2, 28.8, 60);
 }
 .banner.banner-teal {
   color: #fff;
@@ -1257,7 +1255,7 @@ header .menu .menu-item a::after, footer .menu .menu-item a::after {
   background-color: #f5f6fa;
 }
 .banner.banner-teal .button.learn-more:hover {
-  background-color: #c4c5c8;
+  background-color: rgb(196, 196.8, 200);
 }
 
 .tile-wrapper .tile {
@@ -1294,7 +1292,7 @@ figure.wp-block-table tr:nth-child(2n) {
 .theme-blue main h3 a:hover,
 .theme-blue main p a:hover,
 .theme-blue main ul a:hover {
-  color: #093f8c;
+  color: rgb(8.8, 63.2, 140);
 }
 .theme-blue *:focus {
   outline-color: #55d5f1;
@@ -1303,19 +1301,19 @@ figure.wp-block-table tr:nth-child(2n) {
   background-color: #0b4faf;
 }
 .theme-blue .contact-form button:hover {
-  background-color: #093f8c;
+  background-color: rgb(8.8, 63.2, 140);
 }
 .theme-blue .accordion-group .accordion-section-header::after {
   border-color: #0b4faf;
 }
 .theme-blue .accordion-group .accordion-section-header::after:hover {
-  border-color: #093f8c;
+  border-color: rgb(8.8, 63.2, 140);
 }
 .theme-blue .alert .learn-more {
   color: #55d5f1;
 }
 .theme-blue .alert .learn-more:hover {
-  color: #44aac1;
+  color: rgb(68, 170.4, 192.8);
 }
 .theme-blue .tile-wrapper .tile:hover {
   color: #0b4faf;
@@ -1333,7 +1331,7 @@ figure.wp-block-table tr:nth-child(2n) {
 .theme-green main h3 a:hover,
 .theme-green main p a:hover,
 .theme-green main ul a:hover {
-  color: #11766f;
+  color: rgb(16.8, 118.4, 111.2);
 }
 .theme-green *:focus {
   outline-color: #67dacc;
@@ -1342,19 +1340,19 @@ figure.wp-block-table tr:nth-child(2n) {
   background-color: #15948b;
 }
 .theme-green .contact-form button:hover {
-  background-color: #11766f;
+  background-color: rgb(16.8, 118.4, 111.2);
 }
 .theme-green .accordion-group .accordion-section-header::after {
   border-color: #15948b;
 }
 .theme-green .accordion-group .accordion-section-header::after:hover {
-  border-color: #11766f;
+  border-color: rgb(16.8, 118.4, 111.2);
 }
 .theme-green .alert .learn-more {
   color: #67dacc;
 }
 .theme-green .alert .learn-more:hover {
-  color: #44aac1;
+  color: rgb(68, 170.4, 192.8);
 }
 .theme-green .tile-wrapper .tile:hover {
   color: #15948b;
@@ -1399,9 +1397,9 @@ body.admin-bar {
 }
 
 main {
-  margin: 0 auto;
   flex-grow: 1;
   align-items: start;
+  margin: 0 auto;
 }
 @media (width >= 1025px) {
   main {

@@ -55,6 +55,7 @@
 	.block-editor-block-list__layout { /* stylelint-disable-line selector-class-pattern */
 		display: grid;
 		grid-template-columns: repeat(4, $tile-width-desktop);
+		grid-gap: 18px 16px;
 
 		@include breakpoint(tablet) {
 			grid-template-columns: repeat(4, $tile-width-tablet);
@@ -63,8 +64,6 @@
 		.wp-admin & {
 			grid-template-columns: repeat(4, $tile-width-tablet);
 		}
-
-		grid-gap: 18px 16px;
 	}
 
 	.block-list-appender {
@@ -73,14 +72,13 @@
 		button {
 			width: $tile-width-desktop;
 			height: $tile-height-desktop;
+			margin: auto;
 
 			@include breakpoint(tablet) {
 				width: $tile-width-tablet;
 				height: $tile-height-tablet;
 				font-size: 18px;
 			}
-
-			margin: auto;
 		}
 	}
 }
