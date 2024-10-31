@@ -1,3 +1,5 @@
+@use "../utility/variables";
+
 
 #editor {
 	counter-reset: numbered-section-editor;
@@ -10,8 +12,8 @@
 	display: inline-block;
 	font-size: 20px;
 	font-weight: 600;
-	color: $grey-light;
-	border: 3px solid $grey-light;
+	color: variables.$grey-light;
+	border: 3px solid variables.$grey-light;
 	border-radius: 100%;
 	width: 30px;
 	height: 30px;

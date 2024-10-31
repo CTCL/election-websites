@@ -1,3 +1,5 @@
+@use "../utility/variables";
+
 .accordion-section-editor {
 	.header-wrapper {
 		display: flex;
@@ -32,12 +34,12 @@
 
 .accordion-group-editor {
 	[data-type="ctcl-election-website/accordion-section-block"] {
-		border-bottom: 3px solid $midnight;
+		border-bottom: 3px solid variables.$midnight;
 		margin-top: 0;
 		margin-bottom: 0;
 
 		&:first-child {
-			border-top: 3px solid $midnight;
+			border-top: 3px solid variables.$midnight;
 		}
 	}
 
