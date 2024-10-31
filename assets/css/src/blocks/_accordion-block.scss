@@ -1,3 +1,5 @@
+@use "../utility/mixins";
+
 .accordion-group {
 	&:not(.subsection) {
 		margin: 24px 0;
@@ -41,7 +43,7 @@
 				margin-right: 18px;
 			}
 
-			@include breakpoint(phone) {
+			@include mixins.breakpoint(phone) {
 				> img {
 					display: none;
 				}

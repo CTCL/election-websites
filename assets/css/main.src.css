@@ -642,8 +642,7 @@ figure.wp-block-table td {
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
   width: 100%;
 }
 @media (width <= 767px) {
@@ -666,8 +665,7 @@ figure.wp-block-table td {
   margin-top: 25px;
 }
 .contact-form select {
-  -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 .contact-form select::-ms-expand {
   display: none;
@@ -1511,3 +1509,5 @@ code {
 #wpadminbar ul#wp-admin-bar-root-default li#wp-admin-bar-edit > a.ab-item::before {
   content: "\f464";
 }
+
+/*# sourceMappingURL=main.src.css.map */

@@ -1,10 +1,11 @@
-@import "utility/layout";
-@import "utility/typography";
+@use "utility/layout";
+@use "utility/typography";
+@use "utility/mixins";
 
 .banner {
 	.banner-wrapper {
 
-		@include fit-to-page;
+		@include layout.fit-to-page;
 
 		p.learn-more {
 			margin-top: 1em;
@@ -12,7 +13,7 @@
 
 		.button.learn-more {
 
-			@include button;
+			@include mixins.button;
 
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -23,7 +24,7 @@
 			line-height: 40px;
 			max-width: 100%;
 
-			@include breakpoint(phone) {
+			@include mixins.breakpoint(phone) {
 				max-width: calc(100% - 90px);
 			}
 		}
@@ -50,7 +51,7 @@
 			padding: 0 5px;
 		}
 
-		@include breakpoint(phone) {
+		@include mixins.breakpoint(phone) {
 			padding: 8px 0 10px;
 		}
 	}
@@ -63,14 +64,14 @@
 			grid-template-columns: minmax(100px, 1fr) 244px; /* banner images are 244px */
 			grid-column-gap: 100px;
 
-			@include breakpoint(phone) {
+			@include mixins.breakpoint(phone) {
 				grid-template-columns: 1fr;
 			}
 
 			> :nth-child(1) {
 				padding: 30px 0;
 
-				@include breakpoint(phone) {
+				@include mixins.breakpoint(phone) {
 					padding: 20px 0;
 				}
 			}
@@ -84,7 +85,7 @@
 			align-self: end;
 			padding-top: 10px;
 
-			@include breakpoint(phone) {
+			@include mixins.breakpoint(phone) {
 				display: none;
 			}
 		}

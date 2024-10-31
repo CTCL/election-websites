@@ -1,24 +1,24 @@
-@import "utility/variables";
-@import "utility/mixins";
-@import "utility/layout";
-@import "blocks/tile-nav-block";
-@import "blocks/office-info";
-@import "banner";
-@import "header";
-@import "footer";
-@import "news";
-@import "table";
-@import "form";
-@import "page";
-@import "misc";
-@import "blocks/numbered-section-block";
-@import "blocks/accordion-block";
-@import "blocks/read-more-block";
-@import "colors";
-@import "themes";
+@use "utility/variables";
+@use "utility/mixins";
+@use "utility/layout";
+@use "blocks/tile-nav-block";
+@use "blocks/office-info";
+@use "banner";
+@use "header";
+@use "footer";
+@use "news";
+@use "table";
+@use "form";
+@use "page";
+@use "misc";
+@use "blocks/numbered-section-block";
+@use "blocks/accordion-block";
+@use "blocks/read-more-block";
+@use "colors";
+@use "themes";
 
 * {
-	font-family: $sans-serif;
+	font-family: variables.$sans-serif;
 }
 
 *:focus {
@@ -59,11 +59,11 @@ main {
 	flex-grow: 1;
 	align-items: start;
 
-	@include fit-to-page;
+	@include layout.fit-to-page;
 
 	.home & {
 
-		@include breakpoint(phone) {
+		@include mixins.breakpoint(phone) {
 			width: 100%;
 			margin: inherit;
 		}
@@ -128,7 +128,7 @@ a {
 
 code {
 	font-family: monospace;
-	background: $grey-medium;
+	background: variables.$grey-medium;
 	padding: 10px;
 	display: block;
 	margin: 20px 0;
@@ -143,7 +143,7 @@ code {
 
 .button {
 
-	@include button;
+	@include mixins.button;
 
 	.error404 & {
 		display: inline-block;

@@ -1,3 +1,6 @@
+@use "utility/mixins";
+@use "utility/variables";
+
 // headings
 h1,
 h2,
@@ -5,43 +8,43 @@ h3,
 h4,
 h5,
 h6 {
-	color: $midnight;
+	color: variables.$midnight;
 }
 
 // Footer
 footer {
-	background-color: $grey-light;
-	color: $midnight;
+	background-color: variables.$grey-light;
+	color: variables.$midnight;
 
 	a {
-		color: $midnight;
+		color: variables.$midnight;
 	}
 }
 
 // Header
 header {
-	background-color: $white;
+	background-color: variables.$white;
 
 	// top nav menu
 	a {
-		color: $midnight;
+		color: variables.$midnight;
 	}
 
 	nav {
 
-		@include breakpoint(phone) {
-			background-color: $white;
+		@include mixins.breakpoint(phone) {
+			background-color: variables.$white;
 
 			.menu-item {
-				border-bottom-color: $grey-medium;
+				border-bottom-color: variables.$grey-medium;
 			}
 		}
 
 		&.current-menu-item,
 		&.current-page-ancestor {
 			a {
-				color: $midnight;
-				border-bottom-color: $midnight;
+				color: variables.$midnight;
+				border-bottom-color: variables.$midnight;
 			}
 		}
 	}
@@ -51,77 +54,77 @@ header {
 main {
 	p,
 	ul {
-		color: $grey-dark;
+		color: variables.$grey-dark;
 	}
 
 	.wp-block-group {
-		border-top-color: $midnight;
+		border-top-color: variables.$midnight;
 	}
 
 	hr {
-		border-color: $midnight;
+		border-color: variables.$midnight;
 	}
 }
 
 .page-about-us {
 	.wp-block-columns .wp-block-column:last-child {
-		border-color: $midnight;
+		border-color: variables.$midnight;
 	}
 }
 
 // news and press releases
 .page-news {
 	p + h3::before {
-		background-color: $midnight;
+		background-color: variables.$midnight;
 	}
 }
 
 .contact-form {
 	label {
-		color: $midnight;
+		color: variables.$midnight;
 	}
 
 	textarea,
 	select,
 	input[type="email"],
 	input[type="text"] {
-		border-color: $grey-medium;
+		border-color: variables.$grey-medium;
 
 		&.error {
-			border-color: $error;
+			border-color: variables.$error;
 		}
 	}
 
 	p.error,
 	span.error {
-		color: $error;
+		color: variables.$error;
 	}
 
 	p.error {
-		background-color: $error-bg;
+		background-color: variables.$error-bg;
 	}
 }
 
 // top nav menu
 %wp-menu-links .menu-item a {
-	color: $grey-dark;
+	color: variables.$grey-dark;
 
 	&::after {
-		background: $grey-dark;
+		background: variables.$grey-dark;
 	}
 }
 
 // Blocks
 .accordion-group {
 	.accordion-section-wrapper {
-		border-top-color: $midnight;
+		border-top-color: variables.$midnight;
 
 		&:last-child {
-			border-bottom-color: $midnight;
+			border-bottom-color: variables.$midnight;
 		}
 
 		&.subsection {
-			border-top-color: $grey-medium;
+			border-top-color: variables.$grey-medium;
 		}
 	}
 }
@@ -130,92 +133,92 @@ main {
 .error404 .button,
 .button.learn-more,
 .contact-form button {
-	color: $white;
+	color: variables.$white;
 
 	// 404 page home button is an <a> tag,
 	// and would otherwise hover with the theme color
 	&:hover {
-		color: $white;
+		color: variables.$white;
 	}
 }
 
 // Banner
 .banner {
 	&.alert {
-		background-color: $midnight;
+		background-color: variables.$midnight;
 
 		.banner-wrapper {
-			color: $white; // need additional specificity to override scheme text color for homepage banner
+			color: variables.$white; // need additional specificity to override scheme text color for homepage banner
 		}
 
 		a {
-			color: $white;
+			color: variables.$white;
 		}
 	}
 
 	// banner -- dark blue
 	&.banner-dark {
 
-		@include banner($white, $banner-bg-dark, $blue-icon-two, $midnight);
+		@include mixins.banner(variables.$white, variables.$banner-bg-dark, variables.$blue-icon-two, variables.$midnight);
 	}
 
 	// banner -- light blue
 	&.banner-light {
 
-		@include banner($midnight, $banner-bg-light, $blue-icon-two, $midnight);
+		@include mixins.banner(variables.$midnight, variables.$banner-bg-light, variables.$blue-icon-two, variables.$midnight);
 	}
 
 	// banner -- dark red
 	&.banner-dark-red {
 
-		@include banner($white, $banner-bg-dark-red, $grey-light, $midnight);
+		@include mixins.banner(variables.$white, variables.$banner-bg-dark-red, variables.$grey-light, variables.$midnight);
 	}
 
 	// banner -- light red
 	&.banner-light-red {
 
-		@include banner($midnight, $banner-bg-light-red, $midnight, $white);
+		@include mixins.banner(variables.$midnight, variables.$banner-bg-light-red, variables.$midnight, variables.$white);
 	}
 
 	// banner -- teal
 	&.banner-teal {
 
-		@include banner($white, $banner-bg-teal, $grey-light, $midnight);
+		@include mixins.banner(variables.$white, variables.$banner-bg-teal, variables.$grey-light, variables.$midnight);
 	}
 }
 
 // Tiles
 .tile-wrapper .tile {
-	border-color: $grey-medium;
-	color: $midnight;
+	border-color: variables.$grey-medium;
+	color: variables.$midnight;
 }
 
 // Block editor
 #editor .wp-block-group {
-	border-top-color: $black;
+	border-top-color: variables.$black;
 }
 
 // numbered list
 .numbered-section {
 	&::before {
-		border-color: $midnight;
-		color: $midnight;
+		border-color: variables.$midnight;
+		color: variables.$midnight;
 	}
 }
 
 // Table
 figure.wp-block-table {
 	table {
-		border-color: $grey-light;
-		color: $midnight;
+		border-color: variables.$grey-light;
+		color: variables.$midnight;
 	}
 
 	thead {
-		background-color: $banner-bg-dark;
-		color: $white;
+		background-color: variables.$banner-bg-dark;
+		color: variables.$white;
 	}
 
 	tr:nth-child(2n) {
-		background-color: $grey-light;
+		background-color: variables.$grey-light;
 	}
 }

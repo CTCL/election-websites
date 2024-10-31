@@ -1,5 +1,7 @@
-@import "utility/layout";
-@import "utility/typography";
+@use "utility/layout";
+@use "utility/typography";
+@use "utility/mixins";
+@use "utility/variables";
 
 footer {
 	.post-edit-link {
@@ -10,7 +12,7 @@ footer {
 	.abbreviated-footer {
 		padding: 32px 0;
 
-		@include fit-to-page;
+		@include layout.fit-to-page;
 	}
 
 	.footer-content-wrapper {
@@ -18,7 +20,7 @@ footer {
 		grid-template-columns: 1fr 1fr 1fr;
 		grid-column-gap: 5em;
 
-		@include breakpoint(phone) {
+		@include mixins.breakpoint(phone) {
 			grid-template-columns: 1fr;
 
 			.footer-sub-menu {
@@ -43,9 +45,9 @@ footer {
 		padding-bottom: 10px;
 	}
 
-	@include breakpoint(phone) {
+	@include mixins.breakpoint(phone) {
 		h3 {
-			border-bottom: 4px solid $midnight;
+			border-bottom: 4px solid variables.$midnight;
 		}
 
 		div + div h3 {
