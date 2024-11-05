@@ -1,14 +1,17 @@
+@use "utility/mixins";
+@use "utility/variables";
+
 .contact-form {
 	width: 90%;
 	margin-top: 32px;
 
-	@include breakpoint(phone) {
+	@include mixins.breakpoint(phone) {
 		width: 100%;
 	}
 
 	button {
 
-		@include button;
+		@include mixins.button;
 	}
 
 	textarea,
@@ -22,11 +25,11 @@
 		box-sizing: border-box;
 		border-width: 1px;
 		border-style: solid;
-		border-radius: $border-radius;
+		border-radius: variables.$border-radius;
 		appearance: none;
 		width: 100%;
 
-		@include breakpoint(phone) {
+		@include mixins.breakpoint(phone) {
 			width: 100%;
 		}
 	}
@@ -90,7 +93,7 @@
 
 .page-about-us {
 
-	@include breakpoint(phone) {
+	@include mixins.breakpoint(phone) {
 		main img {
 			display: none;
 		}
@@ -101,7 +104,7 @@
 			display: flex;
 			justify-content: flex-end;
 
-			@include breakpoint(phone) {
+			@include mixins.breakpoint(phone) {
 				justify-content: flex-start;
 				border-top-width: 3px;
 				border-top-style: solid;
@@ -149,11 +152,11 @@
 		input[type="url"],
 		select {
 
-			@include breakpoint(desktop) {
+			@include mixins.breakpoint(desktop) {
 				width: 350px;
 			}
 
-			@include breakpoint(phone) {
+			@include mixins.breakpoint(phone) {
 				width: 100%;
 			}
 		}

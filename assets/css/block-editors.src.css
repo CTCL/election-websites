@@ -1,6 +1,8 @@
 /** Only import styles necessary for block editing **/
 /* stylelint-disable */
 /* stylelint-enable */
+/** Only import styles necessary for block editing **/
+/** Only import styles necessary for block editing **/
 #editor {
   counter-reset: numbered-section-editor;
 }
@@ -37,6 +39,7 @@
   margin-top: -28px;
 }
 
+/** Only import styles necessary for block editing **/
 .tile-nav-block-editor .tile, .tile-wrapper .tile {
   border-width: 1px;
   border-style: solid;
@@ -124,6 +127,7 @@
   }
 }
 
+/** Only import styles necessary for block editing **/
 .tile-nav-block-editor .tile {
   width: 224px;
   height: 200px;
@@ -267,6 +271,7 @@ main .wp-block-column .office-info h3.phone::before {
   background-image: url("../images/office/phone.svg");
 }
 
+/** Only import styles necessary for block editing **/
 .accordion-section-editor .header-wrapper {
   display: flex;
   justify-content: space-between;
