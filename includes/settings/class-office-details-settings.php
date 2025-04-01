@@ -163,7 +163,7 @@ class Office_Details_Settings extends Settings {
 			],
 			[
 				'uid'         => 'ctcl_twitter',
-				'label'       => 'Twitter',
+				'label'       => 'Twitter / X',
 				'section'     => 'social_section',
 				'type'        => 'text',
 				'placeholder' => 'MyCountyVotes',

@@ -209,7 +209,7 @@ class Office_Details {
 			return;
 		}
 
-		return self::get_link( 'Twitter', 'https://www.twitter.com/' . $handle, $link, $should_echo );
+		return self::get_link( 'X', 'https://www.twitter.com/' . $handle, $link, $should_echo );
 	}
 
 	/**
