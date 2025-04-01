@@ -1,6 +1,6 @@
 {
 	"name": "ctcl-election-website-toolkit",
-	"version": "0.12.2",
+	"version": "0.12.3",
 	"description": "Election websites toolkit, by CTCL and USDR",
 	"main": "Gruntfile.js",
 	"repository": {
