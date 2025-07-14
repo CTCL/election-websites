@@ -15,7 +15,7 @@ jobs:
       - name: NPM install
         run: npm ci --legacy-peer-deps
       - name: ESLint
-        uses: sibiraj-s/action-eslint@v3
+        uses: sibiraj-s/action-eslint@v4
         with:
           eslint-args: '--ignore-path=.gitignore --quiet'
           extensions: 'js,jsx,ts,tsx'
