@@ -7,7 +7,7 @@
 	display: grid;
 	grid-template-rows: 50px 40px;
 	place-content: center center;
-	grid-row-gap: 18px;
+	row-gap: 18px;
 	box-sizing: border-box;
 	border-radius: 2px;
 	line-height: 25px;
@@ -38,7 +38,7 @@
 %tile-nav-block {
 	display: inline-grid;
 	grid-template-columns: repeat(4, variables.$tile-width-desktop);
-	grid-gap: 16px;
+	gap: 16px;
 
 	@include mixins.breakpoint(tablet) {
 		grid-template-columns: repeat(4, variables.$tile-width-tablet);
@@ -46,7 +46,7 @@
 
 	@include mixins.breakpoint(phone) {
 		grid-template-columns: repeat(2, variables.$tile-width-mobile);
-		grid-gap: 10px;
+		gap: 10px;
 
 		.home & {
 			grid-template-columns: repeat(2, variables.$tile-width-mobile-home);

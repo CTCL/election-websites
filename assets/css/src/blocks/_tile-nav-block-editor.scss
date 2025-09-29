@@ -57,7 +57,7 @@
 	.block-editor-block-list__layout { /* stylelint-disable-line selector-class-pattern */
 		display: grid;
 		grid-template-columns: repeat(4, variables.$tile-width-desktop);
-		grid-gap: 18px 16px;
+		gap: 18px 16px;
 
 		@include mixins.breakpoint(tablet) {
 			grid-template-columns: repeat(4, variables.$tile-width-tablet);
