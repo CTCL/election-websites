@@ -52,7 +52,7 @@
 		"grunt-wp-readme-to-markdown": "^2.1.0",
 		"husky": "^9.1.7",
 		"matchdep": "^2.0.0",
-		"sass": "^1.97.1",
+		"sass": "^1.97.2",
 		"stylelint": "^16.26.1",
 		"stylelint-config-standard-scss": "^16.0.0"
 	},
