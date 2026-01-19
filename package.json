@@ -54,7 +54,7 @@
 		"matchdep": "^2.0.0",
 		"sass": "^1.97.2",
 		"stylelint": "^16.26.1",
-		"stylelint-config-standard-scss": "^16.0.0"
+		"stylelint-config-standard-scss": "^17.0.0"
 	},
 	"overrides": {
 		"grunt-stylelint": {
