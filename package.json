@@ -24,7 +24,7 @@
 		"@eslint/eslintrc": "^3.3.3",
 		"@eslint/js": "^9.39.2",
 		"@lodder/grunt-postcss": "^3.1.1",
-		"autoprefixer": "^10.4.23",
+		"autoprefixer": "^10.4.24",
 		"babel-eslint": "^10.1.0",
 		"babelify": "^10.0.0",
 		"eslint-config-wordpress": "^2.0.0",
