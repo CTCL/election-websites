@@ -47,7 +47,7 @@
 		"grunt-phplint": "^0.1.0",
 		"grunt-run": "^0.8.1",
 		"grunt-sass": "^4.1.0",
-		"grunt-stylelint": "^0.20.1",
+		"grunt-stylelint": "^0.21.0",
 		"grunt-svgmin": "^7.0.0",
 		"grunt-wp-readme-to-markdown": "^2.1.0",
 		"husky": "^9.1.7",
