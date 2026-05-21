@@ -21,7 +21,7 @@
 	"devDependencies": {
 		"@babel/preset-env": "^7.29.5",
 		"@babel/preset-react": "^7.28.5",
-		"@eslint/eslintrc": "^3.3.4",
+		"@eslint/eslintrc": "^3.3.5",
 		"@eslint/js": "^10.0.1",
 		"@lodder/grunt-postcss": "^3.1.1",
 		"autoprefixer": "^10.5.0",
@@ -53,7 +53,7 @@
 		"husky": "^9.1.7",
 		"matchdep": "^2.0.0",
 		"sass": "^1.99.0",
-		"stylelint": "^17.11.0",
+		"stylelint": "^17.12.0",
 		"stylelint-config-standard-scss": "^17.0.0"
 	},
 	"overrides": {
